@@ -4,27 +4,610 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="RealEstateManagerDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="RealEstateManagerDataModelTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="RealEstateManagerDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="RealEstateManagerDataModelStoreContainer">
+    <EntitySet Name="Estates" EntityType="RealEstateManagerDataModel.Store.Estates" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BuildingInfoes" EntityType="RealEstateManagerDataModel.Store.BuildingInfoes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Agents" EntityType="RealEstateManagerDataModel.Store.Agents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EstateAgents" EntityType="RealEstateManagerDataModel.Store.EstateAgents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PublicUsers" EntityType="RealEstateManagerDataModel.Store.PublicUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contacts" EntityType="RealEstateManagerDataModel.Store.Contacts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Files" EntityType="RealEstateManagerDataModel.Store.Files" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SystemValues" EntityType="RealEstateManagerDataModel.Store.SystemValues" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="EstateAgentEstate" Association="RealEstateManagerDataModel.Store.EstateAgentEstate">
+      <End Role="EstateAgent" EntitySet="EstateAgents" />
+      <End Role="Estate" EntitySet="Estates" />
+    </AssociationSet>
+    <AssociationSet Name="EstateAgentAgent" Association="RealEstateManagerDataModel.Store.EstateAgentAgent">
+      <End Role="EstateAgent" EntitySet="EstateAgents" />
+      <End Role="Agent" EntitySet="Agents" />
+    </AssociationSet>
+    <AssociationSet Name="ContactEstate" Association="RealEstateManagerDataModel.Store.ContactEstate">
+      <End Role="Contact" EntitySet="Contacts" />
+      <End Role="Estate" EntitySet="Estates" />
+    </AssociationSet>
+    <AssociationSet Name="ContactAgent" Association="RealEstateManagerDataModel.Store.ContactAgent">
+      <End Role="Contact" EntitySet="Contacts" />
+      <End Role="Agent" EntitySet="Agents" />
+    </AssociationSet>
+    <AssociationSet Name="ContactPublicUser" Association="RealEstateManagerDataModel.Store.ContactPublicUser">
+      <End Role="Contact" EntitySet="Contacts" />
+      <End Role="PublicUser" EntitySet="PublicUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FileContact" Association="RealEstateManagerDataModel.Store.FileContact">
+      <End Role="File" EntitySet="Files" />
+      <End Role="Contact" EntitySet="Contacts" />
+    </AssociationSet>
+    <AssociationSet Name="FileEstate" Association="RealEstateManagerDataModel.Store.FileEstate">
+      <End Role="File" EntitySet="Files" />
+      <End Role="Estate" EntitySet="Estates" />
+    </AssociationSet>
+    <AssociationSet Name="EstateBuildingInfo" Association="RealEstateManagerDataModel.Store.EstateBuildingInfo">
+      <End Role="Estate" EntitySet="Estates" />
+      <End Role="BuildingInfo" EntitySet="BuildingInfoes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Estates">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="decimal" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="PublicDescription" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PrivateDescription" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Area" Type="float" Nullable="false" />
+    <Property Name="BuildingInfoId" Type="uniqueidentifier" Nullable="true" />
+  </EntityType>
+  <EntityType Name="BuildingInfoes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="View" Type="int" Nullable="false" />
+    <Property Name="Act16" Type="bit" Nullable="false" />
+    <Property Name="Floors" Type="int" Nullable="false" />
+    <Property Name="Bedrooms" Type="int" Nullable="false" />
+    <Property Name="Bathrooms" Type="int" Nullable="false" />
+    <Property Name="Balconies" Type="int" Nullable="false" />
+    <Property Name="Garages" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Agents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PasswordSalt" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HashedPassword" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EstateAgents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EstateId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AgentId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PublicUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PasswordSalt" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HashedPassword" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="Number" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Outcome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EstateId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AgentId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PublicUserId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Files">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PathOnFileSystem" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DisplayName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ContactId" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="EstateId" Type="uniqueidentifier" Nullable="true" />
+  </EntityType>
+  <EntityType Name="SystemValues">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="EstateAgentEstate">
+    <End Role="EstateAgent" Type="RealEstateManagerDataModel.Store.EstateAgents" Multiplicity="*" />
+    <End Role="Estate" Type="RealEstateManagerDataModel.Store.Estates" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Estate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EstateAgent">
+        <PropertyRef Name="EstateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EstateAgentAgent">
+    <End Role="EstateAgent" Type="RealEstateManagerDataModel.Store.EstateAgents" Multiplicity="*" />
+    <End Role="Agent" Type="RealEstateManagerDataModel.Store.Agents" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EstateAgent">
+        <PropertyRef Name="AgentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContactEstate">
+    <End Role="Contact" Type="RealEstateManagerDataModel.Store.Contacts" Multiplicity="*" />
+    <End Role="Estate" Type="RealEstateManagerDataModel.Store.Estates" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Estate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="EstateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContactAgent">
+    <End Role="Contact" Type="RealEstateManagerDataModel.Store.Contacts" Multiplicity="*" />
+    <End Role="Agent" Type="RealEstateManagerDataModel.Store.Agents" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="AgentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContactPublicUser">
+    <End Role="Contact" Type="RealEstateManagerDataModel.Store.Contacts" Multiplicity="*" />
+    <End Role="PublicUser" Type="RealEstateManagerDataModel.Store.PublicUsers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PublicUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="PublicUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FileContact">
+    <End Role="File" Type="RealEstateManagerDataModel.Store.Files" Multiplicity="*" />
+    <End Role="Contact" Type="RealEstateManagerDataModel.Store.Contacts" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="File">
+        <PropertyRef Name="ContactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FileEstate">
+    <End Role="File" Type="RealEstateManagerDataModel.Store.Files" Multiplicity="*" />
+    <End Role="Estate" Type="RealEstateManagerDataModel.Store.Estates" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Estate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="File">
+        <PropertyRef Name="EstateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EstateBuildingInfo">
+    <End Role="Estate" Type="RealEstateManagerDataModel.Store.Estates" Multiplicity="*" />
+    <End Role="BuildingInfo" Type="RealEstateManagerDataModel.Store.BuildingInfoes" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="BuildingInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Estate">
+        <PropertyRef Name="BuildingInfoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="RealEstateManagerDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="RealEstateManagerDataModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Estates" EntityType="RealEstateManagerDataModel.Estate" />
+          <EntitySet Name="BuildingInfoes" EntityType="RealEstateManagerDataModel.BuildingInfo" />
+          <EntitySet Name="Agents" EntityType="RealEstateManagerDataModel.Agent" />
+          <EntitySet Name="EstateAgents" EntityType="RealEstateManagerDataModel.EstateAgent" />
+          <AssociationSet Name="EstateAgentEstate" Association="RealEstateManagerDataModel.EstateAgentEstate">
+            <End Role="EstateAgent" EntitySet="EstateAgents" />
+            <End Role="Estate" EntitySet="Estates" />
+          </AssociationSet>
+          <AssociationSet Name="EstateAgentAgent" Association="RealEstateManagerDataModel.EstateAgentAgent">
+            <End Role="EstateAgent" EntitySet="EstateAgents" />
+            <End Role="Agent" EntitySet="Agents" />
+          </AssociationSet>
+          <EntitySet Name="PublicUsers" EntityType="RealEstateManagerDataModel.PublicUser" />
+          <EntitySet Name="Contacts" EntityType="RealEstateManagerDataModel.Contact" />
+          <AssociationSet Name="ContactEstate" Association="RealEstateManagerDataModel.ContactEstate">
+            <End EntitySet="Contacts" Role="Contact" />
+            <End EntitySet="Estates" Role="Estate" />
+          </AssociationSet>
+          <AssociationSet Name="ContactAgent" Association="RealEstateManagerDataModel.ContactAgent">
+            <End EntitySet="Contacts" Role="Contact" />
+            <End EntitySet="Agents" Role="Agent" />
+          </AssociationSet>
+          <AssociationSet Name="ContactPublicUser" Association="RealEstateManagerDataModel.ContactPublicUser">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="PublicUser" EntitySet="PublicUsers" />
+          </AssociationSet>
+          <EntitySet Name="Files" EntityType="RealEstateManagerDataModel.File" />
+          <AssociationSet Name="FileContact" Association="RealEstateManagerDataModel.FileContact">
+            <End Role="File" EntitySet="Files" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FileEstate" Association="RealEstateManagerDataModel.FileEstate">
+            <End Role="File" EntitySet="Files" />
+            <End Role="Estate" EntitySet="Estates" />
+          </AssociationSet>
+          <AssociationSet Name="EstateBuildingInfo" Association="RealEstateManagerDataModel.EstateBuildingInfo">
+            <End Role="Estate" EntitySet="Estates" />
+            <End Role="BuildingInfo" EntitySet="BuildingInfoes" />
+          </AssociationSet>
+          <EntitySet Name="SystemValues" EntityType="RealEstateManagerDataModel.SystemValue" />
         </EntityContainer>
+        <EntityType Name="Estate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Type" Type="RealEstateManagerDataModel.EstateType" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" />
+          <Property Name="Status" Type="RealEstateManagerDataModel.EstateStatusType" Nullable="false" />
+          <Property Name="PublicDescription" Type="String" Nullable="true" />
+          <Property Name="PrivateDescription" Type="String" Nullable="true" />
+          <Property Name="Area" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Agents" Relationship="RealEstateManagerDataModel.EstateAgentEstate" FromRole="Estate" ToRole="EstateAgent" />
+          <NavigationProperty Name="Contacts" Relationship="RealEstateManagerDataModel.ContactEstate" FromRole="Estate" ToRole="Contact" />
+          <NavigationProperty Name="Files" Relationship="RealEstateManagerDataModel.FileEstate" FromRole="Estate" ToRole="File" />
+          <NavigationProperty Name="BuildingInfo" Relationship="RealEstateManagerDataModel.EstateBuildingInfo" FromRole="Estate" ToRole="BuildingInfo" />
+          <Property Name="BuildingInfoId" Type="Guid" Nullable="true" />
+        </EntityType>
+        <EntityType Name="BuildingInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="View" Type="RealEstateManagerDataModel.BuildingViewType" Nullable="false" />
+          <Property Name="Act16" Type="Boolean" Nullable="false" />
+          <Property Name="Floors" Type="Int32" Nullable="false" />
+          <Property Name="Bedrooms" Type="Int32" Nullable="false" />
+          <Property Name="Bathrooms" Type="Int32" Nullable="false" />
+          <Property Name="Balconies" Type="Int32" Nullable="false" />
+          <Property Name="Garages" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Estates" Relationship="RealEstateManagerDataModel.EstateBuildingInfo" FromRole="BuildingInfo" ToRole="Estate" />
+        </EntityType>
+        <EnumType Name="EstateType">
+          <Member Name="House" Value="0" />
+          <Member Name="Apartment" Value="1" />
+          <Member Name="Land" Value="2" />
+        </EnumType>
+        <EnumType Name="EstateStatusType">
+          <Member Name="ForSale" Value="0" />
+          <Member Name="ForRent" Value="1" />
+        </EnumType>
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" Nullable="true" />
+          <Property Name="Username" Type="String" Nullable="false" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" />
+          <Property Name="HashedPassword" Type="String" Nullable="false" />
+          <NavigationProperty Name="Estates" Relationship="RealEstateManagerDataModel.EstateAgentAgent" FromRole="Agent" ToRole="EstateAgent" />
+          <NavigationProperty Name="Contacts" Relationship="RealEstateManagerDataModel.ContactAgent" FromRole="Agent" ToRole="Contact" />
+        </EntityType>
+        <EntityType Name="EstateAgent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Estate" Relationship="RealEstateManagerDataModel.EstateAgentEstate" FromRole="EstateAgent" ToRole="Estate" />
+          <Property Name="EstateId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Agent" Relationship="RealEstateManagerDataModel.EstateAgentAgent" FromRole="EstateAgent" ToRole="Agent" />
+          <Property Name="AgentId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <Association Name="EstateAgentEstate">
+          <End Type="RealEstateManagerDataModel.EstateAgent" Role="EstateAgent" Multiplicity="*" />
+          <End Type="RealEstateManagerDataModel.Estate" Role="Estate" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Estate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstateAgent">
+              <PropertyRef Name="EstateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EstateAgentAgent">
+          <End Type="RealEstateManagerDataModel.EstateAgent" Role="EstateAgent" Multiplicity="*" />
+          <End Type="RealEstateManagerDataModel.Agent" Role="Agent" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstateAgent">
+              <PropertyRef Name="AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PublicUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" Nullable="true" />
+          <Property Name="Username" Type="String" Nullable="false" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" />
+          <Property Name="HashedPassword" Type="String" Nullable="false" />
+          <NavigationProperty Name="Contacts" Relationship="RealEstateManagerDataModel.ContactPublicUser" FromRole="PublicUser" ToRole="Contact" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" />
+          <Property Name="Number" Type="String" Nullable="false" />
+          <NavigationProperty Name="Estate" Relationship="RealEstateManagerDataModel.ContactEstate" FromRole="Contact" ToRole="Estate" />
+          <Property Name="Outcome" Type="String" Nullable="false" />
+          <Property Name="EstateId" Nullable="false" Type="Guid" />
+          <NavigationProperty Name="Agent" Relationship="RealEstateManagerDataModel.ContactAgent" FromRole="Contact" ToRole="Agent" />
+          <Property Name="AgentId" Nullable="false" Type="Guid" />
+          <NavigationProperty Name="PublicUser" Relationship="RealEstateManagerDataModel.ContactPublicUser" FromRole="Contact" ToRole="PublicUser" />
+          <Property Name="PublicUserId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Files" Relationship="RealEstateManagerDataModel.FileContact" FromRole="Contact" ToRole="File" />
+        </EntityType>
+        <Association Name="ContactEstate">
+          <End Type="RealEstateManagerDataModel.Contact" Multiplicity="*" Role="Contact" />
+          <End Type="RealEstateManagerDataModel.Estate" Multiplicity="1" Role="Estate" />
+          <ReferentialConstraint>
+            <Principal Role="Estate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="EstateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ContactAgent">
+          <End Type="RealEstateManagerDataModel.Contact" Multiplicity="*" Role="Contact" />
+          <End Type="RealEstateManagerDataModel.Agent" Multiplicity="1" Role="Agent" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ContactPublicUser">
+          <End Type="RealEstateManagerDataModel.Contact" Role="Contact" Multiplicity="*" />
+          <End Type="RealEstateManagerDataModel.PublicUser" Role="PublicUser" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PublicUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="PublicUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PathOnFileSystem" Type="String" Nullable="false" />
+          <Property Name="DisplayName" Type="String" Nullable="true" />
+          <NavigationProperty Name="Contact" Relationship="RealEstateManagerDataModel.FileContact" FromRole="File" ToRole="Contact" />
+          <Property Name="ContactId" Type="Guid" Nullable="true" />
+          <NavigationProperty Name="Estate" Relationship="RealEstateManagerDataModel.FileEstate" FromRole="File" ToRole="Estate" />
+          <Property Name="EstateId" Type="Guid" Nullable="true" />
+        </EntityType>
+        <Association Name="FileContact">
+          <End Type="RealEstateManagerDataModel.File" Role="File" Multiplicity="*" />
+          <End Type="RealEstateManagerDataModel.Contact" Role="Contact" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="File">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FileEstate">
+          <End Type="RealEstateManagerDataModel.File" Role="File" Multiplicity="*" />
+          <End Type="RealEstateManagerDataModel.Estate" Role="Estate" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Estate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="File">
+              <PropertyRef Name="EstateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="BuildingViewType">
+          <Member Name="North" Value="0" />
+          <Member Name="South" Value="1" />
+          <Member Name="East" Value="2" />
+          <Member Name="West" Value="3" />
+        </EnumType>
+        <Association Name="EstateBuildingInfo">
+          <End Type="RealEstateManagerDataModel.Estate" Role="Estate" Multiplicity="*" />
+          <End Type="RealEstateManagerDataModel.BuildingInfo" Role="BuildingInfo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="BuildingInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estate">
+              <PropertyRef Name="BuildingInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SystemValue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Value" Type="String" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="RealEstateManagerDataModel" />
-        <Alias Key="Target" Value="RealEstateManagerDataModel.Store" />
-        <EntityContainerMapping CdmEntityContainer="RealEstateManagerDataModelContainer" StorageEntityContainer="RealEstateManagerDataModelTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RealEstateManagerDataModelStoreContainer" CdmEntityContainer="RealEstateManagerDataModelContainer">
+    <EntitySetMapping Name="Estates">
+      <EntityTypeMapping TypeName="IsTypeOf(RealEstateManagerDataModel.Estate)">
+        <MappingFragment StoreEntitySet="Estates">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PublicDescription" ColumnName="PublicDescription" />
+          <ScalarProperty Name="PrivateDescription" ColumnName="PrivateDescription" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="BuildingInfoId" ColumnName="BuildingInfoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuildingInfoes">
+      <EntityTypeMapping TypeName="IsTypeOf(RealEstateManagerDataModel.BuildingInfo)">
+        <MappingFragment StoreEntitySet="BuildingInfoes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="View" ColumnName="View" />
+          <ScalarProperty Name="Act16" ColumnName="Act16" />
+          <ScalarProperty Name="Floors" ColumnName="Floors" />
+          <ScalarProperty Name="Bedrooms" ColumnName="Bedrooms" />
+          <ScalarProperty Name="Bathrooms" ColumnName="Bathrooms" />
+          <ScalarProperty Name="Balconies" ColumnName="Balconies" />
+          <ScalarProperty Name="Garages" ColumnName="Garages" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Agents">
+      <EntityTypeMapping TypeName="IsTypeOf(RealEstateManagerDataModel.Agent)">
+        <MappingFragment StoreEntitySet="Agents">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="HashedPassword" ColumnName="HashedPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstateAgents">
+      <EntityTypeMapping TypeName="IsTypeOf(RealEstateManagerDataModel.EstateAgent)">
+        <MappingFragment StoreEntitySet="EstateAgents">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EstateId" ColumnName="EstateId" />
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PublicUsers">
+      <EntityTypeMapping TypeName="IsTypeOf(RealEstateManagerDataModel.PublicUser)">
+        <MappingFragment StoreEntitySet="PublicUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="HashedPassword" ColumnName="HashedPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="IsTypeOf(RealEstateManagerDataModel.Contact)">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Outcome" ColumnName="Outcome" />
+          <ScalarProperty Name="EstateId" ColumnName="EstateId" />
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ScalarProperty Name="PublicUserId" ColumnName="PublicUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Files">
+      <EntityTypeMapping TypeName="IsTypeOf(RealEstateManagerDataModel.File)">
+        <MappingFragment StoreEntitySet="Files">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PathOnFileSystem" ColumnName="PathOnFileSystem" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="EstateId" ColumnName="EstateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemValues">
+      <EntityTypeMapping TypeName="IsTypeOf(RealEstateManagerDataModel.SystemValue)">
+        <MappingFragment StoreEntitySet="SystemValues">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -38,6 +621,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

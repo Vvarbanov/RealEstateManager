@@ -6,7 +6,7 @@
 -- Generated from EDMX file: D:\Code\MyRepo\RealEstateManager\src\RealEstateManager\Models\Data\RealEstateManagerDataModel.edmx
 -- --------------------------------------------------
 
-SET QUOTED_IDENTIFIER OFF;
+SET QUOTED_IDENTIFIER ON;
 GO
 USE [RealEstateManager];
 GO
@@ -325,7 +325,7 @@ ON [dbo].[Files]
     ([EstateId]);
 GO
 
--- Creating unique foreign key on [BuildingInfoId] in table 'Estates'
+-- Creating foreign key on [BuildingInfoId] in table 'Estates'
 ALTER TABLE [dbo].[Estates]
 ADD CONSTRAINT [FK_EstateBuildingInfo]
     FOREIGN KEY ([BuildingInfoId])
@@ -334,15 +334,11 @@ ADD CONSTRAINT [FK_EstateBuildingInfo]
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
-ALTER TABLE [dbo].[Estates]
-ADD CONSTRAINT [FK_EstateBuildingInfoUnique]
-    UNIQUE ([BuildingInfoId]);
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_EstateBuildingInfo'
-CREATE INDEX [IX_FK_EstateBuildingInfo]
+-- Creating unique non-clustered index for FOREIGN KEY 'FK_EstateBuildingInfo'
+CREATE UNIQUE NONCLUSTERED INDEX [IX_FK_EstateBuildingInfo]
 ON [dbo].[Estates]
-    ([BuildingInfoId]);
+    ([BuildingInfoId])
+WHERE [BuildingInfoId] IS NOT NULL;
 GO
 
 -- --------------------------------------------------

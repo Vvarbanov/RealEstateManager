@@ -2,11 +2,13 @@
 
 namespace RealEstateManager.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
-            return View();
+            return Request.IsAuthenticated 
+                ? RedirectToAction("Index", "Estate") 
+                : RedirectToAction("Login", "Agent");
         }
 
         public ActionResult About()

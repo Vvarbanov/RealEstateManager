@@ -226,7 +226,7 @@ ADD CONSTRAINT [FK_EstateAgentEstate]
     FOREIGN KEY ([EstateId])
     REFERENCES [dbo].[Estates]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_EstateAgentEstate'
@@ -241,7 +241,7 @@ ADD CONSTRAINT [FK_EstateAgentAgent]
     FOREIGN KEY ([AgentId])
     REFERENCES [dbo].[Agents]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_EstateAgentAgent'
@@ -256,7 +256,7 @@ ADD CONSTRAINT [FK_ContactEstate]
     FOREIGN KEY ([EstateId])
     REFERENCES [dbo].[Estates]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_ContactEstate'
@@ -271,7 +271,7 @@ ADD CONSTRAINT [FK_ContactAgent]
     FOREIGN KEY ([AgentId])
     REFERENCES [dbo].[Agents]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_ContactAgent'
@@ -286,7 +286,7 @@ ADD CONSTRAINT [FK_ContactPublicUser]
     FOREIGN KEY ([PublicUserId])
     REFERENCES [dbo].[PublicUsers]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_ContactPublicUser'
@@ -301,7 +301,7 @@ ADD CONSTRAINT [FK_FileContact]
     FOREIGN KEY ([ContactId])
     REFERENCES [dbo].[Contacts]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE SET NULL ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_FileContact'
@@ -316,7 +316,7 @@ ADD CONSTRAINT [FK_FileEstate]
     FOREIGN KEY ([EstateId])
     REFERENCES [dbo].[Estates]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE SET NULL ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_FileEstate'
@@ -331,7 +331,7 @@ ADD CONSTRAINT [FK_EstateBuildingInfo]
     FOREIGN KEY ([BuildingInfoId])
     REFERENCES [dbo].[BuildingInfoes]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE SET NULL ON UPDATE NO ACTION;
 GO
 
 -- Creating unique non-clustered index for FOREIGN KEY 'FK_EstateBuildingInfo'

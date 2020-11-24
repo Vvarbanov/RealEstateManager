@@ -61,11 +61,191 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Забравена парола.
+        /// </summary>
+        public static string AgentLoginForm_ForgottenPassword {
+            get {
+                return ResourceManager.GetString("AgentLoginForm_ForgottenPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вход в системата.
+        /// </summary>
+        public static string AgentLoginForm_Header {
+            get {
+                return ResourceManager.GetString("AgentLoginForm_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вход.
+        /// </summary>
+        public static string AgentLoginForm_SubmitButtonText {
+            get {
+                return ResourceManager.GetString("AgentLoginForm_SubmitButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail адрес.
+        /// </summary>
+        public static string AgentLoginModel_Email {
+            get {
+                return ResourceManager.GetString("AgentLoginModel_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Парола.
+        /// </summary>
+        public static string AgentLoginModel_Password {
+            get {
+                return ResourceManager.GetString("AgentLoginModel_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Запомни ме.
+        /// </summary>
+        public static string AgentLoginModel_RememberMe {
+            get {
+                return ResourceManager.GetString("AgentLoginModel_RememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вход.
+        /// </summary>
+        public static string AgentLoginPage_Title {
+            get {
+                return ResourceManager.GetString("AgentLoginPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Този e-mail адрес вече е регистриран. Моля изберете друг..
+        /// </summary>
+        public static string AgentRegister_EmailAddressExists_Error {
+            get {
+                return ResourceManager.GetString("AgentRegister_EmailAddressExists_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Невалиден ключ за регистрация на брокер..
+        /// </summary>
+        public static string AgentRegister_IncorrectKey_Error {
+            get {
+                return ResourceManager.GetString("AgentRegister_IncorrectKey_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Това потребителско име вече е регистрирано. Моля изберете друго..
+        /// </summary>
+        public static string AgentRegister_UsernameExists_Error {
+            get {
+                return ResourceManager.GetString("AgentRegister_UsernameExists_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрация на брокер.
+        /// </summary>
+        public static string AgentRegisterForm_Header {
+            get {
+                return ResourceManager.GetString("AgentRegisterForm_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail адрес.
+        /// </summary>
+        public static string AgentRegisterModel_EmailAddress {
+            get {
+                return ResourceManager.GetString("AgentRegisterModel_EmailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Име.
+        /// </summary>
+        public static string AgentRegisterModel_FirstName {
+            get {
+                return ResourceManager.GetString("AgentRegisterModel_FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Фамилия.
+        /// </summary>
+        public static string AgentRegisterModel_LastName {
+            get {
+                return ResourceManager.GetString("AgentRegisterModel_LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Парола.
+        /// </summary>
+        public static string AgentRegisterModel_Password {
+            get {
+                return ResourceManager.GetString("AgentRegisterModel_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Телефонен номер.
+        /// </summary>
+        public static string AgentRegisterModel_PhoneNumber {
+            get {
+                return ResourceManager.GetString("AgentRegisterModel_PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрационен ключ.
+        /// </summary>
+        public static string AgentRegisterModel_RegistrationKey {
+            get {
+                return ResourceManager.GetString("AgentRegisterModel_RegistrationKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Потребителско име.
+        /// </summary>
+        public static string AgentRegisterModel_Username {
+            get {
+                return ResourceManager.GetString("AgentRegisterModel_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрация.
+        /// </summary>
+        public static string AgentRegisterPage_Title {
+            get {
+                return ResourceManager.GetString("AgentRegisterPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to RealEstateManager.
         /// </summary>
         public static string ApplicationName {
             get {
                 return ResourceManager.GetString("ApplicationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Невалиден e-mail или парола..
+        /// </summary>
+        public static string InvalidLoginDetailsError {
+            get {
+                return ResourceManager.GetString("InvalidLoginDetailsError", resourceCulture);
             }
         }
         

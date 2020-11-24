@@ -117,8 +117,68 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AgentLoginForm_ForgottenPassword" xml:space="preserve">
+    <value>Забравена парола</value>
+  </data>
+  <data name="AgentLoginForm_Header" xml:space="preserve">
+    <value>Вход в системата</value>
+  </data>
+  <data name="AgentLoginForm_SubmitButtonText" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="AgentLoginModel_Email" xml:space="preserve">
+    <value>E-mail адрес</value>
+  </data>
+  <data name="AgentLoginModel_Password" xml:space="preserve">
+    <value>Парола</value>
+  </data>
+  <data name="AgentLoginModel_RememberMe" xml:space="preserve">
+    <value>Запомни ме</value>
+  </data>
+  <data name="AgentLoginPage_Title" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="AgentRegisterForm_Header" xml:space="preserve">
+    <value>Регистрация на брокер</value>
+  </data>
+  <data name="AgentRegisterModel_EmailAddress" xml:space="preserve">
+    <value>E-mail адрес</value>
+  </data>
+  <data name="AgentRegisterModel_FirstName" xml:space="preserve">
+    <value>Име</value>
+  </data>
+  <data name="AgentRegisterModel_LastName" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="AgentRegisterModel_Password" xml:space="preserve">
+    <value>Парола</value>
+  </data>
+  <data name="AgentRegisterModel_PhoneNumber" xml:space="preserve">
+    <value>Телефонен номер</value>
+  </data>
+  <data name="AgentRegisterModel_RegistrationKey" xml:space="preserve">
+    <value>Регистрационен ключ</value>
+  </data>
+  <data name="AgentRegisterModel_Username" xml:space="preserve">
+    <value>Потребителско име</value>
+  </data>
+  <data name="AgentRegisterPage_Title" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="AgentRegister_EmailAddressExists_Error" xml:space="preserve">
+    <value>Този e-mail адрес вече е регистриран. Моля изберете друг.</value>
+  </data>
+  <data name="AgentRegister_IncorrectKey_Error" xml:space="preserve">
+    <value>Невалиден ключ за регистрация на брокер.</value>
+  </data>
+  <data name="AgentRegister_UsernameExists_Error" xml:space="preserve">
+    <value>Това потребителско име вече е регистрирано. Моля изберете друго.</value>
+  </data>
   <data name="ApplicationName" xml:space="preserve">
     <value>RealEstateManager</value>
+  </data>
+  <data name="InvalidLoginDetailsError" xml:space="preserve">
+    <value>Невалиден e-mail или парола.</value>
   </data>
   <data name="RequiredFieldError" xml:space="preserve">
     <value>Това поле е задължително.</value>

@@ -11,7 +11,7 @@ namespace RealEstateManager.Repository.Interfaces
         where TInsertData : class
         where TUpdateData : class
     {
-        void Insert(TInsertData data);
+        TEntity Insert(TInsertData data);
 
         TEntity GetById(TPrimaryKey id, string includeProperties = null);
 
@@ -20,7 +20,7 @@ namespace RealEstateManager.Repository.Interfaces
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             string includeProperties = null);
 
-        void Update(TUpdateData data);
+        void Update(TPrimaryKey id, TUpdateData data);
 
         void Delete(TPrimaryKey id);
     }

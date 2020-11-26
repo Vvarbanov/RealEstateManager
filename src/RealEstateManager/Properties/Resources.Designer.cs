@@ -241,6 +241,87 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Адрес.
+        /// </summary>
+        public static string EstateCreationModel_Address {
+            get {
+                return ResourceManager.GetString("EstateCreationModel_Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Площ.
+        /// </summary>
+        public static string EstateCreationModel_Area {
+            get {
+                return ResourceManager.GetString("EstateCreationModel_Area", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Идентификатор за юиформация за градата.
+        /// </summary>
+        public static string EstateCreationModel_BuildingInfoId {
+            get {
+                return ResourceManager.GetString("EstateCreationModel_BuildingInfoId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Име.
+        /// </summary>
+        public static string EstateCreationModel_Name {
+            get {
+                return ResourceManager.GetString("EstateCreationModel_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Цена.
+        /// </summary>
+        public static string EstateCreationModel_Price {
+            get {
+                return ResourceManager.GetString("EstateCreationModel_Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Поверително описание.
+        /// </summary>
+        public static string EstateCreationModel_PrivateDescription {
+            get {
+                return ResourceManager.GetString("EstateCreationModel_PrivateDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Публично описание.
+        /// </summary>
+        public static string EstateCreationModel_PublicDescription {
+            get {
+                return ResourceManager.GetString("EstateCreationModel_PublicDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Статус.
+        /// </summary>
+        public static string EstateCreationModel_Status {
+            get {
+                return ResourceManager.GetString("EstateCreationModel_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип.
+        /// </summary>
+        public static string EstateCreationModel_Type {
+            get {
+                return ResourceManager.GetString("EstateCreationModel_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Невалиден e-mail или парола..
         /// </summary>
         public static string InvalidLoginDetailsError {

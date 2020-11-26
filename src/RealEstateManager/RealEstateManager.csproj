@@ -181,6 +181,7 @@
     <Compile Include="Models\Data\SystemValue.cs">
       <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Estate\EstateCreationModel.cs" />
     <Compile Include="Repository\Data\AgentData.cs" />
     <Compile Include="Repository\Data\EstateData.cs" />
     <Compile Include="Repository\EstatesContext.cs" />

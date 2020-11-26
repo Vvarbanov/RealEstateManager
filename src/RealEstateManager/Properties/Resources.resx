@@ -177,6 +177,33 @@
   <data name="ApplicationName" xml:space="preserve">
     <value>RealEstateManager</value>
   </data>
+  <data name="EstateCreationModel_Address" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
+  <data name="EstateCreationModel_Area" xml:space="preserve">
+    <value>Площ</value>
+  </data>
+  <data name="EstateCreationModel_BuildingInfoId" xml:space="preserve">
+    <value>Идентификатор за юиформация за градата</value>
+  </data>
+  <data name="EstateCreationModel_Name" xml:space="preserve">
+    <value>Име</value>
+  </data>
+  <data name="EstateCreationModel_Price" xml:space="preserve">
+    <value>Цена</value>
+  </data>
+  <data name="EstateCreationModel_PrivateDescription" xml:space="preserve">
+    <value>Поверително описание</value>
+  </data>
+  <data name="EstateCreationModel_PublicDescription" xml:space="preserve">
+    <value>Публично описание</value>
+  </data>
+  <data name="EstateCreationModel_Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="EstateCreationModel_Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
   <data name="InvalidLoginDetailsError" xml:space="preserve">
     <value>Невалиден e-mail или парола.</value>
   </data>

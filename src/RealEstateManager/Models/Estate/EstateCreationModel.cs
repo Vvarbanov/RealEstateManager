@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using RealEstateManager.Models.Data;
+using System.ComponentModel.DataAnnotations;
 
-namespace RealEstateManager.Repository.Data
+namespace RealEstateManager.Models.Estate
 {
-    public class EstateData
+    public class EstateCreationModel : IValidatableObject
     {
         public string Name { get; set; }
 
@@ -22,5 +25,10 @@ namespace RealEstateManager.Repository.Data
         public double Area { get; set; }
 
         public Guid BuildingInfoId { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

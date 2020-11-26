@@ -182,6 +182,7 @@
       <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Repository\Data\AgentData.cs" />
+    <Compile Include="Repository\Data\EstateData.cs" />
     <Compile Include="Repository\EstatesContext.cs" />
     <Compile Include="Repository\Interfaces\IEstatesContext.cs" />
     <Compile Include="Repository\Interfaces\ISet.cs" />
@@ -195,6 +196,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Repository\Sets\AgentSet.cs" />
+    <Compile Include="Repository\Sets\EstateSet.cs" />
     <Compile Include="Utils\ConfigReader.cs" />
     <Compile Include="Utils\Localization.cs" />
     <Compile Include="Utils\PasswordHelper.cs" />

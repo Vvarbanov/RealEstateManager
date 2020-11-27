@@ -183,6 +183,9 @@
   <data name="EstateCreationModel_Area" xml:space="preserve">
     <value>Площ</value>
   </data>
+  <data name="EstateCreationModel_Id" xml:space="preserve">
+    <value>Идентификатор</value>
+  </data>
   <data name="EstateCreationModel_Name" xml:space="preserve">
     <value>Име</value>
   </data>

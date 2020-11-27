@@ -182,6 +182,8 @@
       <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Estate\EstateCreationModel.cs" />
+    <Compile Include="Models\Estate\EstateDeletionModel.cs" />
+    <Compile Include="Models\Estate\EstateUpdateModel.cs" />
     <Compile Include="Repository\Data\AgentData.cs" />
     <Compile Include="Repository\Data\EstateData.cs" />
     <Compile Include="Repository\EstatesContext.cs" />

@@ -13,6 +13,7 @@ namespace RealEstateManager.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(EstateCreationModel model)
@@ -40,6 +41,7 @@ namespace RealEstateManager.Controllers
             return View(model);
         }
 
+        [Authorize]
         [HttpPost, ActionName("Update")]
         [ValidateAntiForgeryToken]
         public ActionResult Update(Guid id, EstateCreationModel model)
@@ -67,6 +69,7 @@ namespace RealEstateManager.Controllers
             return View(model);
         }
 
+        [Authorize]
         [HttpGet]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(Guid id)

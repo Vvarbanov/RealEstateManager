@@ -9,10 +9,13 @@ namespace RealEstateManager.Repository
         public RealEstateManagerDataModelContainer DatabaseContext { get; }
         public AgentSet Agents { get; }
 
+        public EstateSet Estates { get; }
+
         public EstatesContext()
         {
             DatabaseContext = new RealEstateManagerDataModelContainer();
             Agents = new AgentSet(DatabaseContext);
+            Estates = new EstateSet(DatabaseContext);
         }
 
         public void Dispose()

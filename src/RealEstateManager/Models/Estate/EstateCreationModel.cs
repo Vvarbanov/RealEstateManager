@@ -75,10 +75,10 @@ namespace RealEstateManager.Models.Estate
         public double Area { get; set; }
 
         [Display(
-            Name = "EstateCreationModel_Status",
+            Name = "EstateCreationModel_BuildingInfoId",
             ResourceType = typeof(Resources))]
         [Required(
-            ErrorMessageResourceName = "EstateCreationModel_BuildingInfoId",
+            ErrorMessageResourceName = "RequiredFieldError",
             ErrorMessageResourceType = typeof(Resources))]
         public Guid BuildingInfoId { get; set; }
 

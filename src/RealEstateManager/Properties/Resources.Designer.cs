@@ -241,6 +241,24 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Имот на този адрес е вече регистриран..
+        /// </summary>
+        public static string EstateCreation_AddressExists_Error {
+            get {
+                return ResourceManager.GetString("EstateCreation_AddressExists_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Това име вече съществува. Моля изберете друго..
+        /// </summary>
+        public static string EstateCreation_NameExists_Error {
+            get {
+                return ResourceManager.GetString("EstateCreation_NameExists_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Адрес.
         /// </summary>
         public static string EstateCreationModel_Address {
@@ -318,6 +336,24 @@ namespace RealEstateManager.Properties {
         public static string EstateCreationModel_Type {
             get {
                 return ResourceManager.GetString("EstateCreationModel_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Създаване на имот.
+        /// </summary>
+        public static string EstateCreationPage_Header {
+            get {
+                return ResourceManager.GetString("EstateCreationPage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Имоти.
+        /// </summary>
+        public static string EstateCreationPage_Title {
+            get {
+                return ResourceManager.GetString("EstateCreationPage_Title", resourceCulture);
             }
         }
         

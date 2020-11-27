@@ -30,9 +30,12 @@ namespace RealEstateManager.Controllers
             return View(model);
         }
 
-        public ActionResult Update()
+        public ActionResult Update(Guid id)
         {
-            return View();
+            var model = new EstateUpdateModel();
+            model.Id = id;
+
+            return View(model);
         }
 
         [HttpPost]
@@ -41,7 +44,7 @@ namespace RealEstateManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Estates.Update(model.id, model.ToData());
+                db.Estates.Update(model.Id, model.ToData());
                 return RedirectToAction("Index", "Home");
             }
 

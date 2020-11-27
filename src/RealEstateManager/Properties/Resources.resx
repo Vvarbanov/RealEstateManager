@@ -207,6 +207,9 @@
   <data name="EstateCreationPage_Header" xml:space="preserve">
     <value>Създаване на имот</value>
   </data>
+  <data name="EstateCreationPage_SubmitButtonText" xml:space="preserve">
+    <value>Създай</value>
+  </data>
   <data name="EstateCreationPage_Title" xml:space="preserve">
     <value>Имоти</value>
   </data>
@@ -221,6 +224,9 @@
   </data>
   <data name="EstateCreation_NameExists_Error" xml:space="preserve">
     <value>Това име вече съществува. Моля изберете друго.</value>
+  </data>
+  <data name="EstateUpdatePage_SubmitButtonText" xml:space="preserve">
+    <value>Обнови</value>
   </data>
   <data name="InvalidLoginDetailsError" xml:space="preserve">
     <value>Невалиден e-mail или парола.</value>

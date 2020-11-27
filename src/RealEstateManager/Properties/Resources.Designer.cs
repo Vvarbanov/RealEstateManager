@@ -367,11 +367,29 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Създай.
+        /// </summary>
+        public static string EstateCreationPage_SubmitButtonText {
+            get {
+                return ResourceManager.GetString("EstateCreationPage_SubmitButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Имоти.
         /// </summary>
         public static string EstateCreationPage_Title {
             get {
                 return ResourceManager.GetString("EstateCreationPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обнови.
+        /// </summary>
+        public static string EstateUpdatePage_SubmitButtonText {
+            get {
+                return ResourceManager.GetString("EstateUpdatePage_SubmitButtonText", resourceCulture);
             }
         }
         

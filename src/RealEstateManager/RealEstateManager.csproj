@@ -458,6 +458,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Agent\Register.cshtml" />
     <Content Include="Views\Estate\Create.cshtml" />
+    <Content Include="Views\Estate\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
 using RealEstateManager.Models.Estate;
-using RealEstateManager.Utils;
 
 namespace RealEstateManager.Controllers
 {
@@ -13,27 +12,17 @@ namespace RealEstateManager.Controllers
             return View();
         }
 
-        [Authorize]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(EstateCreationModel model)
         {
             if (ModelState.IsValid)
             {
-                var isNameAvailable = db.Estates.IsNameAvailable(model.Name);
-                var isAddressAvailable = db.Estates.IsAddressAvailable(model.Address);
-
-                if (!isNameAvailable)
-                    ModelState.AddModelError(nameof(model.Name),
-                        Localization.GetString("EstateCreation_NameExists_Error"));
-
-                if (!isAddressAvailable)
-                    ModelState.AddModelError(nameof(model.Address),
-                        Localization.GetString("EstateCreation_AddressExists_Error"));
-
-                if (!isNameAvailable || !isAddressAvailable)
-                    return View(model);
-
                 db.Estates.Insert(model.ToData());
                 return RedirectToAction("Index", "Home");
             }
@@ -41,58 +30,45 @@ namespace RealEstateManager.Controllers
             return View(model);
         }
 
-        [Authorize]
-        [HttpPost, ActionName("Update")]
+        public ActionResult Update()
+        {
+            return View();
+        }
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update(Guid id, EstateCreationModel model)
+        public ActionResult Update(EstateUpdateModel model)
         {
             if (ModelState.IsValid)
             {
-                var isNameAvailable = db.Estates.IsNameAvailable(model.Name, id);
-                var isAddressAvailable = db.Estates.IsAddressAvailable(model.Address, id);
-
-                if (!isNameAvailable)
-                    ModelState.AddModelError(nameof(model.Name),
-                        Localization.GetString("EstateCreation_NameExists_Error"));
-
-                if (!isAddressAvailable)
-                    ModelState.AddModelError(nameof(model.Address),
-                        Localization.GetString("EstateCreation_AddressExists_Error"));
-
-                if (!isNameAvailable || !isAddressAvailable)
-                    return View(model);
-
-                db.Estates.Update(id, model.ToData());
+                db.Estates.Update(model.id, model.ToData());
                 return RedirectToAction("Index", "Home");
             }
 
             return View(model);
         }
 
-        [Authorize]
-        [HttpGet]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(Guid id)
+        public ActionResult Delete()
         {
-            var exists = db.Estates.GetById(id);
-
-            if (exists == null)
-                return HttpNotFound();
-
-            return View(exists);
+            return View();
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(Guid id)
+        public ActionResult Delete(EstateDeletionModel model)
         {
-            var exists = db.Estates.GetById(id);
+            if (ModelState.IsValid)
+            {
+                var exists = db.Estates.GetById(model.id);
 
-            if (exists == null)
-                return View(exists);
+                if (exists == null)
+                    return View(exists);
 
-            db.Estates.Delete(id);
-            return RedirectToAction("Index", "Home");
+                db.Estates.Delete(model.id);
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(model);
         }
     }
 }

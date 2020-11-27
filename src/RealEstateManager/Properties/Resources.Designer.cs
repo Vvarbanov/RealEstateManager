@@ -250,6 +250,24 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Невалидна площ. Тя трябва да бъде положително число..
+        /// </summary>
+        public static string EstateCreation_IncorrectArea_Error {
+            get {
+                return ResourceManager.GetString("EstateCreation_IncorrectArea_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Невалидна цена. Тя трябва да бъде положително число..
+        /// </summary>
+        public static string EstateCreation_IncorrectPrice_Error {
+            get {
+                return ResourceManager.GetString("EstateCreation_IncorrectPrice_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Това име вече съществува. Моля изберете друго..
         /// </summary>
         public static string EstateCreation_NameExists_Error {
@@ -277,11 +295,11 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Идентификатор за юиформация за градата.
+        ///   Looks up a localized string similar to Идентификатор.
         /// </summary>
-        public static string EstateCreationModel_BuildingInfoId {
+        public static string EstateCreationModel_Id {
             get {
-                return ResourceManager.GetString("EstateCreationModel_BuildingInfoId", resourceCulture);
+                return ResourceManager.GetString("EstateCreationModel_Id", resourceCulture);
             }
         }
         

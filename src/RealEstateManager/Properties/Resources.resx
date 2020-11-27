@@ -183,9 +183,6 @@
   <data name="EstateCreationModel_Area" xml:space="preserve">
     <value>Площ</value>
   </data>
-  <data name="EstateCreationModel_BuildingInfoId" xml:space="preserve">
-    <value>Идентификатор за юиформация за градата</value>
-  </data>
   <data name="EstateCreationModel_Name" xml:space="preserve">
     <value>Име</value>
   </data>
@@ -212,6 +209,12 @@
   </data>
   <data name="EstateCreation_AddressExists_Error" xml:space="preserve">
     <value>Имот на този адрес е вече регистриран.</value>
+  </data>
+  <data name="EstateCreation_IncorrectArea_Error" xml:space="preserve">
+    <value>Невалидна площ. Тя трябва да бъде положително число.</value>
+  </data>
+  <data name="EstateCreation_IncorrectPrice_Error" xml:space="preserve">
+    <value>Невалидна цена. Тя трябва да бъде положително число.</value>
   </data>
   <data name="EstateCreation_NameExists_Error" xml:space="preserve">
     <value>Това име вече съществува. Моля изберете друго.</value>

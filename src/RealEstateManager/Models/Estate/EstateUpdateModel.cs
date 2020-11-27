@@ -9,8 +9,16 @@ using RealEstateManager.Utils;
 
 namespace RealEstateManager.Models.Estate
 {
-    public class EstateCreationModel : IValidatableObject
+    public class EstateUpdateModel : IValidatableObject
     {
+        [Display(
+            Name = "EstateCreationModel_Id",
+            ResourceType = typeof(Resources))]
+        [Required(
+            ErrorMessageResourceName = "RequiredFieldError",
+            ErrorMessageResourceType = typeof(Resources))]
+        public Guid id { get; set; }
+
         [Display(
             Name = "EstateCreationModel_Name",
             ResourceType = typeof(Resources))]

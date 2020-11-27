@@ -20,7 +20,5 @@ namespace RealEstateManager.Repository.Data
         public string PrivateDescription { get; set; }
 
         public double Area { get; set; }
-
-        public Guid BuildingInfoId { get; set; }
     }
 }

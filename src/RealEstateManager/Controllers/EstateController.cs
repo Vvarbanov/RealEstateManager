@@ -32,8 +32,13 @@ namespace RealEstateManager.Controllers
 
         public ActionResult Update(Guid id)
         {
+            var existing = db.Estates.GetById(id);
+
+            if (existing == null)
+                return HttpNotFound();
+
             var model = new EstateUpdateModel();
-            model.Id = id;
+            model.Id = existing.Id;
 
             return View(model);
         }
@@ -51,9 +56,17 @@ namespace RealEstateManager.Controllers
             return View(model);
         }
 
-        public ActionResult Delete()
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            var existing = db.Estates.GetById(id);
+
+            if (existing == null)
+                return HttpNotFound();
+
+            var model = new EstateDeletionModel();
+            model.Id = existing.Id;
+
+            return View(model);
         }
 
         [HttpPost]
@@ -62,12 +75,7 @@ namespace RealEstateManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                var exists = db.Estates.GetById(model.id);
-
-                if (exists == null)
-                    return View(exists);
-
-                db.Estates.Delete(model.id);
+                db.Estates.Delete(model.Id);
                 return RedirectToAction("Index", "Home");
             }
 

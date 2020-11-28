@@ -12,6 +12,6 @@ namespace RealEstateManager.Models.Estate
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
             ErrorMessageResourceType = typeof(Resources))]
-        public Guid id { get; set; }
+        public Guid Id { get; set; }
     }
 }

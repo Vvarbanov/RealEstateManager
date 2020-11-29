@@ -358,7 +358,7 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Създаване на имот.
+        ///   Looks up a localized string similar to Добавяне на нов имот.
         /// </summary>
         public static string EstateCreationPage_Header {
             get {
@@ -376,11 +376,56 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Имоти.
+        ///   Looks up a localized string similar to Създаване на имот.
         /// </summary>
         public static string EstateCreationPage_Title {
             get {
                 return ResourceManager.GetString("EstateCreationPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изтриване на съществуващ имот.
+        /// </summary>
+        public static string EstateDeletePage_Header {
+            get {
+                return ResourceManager.GetString("EstateDeletePage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изтрии.
+        /// </summary>
+        public static string EstateDeletePage_SubmitButtonText {
+            get {
+                return ResourceManager.GetString("EstateDeletePage_SubmitButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сигурни ли сте че искате да изтриете имота?.
+        /// </summary>
+        public static string EstateDeletePage_Text {
+            get {
+                return ResourceManager.GetString("EstateDeletePage_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изтриване на имот.
+        /// </summary>
+        public static string EstateDeletePage_Title {
+            get {
+                return ResourceManager.GetString("EstateDeletePage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обновяване на съществуващ имот.
+        /// </summary>
+        public static string EstateUpdatePage_Header {
+            get {
+                return ResourceManager.GetString("EstateUpdatePage_Header", resourceCulture);
             }
         }
         
@@ -390,6 +435,15 @@ namespace RealEstateManager.Properties {
         public static string EstateUpdatePage_SubmitButtonText {
             get {
                 return ResourceManager.GetString("EstateUpdatePage_SubmitButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обновяване на имот.
+        /// </summary>
+        public static string EstateUpdatePage_Title {
+            get {
+                return ResourceManager.GetString("EstateUpdatePage_Title", resourceCulture);
             }
         }
         

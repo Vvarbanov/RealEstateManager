@@ -37,8 +37,17 @@ namespace RealEstateManager.Controllers
             if (existing == null)
                 return HttpNotFound();
 
-            var model = new EstateUpdateModel();
-            model.Id = existing.Id;
+            var model = new EstateUpdateModel(
+                existing.Id,
+                existing.Name,
+                existing.Type,
+                existing.Address,
+                existing.Price,
+                existing.Status,
+                existing.PublicDescription,
+                existing.PrivateDescription,
+                existing.Area
+                );
 
             return View(model);
         }
@@ -63,8 +72,7 @@ namespace RealEstateManager.Controllers
             if (existing == null)
                 return HttpNotFound();
 
-            var model = new EstateDeletionModel();
-            model.Id = existing.Id;
+            var model = new EstateDeletionModel(existing.Id);
 
             return View(model);
         }

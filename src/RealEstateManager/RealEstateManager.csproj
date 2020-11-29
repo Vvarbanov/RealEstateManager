@@ -459,6 +459,7 @@
     <Content Include="Views\Agent\Register.cshtml" />
     <Content Include="Views\Estate\Create.cshtml" />
     <Content Include="Views\Estate\Update.cshtml" />
+    <Content Include="Views\Estate\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

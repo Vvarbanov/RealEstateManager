@@ -3,7 +3,7 @@
 @model RealEstateManager.Models.Estate.EstateUpdateModel
 
 @{
-    ViewBag.Title = Localization.GetString("EstateCreationPage_Title");
+    ViewBag.Title = Localization.GetString("EstateUpdatePage_Title");
 }
 
 @Html.ValidationSummary(true, null, new { @class = "text-danger" });
@@ -13,7 +13,7 @@
     @Html.AntiForgeryToken()
     <div class="card">
         <div class="card-header bg-primary text-white">
-            <h3>@Localization.GetString("EstateCreationPage_Header")</h3>
+            <h3>@Localization.GetString("EstateUpdatePage_Header")</h3>
         </div>
         <div class="card-body bg-light">
             <div class="form-group">

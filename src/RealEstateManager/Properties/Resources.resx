@@ -205,13 +205,13 @@
     <value>Тип</value>
   </data>
   <data name="EstateCreationPage_Header" xml:space="preserve">
-    <value>Създаване на имот</value>
+    <value>Добавяне на нов имот</value>
   </data>
   <data name="EstateCreationPage_SubmitButtonText" xml:space="preserve">
     <value>Създай</value>
   </data>
   <data name="EstateCreationPage_Title" xml:space="preserve">
-    <value>Имоти</value>
+    <value>Създаване на имот</value>
   </data>
   <data name="EstateCreation_AddressExists_Error" xml:space="preserve">
     <value>Имот на този адрес е вече регистриран.</value>
@@ -225,8 +225,26 @@
   <data name="EstateCreation_NameExists_Error" xml:space="preserve">
     <value>Това име вече съществува. Моля изберете друго.</value>
   </data>
+  <data name="EstateDeletePage_Header" xml:space="preserve">
+    <value>Изтриване на съществуващ имот</value>
+  </data>
+  <data name="EstateDeletePage_SubmitButtonText" xml:space="preserve">
+    <value>Изтрии</value>
+  </data>
+  <data name="EstateDeletePage_Text" xml:space="preserve">
+    <value>Сигурни ли сте че искате да изтриете имота?</value>
+  </data>
+  <data name="EstateDeletePage_Title" xml:space="preserve">
+    <value>Изтриване на имот</value>
+  </data>
+  <data name="EstateUpdatePage_Header" xml:space="preserve">
+    <value>Обновяване на съществуващ имот</value>
+  </data>
   <data name="EstateUpdatePage_SubmitButtonText" xml:space="preserve">
     <value>Обнови</value>
+  </data>
+  <data name="EstateUpdatePage_Title" xml:space="preserve">
+    <value>Обновяване на имот</value>
   </data>
   <data name="InvalidLoginDetailsError" xml:space="preserve">
     <value>Невалиден e-mail или парола.</value>

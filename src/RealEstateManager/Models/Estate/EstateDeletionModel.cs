@@ -6,6 +6,13 @@ namespace RealEstateManager.Models.Estate
 {
     public class EstateDeletionModel
     {
+        public EstateDeletionModel() { }
+
+        public EstateDeletionModel(Guid id)
+        {
+            Id = id;
+        }
+
         [Display(
             Name = "EstateCreationModel_Id",
             ResourceType = typeof(Resources))]

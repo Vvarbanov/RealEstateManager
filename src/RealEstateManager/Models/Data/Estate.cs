@@ -32,6 +32,7 @@ namespace RealEstateManager.Models.Data
         public string PrivateDescription { get; set; }
         public double Area { get; set; }
         public Nullable<System.Guid> BuildingInfoId { get; set; }
+        public System.DateTime UpdateDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EstateAgent> Agents { get; set; }

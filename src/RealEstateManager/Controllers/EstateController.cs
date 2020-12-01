@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using RealEstateManager.Models.Estate;
 
@@ -9,7 +10,11 @@ namespace RealEstateManager.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var existing = db.Estates.Get(null, x => x.OrderByDescending(y => y.UpdateDate));
+
+            var model = new EstateListGetModel(existing);
+
+            return View(model);
         }
 
         public ActionResult Create()
@@ -30,12 +35,15 @@ namespace RealEstateManager.Controllers
             return View(model);
         }
 
-        public ActionResult Update(Guid id)
+        public ActionResult Update(Guid? id)
         {
-            var existing = db.Estates.GetById(id);
+            if (!id.HasValue)
+                return RedirectToAction("Index", "Home");
+
+            var existing = db.Estates.GetById(id.Value);
 
             if (existing == null)
-                return HttpNotFound();
+                return RedirectToAction("Index", "Home");
 
             var model = new EstateUpdateModel(
                 existing.Id,
@@ -65,12 +73,15 @@ namespace RealEstateManager.Controllers
             return View(model);
         }
 
-        public ActionResult Delete(Guid id)
+        public ActionResult Delete(Guid? id)
         {
-            var existing = db.Estates.GetById(id);
+            if (!id.HasValue)
+                return RedirectToAction("Index", "Home");
+
+            var existing = db.Estates.GetById(id.Value);
 
             if (existing == null)
-                return HttpNotFound();
+                return RedirectToAction("Index", "Home");
 
             var model = new EstateDeletionModel(existing.Id);
 

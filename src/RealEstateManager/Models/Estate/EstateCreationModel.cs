@@ -12,7 +12,7 @@ namespace RealEstateManager.Models.Estate
     public class EstateCreationModel : IValidatableObject
     {
         [Display(
-            Name = "EstateCreationModel_Name",
+            Name = "EstateModel_Name",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -20,7 +20,7 @@ namespace RealEstateManager.Models.Estate
         public string Name { get; set; }
 
         [Display(
-            Name = "EstateCreationModel_Type",
+            Name = "EstateModel_Type",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -28,7 +28,7 @@ namespace RealEstateManager.Models.Estate
         public EstateType Type { get; set; }
 
         [Display(
-            Name = "EstateCreationModel_Address",
+            Name = "EstateModel_Address",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -36,7 +36,7 @@ namespace RealEstateManager.Models.Estate
         public string Address { get; set; }
 
         [Display(
-            Name = "EstateCreationModel_Price",
+            Name = "EstateModel_Price",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -44,7 +44,7 @@ namespace RealEstateManager.Models.Estate
         public decimal Price { get; set; }
 
         [Display(
-            Name = "EstateCreationModel_Status",
+            Name = "EstateModel_Status",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -52,7 +52,7 @@ namespace RealEstateManager.Models.Estate
         public EstateStatusType Status { get; set; }
 
         [Display(
-            Name = "EstateCreationModel_PublicDescription",
+            Name = "EstateModel_PublicDescription",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -60,7 +60,7 @@ namespace RealEstateManager.Models.Estate
         public string PublicDescription { get; set; }
 
         [Display(
-            Name = "EstateCreationModel_PrivateDescription",
+            Name = "EstateModel_PrivateDescription",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -68,7 +68,7 @@ namespace RealEstateManager.Models.Estate
         public string PrivateDescription { get; set; }
 
         [Display(
-            Name = "EstateCreationModel_Area",
+            Name = "EstateModel_Area",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",

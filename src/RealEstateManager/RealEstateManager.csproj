@@ -183,6 +183,8 @@
     </Compile>
     <Compile Include="Models\Estate\EstateCreationModel.cs" />
     <Compile Include="Models\Estate\EstateDeletionModel.cs" />
+    <Compile Include="Models\Estate\EstateGetModel.cs" />
+    <Compile Include="Models\Estate\EstateListGetModel.cs" />
     <Compile Include="Models\Estate\EstateUpdateModel.cs" />
     <Compile Include="Repository\Data\AgentData.cs" />
     <Compile Include="Repository\Data\EstateData.cs" />

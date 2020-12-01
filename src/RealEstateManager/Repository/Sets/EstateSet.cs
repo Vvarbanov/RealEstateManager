@@ -32,7 +32,8 @@ namespace RealEstateManager.Repository.Sets
                 Area = data.Area,
                 Price = data.Price,
                 Status = data.Status,
-                Type = data.Type
+                Type = data.Type,
+                UpdateDate = DateTime.Now
             };
 
             _databaseContext.Estates.Add(estate);
@@ -46,7 +47,25 @@ namespace RealEstateManager.Repository.Sets
             Func<IQueryable<Estate>, IOrderedQueryable<Estate>> orderBy = null,
             string includeProperties = null)
         {
-            throw new NotImplementedException();
+            var query = _databaseContext.Estates.AsQueryable();
+
+            if (filter != null)
+                query = query.Where(filter);
+
+            if (!string.IsNullOrWhiteSpace(includeProperties))
+            {
+                var includePropsArray = includeProperties.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (var includeProp in includePropsArray)
+                {
+                    query = query.Include(includeProp);
+                }
+            }
+
+            if (orderBy != null)
+                query = orderBy(query);
+
+            return query;
         }
 
         public Estate GetById(Guid id, string includeProperties = null)
@@ -56,9 +75,12 @@ namespace RealEstateManager.Repository.Sets
 
             if (!string.IsNullOrWhiteSpace(includeProperties))
             {
-                return query
-                    .Include(includeProperties)
-                    .FirstOrDefault();
+                var includePropsArray = includeProperties.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (var includeProp in includePropsArray)
+                {
+                    query = query.Include(includeProp);
+                }
             }
 
             return query.FirstOrDefault();
@@ -82,6 +104,7 @@ namespace RealEstateManager.Repository.Sets
             estate.Price = data.Price;
             estate.Status = data.Status;
             estate.Type = data.Type;
+            estate.UpdateDate = DateTime.Now;
 
             _databaseContext.SaveChanges();
         }

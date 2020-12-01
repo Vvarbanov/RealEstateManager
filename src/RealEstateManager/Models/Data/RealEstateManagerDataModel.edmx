@@ -61,6 +61,7 @@
     <Property Name="PrivateDescription" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Area" Type="float" Nullable="false" />
     <Property Name="BuildingInfoId" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="BuildingInfoes">
     <Key>
@@ -299,6 +300,7 @@
           <NavigationProperty Name="Files" Relationship="RealEstateManagerDataModel.FileEstate" FromRole="Estate" ToRole="File" />
           <NavigationProperty Name="BuildingInfo" Relationship="RealEstateManagerDataModel.EstateBuildingInfo" FromRole="Estate" ToRole="BuildingInfo" />
           <Property Name="BuildingInfoId" Type="Guid" Nullable="true" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
         </EntityType>
         <EntityType Name="BuildingInfo">
           <Key>
@@ -519,6 +521,7 @@
           <ScalarProperty Name="PrivateDescription" ColumnName="PrivateDescription" />
           <ScalarProperty Name="Area" ColumnName="Area" />
           <ScalarProperty Name="BuildingInfoId" ColumnName="BuildingInfoId" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -14,7 +14,7 @@ namespace RealEstateManager.Models.Estate
         }
 
         [Display(
-            Name = "EstateCreationModel_Id",
+            Name = "EstateModel_Id",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",

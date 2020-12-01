@@ -83,7 +83,8 @@ CREATE TABLE [dbo].[Estates] (
     [PublicDescription] nvarchar(max)  NULL,
     [PrivateDescription] nvarchar(max)  NULL,
     [Area] float  NOT NULL,
-    [BuildingInfoId] uniqueidentifier  NULL
+    [BuildingInfoId] uniqueidentifier  NULL,
+    [UpdateDate] datetime  NOT NULL
 );
 GO
 

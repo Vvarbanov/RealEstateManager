@@ -117,6 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AgentForgottenPasswordEmail_Body" xml:space="preserve">
+    <value>&lt;p&gt;Здравейте {0},&lt;/p&gt;
+&lt;p&gt;Изпращаме Ви това писмо, защото получихме заявка, че сте забравили паролата си и искате да я смените.&lt;/p&gt;
+&lt;b&gt;Ако Вие не сте поискали това, можете да игнорирате това писмо.&lt;/b&gt;
+&lt;p&gt;Ако заявката идва от Вас, кликнете на този линк:&lt;p&gt;
+&lt;br/&gt;
+&lt;a href="{1}"&gt;{1}&lt;/a&gt;
+&lt;br/&gt;
+&lt;p&gt;П.С.: Това е автоматично генерирано писмо. Моля не му отговаряйте.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;Поздрави,&lt;/p&gt;
+&lt;p&gt;RealEstateManger&lt;/p&gt;</value>
+  </data>
+  <data name="AgentForgottenPasswordEmail_Subject" xml:space="preserve">
+    <value>RealEstateManager - Възстановяване на акаунт при забравена парола</value>
+  </data>
+  <data name="AgentForgottenPasswordForm_Header" xml:space="preserve">
+    <value>Възстановяване на акаунт при забравена парола</value>
+  </data>
+  <data name="AgentForgottenPasswordForm_RecoveryDescription" xml:space="preserve">
+    <value>Напишете e-mail адреса на акаунта си и ще получите линк към страницата, на която да смените паролата си.</value>
+  </data>
+  <data name="AgentForgottenPasswordForm_SubmitButtonText" xml:space="preserve">
+    <value>Изпращане</value>
+  </data>
+  <data name="AgentForgottenPasswordModel_EmailAddress" xml:space="preserve">
+    <value>E-mail адрес</value>
+  </data>
+  <data name="AgentForgottenPasswordPage_Title" xml:space="preserve">
+    <value>Възстановяване на забравена парола</value>
+  </data>
+  <data name="AgentIndexForm_Header" xml:space="preserve">
+    <value>Детайли за агент</value>
+  </data>
+  <data name="AgentIndexPage_Title" xml:space="preserve">
+    <value>Детайли за агент</value>
+  </data>
+  <data name="AgentInfoModel_EmailAddress" xml:space="preserve">
+    <value>E-mail адрес</value>
+  </data>
+  <data name="AgentInfoModel_Password" xml:space="preserve">
+    <value>Парола</value>
+  </data>
+  <data name="AgentInfoModel_PhoneNumber" xml:space="preserve">
+    <value>Телефонен номер</value>
+  </data>
+  <data name="AgentInfoModel_Username" xml:space="preserve">
+    <value>Потребителско име</value>
+  </data>
   <data name="AgentLoginForm_ForgottenPassword" xml:space="preserve">
     <value>Забравена парола</value>
   </data>
@@ -137,6 +186,18 @@
   </data>
   <data name="AgentLoginPage_Title" xml:space="preserve">
     <value>Вход</value>
+  </data>
+  <data name="AgentRecoverPasswordForm_Header" xml:space="preserve">
+    <value>Въведете нова парола</value>
+  </data>
+  <data name="AgentRecoverPasswordModel_InvalidToken_Error" xml:space="preserve">
+    <value>Невалиден токен за възстановяване на акаунт.</value>
+  </data>
+  <data name="AgentRecoverPasswordModel_NewPassword" xml:space="preserve">
+    <value>Нова парола</value>
+  </data>
+  <data name="AgentRecoverPasswordPage_Title" xml:space="preserve">
+    <value>Възстановяване на акаунт</value>
   </data>
   <data name="AgentRegisterForm_Header" xml:space="preserve">
     <value>Регистрация на брокер</value>
@@ -177,8 +238,23 @@
   <data name="ApplicationName" xml:space="preserve">
     <value>RealEstateManager</value>
   </data>
+  <data name="Button_Submit" xml:space="preserve">
+    <value>Изпрати</value>
+  </data>
+  <data name="HomeOperationSuccessfulPage_ReturnToHome" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="HomeOperationSuccessfulPage_Title" xml:space="preserve">
+    <value>Операцията е успешна</value>
+  </data>
   <data name="InvalidLoginDetailsError" xml:space="preserve">
     <value>Невалиден e-mail или парола.</value>
+  </data>
+  <data name="MenuButton_AgentLogin" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="MenuButton_AgentLogout" xml:space="preserve">
+    <value>Изход</value>
   </data>
   <data name="RequiredFieldError" xml:space="preserve">
     <value>Това поле е задължително.</value>

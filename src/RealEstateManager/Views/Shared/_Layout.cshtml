@@ -1,4 +1,10 @@
-﻿@using RealEstateManager.Utils
+﻿@using RealEstateManager.Controllers
+@using RealEstateManager.Utils
+
+@{
+    var db = BaseController.GetController(ViewContext).Context;
+}
+
 <!DOCTYPE html>
 
 <html>
@@ -15,13 +21,24 @@
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink(Localization.GetString("ApplicationName"), "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav mr-auto">
-                        <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new {@class = "nav-link"})</li>
-                        <li class="nav-item">@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })</li>
-                        <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>
+                        @if (Request.IsAuthenticated)
+                        {
+                            var currentIdentity = db.GetCurrentIdentity(User);
+
+                            <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink(currentIdentity.Name, "Index", "Agent", new { id = currentIdentity.Id }, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink(Localization.GetString("MenuButton_AgentLogout"), "Logout", "Agent", null, new { @class = "nav-link" })</li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">@Html.ActionLink(Localization.GetString("MenuButton_AgentLogin"), "Login", "Agent", null, new { @class = "nav-link" })</li>
+                        }
                     </ul>
                 </div>
             </div>

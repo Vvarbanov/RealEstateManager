@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/17/2020 14:18:30
+-- Date Created: 11/26/2020 17:16:11
 -- Generated from EDMX file: D:\Code\MyRepo\RealEstateManager\src\RealEstateManager\Models\Data\RealEstateManagerDataModel.edmx
 -- --------------------------------------------------
 
@@ -109,7 +109,8 @@ CREATE TABLE [dbo].[Agents] (
     [Username] nvarchar(max)  NOT NULL,
     [EmailAddress] nvarchar(max)  NOT NULL,
     [PasswordSalt] nvarchar(max)  NOT NULL,
-    [HashedPassword] nvarchar(max)  NOT NULL
+    [HashedPassword] nvarchar(max)  NOT NULL,
+    [ForgottenPasswordToken] nvarchar(max)  NULL
 );
 GO
 
@@ -130,7 +131,8 @@ CREATE TABLE [dbo].[PublicUsers] (
     [Username] nvarchar(max)  NOT NULL,
     [EmailAddress] nvarchar(max)  NOT NULL,
     [PasswordSalt] nvarchar(max)  NOT NULL,
-    [HashedPassword] nvarchar(max)  NOT NULL
+    [HashedPassword] nvarchar(max)  NOT NULL,
+    [ForgottenPasswordToken] nvarchar(max)  NULL
 );
 GO
 
@@ -339,6 +341,14 @@ CREATE UNIQUE NONCLUSTERED INDEX [IX_FK_EstateBuildingInfo]
 ON [dbo].[Estates]
     ([BuildingInfoId])
 WHERE [BuildingInfoId] IS NOT NULL;
+GO
+
+-- --------------------------------------------------
+-- Set DB version
+-- --------------------------------------------------
+
+INSERT INTO [dbo].[SystemValues]
+    VALUES (DEFAULT, N'Version', N'1');
 GO
 
 -- --------------------------------------------------

@@ -13,9 +13,13 @@ namespace RealEstateManager.Utils
 
                 return Guid.TryParse(guidStringValue, out var result) 
                     ? result 
-                    : Guid.Empty;
+                    : throw new InvalidOperationException("Invalid Agent Registration Key.");
             }
         }
+
+        public static string UserKey => GetSettingValue("UserKey");
+
+        public static string UserInitializationVector => GetSettingValue("UserInitializationVector");
 
         private static string GetSettingValue(string key)
         {

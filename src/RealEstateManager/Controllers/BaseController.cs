@@ -9,7 +9,7 @@ namespace RealEstateManager.Controllers
 
         protected EstatesContext db => _db ?? (_db = new EstatesContext());
 
-        public EstatesContext Context = new EstatesContext();
+        public EstatesContext Context => db;
 
         public ActionResult RedirectToReturnUrlOrHome(string returnUrl)
         {

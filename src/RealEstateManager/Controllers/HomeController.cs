@@ -4,11 +4,10 @@ namespace RealEstateManager.Controllers
 {
     public class HomeController : BaseController
     {
+        [Authorize]
         public ActionResult Index()
         {
-            return Request.IsAuthenticated 
-                ? RedirectToAction("Index", "Estate") 
-                : RedirectToAction("Login", "Agent");
+            return RedirectToAction("Index", "Estate");
         }
 
         public ActionResult About()
@@ -22,6 +21,11 @@ namespace RealEstateManager.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult OperationSuccessful()
+        {
             return View();
         }
     }

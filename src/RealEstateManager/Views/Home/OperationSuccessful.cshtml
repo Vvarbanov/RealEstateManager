@@ -1,0 +1,9 @@
+﻿@using RealEstateManager.Utils
+
+@{
+    ViewBag.Title = Localization.GetString("HomeOperationSuccessfulPage_Title");
+}
+
+<h1>@Localization.GetString("HomeOperationSuccessfulPage_Title")</h1>
+<hr />
+<strong>@Html.ActionLink(Localization.GetString("HomeOperationSuccessfulPage_ReturnToHome"), "Index", "Home")</strong>

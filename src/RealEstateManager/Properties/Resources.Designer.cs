@@ -61,6 +61,133 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Здравейте {0},&lt;/p&gt;
+        ///&lt;p&gt;Изпращаме Ви това писмо, защото получихме заявка, че сте забравили паролата си и искате да я смените.&lt;/p&gt;
+        ///&lt;b&gt;Ако Вие не сте поискали това, можете да игнорирате това писмо.&lt;/b&gt;
+        ///&lt;p&gt;Ако заявката идва от Вас, кликнете на този линк:&lt;p&gt;
+        ///&lt;br/&gt;
+        ///&lt;a href=&quot;{1}&quot;&gt;{1}&lt;/a&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;П.С.: Това е автоматично генерирано писмо. Моля не му отговаряйте.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;Поздрави,&lt;/p&gt;
+        ///&lt;p&gt;RealEstateManger&lt;/p&gt;.
+        /// </summary>
+        public static string AgentForgottenPasswordEmail_Body {
+            get {
+                return ResourceManager.GetString("AgentForgottenPasswordEmail_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RealEstateManager - Възстановяване на акаунт при забравена парола.
+        /// </summary>
+        public static string AgentForgottenPasswordEmail_Subject {
+            get {
+                return ResourceManager.GetString("AgentForgottenPasswordEmail_Subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Възстановяване на акаунт при забравена парола.
+        /// </summary>
+        public static string AgentForgottenPasswordForm_Header {
+            get {
+                return ResourceManager.GetString("AgentForgottenPasswordForm_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Напишете e-mail адреса на акаунта си и ще получите линк към страницата, на която да смените паролата си..
+        /// </summary>
+        public static string AgentForgottenPasswordForm_RecoveryDescription {
+            get {
+                return ResourceManager.GetString("AgentForgottenPasswordForm_RecoveryDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изпращане.
+        /// </summary>
+        public static string AgentForgottenPasswordForm_SubmitButtonText {
+            get {
+                return ResourceManager.GetString("AgentForgottenPasswordForm_SubmitButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail адрес.
+        /// </summary>
+        public static string AgentForgottenPasswordModel_EmailAddress {
+            get {
+                return ResourceManager.GetString("AgentForgottenPasswordModel_EmailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Възстановяване на забравена парола.
+        /// </summary>
+        public static string AgentForgottenPasswordPage_Title {
+            get {
+                return ResourceManager.GetString("AgentForgottenPasswordPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Детайли за агент.
+        /// </summary>
+        public static string AgentIndexForm_Header {
+            get {
+                return ResourceManager.GetString("AgentIndexForm_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Детайли за агент.
+        /// </summary>
+        public static string AgentIndexPage_Title {
+            get {
+                return ResourceManager.GetString("AgentIndexPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail адрес.
+        /// </summary>
+        public static string AgentInfoModel_EmailAddress {
+            get {
+                return ResourceManager.GetString("AgentInfoModel_EmailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Парола.
+        /// </summary>
+        public static string AgentInfoModel_Password {
+            get {
+                return ResourceManager.GetString("AgentInfoModel_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Телефонен номер.
+        /// </summary>
+        public static string AgentInfoModel_PhoneNumber {
+            get {
+                return ResourceManager.GetString("AgentInfoModel_PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Потребителско име.
+        /// </summary>
+        public static string AgentInfoModel_Username {
+            get {
+                return ResourceManager.GetString("AgentInfoModel_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Забравена парола.
         /// </summary>
         public static string AgentLoginForm_ForgottenPassword {
@@ -120,6 +247,42 @@ namespace RealEstateManager.Properties {
         public static string AgentLoginPage_Title {
             get {
                 return ResourceManager.GetString("AgentLoginPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Въведете нова парола.
+        /// </summary>
+        public static string AgentRecoverPasswordForm_Header {
+            get {
+                return ResourceManager.GetString("AgentRecoverPasswordForm_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Невалиден токен за възстановяване на акаунт..
+        /// </summary>
+        public static string AgentRecoverPasswordModel_InvalidToken_Error {
+            get {
+                return ResourceManager.GetString("AgentRecoverPasswordModel_InvalidToken_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нова парола.
+        /// </summary>
+        public static string AgentRecoverPasswordModel_NewPassword {
+            get {
+                return ResourceManager.GetString("AgentRecoverPasswordModel_NewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Възстановяване на акаунт.
+        /// </summary>
+        public static string AgentRecoverPasswordPage_Title {
+            get {
+                return ResourceManager.GetString("AgentRecoverPasswordPage_Title", resourceCulture);
             }
         }
         
@@ -248,6 +411,15 @@ namespace RealEstateManager.Properties {
                 return ResourceManager.GetString("EstateCreation_AddressExists_Error", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Изпрати.
+        /// </summary>
+        public static string Button_Submit {
+            get {
+                return ResourceManager.GetString("Button_Submit", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Невалидна площ. Тя трябва да бъде положително число..
@@ -255,6 +427,15 @@ namespace RealEstateManager.Properties {
         public static string EstateCreation_IncorrectArea_Error {
             get {
                 return ResourceManager.GetString("EstateCreation_IncorrectArea_Error", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Назад.
+        /// </summary>
+        public static string HomeOperationSuccessfulPage_ReturnToHome {
+            get {
+                return ResourceManager.GetString("HomeOperationSuccessfulPage_ReturnToHome", resourceCulture);
             }
         }
         
@@ -527,6 +708,15 @@ namespace RealEstateManager.Properties {
                 return ResourceManager.GetString("EstateUpdatePage_Title", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Операцията е успешна.
+        /// </summary>
+        public static string HomeOperationSuccessfulPage_Title {
+            get {
+                return ResourceManager.GetString("HomeOperationSuccessfulPage_Title", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Невалиден e-mail или парола..
@@ -534,6 +724,24 @@ namespace RealEstateManager.Properties {
         public static string InvalidLoginDetailsError {
             get {
                 return ResourceManager.GetString("InvalidLoginDetailsError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вход.
+        /// </summary>
+        public static string MenuButton_AgentLogin {
+            get {
+                return ResourceManager.GetString("MenuButton_AgentLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изход.
+        /// </summary>
+        public static string MenuButton_AgentLogout {
+            get {
+                return ResourceManager.GetString("MenuButton_AgentLogout", resourceCulture);
             }
         }
         

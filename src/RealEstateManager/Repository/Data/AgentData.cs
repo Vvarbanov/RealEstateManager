@@ -12,7 +12,6 @@
 
     public class AgentUpdateData
     {
-        public string Username { get; set; }
         public string EmailAddress { get; set; }
         public string PhoneNumber { get; set; }
     }

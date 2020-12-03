@@ -88,6 +88,7 @@
     <Property Name="EmailAddress" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PasswordSalt" Type="nvarchar(max)" Nullable="false" />
     <Property Name="HashedPassword" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ForgottenPasswordToken" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="EstateAgents">
     <Key>
@@ -109,6 +110,7 @@
     <Property Name="EmailAddress" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PasswordSalt" Type="nvarchar(max)" Nullable="false" />
     <Property Name="HashedPassword" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ForgottenPasswordToken" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="Contacts">
     <Key>
@@ -339,6 +341,7 @@
           <Property Name="HashedPassword" Type="String" Nullable="false" />
           <NavigationProperty Name="Estates" Relationship="RealEstateManagerDataModel.EstateAgentAgent" FromRole="Agent" ToRole="EstateAgent" />
           <NavigationProperty Name="Contacts" Relationship="RealEstateManagerDataModel.ContactAgent" FromRole="Agent" ToRole="Contact" />
+          <Property Name="ForgottenPasswordToken" Type="String" Nullable="true" />
         </EntityType>
         <EntityType Name="EstateAgent">
           <Key>
@@ -387,6 +390,7 @@
           <Property Name="PasswordSalt" Type="String" Nullable="false" />
           <Property Name="HashedPassword" Type="String" Nullable="false" />
           <NavigationProperty Name="Contacts" Relationship="RealEstateManagerDataModel.ContactPublicUser" FromRole="PublicUser" ToRole="Contact" />
+          <Property Name="ForgottenPasswordToken" Type="String" Nullable="true" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -550,6 +554,7 @@
           <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
           <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
           <ScalarProperty Name="HashedPassword" ColumnName="HashedPassword" />
+          <ScalarProperty Name="ForgottenPasswordToken" ColumnName="ForgottenPasswordToken" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -573,6 +578,7 @@
           <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
           <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
           <ScalarProperty Name="HashedPassword" ColumnName="HashedPassword" />
+          <ScalarProperty Name="ForgottenPasswordToken" ColumnName="ForgottenPasswordToken" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

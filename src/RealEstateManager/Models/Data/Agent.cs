@@ -29,6 +29,7 @@ namespace RealEstateManager.Models.Data
         public string EmailAddress { get; set; }
         public string PasswordSalt { get; set; }
         public string HashedPassword { get; set; }
+        public string ForgottenPasswordToken { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EstateAgent> Estates { get; set; }

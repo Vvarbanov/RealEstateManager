@@ -9,7 +9,7 @@ namespace RealEstateManager.Models.Agent
             Name = "AgentLoginModel_Email",
             ResourceType = typeof(Resources))]
         [Required(
-            ErrorMessageResourceName = "RequiredFieldError", 
+            ErrorMessageResourceName = "RequiredFieldError",
             ErrorMessageResourceType = typeof(Resources))]
         public string EmailAddress { get; set; }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -10,9 +11,39 @@ namespace RealEstateManager.Controllers
     [Authorize]
     public class AgentController : BaseController
     {
-        public ActionResult Index()
+        public ActionResult Index(Guid? id)
         {
-            return View();
+            if (id.HasValue)
+            {
+                var agent = db.Agents.GetById(id.Value);
+
+                if (agent != null)
+                {
+                    return View(new AgentInfoModel
+                    {
+                        Id = id.Value,
+                        EmailAddress = agent.EmailAddress,
+                        PhoneNumber = agent.PhoneNumber,
+                        Username = agent.Username,
+                    });
+                }
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(AgentInfoModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Agents.Update(model.Id, model.ToUpdateData());
+
+                db.Agents.ChangePassword(model.Id, model.Password);
+            }
+
+            return View(model);
         }
 
         [AllowAnonymous]
@@ -33,11 +64,11 @@ namespace RealEstateManager.Controllers
             if (ModelState.IsValid)
             {
                 var isValidAgent = db.Agents
-                    .IsValidAgent(model.EmailAddress, model.Password, out var username);
+                    .IsValidAgent(model.EmailAddress, model.Password, out var username, out var id);
 
                 if (isValidAgent)
                 {
-                    FormsAuthentication.SetAuthCookie(username, model.RememberMe);
+                    db.SetCurrentIdentityAgent(id, username, model.RememberMe);
 
                     return RedirectToReturnUrlOrHome(returnUrl);
                 }
@@ -103,6 +134,61 @@ namespace RealEstateManager.Controllers
 
                 db.Agents.Insert(model.ToData());
                 return RedirectToAction("Index", "Home");
+            }
+
+            return View(model);
+        }
+
+        [AllowAnonymous]
+        public ActionResult ForgottenPassword()
+        {
+            if (Request.IsAuthenticated)
+                return RedirectToAction("Index", "Home");
+
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ForgottenPassword(AgentForgottenPasswordModel model)
+        {
+            if (ModelState.IsValid && Request.Url != null)
+            {
+                var token = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
+                var recoveryUrl =
+                    $"{Request.Url.Scheme}://{Request.Url.Authority}{Url.Action("RecoverPassword", "Agent", new {token})}";
+
+                if (await db.Agents.TrySendForgottenPasswordEmailAsync(model.EmailAddress, token, recoveryUrl))
+                {
+                    return RedirectToAction("OperationSuccessful", "Home");
+                }
+            }
+
+            return View(model);
+        }
+
+        [AllowAnonymous]
+        public ActionResult RecoverPassword(string token)
+        {
+            return View(new AgentRecoverPasswordModel
+            {
+                Token = token,
+            });
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult RecoverPassword(AgentRecoverPasswordModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (db.Agents.TryRecoverAccount(model.Token, model.NewPassword))
+                    return RedirectToAction("Login", "Agent");
+
+                ModelState.AddModelError(string.Empty,
+                    Localization.GetString("AgentRecoverPasswordModel_InvalidToken_Error"));
             }
 
             return View(model);

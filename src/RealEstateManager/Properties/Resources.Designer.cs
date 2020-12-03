@@ -404,6 +404,15 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Имот на този адрес е вече регистриран..
+        /// </summary>
+        public static string EstateCreation_AddressExists_Error {
+            get {
+                return ResourceManager.GetString("EstateCreation_AddressExists_Error", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Изпрати.
         /// </summary>
         public static string Button_Submit {
@@ -413,6 +422,15 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Невалидна площ. Тя трябва да бъде положително число..
+        /// </summary>
+        public static string EstateCreation_IncorrectArea_Error {
+            get {
+                return ResourceManager.GetString("EstateCreation_IncorrectArea_Error", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Назад.
         /// </summary>
         public static string HomeOperationSuccessfulPage_ReturnToHome {
@@ -421,6 +439,276 @@ namespace RealEstateManager.Properties {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to Невалидна цена. Тя трябва да бъде положително число..
+        /// </summary>
+        public static string EstateCreation_IncorrectPrice_Error {
+            get {
+                return ResourceManager.GetString("EstateCreation_IncorrectPrice_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Това име вече съществува. Моля изберете друго..
+        /// </summary>
+        public static string EstateCreation_NameExists_Error {
+            get {
+                return ResourceManager.GetString("EstateCreation_NameExists_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Добавяне на нов имот.
+        /// </summary>
+        public static string EstateCreationPage_Header {
+            get {
+                return ResourceManager.GetString("EstateCreationPage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Създай.
+        /// </summary>
+        public static string EstateCreationPage_SubmitButtonText {
+            get {
+                return ResourceManager.GetString("EstateCreationPage_SubmitButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Създаване на имот.
+        /// </summary>
+        public static string EstateCreationPage_Title {
+            get {
+                return ResourceManager.GetString("EstateCreationPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изтриване на съществуващ имот.
+        /// </summary>
+        public static string EstateDeletePage_Header {
+            get {
+                return ResourceManager.GetString("EstateDeletePage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изтрии.
+        /// </summary>
+        public static string EstateDeletePage_SubmitButtonText {
+            get {
+                return ResourceManager.GetString("EstateDeletePage_SubmitButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сигурни ли сте че искате да изтриете имота?.
+        /// </summary>
+        public static string EstateDeletePage_Text {
+            get {
+                return ResourceManager.GetString("EstateDeletePage_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изтриване на имот.
+        /// </summary>
+        public static string EstateDeletePage_Title {
+            get {
+                return ResourceManager.GetString("EstateDeletePage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Няма обяви за имоти..
+        /// </summary>
+        public static string EstateGet_NoEstates_Error {
+            get {
+                return ResourceManager.GetString("EstateGet_NoEstates_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to кв. м..
+        /// </summary>
+        public static string EstateIndexPage_AreaSign {
+            get {
+                return ResourceManager.GetString("EstateIndexPage_AreaSign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Площ:.
+        /// </summary>
+        public static string EstateIndexPage_EstateArea {
+            get {
+                return ResourceManager.GetString("EstateIndexPage_EstateArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Цена:.
+        /// </summary>
+        public static string EstateIndexPage_EstatePrice {
+            get {
+                return ResourceManager.GetString("EstateIndexPage_EstatePrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Статус:.
+        /// </summary>
+        public static string EstateIndexPage_EstateStatus {
+            get {
+                return ResourceManager.GetString("EstateIndexPage_EstateStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип на имота:.
+        /// </summary>
+        public static string EstateIndexPage_EstateType {
+            get {
+                return ResourceManager.GetString("EstateIndexPage_EstateType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Всички имоти.
+        /// </summary>
+        public static string EstateIndexPage_Header {
+            get {
+                return ResourceManager.GetString("EstateIndexPage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to лв..
+        /// </summary>
+        public static string EstateIndexPage_MoneySign {
+            get {
+                return ResourceManager.GetString("EstateIndexPage_MoneySign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Имоти.
+        /// </summary>
+        public static string EstateIndexPage_Title {
+            get {
+                return ResourceManager.GetString("EstateIndexPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Адрес.
+        /// </summary>
+        public static string EstateModel_Address {
+            get {
+                return ResourceManager.GetString("EstateModel_Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Площ.
+        /// </summary>
+        public static string EstateModel_Area {
+            get {
+                return ResourceManager.GetString("EstateModel_Area", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Идентификатор.
+        /// </summary>
+        public static string EstateModel_Id {
+            get {
+                return ResourceManager.GetString("EstateModel_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Име.
+        /// </summary>
+        public static string EstateModel_Name {
+            get {
+                return ResourceManager.GetString("EstateModel_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Цена.
+        /// </summary>
+        public static string EstateModel_Price {
+            get {
+                return ResourceManager.GetString("EstateModel_Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Поверително описание.
+        /// </summary>
+        public static string EstateModel_PrivateDescription {
+            get {
+                return ResourceManager.GetString("EstateModel_PrivateDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Публично описание.
+        /// </summary>
+        public static string EstateModel_PublicDescription {
+            get {
+                return ResourceManager.GetString("EstateModel_PublicDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Статус.
+        /// </summary>
+        public static string EstateModel_Status {
+            get {
+                return ResourceManager.GetString("EstateModel_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип.
+        /// </summary>
+        public static string EstateModel_Type {
+            get {
+                return ResourceManager.GetString("EstateModel_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обновяване на съществуващ имот.
+        /// </summary>
+        public static string EstateUpdatePage_Header {
+            get {
+                return ResourceManager.GetString("EstateUpdatePage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обнови.
+        /// </summary>
+        public static string EstateUpdatePage_SubmitButtonText {
+            get {
+                return ResourceManager.GetString("EstateUpdatePage_SubmitButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обновяване на имот.
+        /// </summary>
+        public static string EstateUpdatePage_Title {
+            get {
+                return ResourceManager.GetString("EstateUpdatePage_Title", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Операцията е успешна.
         /// </summary>

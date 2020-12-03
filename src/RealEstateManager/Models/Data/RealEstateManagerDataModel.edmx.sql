@@ -2,8 +2,9 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/26/2020 17:57:11
--- Generated from EDMX file: D:\Code\MyRepo\RealEstateManager\src\RealEstateManager\Models\Data\RealEstateManagerDataModel.edmx
+
+-- Date Created: 12/01/2020 16:06:39
+-- Generated from EDMX file: D:\Workspace\uni\5 semester\ST\RealEstateManager\src\RealEstateManager\Models\Data\RealEstateManagerDataModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -86,7 +87,8 @@ CREATE TABLE [dbo].[Estates] (
     [PublicDescription] nvarchar(max)  NULL,
     [PrivateDescription] nvarchar(max)  NULL,
     [Area] float  NOT NULL,
-    [BuildingInfoId] uniqueidentifier  NULL
+    [BuildingInfoId] uniqueidentifier  NULL,
+    [UpdateDate] datetime  NOT NULL
 );
 GO
 
@@ -317,7 +319,8 @@ GO
 
 -- Creating foreign key on [EstateId] in table 'Files'
 ALTER TABLE [dbo].[Files]
-ADD CONSTRAINT [FK_FileEstate]
+ADD CONSTRAINT [FK_FileE
+state]
     FOREIGN KEY ([EstateId])
     REFERENCES [dbo].[Estates]
         ([Id])

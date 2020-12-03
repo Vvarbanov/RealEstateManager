@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -237,6 +237,102 @@
   </data>
   <data name="ApplicationName" xml:space="preserve">
     <value>RealEstateManager</value>
+  </data>
+  <data name="EstateCreationPage_Header" xml:space="preserve">
+    <value>Добавяне на нов имот</value>
+  </data>
+  <data name="EstateCreationPage_SubmitButtonText" xml:space="preserve">
+    <value>Създай</value>
+  </data>
+  <data name="EstateCreationPage_Title" xml:space="preserve">
+    <value>Създаване на имот</value>
+  </data>
+  <data name="EstateCreation_AddressExists_Error" xml:space="preserve">
+    <value>Имот на този адрес е вече регистриран.</value>
+  </data>
+  <data name="EstateCreation_IncorrectArea_Error" xml:space="preserve">
+    <value>Невалидна площ. Тя трябва да бъде положително число.</value>
+  </data>
+  <data name="EstateCreation_IncorrectPrice_Error" xml:space="preserve">
+    <value>Невалидна цена. Тя трябва да бъде положително число.</value>
+  </data>
+  <data name="EstateCreation_NameExists_Error" xml:space="preserve">
+    <value>Това име вече съществува. Моля изберете друго.</value>
+  </data>
+  <data name="EstateDeletePage_Header" xml:space="preserve">
+    <value>Изтриване на съществуващ имот</value>
+  </data>
+  <data name="EstateDeletePage_SubmitButtonText" xml:space="preserve">
+    <value>Изтрии</value>
+  </data>
+  <data name="EstateDeletePage_Text" xml:space="preserve">
+    <value>Сигурни ли сте че искате да изтриете имота?</value>
+  </data>
+  <data name="EstateDeletePage_Title" xml:space="preserve">
+    <value>Изтриване на имот</value>
+  </data>
+  <data name="EstateGet_NoEstates_Error" xml:space="preserve">
+    <value>Няма обяви за имоти.</value>
+  </data>
+  <data name="EstateIndexPage_AreaSign" xml:space="preserve">
+    <value>кв. м.</value>
+  </data>
+  <data name="EstateIndexPage_EstateArea" xml:space="preserve">
+    <value>Площ:</value>
+  </data>
+  <data name="EstateIndexPage_EstatePrice" xml:space="preserve">
+    <value>Цена:</value>
+  </data>
+  <data name="EstateIndexPage_EstateStatus" xml:space="preserve">
+    <value>Статус:</value>
+  </data>
+  <data name="EstateIndexPage_EstateType" xml:space="preserve">
+    <value>Тип на имота:</value>
+  </data>
+  <data name="EstateIndexPage_Header" xml:space="preserve">
+    <value>Всички имоти</value>
+  </data>
+  <data name="EstateIndexPage_MoneySign" xml:space="preserve">
+    <value>лв.</value>
+  </data>
+  <data name="EstateIndexPage_Title" xml:space="preserve">
+    <value>Имоти</value>
+  </data>
+  <data name="EstateModel_Address" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
+  <data name="EstateModel_Area" xml:space="preserve">
+    <value>Площ</value>
+  </data>
+  <data name="EstateModel_Id" xml:space="preserve">
+    <value>Идентификатор</value>
+  </data>
+  <data name="EstateModel_Name" xml:space="preserve">
+    <value>Име</value>
+  </data>
+  <data name="EstateModel_Price" xml:space="preserve">
+    <value>Цена</value>
+  </data>
+  <data name="EstateModel_PrivateDescription" xml:space="preserve">
+    <value>Поверително описание</value>
+  </data>
+  <data name="EstateModel_PublicDescription" xml:space="preserve">
+    <value>Публично описание</value>
+  </data>
+  <data name="EstateModel_Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="EstateModel_Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="EstateUpdatePage_Header" xml:space="preserve">
+    <value>Обновяване на съществуващ имот</value>
+  </data>
+  <data name="EstateUpdatePage_SubmitButtonText" xml:space="preserve">
+    <value>Обнови</value>
+  </data>
+  <data name="EstateUpdatePage_Title" xml:space="preserve">
+    <value>Обновяване на имот</value>
   </data>
   <data name="Button_Submit" xml:space="preserve">
     <value>Изпрати</value>

@@ -184,8 +184,14 @@
     <Compile Include="Models\Data\SystemValue.cs">
       <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Estate\EstateCreationModel.cs" />
+    <Compile Include="Models\Estate\EstateDeletionModel.cs" />
+    <Compile Include="Models\Estate\EstateGetModel.cs" />
+    <Compile Include="Models\Estate\EstateListGetModel.cs" />
+    <Compile Include="Models\Estate\EstateUpdateModel.cs" />
     <Compile Include="Repository\AgentIdentity.cs" />
     <Compile Include="Repository\Data\AgentData.cs" />
+    <Compile Include="Repository\Data\EstateData.cs" />
     <Compile Include="Repository\EstatesContext.cs" />
     <Compile Include="Repository\Interfaces\ICurrentIdentity.cs" />
     <Compile Include="Repository\Interfaces\ISet.cs" />
@@ -200,6 +206,7 @@
     </Compile>
     <Compile Include="Repository\PublicUserIdentity.cs" />
     <Compile Include="Repository\Sets\AgentSet.cs" />
+    <Compile Include="Repository\Sets\EstateSet.cs" />
     <Compile Include="Utils\ConfigReader.cs" />
     <Compile Include="Utils\CryptoHelper.cs" />
     <Compile Include="Utils\Localization.cs" />
@@ -458,6 +465,9 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Agent\Register.cshtml" />
+    <Content Include="Views\Estate\Create.cshtml" />
+    <Content Include="Views\Estate\Update.cshtml" />
+    <Content Include="Views\Estate\Delete.cshtml" />
     <Content Include="Views\Agent\Index.cshtml" />
     <Content Include="Views\Agent\ForgottenPassword.cshtml" />
     <Content Include="Views\Home\OperationSuccessful.cshtml" />

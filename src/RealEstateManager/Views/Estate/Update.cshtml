@@ -16,9 +16,8 @@
             <h3>@Localization.GetString("EstateUpdatePage_Header")</h3>
         </div>
         <div class="card-body bg-light">
-            <div class="form-group">
-                @Html.HiddenFor(x => x.Id)
-            </div>
+            @Html.HiddenFor(x => x.Id)
+            @Html.HiddenFor(x => x.BuildingInfoId)
             <div class="form-group">
                 @Html.LabelFor(x => x.Name)
                 @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "form-control" } })

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using RealEstateManager.Models.Estate;
+using RealEstateManager.Models.Data;
 
 namespace RealEstateManager.Controllers
 {
@@ -28,7 +29,11 @@ namespace RealEstateManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Estates.Insert(model.ToData());
+                var estate = db.Estates.Insert(model.ToData());
+
+                if (model.Type.Equals(EstateType.Apartment) || model.Type.Equals(EstateType.House))
+                    return RedirectToAction("Create", "BuildingInfo", new { estateId = estate.Id });
+
                 return RedirectToAction("Index", "Home");
             }
 
@@ -57,6 +62,8 @@ namespace RealEstateManager.Controllers
                 existing.Area
                 );
 
+            model.BuildingInfoId = existing.BuildingInfoId;
+
             return View(model);
         }
 
@@ -67,6 +74,18 @@ namespace RealEstateManager.Controllers
             if (ModelState.IsValid)
             {
                 db.Estates.Update(model.Id, model.ToData());
+
+                if (model.Type.Equals(EstateType.Apartment) || model.Type.Equals(EstateType.House))
+                {
+                    if (model.BuildingInfoId.HasValue)
+                        return RedirectToAction("Update", "BuildingInfo", new { id = model.BuildingInfoId.Value, estateId = model.Id });
+
+                    return RedirectToAction("Create", "BuildingInfo", new { estateId = model.Id });
+                }
+
+                if (model.Type.Equals(EstateType.Land) && model.BuildingInfoId.HasValue)
+                    db.BuildingInfoes.Delete(model.BuildingInfoId.Value);
+
                 return RedirectToAction("Index", "Home");
             }
 

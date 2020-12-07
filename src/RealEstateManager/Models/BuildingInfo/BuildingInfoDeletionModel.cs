@@ -2,13 +2,13 @@
 using RealEstateManager.Properties;
 using System.ComponentModel.DataAnnotations;
 
-namespace RealEstateManager.Models.Estate
+namespace RealEstateManager.Models.BuildingInfo
 {
-    public class EstateDeletionModel
+    public class BuildingInfoDeletionModel
     {
-        public EstateDeletionModel() { }
+        public BuildingInfoDeletionModel() { }
 
-        public EstateDeletionModel(Guid id)
+        public BuildingInfoDeletionModel(Guid id)
         {
             Id = id;
         }

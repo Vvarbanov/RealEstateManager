@@ -1,0 +1,27 @@
+﻿@using RealEstateManager.Utils
+@model RealEstateManager.Models.BuildingInfo.BuildingInfoDeletionModel
+
+@{
+    ViewBag.Title = Localization.GetString("BuildingInfoDeletePage_Title");
+}
+
+@Html.ValidationSummary(true, null, new { @class = "text-danger" })
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h3>@Localization.GetString("BuildingInfoDeletePage_Header")</h3>
+        </div>
+        <div class="card-body bg-light">
+            <p>@Localization.GetString("BuildingInfoDeletePage_Text")</p>
+            <div class="form-group">
+                @Html.HiddenFor(x => x.Id)
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">@Localization.GetString("BuildingInfoDeletePage_SubmitButtonText")</button>
+            </div>
+        </div>
+    </div>
+}

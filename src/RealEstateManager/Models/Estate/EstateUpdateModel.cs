@@ -26,9 +26,6 @@ namespace RealEstateManager.Models.Estate
             Area = area;
         }
 
-        [Display(
-            Name = "EstateModel_Id",
-            ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
             ErrorMessageResourceType = typeof(Resources))]
@@ -97,6 +94,8 @@ namespace RealEstateManager.Models.Estate
             ErrorMessageResourceName = "RequiredFieldError",
             ErrorMessageResourceType = typeof(Resources))]
         public double Area { get; set; }
+
+        public Guid? BuildingInfoId { get; set; }
 
         public EstateData ToData()
         {

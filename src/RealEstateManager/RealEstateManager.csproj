@@ -129,6 +129,7 @@
     <Compile Include="Areas\Public\PublicAreaRegistration.cs" />
     <Compile Include="Controllers\AgentController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BuildingInfoController.cs" />
     <Compile Include="Controllers\EstateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\Agent\AgentForgottenPasswordModel.cs" />
@@ -136,6 +137,9 @@
     <Compile Include="Models\Agent\AgentLoginModel.cs" />
     <Compile Include="Models\Agent\AgentRecoverPasswordModel.cs" />
     <Compile Include="Models\Agent\AgentRegisterModel.cs" />
+    <Compile Include="Models\BuildingInfo\BuildingInfoCreationModel.cs" />
+    <Compile Include="Models\BuildingInfo\BuildingInfoDeletionModel.cs" />
+    <Compile Include="Models\BuildingInfo\BuildingInfoUpdateModel.cs" />
     <Compile Include="Models\Data\Agent.cs">
       <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
     </Compile>
@@ -191,6 +195,7 @@
     <Compile Include="Models\Estate\EstateUpdateModel.cs" />
     <Compile Include="Repository\AgentIdentity.cs" />
     <Compile Include="Repository\Data\AgentData.cs" />
+    <Compile Include="Repository\Data\BuildingInfoData.cs" />
     <Compile Include="Repository\Data\EstateData.cs" />
     <Compile Include="Repository\EstatesContext.cs" />
     <Compile Include="Repository\Interfaces\ICurrentIdentity.cs" />
@@ -206,6 +211,7 @@
     </Compile>
     <Compile Include="Repository\PublicUserIdentity.cs" />
     <Compile Include="Repository\Sets\AgentSet.cs" />
+    <Compile Include="Repository\Sets\BuildingInfoSet.cs" />
     <Compile Include="Repository\Sets\EstateSet.cs" />
     <Compile Include="Utils\ConfigReader.cs" />
     <Compile Include="Utils\CryptoHelper.cs" />
@@ -472,6 +478,9 @@
     <Content Include="Views\Agent\ForgottenPassword.cshtml" />
     <Content Include="Views\Home\OperationSuccessful.cshtml" />
     <Content Include="Views\Agent\RecoverPassword.cshtml" />
+    <Content Include="Views\BuildingInfo\Create.cshtml" />
+    <Content Include="Views\BuildingInfo\Update.cshtml" />
+    <Content Include="Views\BuildingInfo\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

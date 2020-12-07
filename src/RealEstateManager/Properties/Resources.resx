@@ -304,9 +304,6 @@
   <data name="EstateModel_Area" xml:space="preserve">
     <value>Площ</value>
   </data>
-  <data name="EstateModel_Id" xml:space="preserve">
-    <value>Идентификатор</value>
-  </data>
   <data name="EstateModel_Name" xml:space="preserve">
     <value>Име</value>
   </data>
@@ -354,5 +351,71 @@
   </data>
   <data name="RequiredFieldError" xml:space="preserve">
     <value>Това поле е задължително.</value>
+  </data>
+  <data name="BuildingInfoCreationPage_Header" xml:space="preserve">
+    <value>Добавяне на детайли за имот</value>
+  </data>
+  <data name="BuildingInfoCreationPage_SubmitButtonText" xml:space="preserve">
+    <value>Запази</value>
+  </data>
+  <data name="BuildingInfoCreationPage_Title" xml:space="preserve">
+    <value>Добавяне на детайли</value>
+  </data>
+  <data name="BuildingInfoCreation_IncorrectBalconies_Error" xml:space="preserve">
+    <value>Невалиден брой балкони. Те трябва да бъдат положително число.</value>
+  </data>
+  <data name="BuildingInfoCreation_IncorrectBathrooms_Error" xml:space="preserve">
+    <value>Невалиден брой бани. Те трябва да бъдат положително число.</value>
+  </data>
+  <data name="BuildingInfoCreation_IncorrectBedrooms_Error" xml:space="preserve">
+    <value>Невалиден брой спални. Те трябва да бъдат положително число.</value>
+  </data>
+  <data name="BuildingInfoCreation_IncorrectFloors_Error" xml:space="preserve">
+    <value>Невалиден брой етажи. Те трябва да бъдат един или повече.</value>
+  </data>
+  <data name="BuildingInfoCreation_IncorrectGarages_Error" xml:space="preserve">
+    <value>Невалиден брой гаражи. Те трябва да бъдат положително число.</value>
+  </data>
+  <data name="BuildingInfoDeletePage_Header" xml:space="preserve">
+    <value>Изтриване на детайли за имот</value>
+  </data>
+  <data name="BuildingInfoDeletePage_SubmitButtonText" xml:space="preserve">
+    <value>Изтрии</value>
+  </data>
+  <data name="BuildingInfoDeletePage_Text" xml:space="preserve">
+    <value>Сигурни ли сте че искате да изтриете детайлите за имота?</value>
+  </data>
+  <data name="BuildingInfoDeletePage_Title" xml:space="preserve">
+    <value>Изтриване на детайли</value>
+  </data>
+  <data name="BuildingInfoModel_Act16" xml:space="preserve">
+    <value>Акт 16</value>
+  </data>
+  <data name="BuildingInfoModel_Balconies" xml:space="preserve">
+    <value>Брой Балкони/Тераси</value>
+  </data>
+  <data name="BuildingInfoModel_Bathrooms" xml:space="preserve">
+    <value>Брой Бани</value>
+  </data>
+  <data name="BuildingInfoModel_Bedrooms" xml:space="preserve">
+    <value>Брой Спални</value>
+  </data>
+  <data name="BuildingInfoModel_Floors" xml:space="preserve">
+    <value>Брой Етажи</value>
+  </data>
+  <data name="BuildingInfoModel_Garages" xml:space="preserve">
+    <value>Брой Гаражи</value>
+  </data>
+  <data name="BuildingInfoModel_View" xml:space="preserve">
+    <value>Изглед</value>
+  </data>
+  <data name="BuildingInfoUpdatePage_Header" xml:space="preserve">
+    <value>Обновяване на детайлите за имот</value>
+  </data>
+  <data name="BuildingInfoUpdatePage_SubmitButtonText" xml:space="preserve">
+    <value>Обнови</value>
+  </data>
+  <data name="BuildingInfoUpdatePage_Title" xml:space="preserve">
+    <value>Обновяване на детайли</value>
   </data>
 </root>

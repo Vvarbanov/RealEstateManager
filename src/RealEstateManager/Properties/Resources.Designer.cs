@@ -485,6 +485,69 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Детайли за информацията на имота.
+        /// </summary>
+        public static string BuildingInfoDetailsPage_Title {
+            get {
+                return ResourceManager.GetString("BuildingInfoDetailsPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Акт 16: .
+        /// </summary>
+        public static string BuildingInfoIndexPage_InfoAct16 {
+            get {
+                return ResourceManager.GetString("BuildingInfoIndexPage_InfoAct16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Брой балкони/тераси:.
+        /// </summary>
+        public static string BuildingInfoIndexPage_InfoBalconies {
+            get {
+                return ResourceManager.GetString("BuildingInfoIndexPage_InfoBalconies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Брой бани:.
+        /// </summary>
+        public static string BuildingInfoIndexPage_InfoBathrooms {
+            get {
+                return ResourceManager.GetString("BuildingInfoIndexPage_InfoBathrooms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Брой спални:.
+        /// </summary>
+        public static string BuildingInfoIndexPage_InfoBedrooms {
+            get {
+                return ResourceManager.GetString("BuildingInfoIndexPage_InfoBedrooms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Брой етажи: .
+        /// </summary>
+        public static string BuildingInfoIndexPage_InfoFloors {
+            get {
+                return ResourceManager.GetString("BuildingInfoIndexPage_InfoFloors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Брой гаражи:.
+        /// </summary>
+        public static string BuildingInfoIndexPage_InfoGarages {
+            get {
+                return ResourceManager.GetString("BuildingInfoIndexPage_InfoGarages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Акт 16.
         /// </summary>
         public static string BuildingInfoModel_Act16 {
@@ -706,6 +769,15 @@ namespace RealEstateManager.Properties {
         public static string EstateDeletePage_Title {
             get {
                 return ResourceManager.GetString("EstateDeletePage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Информация за имот.
+        /// </summary>
+        public static string EstateDetailsPage_Header {
+            get {
+                return ResourceManager.GetString("EstateDetailsPage_Header", resourceCulture);
             }
         }
         

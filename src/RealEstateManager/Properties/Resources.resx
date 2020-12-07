@@ -433,4 +433,28 @@
   <data name="Button_Update" xml:space="preserve">
     <value>Обнови</value>
   </data>
+  <data name="BuildingInfoDetailsPage_Title" xml:space="preserve">
+    <value>Детайли за информацията на имота</value>
+  </data>
+  <data name="BuildingInfoIndexPage_InfoAct16" xml:space="preserve">
+    <value>Акт 16: </value>
+  </data>
+  <data name="BuildingInfoIndexPage_InfoBalconies" xml:space="preserve">
+    <value>Брой балкони/тераси:</value>
+  </data>
+  <data name="BuildingInfoIndexPage_InfoBathrooms" xml:space="preserve">
+    <value>Брой бани:</value>
+  </data>
+  <data name="BuildingInfoIndexPage_InfoBedrooms" xml:space="preserve">
+    <value>Брой спални:</value>
+  </data>
+  <data name="BuildingInfoIndexPage_InfoFloors" xml:space="preserve">
+    <value>Брой етажи: </value>
+  </data>
+  <data name="BuildingInfoIndexPage_InfoGarages" xml:space="preserve">
+    <value>Брой гаражи:</value>
+  </data>
+  <data name="EstateDetailsPage_Header" xml:space="preserve">
+    <value>Информация за имот</value>
+  </data>
 </root>

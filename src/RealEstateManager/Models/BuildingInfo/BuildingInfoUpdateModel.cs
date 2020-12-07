@@ -99,6 +99,7 @@ namespace RealEstateManager.Models.BuildingInfo
                 Garages = Garages
             };
         }
+
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if (Floors <= 0)

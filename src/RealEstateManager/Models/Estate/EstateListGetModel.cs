@@ -25,7 +25,9 @@ namespace RealEstateManager.Models.Estate
                         Type = estate.Type,
                         Price = estate.Price,
                         Status = estate.Status,
+                        Address = estate.Address,
                         PublicDescription = estate.PublicDescription,
+                        PrivateDescription = estate.PrivateDescription,
                         Area = estate.Area,
                     });
             }

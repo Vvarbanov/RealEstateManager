@@ -1,0 +1,18 @@
+﻿@using RealEstateManager.Utils
+@model RealEstateManager.Models.BuildingInfo.BuildingInfoGetModel
+
+@{
+    ViewBag.Title = Localization.GetString("BuildingInfoDeletePage_Title");
+}
+
+@Html.ValidationSummary(true, null, new { @class = "text-danger" })
+
+@using (Html.BeginForm())
+{
+    <p>@(Model.Act16? "Yes" : "No")</p>
+    <p>@Model.Floors</p>
+    <p>@Model.Bedrooms</p>
+    <p>@Model.Bathrooms</p>
+    <p>@Model.Balconies</p>
+    <p>@Model.Garages</p>
+}

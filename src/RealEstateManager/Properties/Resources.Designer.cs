@@ -395,42 +395,6 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Създай.
-        /// </summary>
-        public static string Button_Create {
-            get {
-                return ResourceManager.GetString("Button_Create", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Изтрий.
-        /// </summary>
-        public static string Button_Delete {
-            get {
-                return ResourceManager.GetString("Button_Delete", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Детайли.
-        /// </summary>
-        public static string Button_Details {
-            get {
-                return ResourceManager.GetString("Button_Details", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Редактирай.
-        /// </summary>
-        public static string Button_Edit {
-            get {
-                return ResourceManager.GetString("Button_Edit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Невалиден брой балкони. Те трябва да бъдат положително число..
         /// </summary>
         public static string BuildingInfoCreation_IncorrectBalconies_Error {
@@ -485,15 +449,6 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Запази.
-        /// </summary>
-        public static string BuildingInfoCreationPage_SubmitButtonText {
-            get {
-                return ResourceManager.GetString("BuildingInfoCreationPage_SubmitButtonText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Добавяне на детайли.
         /// </summary>
         public static string BuildingInfoCreationPage_Title {
@@ -508,15 +463,6 @@ namespace RealEstateManager.Properties {
         public static string BuildingInfoDeletePage_Header {
             get {
                 return ResourceManager.GetString("BuildingInfoDeletePage_Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Изтрии.
-        /// </summary>
-        public static string BuildingInfoDeletePage_SubmitButtonText {
-            get {
-                return ResourceManager.GetString("BuildingInfoDeletePage_SubmitButtonText", resourceCulture);
             }
         }
         
@@ -611,22 +557,56 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Обнови.
+        ///   Looks up a localized string similar to Обновяване на детайли.
         /// </summary>
-        public static string BuildingInfoUpdatePage_SubmitButtonText {
+        public static string BuildingInfoUpdatePage_Title {
             get {
-                return ResourceManager.GetString("BuildingInfoUpdatePage_SubmitButtonText", resourceCulture);
+                return ResourceManager.GetString("BuildingInfoUpdatePage_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Обновяване на детайли.
+        ///   Looks up a localized string similar to Създай.
+        /// </summary>
+        public static string Button_Create {
+            get {
+                return ResourceManager.GetString("Button_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изтрий.
+        /// </summary>
+        public static string Button_Delete {
+            get {
+                return ResourceManager.GetString("Button_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Детайли.
+        /// </summary>
+        public static string Button_Details {
+            get {
+                return ResourceManager.GetString("Button_Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Редактирай.
+        /// </summary>
+        public static string Button_Edit {
+            get {
+                return ResourceManager.GetString("Button_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вход.
         /// </summary>
         public static string Button_Login {
-        public static string BuildingInfoUpdatePage_Title {
             get {
                 return ResourceManager.GetString("Button_Login", resourceCulture);
-                return ResourceManager.GetString("BuildingInfoUpdatePage_Title", resourceCulture);
             }
         }
         
@@ -636,6 +616,15 @@ namespace RealEstateManager.Properties {
         public static string Button_Submit {
             get {
                 return ResourceManager.GetString("Button_Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обнови.
+        /// </summary>
+        public static string Button_Update {
+            get {
+                return ResourceManager.GetString("Button_Update", resourceCulture);
             }
         }
         
@@ -888,15 +877,6 @@ namespace RealEstateManager.Properties {
         public static string EstateUpdatePage_Title {
             get {
                 return ResourceManager.GetString("EstateUpdatePage_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Назад.
-        /// </summary>
-        public static string HomeOperationSuccessfulPage_ReturnToHome {
-            get {
-                return ResourceManager.GetString("HomeOperationSuccessfulPage_ReturnToHome", resourceCulture);
             }
         }
         

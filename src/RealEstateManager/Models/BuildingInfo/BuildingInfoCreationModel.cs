@@ -86,6 +86,7 @@ namespace RealEstateManager.Models.BuildingInfo
                 EstateId = EstateId
             };
         }
+
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if (Floors <= 0)

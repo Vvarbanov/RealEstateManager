@@ -139,6 +139,7 @@
     <Compile Include="Models\Agent\AgentRegisterModel.cs" />
     <Compile Include="Models\BuildingInfo\BuildingInfoCreationModel.cs" />
     <Compile Include="Models\BuildingInfo\BuildingInfoDeletionModel.cs" />
+    <Compile Include="Models\BuildingInfo\BuildingInfoGetModel.cs" />
     <Compile Include="Models\BuildingInfo\BuildingInfoUpdateModel.cs" />
     <Compile Include="Models\Data\Agent.cs">
       <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
@@ -482,6 +483,8 @@
     <Content Include="Views\BuildingInfo\Create.cshtml" />
     <Content Include="Views\BuildingInfo\Update.cshtml" />
     <Content Include="Views\BuildingInfo\Delete.cshtml" />
+    <Content Include="Views\BuildingInfo\Details.cshtml" />
+    <Content Include="Views\Estate\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,34 @@
+﻿@using RealEstateManager.Utils
+@model RealEstateManager.Models.Estate.EstateGetModel
+
+@{
+    ViewBag.Title = Localization.GetString("EstateIndexPage_Title");
+}
+
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <h3>@Localization.GetString("EstateIndexPage_Header")</h3>
+    </div>
+    <div class="card-body bg-light">
+        <div class="jumbotron">
+            <h1 class="display-4">@Model.Name</h1>
+            <p class="lead">@Localization.GetString("EstateIndexPage_EstateType") @CustomEnumHelper.GetLocalizedName(Model.Type)</p>
+            <p class="lead">@Localization.GetString("EstateIndexPage_EstateStatus") @CustomEnumHelper.GetLocalizedName(Model.Status)</p>
+            <hr class="my-4">
+
+            <p class="lead">
+                @Localization.GetString("EstateIndexPage_EstateArea") @Model.Area @Localization.GetString("EstateIndexPage_AreaSign")
+            </p>
+            <p class="lead">
+                @Localization.GetString("EstateIndexPage_EstatePrice") @Model.Price @Localization.GetString("EstateIndexPage_MoneySign")
+            </p>
+            <p>@Model.Address</p>
+            <p>@Model.PublicDescription</p>
+            <p>@Model.PrivateDescription</p>
+            @if (Model.BuildingInfo != null)
+            {
+                @Html.Partial("~/Views/BuildingInfo/Details.cshtml", Model.getBuildingInfoModel())
+            }
+        </div>
+    </div>
+</div>

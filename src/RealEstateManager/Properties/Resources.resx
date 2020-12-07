@@ -346,9 +346,6 @@
   <data name="BuildingInfoCreationPage_Header" xml:space="preserve">
     <value>Добавяне на детайли за имот</value>
   </data>
-  <data name="BuildingInfoCreationPage_SubmitButtonText" xml:space="preserve">
-    <value>Запази</value>
-  </data>
   <data name="BuildingInfoCreationPage_Title" xml:space="preserve">
     <value>Добавяне на детайли</value>
   </data>
@@ -369,9 +366,6 @@
   </data>
   <data name="BuildingInfoDeletePage_Header" xml:space="preserve">
     <value>Изтриване на детайли за имот</value>
-  </data>
-  <data name="BuildingInfoDeletePage_SubmitButtonText" xml:space="preserve">
-    <value>Изтрии</value>
   </data>
   <data name="BuildingInfoDeletePage_Text" xml:space="preserve">
     <value>Сигурни ли сте че искате да изтриете детайлите за имота?</value>
@@ -402,9 +396,6 @@
   </data>
   <data name="BuildingInfoUpdatePage_Header" xml:space="preserve">
     <value>Обновяване на детайлите за имот</value>
-  </data>
-  <data name="BuildingInfoUpdatePage_SubmitButtonText" xml:space="preserve">
-    <value>Обнови</value>
   </data>
   <data name="BuildingInfoUpdatePage_Title" xml:space="preserve">
     <value>Обновяване на детайли</value>
@@ -438,5 +429,8 @@
   </data>
   <data name="Button_Edit" xml:space="preserve">
     <value>Редактирай</value>
+  </data>
+  <data name="Button_Update" xml:space="preserve">
+    <value>Обнови</value>
   </data>
 </root>

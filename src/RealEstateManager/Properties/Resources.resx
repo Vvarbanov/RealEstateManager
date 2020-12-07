@@ -172,7 +172,7 @@
   <data name="AgentLoginForm_Header" xml:space="preserve">
     <value>Вход в системата</value>
   </data>
-  <data name="AgentLoginForm_SubmitButtonText" xml:space="preserve">
+  <data name="Button_Login" xml:space="preserve">
     <value>Вход</value>
   </data>
   <data name="AgentLoginModel_Email" xml:space="preserve">
@@ -241,9 +241,6 @@
   <data name="EstateCreationPage_Header" xml:space="preserve">
     <value>Добавяне на нов имот</value>
   </data>
-  <data name="EstateCreationPage_SubmitButtonText" xml:space="preserve">
-    <value>Създай</value>
-  </data>
   <data name="EstateCreationPage_Title" xml:space="preserve">
     <value>Създаване на имот</value>
   </data>
@@ -261,9 +258,6 @@
   </data>
   <data name="EstateDeletePage_Header" xml:space="preserve">
     <value>Изтриване на съществуващ имот</value>
-  </data>
-  <data name="EstateDeletePage_SubmitButtonText" xml:space="preserve">
-    <value>Изтрии</value>
   </data>
   <data name="EstateDeletePage_Text" xml:space="preserve">
     <value>Сигурни ли сте че искате да изтриете имота?</value>
@@ -328,9 +322,6 @@
   <data name="EstateUpdatePage_Header" xml:space="preserve">
     <value>Обновяване на съществуващ имот</value>
   </data>
-  <data name="EstateUpdatePage_SubmitButtonText" xml:space="preserve">
-    <value>Обнови</value>
-  </data>
   <data name="EstateUpdatePage_Title" xml:space="preserve">
     <value>Обновяване на имот</value>
   </data>
@@ -354,5 +345,35 @@
   </data>
   <data name="RequiredFieldError" xml:space="preserve">
     <value>Това поле е задължително.</value>
+  </data>
+  <data name="MenuButton_Estates" xml:space="preserve">
+    <value>Имоти</value>
+  </data>
+  <data name="RealEstateManager_Models_Data_EstateStatusType_ForRent" xml:space="preserve">
+    <value>Под наем</value>
+  </data>
+  <data name="RealEstateManager_Models_Data_EstateStatusType_ForSale" xml:space="preserve">
+    <value>За продан</value>
+  </data>
+  <data name="RealEstateManager_Models_Data_EstateType_Apartment" xml:space="preserve">
+    <value>Апартамент</value>
+  </data>
+  <data name="RealEstateManager_Models_Data_EstateType_House" xml:space="preserve">
+    <value>Къща</value>
+  </data>
+  <data name="RealEstateManager_Models_Data_EstateType_Land" xml:space="preserve">
+    <value>Земя</value>
+  </data>
+  <data name="Button_Create" xml:space="preserve">
+    <value>Създай</value>
+  </data>
+  <data name="Button_Delete" xml:space="preserve">
+    <value>Изтрий</value>
+  </data>
+  <data name="Button_Details" xml:space="preserve">
+    <value>Детайли</value>
+  </data>
+  <data name="Button_Edit" xml:space="preserve">
+    <value>Редактирай</value>
   </data>
 </root>

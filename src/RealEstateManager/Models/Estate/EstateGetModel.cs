@@ -10,17 +10,7 @@ namespace RealEstateManager.Models.Estate
 {
     public class EstateGetModel
     {
-        public EstateGetModel() { }
-
-        public EstateGetModel(string name, EstateType type, decimal price, EstateStatusType status, string publicDescription, double area)
-        {
-            Name = name;
-            Type = type;
-            Price = price;
-            Status = status;
-            PublicDescription = publicDescription;
-            Area = area;
-        }
+        public Guid Id { get; set; }
 
         [Display(
             Name = "EstateModel_Name",

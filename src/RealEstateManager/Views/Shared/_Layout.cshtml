@@ -29,15 +29,11 @@
                         {
                             var currentIdentity = db.GetCurrentIdentity(User);
 
-                            <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink(Localization.GetString("MenuButton_Estates"), "Index", "Home", null, new { @class = "nav-link" })</li>
                             <li class="nav-item">@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })</li>
                             <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>
                             <li class="nav-item">@Html.ActionLink(currentIdentity.Name, "Index", "Agent", new { id = currentIdentity.Id }, new { @class = "nav-link" })</li>
                             <li class="nav-item">@Html.ActionLink(Localization.GetString("MenuButton_AgentLogout"), "Logout", "Agent", null, new { @class = "nav-link" })</li>
-                        }
-                        else
-                        {
-                            <li class="nav-item">@Html.ActionLink(Localization.GetString("MenuButton_AgentLogin"), "Login", "Agent", null, new { @class = "nav-link" })</li>
                         }
                     </ul>
                 </div>
@@ -47,7 +43,7 @@
             @RenderBody()
             <hr />
             <footer>
-                <p>&#169; @DateTime.Now.Year - My ASP.NET Application</p>
+                <p>&#169; @DateTime.Now.Year - @Localization.GetString("ApplicationName")</p>
             </footer>
         </div>
 

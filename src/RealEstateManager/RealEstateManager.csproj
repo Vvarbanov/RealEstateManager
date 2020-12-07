@@ -215,6 +215,7 @@
     <Compile Include="Repository\Sets\EstateSet.cs" />
     <Compile Include="Utils\ConfigReader.cs" />
     <Compile Include="Utils\CryptoHelper.cs" />
+    <Compile Include="Utils\CustomEnumHelper.cs" />
     <Compile Include="Utils\Localization.cs" />
     <Compile Include="Utils\PasswordHelper.cs" />
   </ItemGroup>

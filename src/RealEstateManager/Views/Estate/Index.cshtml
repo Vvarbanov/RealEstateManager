@@ -5,7 +5,6 @@
     ViewBag.Title = Localization.GetString("EstateIndexPage_Title");
 }
 
-@Html.AntiForgeryToken()
 <div class="card">
     <div class="card-header bg-primary text-white">
         <h3>@Localization.GetString("EstateIndexPage_Header")</h3>
@@ -28,6 +27,9 @@
                         @Localization.GetString("EstateIndexPage_EstatePrice") @estate.Price @Localization.GetString("EstateIndexPage_MoneySign")
                     </p>
                     <p>@estate.PublicDescription</p>
+                    @Html.ActionLink(Localization.GetString("Button_Details"), "Details", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink(Localization.GetString("Button_Delete"), "Delete", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
                 </div>
             }
         }

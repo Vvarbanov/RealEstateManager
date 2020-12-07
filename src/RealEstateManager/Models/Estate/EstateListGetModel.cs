@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace RealEstateManager.Models.Estate
 {
@@ -18,18 +15,19 @@ namespace RealEstateManager.Models.Estate
         {
             Estates = new List<EstateGetModel>();
 
-            foreach (Data.Estate estate in estates)
+            foreach (var estate in estates)
             {
                 Estates.Add(
-                    new EstateGetModel(
-                        estate.Name,
-                        estate.Type,
-                        estate.Price,
-                        estate.Status,
-                        estate.PublicDescription,
-                        estate.Area
-                        )
-                    );
+                    new EstateGetModel
+                    {
+                        Id = estate.Id,
+                        Name = estate.Name,
+                        Type = estate.Type,
+                        Price = estate.Price,
+                        Status = estate.Status,
+                        PublicDescription = estate.PublicDescription,
+                        Area = estate.Area,
+                    });
             }
         }
 

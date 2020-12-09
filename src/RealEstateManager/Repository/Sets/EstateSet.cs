@@ -111,7 +111,7 @@ namespace RealEstateManager.Repository.Sets
 
         public void Delete(Guid id)
         {
-            var estate = GetById(id, "BuildingInfo");
+            var estate = GetById(id);
 
             if (estate == null)
                 throw new InvalidOperationException($"Estate with id {id} not found.");

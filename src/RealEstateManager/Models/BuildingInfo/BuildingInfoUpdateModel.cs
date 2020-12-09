@@ -11,20 +11,6 @@ namespace RealEstateManager.Models.BuildingInfo
 {
     public class BuildingInfoUpdateModel
     {
-        public BuildingInfoUpdateModel() { }
-
-        public BuildingInfoUpdateModel(Guid id, BuildingViewType view, bool act16, int floors, int bedrooms, int bathrooms, int balconies, int garages)
-        {
-            Id = id;
-            View = view;
-            Act16 = act16;
-            Floors = floors;
-            Bedrooms = bedrooms;
-            Bathrooms = bathrooms;
-            Balconies = balconies;
-            Garages = garages;
-        }
-
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
             ErrorMessageResourceType = typeof(Resources))]

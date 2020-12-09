@@ -11,21 +11,6 @@ namespace RealEstateManager.Models.Estate
 {
     public class EstateUpdateModel : IValidatableObject
     {
-        public EstateUpdateModel() { }
-
-        public EstateUpdateModel(Guid id, string name, EstateType type, string address, decimal price, EstateStatusType status, string publicDescription, string privateDescription, double area)
-        {
-            Id = id;
-            Name = name;
-            Type = type;
-            Address = address;
-            Price = price;
-            Status = status;
-            PublicDescription = publicDescription;
-            PrivateDescription = privateDescription;
-            Area = area;
-        }
-
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
             ErrorMessageResourceType = typeof(Resources))]

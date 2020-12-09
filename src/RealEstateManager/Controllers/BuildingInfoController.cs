@@ -47,16 +47,17 @@ namespace RealEstateManager.Controllers
             if (existing == null)
                 return RedirectToAction("Index", "Home");
 
-            var model = new BuildingInfoUpdateModel(
-                existing.Id,
-                existing.View,
-                existing.Act16,
-                existing.Floors,
-                existing.Bedrooms,
-                existing.Bathrooms,
-                existing.Balconies,
-                existing.Garages
-                );
+            var model = new BuildingInfoUpdateModel
+            {
+                Id = existing.Id,
+                View = existing.View,
+                Act16 = existing.Act16,
+                Floors = existing.Floors,
+                Bedrooms = existing.Bedrooms,
+                Bathrooms = existing.Bathrooms,
+                Balconies = existing.Balconies,
+                Garages = existing.Garages
+            };
 
             return View(model);
         }
@@ -85,7 +86,10 @@ namespace RealEstateManager.Controllers
             if (existing == null)
                 return RedirectToAction("Index", "Home");
 
-            var model = new BuildingInfoDeletionModel(existing.Id);
+            var model = new BuildingInfoDeletionModel
+            {
+                Id = existing.Id
+            };
 
             return View(model);
         }

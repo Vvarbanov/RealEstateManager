@@ -77,17 +77,18 @@ namespace RealEstateManager.Controllers
             if (existing == null)
                 return RedirectToAction("Index", "Home");
 
-            var model = new EstateUpdateModel(
-                existing.Id,
-                existing.Name,
-                existing.Type,
-                existing.Address,
-                existing.Price,
-                existing.Status,
-                existing.PublicDescription,
-                existing.PrivateDescription,
-                existing.Area
-                );
+            var model = new EstateUpdateModel
+            {
+                Id = existing.Id,
+                Name = existing.Name,
+                Type = existing.Type,
+                Address = existing.Address,
+                Price = existing.Price,
+                Status = existing.Status,
+                PublicDescription = existing.PublicDescription,
+                PrivateDescription = existing.PrivateDescription,
+                Area = existing.Area
+            };
 
             model.BuildingInfoId = existing.BuildingInfoId;
 
@@ -129,7 +130,11 @@ namespace RealEstateManager.Controllers
             if (existing == null)
                 return RedirectToAction("Index", "Home");
 
-            var model = new EstateDeletionModel(existing.Id);
+            var model = new EstateDeletionModel
+            {
+                Id = existing.Id,
+                BuildingInfoId = existing.BuildingInfoId
+            };
 
             return View(model);
         }
@@ -140,6 +145,9 @@ namespace RealEstateManager.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (model.BuildingInfoId.HasValue)
+                    db.BuildingInfoes.Delete(model.BuildingInfoId.Value);
+
                 db.Estates.Delete(model.Id);
                 return RedirectToAction("Index", "Home");
             }

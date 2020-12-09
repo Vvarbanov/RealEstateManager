@@ -8,7 +8,11 @@
 @using (Html.BeginForm())
 {
     <p>
-        @Localization.GetString("BuildingInfoIndexPage_InfoAct16") @(Model.Act16? "Yes" : "No")
+        @Localization.GetString("BuildingInfoIndexPage_InfoViewType") @CustomEnumHelper.GetLocalizedName(Model.View)
+    </p>
+    <p>
+        @Localization.GetString("BuildingInfoIndexPage_InfoAct16") @(Model.Act16?
+        @Localization.GetString("BuildingInfoIndexPage_InfoAct16_Yes") : @Localization.GetString("BuildingInfoIndexPage_InfoAct16_No"))
     </p>
     <p>
         @Localization.GetString("BuildingInfoIndexPage_InfoFloors") @Model.Floors

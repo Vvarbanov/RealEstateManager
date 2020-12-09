@@ -22,13 +22,15 @@
             <p class="lead">
                 @Localization.GetString("EstateIndexPage_EstatePrice") @Model.Price @Localization.GetString("EstateIndexPage_MoneySign")
             </p>
-            <p>@Model.Address</p>
-            <p>@Model.PublicDescription</p>
-            <p>@Model.PrivateDescription</p>
+            <p class="lead">
+                @Localization.GetString("EstateIndexPage_EstateAddress") @Model.Address
+            </p>
             @if (Model.BuildingInfo != null)
             {
                 @Html.Partial("~/Views/BuildingInfo/Details.cshtml", Model.getBuildingInfoModel())
             }
+            <p>@Model.PrivateDescription</p>
+            <p>@Model.PublicDescription</p>
         </div>
     </div>
 </div>

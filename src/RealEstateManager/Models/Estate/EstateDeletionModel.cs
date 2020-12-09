@@ -6,16 +6,11 @@ namespace RealEstateManager.Models.Estate
 {
     public class EstateDeletionModel
     {
-        public EstateDeletionModel() { }
-
-        public EstateDeletionModel(Guid id)
-        {
-            Id = id;
-        }
-
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
             ErrorMessageResourceType = typeof(Resources))]
         public Guid Id { get; set; }
+
+        public Guid? BuildingInfoId { get; set; }
     }
 }

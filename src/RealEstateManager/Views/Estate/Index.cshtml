@@ -26,7 +26,9 @@
                     <p class="lead">
                         @Localization.GetString("EstateIndexPage_EstatePrice") @estate.Price @Localization.GetString("EstateIndexPage_MoneySign")
                     </p>
-                    <p>@estate.PublicDescription</p>
+                    <p class="lead">
+                        @Localization.GetString("EstateIndexPage_EstateAddress") @estate.Address
+                    </p>
                     @Html.ActionLink(Localization.GetString("Button_Details"), "Details", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
                     @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
                     @Html.ActionLink(Localization.GetString("Button_Delete"), "Delete", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })

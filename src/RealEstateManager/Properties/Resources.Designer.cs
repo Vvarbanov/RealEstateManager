@@ -503,6 +503,24 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Няма.
+        /// </summary>
+        public static string BuildingInfoIndexPage_InfoAct16_No {
+            get {
+                return ResourceManager.GetString("BuildingInfoIndexPage_InfoAct16_No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Има.
+        /// </summary>
+        public static string BuildingInfoIndexPage_InfoAct16_Yes {
+            get {
+                return ResourceManager.GetString("BuildingInfoIndexPage_InfoAct16_Yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Брой балкони/тераси:.
         /// </summary>
         public static string BuildingInfoIndexPage_InfoBalconies {
@@ -544,6 +562,15 @@ namespace RealEstateManager.Properties {
         public static string BuildingInfoIndexPage_InfoGarages {
             get {
                 return ResourceManager.GetString("BuildingInfoIndexPage_InfoGarages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изглед:.
+        /// </summary>
+        public static string BuildingInfoIndexPage_InfoViewType {
+            get {
+                return ResourceManager.GetString("BuildingInfoIndexPage_InfoViewType", resourceCulture);
             }
         }
         
@@ -800,6 +827,15 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Адрес:.
+        /// </summary>
+        public static string EstateIndexPage_EstateAddress {
+            get {
+                return ResourceManager.GetString("EstateIndexPage_EstateAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Площ:.
         /// </summary>
         public static string EstateIndexPage_EstateArea {
@@ -1003,6 +1039,42 @@ namespace RealEstateManager.Properties {
         public static string MenuButton_Estates {
             get {
                 return ResourceManager.GetString("MenuButton_Estates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Запад.
+        /// </summary>
+        public static string RealEstateManager_Models_Data_BuildingViewType_East {
+            get {
+                return ResourceManager.GetString("RealEstateManager_Models_Data_BuildingViewType_East", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Север.
+        /// </summary>
+        public static string RealEstateManager_Models_Data_BuildingViewType_North {
+            get {
+                return ResourceManager.GetString("RealEstateManager_Models_Data_BuildingViewType_North", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Юг.
+        /// </summary>
+        public static string RealEstateManager_Models_Data_BuildingViewType_South {
+            get {
+                return ResourceManager.GetString("RealEstateManager_Models_Data_BuildingViewType_South", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изток.
+        /// </summary>
+        public static string RealEstateManager_Models_Data_BuildingViewType_West {
+            get {
+                return ResourceManager.GetString("RealEstateManager_Models_Data_BuildingViewType_West", resourceCulture);
             }
         }
         

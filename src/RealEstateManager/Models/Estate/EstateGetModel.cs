@@ -57,16 +57,18 @@ namespace RealEstateManager.Models.Estate
 
         public BuildingInfoGetModel getBuildingInfoModel()
         {
-            return new BuildingInfoGetModel
-            {
-                Act16 = BuildingInfo.Act16,
-                View = BuildingInfo.View,
-                Floors = BuildingInfo.Floors,
-                Bedrooms = BuildingInfo.Bedrooms,
-                Bathrooms = BuildingInfo.Bathrooms,
-                Balconies = BuildingInfo.Balconies,
-                Garages = BuildingInfo.Garages
-            };
+            return BuildingInfo != null ?
+                new BuildingInfoGetModel
+                {
+                    Act16 = BuildingInfo.Act16,
+                    View = BuildingInfo.View,
+                    Floors = BuildingInfo.Floors,
+                    Bedrooms = BuildingInfo.Bedrooms,
+                    Bathrooms = BuildingInfo.Bathrooms,
+                    Balconies = BuildingInfo.Balconies,
+                    Garages = BuildingInfo.Garages
+                } :
+                new BuildingInfoGetModel();
         }
     }
 }

@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using RealEstateManager.Models.Data;
 using RealEstateManager.Properties;
-using RealEstateManager.Repository.Data;
 using System.ComponentModel.DataAnnotations;
-using RealEstateManager.Utils;
+
 namespace RealEstateManager.Models.BuildingInfo
 {
     public class BuildingInfoGetModel

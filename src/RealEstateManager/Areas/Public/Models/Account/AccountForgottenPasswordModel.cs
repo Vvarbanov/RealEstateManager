@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using RealEstateManager.Properties;
 
-namespace RealEstateManager.Models.Agent
+namespace RealEstateManager.Areas.Public.Models.Account
 {
-    public class AgentForgottenPasswordModel
+    public class AccountForgottenPasswordModel
     {
         [Display(
-            Name = "AgentForgottenPasswordModel_EmailAddress",
+            Name = "Public_AccountForgottenPasswordModel_EmailAddress",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",

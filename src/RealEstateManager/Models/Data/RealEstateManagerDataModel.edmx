@@ -8,43 +8,34 @@
   <EntityContainer Name="RealEstateManagerDataModelStoreContainer">
     <EntitySet Name="Estates" EntityType="RealEstateManagerDataModel.Store.Estates" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="BuildingInfoes" EntityType="RealEstateManagerDataModel.Store.BuildingInfoes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Agents" EntityType="RealEstateManagerDataModel.Store.Agents" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="EstateAgents" EntityType="RealEstateManagerDataModel.Store.EstateAgents" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PublicUsers" EntityType="RealEstateManagerDataModel.Store.PublicUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Accounts" EntityType="RealEstateManagerDataModel.Store.Accounts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EstateAccounts" EntityType="RealEstateManagerDataModel.Store.EstateAccounts" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Contacts" EntityType="RealEstateManagerDataModel.Store.Contacts" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Files" EntityType="RealEstateManagerDataModel.Store.Files" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SystemValues" EntityType="RealEstateManagerDataModel.Store.SystemValues" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="EstateAgentEstate" Association="RealEstateManagerDataModel.Store.EstateAgentEstate">
-      <End Role="EstateAgent" EntitySet="EstateAgents" />
+    <EntitySet Name="ContactAccounts" EntityType="RealEstateManagerDataModel.Store.ContactAccounts" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="EstateAccountEstate" Association="RealEstateManagerDataModel.Store.EstateAccountEstate">
+      <End Role="EstateAccount" EntitySet="EstateAccounts" />
       <End Role="Estate" EntitySet="Estates" />
     </AssociationSet>
-    <AssociationSet Name="EstateAgentAgent" Association="RealEstateManagerDataModel.Store.EstateAgentAgent">
-      <End Role="EstateAgent" EntitySet="EstateAgents" />
-      <End Role="Agent" EntitySet="Agents" />
+    <AssociationSet Name="EstateAccountAccount" Association="RealEstateManagerDataModel.Store.EstateAccountAccount">
+      <End Role="EstateAccount" EntitySet="EstateAccounts" />
+      <End Role="Account" EntitySet="Accounts" />
     </AssociationSet>
     <AssociationSet Name="ContactEstate" Association="RealEstateManagerDataModel.Store.ContactEstate">
       <End Role="Contact" EntitySet="Contacts" />
       <End Role="Estate" EntitySet="Estates" />
     </AssociationSet>
-    <AssociationSet Name="ContactAgent" Association="RealEstateManagerDataModel.Store.ContactAgent">
-      <End Role="Contact" EntitySet="Contacts" />
-      <End Role="Agent" EntitySet="Agents" />
-    </AssociationSet>
-    <AssociationSet Name="ContactPublicUser" Association="RealEstateManagerDataModel.Store.ContactPublicUser">
-      <End Role="Contact" EntitySet="Contacts" />
-      <End Role="PublicUser" EntitySet="PublicUsers" />
-    </AssociationSet>
-    <AssociationSet Name="FileContact" Association="RealEstateManagerDataModel.Store.FileContact">
-      <End Role="File" EntitySet="Files" />
-      <End Role="Contact" EntitySet="Contacts" />
-    </AssociationSet>
-    <AssociationSet Name="FileEstate" Association="RealEstateManagerDataModel.Store.FileEstate">
-      <End Role="File" EntitySet="Files" />
-      <End Role="Estate" EntitySet="Estates" />
-    </AssociationSet>
     <AssociationSet Name="EstateBuildingInfo" Association="RealEstateManagerDataModel.Store.EstateBuildingInfo">
       <End Role="Estate" EntitySet="Estates" />
       <End Role="BuildingInfo" EntitySet="BuildingInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="AccountContactAccount" Association="RealEstateManagerDataModel.Store.AccountContactAccount">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="ContactAccount" EntitySet="ContactAccounts" />
+    </AssociationSet>
+    <AssociationSet Name="ContactContactAccount" Association="RealEstateManagerDataModel.Store.ContactContactAccount">
+      <End Role="Contact" EntitySet="Contacts" />
+      <End Role="ContactAccount" EntitySet="ContactAccounts" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Estates">
@@ -62,6 +53,7 @@
     <Property Name="Area" Type="float" Nullable="false" />
     <Property Name="BuildingInfoId" Type="uniqueidentifier" Nullable="true" />
     <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="FilePathsCSV" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="BuildingInfoes">
     <Key>
@@ -76,7 +68,7 @@
     <Property Name="Balconies" Type="int" Nullable="false" />
     <Property Name="Garages" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Agents">
+  <EntityType Name="Accounts">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -84,33 +76,20 @@
     <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Type" Type="int" Nullable="false" />
     <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
     <Property Name="EmailAddress" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PasswordSalt" Type="nvarchar(max)" Nullable="false" />
     <Property Name="HashedPassword" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ForgottenPasswordToken" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
-  <EntityType Name="EstateAgents">
+  <EntityType Name="EstateAccounts">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="EstateId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="AgentId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="PublicUsers">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="EmailAddress" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="PasswordSalt" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="HashedPassword" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ForgottenPasswordToken" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AccountId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="Contacts">
     <Key>
@@ -121,18 +100,9 @@
     <Property Name="Number" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Outcome" Type="nvarchar(max)" Nullable="false" />
     <Property Name="EstateId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="AgentId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AccountId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PublicUserId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Files">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PathOnFileSystem" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DisplayName" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="ContactId" Type="uniqueidentifier" Nullable="true" />
-    <Property Name="EstateId" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="FilePathsCSV" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="SystemValues">
     <Key>
@@ -142,27 +112,35 @@
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <Association Name="EstateAgentEstate">
-    <End Role="EstateAgent" Type="RealEstateManagerDataModel.Store.EstateAgents" Multiplicity="*" />
+  <EntityType Name="ContactAccounts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AccountId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ContactId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="EstateAccountEstate">
+    <End Role="EstateAccount" Type="RealEstateManagerDataModel.Store.EstateAccounts" Multiplicity="*" />
     <End Role="Estate" Type="RealEstateManagerDataModel.Store.Estates" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Estate">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="EstateAgent">
+      <Dependent Role="EstateAccount">
         <PropertyRef Name="EstateId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="EstateAgentAgent">
-    <End Role="EstateAgent" Type="RealEstateManagerDataModel.Store.EstateAgents" Multiplicity="*" />
-    <End Role="Agent" Type="RealEstateManagerDataModel.Store.Agents" Multiplicity="1" />
+  <Association Name="EstateAccountAccount">
+    <End Role="EstateAccount" Type="RealEstateManagerDataModel.Store.EstateAccounts" Multiplicity="*" />
+    <End Role="Account" Type="RealEstateManagerDataModel.Store.Accounts" Multiplicity="1" />
     <ReferentialConstraint>
-      <Principal Role="Agent">
+      <Principal Role="Account">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="EstateAgent">
-        <PropertyRef Name="AgentId" />
+      <Dependent Role="EstateAccount">
+        <PropertyRef Name="AccountId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -174,54 +152,6 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Contact">
-        <PropertyRef Name="EstateId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="ContactAgent">
-    <End Role="Contact" Type="RealEstateManagerDataModel.Store.Contacts" Multiplicity="*" />
-    <End Role="Agent" Type="RealEstateManagerDataModel.Store.Agents" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Agent">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Contact">
-        <PropertyRef Name="AgentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="ContactPublicUser">
-    <End Role="Contact" Type="RealEstateManagerDataModel.Store.Contacts" Multiplicity="*" />
-    <End Role="PublicUser" Type="RealEstateManagerDataModel.Store.PublicUsers" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="PublicUser">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Contact">
-        <PropertyRef Name="PublicUserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FileContact">
-    <End Role="File" Type="RealEstateManagerDataModel.Store.Files" Multiplicity="*" />
-    <End Role="Contact" Type="RealEstateManagerDataModel.Store.Contacts" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Contact">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="File">
-        <PropertyRef Name="ContactId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FileEstate">
-    <End Role="File" Type="RealEstateManagerDataModel.Store.Files" Multiplicity="*" />
-    <End Role="Estate" Type="RealEstateManagerDataModel.Store.Estates" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Estate">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="File">
         <PropertyRef Name="EstateId" />
       </Dependent>
     </ReferentialConstraint>
@@ -238,6 +168,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="AccountContactAccount">
+    <End Role="Account" Type="RealEstateManagerDataModel.Store.Accounts" Multiplicity="1" />
+    <End Role="ContactAccount" Type="RealEstateManagerDataModel.Store.ContactAccounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContactAccount">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContactContactAccount">
+    <End Role="Contact" Type="RealEstateManagerDataModel.Store.Contacts" Multiplicity="1" />
+    <End Role="ContactAccount" Type="RealEstateManagerDataModel.Store.ContactAccounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContactAccount">
+        <PropertyRef Name="ContactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -245,44 +199,35 @@
         <EntityContainer Name="RealEstateManagerDataModelContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Estates" EntityType="RealEstateManagerDataModel.Estate" />
           <EntitySet Name="BuildingInfoes" EntityType="RealEstateManagerDataModel.BuildingInfo" />
-          <EntitySet Name="Agents" EntityType="RealEstateManagerDataModel.Agent" />
-          <EntitySet Name="EstateAgents" EntityType="RealEstateManagerDataModel.EstateAgent" />
-          <AssociationSet Name="EstateAgentEstate" Association="RealEstateManagerDataModel.EstateAgentEstate">
-            <End Role="EstateAgent" EntitySet="EstateAgents" />
+          <EntitySet Name="Accounts" EntityType="RealEstateManagerDataModel.Account" />
+          <EntitySet Name="EstateAccounts" EntityType="RealEstateManagerDataModel.EstateAccount" />
+          <AssociationSet Name="EstateAccountEstate" Association="RealEstateManagerDataModel.EstateAccountEstate">
+            <End Role="EstateAccount" EntitySet="EstateAccounts" />
             <End Role="Estate" EntitySet="Estates" />
           </AssociationSet>
-          <AssociationSet Name="EstateAgentAgent" Association="RealEstateManagerDataModel.EstateAgentAgent">
-            <End Role="EstateAgent" EntitySet="EstateAgents" />
-            <End Role="Agent" EntitySet="Agents" />
+          <AssociationSet Name="EstateAccountAccount" Association="RealEstateManagerDataModel.EstateAccountAccount">
+            <End Role="EstateAccount" EntitySet="EstateAccounts" />
+            <End Role="Account" EntitySet="Accounts" />
           </AssociationSet>
-          <EntitySet Name="PublicUsers" EntityType="RealEstateManagerDataModel.PublicUser" />
           <EntitySet Name="Contacts" EntityType="RealEstateManagerDataModel.Contact" />
           <AssociationSet Name="ContactEstate" Association="RealEstateManagerDataModel.ContactEstate">
             <End EntitySet="Contacts" Role="Contact" />
             <End EntitySet="Estates" Role="Estate" />
-          </AssociationSet>
-          <AssociationSet Name="ContactAgent" Association="RealEstateManagerDataModel.ContactAgent">
-            <End EntitySet="Contacts" Role="Contact" />
-            <End EntitySet="Agents" Role="Agent" />
-          </AssociationSet>
-          <AssociationSet Name="ContactPublicUser" Association="RealEstateManagerDataModel.ContactPublicUser">
-            <End Role="Contact" EntitySet="Contacts" />
-            <End Role="PublicUser" EntitySet="PublicUsers" />
-          </AssociationSet>
-          <EntitySet Name="Files" EntityType="RealEstateManagerDataModel.File" />
-          <AssociationSet Name="FileContact" Association="RealEstateManagerDataModel.FileContact">
-            <End Role="File" EntitySet="Files" />
-            <End Role="Contact" EntitySet="Contacts" />
-          </AssociationSet>
-          <AssociationSet Name="FileEstate" Association="RealEstateManagerDataModel.FileEstate">
-            <End Role="File" EntitySet="Files" />
-            <End Role="Estate" EntitySet="Estates" />
           </AssociationSet>
           <AssociationSet Name="EstateBuildingInfo" Association="RealEstateManagerDataModel.EstateBuildingInfo">
             <End Role="Estate" EntitySet="Estates" />
             <End Role="BuildingInfo" EntitySet="BuildingInfoes" />
           </AssociationSet>
           <EntitySet Name="SystemValues" EntityType="RealEstateManagerDataModel.SystemValue" />
+          <EntitySet Name="ContactAccounts" EntityType="RealEstateManagerDataModel.ContactAccount" />
+          <AssociationSet Name="AccountContactAccount" Association="RealEstateManagerDataModel.AccountContactAccount">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="ContactAccount" EntitySet="ContactAccounts" />
+          </AssociationSet>
+          <AssociationSet Name="ContactContactAccount" Association="RealEstateManagerDataModel.ContactContactAccount">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="ContactAccount" EntitySet="ContactAccounts" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Estate">
           <Key>
@@ -297,12 +242,12 @@
           <Property Name="PublicDescription" Type="String" Nullable="true" />
           <Property Name="PrivateDescription" Type="String" Nullable="true" />
           <Property Name="Area" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Agents" Relationship="RealEstateManagerDataModel.EstateAgentEstate" FromRole="Estate" ToRole="EstateAgent" />
+          <NavigationProperty Name="Account" Relationship="RealEstateManagerDataModel.EstateAccountEstate" FromRole="Estate" ToRole="EstateAccount" />
           <NavigationProperty Name="Contacts" Relationship="RealEstateManagerDataModel.ContactEstate" FromRole="Estate" ToRole="Contact" />
-          <NavigationProperty Name="Files" Relationship="RealEstateManagerDataModel.FileEstate" FromRole="Estate" ToRole="File" />
           <NavigationProperty Name="BuildingInfo" Relationship="RealEstateManagerDataModel.EstateBuildingInfo" FromRole="Estate" ToRole="BuildingInfo" />
           <Property Name="BuildingInfoId" Type="Guid" Nullable="true" />
           <Property Name="UpdateDate" Type="DateTime" Nullable="false" />
+          <Property Name="FilePathsCSV" Type="String" Nullable="true" />
         </EntityType>
         <EntityType Name="BuildingInfo">
           <Key>
@@ -327,7 +272,7 @@
           <Member Name="ForSale" Value="0" />
           <Member Name="ForRent" Value="1" />
         </EnumType>
-        <EntityType Name="Agent">
+        <EntityType Name="Account">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -335,63 +280,49 @@
           <Property Name="FirstName" Type="String" Nullable="false" />
           <Property Name="LastName" Type="String" Nullable="false" />
           <Property Name="PhoneNumber" Type="String" Nullable="true" />
+          <Property Name="Type" Type="RealEstateManagerDataModel.UserType" Nullable="false" />
           <Property Name="Username" Type="String" Nullable="false" />
           <Property Name="EmailAddress" Type="String" Nullable="false" />
           <Property Name="PasswordSalt" Type="String" Nullable="false" />
           <Property Name="HashedPassword" Type="String" Nullable="false" />
-          <NavigationProperty Name="Estates" Relationship="RealEstateManagerDataModel.EstateAgentAgent" FromRole="Agent" ToRole="EstateAgent" />
-          <NavigationProperty Name="Contacts" Relationship="RealEstateManagerDataModel.ContactAgent" FromRole="Agent" ToRole="Contact" />
+          <NavigationProperty Name="Estates" Relationship="RealEstateManagerDataModel.EstateAccountAccount" FromRole="Account" ToRole="EstateAccount" />
           <Property Name="ForgottenPasswordToken" Type="String" Nullable="true" />
+          <NavigationProperty Name="Contacts" Relationship="RealEstateManagerDataModel.AccountContactAccount" FromRole="Account" ToRole="ContactAccount" />
         </EntityType>
-        <EntityType Name="EstateAgent">
+        <EntityType Name="EstateAccount">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Estate" Relationship="RealEstateManagerDataModel.EstateAgentEstate" FromRole="EstateAgent" ToRole="Estate" />
+          <NavigationProperty Name="Estate" Relationship="RealEstateManagerDataModel.EstateAccountEstate" FromRole="EstateAccount" ToRole="Estate" />
           <Property Name="EstateId" Type="Guid" Nullable="false" />
-          <NavigationProperty Name="Agent" Relationship="RealEstateManagerDataModel.EstateAgentAgent" FromRole="EstateAgent" ToRole="Agent" />
-          <Property Name="AgentId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="RealEstateManagerDataModel.EstateAccountAccount" FromRole="EstateAccount" ToRole="Account" />
+          <Property Name="AccountId" Type="Guid" Nullable="false" />
         </EntityType>
-        <Association Name="EstateAgentEstate">
-          <End Type="RealEstateManagerDataModel.EstateAgent" Role="EstateAgent" Multiplicity="*" />
+        <Association Name="EstateAccountEstate">
+          <End Type="RealEstateManagerDataModel.EstateAccount" Role="EstateAccount" Multiplicity="*" />
           <End Type="RealEstateManagerDataModel.Estate" Role="Estate" Multiplicity="1" />
           <ReferentialConstraint>
             <Principal Role="Estate">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="EstateAgent">
+            <Dependent Role="EstateAccount">
               <PropertyRef Name="EstateId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EstateAgentAgent">
-          <End Type="RealEstateManagerDataModel.EstateAgent" Role="EstateAgent" Multiplicity="*" />
-          <End Type="RealEstateManagerDataModel.Agent" Role="Agent" Multiplicity="1" />
+        <Association Name="EstateAccountAccount">
+          <End Type="RealEstateManagerDataModel.EstateAccount" Role="EstateAccount" Multiplicity="*" />
+          <End Type="RealEstateManagerDataModel.Account" Role="Account" Multiplicity="1" />
           <ReferentialConstraint>
-            <Principal Role="Agent">
+            <Principal Role="Account">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="EstateAgent">
-              <PropertyRef Name="AgentId" />
+            <Dependent Role="EstateAccount">
+              <PropertyRef Name="AccountId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="PublicUser">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" Nullable="false" />
-          <Property Name="LastName" Type="String" Nullable="false" />
-          <Property Name="PhoneNumber" Type="String" Nullable="true" />
-          <Property Name="Username" Type="String" Nullable="false" />
-          <Property Name="EmailAddress" Type="String" Nullable="false" />
-          <Property Name="PasswordSalt" Type="String" Nullable="false" />
-          <Property Name="HashedPassword" Type="String" Nullable="false" />
-          <NavigationProperty Name="Contacts" Relationship="RealEstateManagerDataModel.ContactPublicUser" FromRole="PublicUser" ToRole="Contact" />
-          <Property Name="ForgottenPasswordToken" Type="String" Nullable="true" />
-        </EntityType>
         <EntityType Name="Contact">
           <Key>
             <PropertyRef Name="Id" />
@@ -402,11 +333,10 @@
           <NavigationProperty Name="Estate" Relationship="RealEstateManagerDataModel.ContactEstate" FromRole="Contact" ToRole="Estate" />
           <Property Name="Outcome" Type="String" Nullable="false" />
           <Property Name="EstateId" Nullable="false" Type="Guid" />
-          <NavigationProperty Name="Agent" Relationship="RealEstateManagerDataModel.ContactAgent" FromRole="Contact" ToRole="Agent" />
-          <Property Name="AgentId" Nullable="false" Type="Guid" />
-          <NavigationProperty Name="PublicUser" Relationship="RealEstateManagerDataModel.ContactPublicUser" FromRole="Contact" ToRole="PublicUser" />
+          <Property Name="AccountId" Nullable="false" Type="Guid" />
           <Property Name="PublicUserId" Type="Guid" Nullable="false" />
-          <NavigationProperty Name="Files" Relationship="RealEstateManagerDataModel.FileContact" FromRole="Contact" ToRole="File" />
+          <NavigationProperty Name="Accounts" Relationship="RealEstateManagerDataModel.ContactContactAccount" FromRole="Contact" ToRole="ContactAccount" />
+          <Property Name="FilePathsCSV" Type="String" Nullable="true" />
         </EntityType>
         <Association Name="ContactEstate">
           <End Type="RealEstateManagerDataModel.Contact" Multiplicity="*" Role="Contact" />
@@ -416,66 +346,6 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Contact">
-              <PropertyRef Name="EstateId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ContactAgent">
-          <End Type="RealEstateManagerDataModel.Contact" Multiplicity="*" Role="Contact" />
-          <End Type="RealEstateManagerDataModel.Agent" Multiplicity="1" Role="Agent" />
-          <ReferentialConstraint>
-            <Principal Role="Agent">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Contact">
-              <PropertyRef Name="AgentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ContactPublicUser">
-          <End Type="RealEstateManagerDataModel.Contact" Role="Contact" Multiplicity="*" />
-          <End Type="RealEstateManagerDataModel.PublicUser" Role="PublicUser" Multiplicity="1" />
-          <ReferentialConstraint>
-            <Principal Role="PublicUser">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Contact">
-              <PropertyRef Name="PublicUserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="File">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PathOnFileSystem" Type="String" Nullable="false" />
-          <Property Name="DisplayName" Type="String" Nullable="true" />
-          <NavigationProperty Name="Contact" Relationship="RealEstateManagerDataModel.FileContact" FromRole="File" ToRole="Contact" />
-          <Property Name="ContactId" Type="Guid" Nullable="true" />
-          <NavigationProperty Name="Estate" Relationship="RealEstateManagerDataModel.FileEstate" FromRole="File" ToRole="Estate" />
-          <Property Name="EstateId" Type="Guid" Nullable="true" />
-        </EntityType>
-        <Association Name="FileContact">
-          <End Type="RealEstateManagerDataModel.File" Role="File" Multiplicity="*" />
-          <End Type="RealEstateManagerDataModel.Contact" Role="Contact" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Contact">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="File">
-              <PropertyRef Name="ContactId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FileEstate">
-          <End Type="RealEstateManagerDataModel.File" Role="File" Multiplicity="*" />
-          <End Type="RealEstateManagerDataModel.Estate" Role="Estate" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Estate">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="File">
               <PropertyRef Name="EstateId" />
             </Dependent>
           </ReferentialConstraint>
@@ -506,6 +376,45 @@
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="Value" Type="String" Nullable="false" />
         </EntityType>
+        <EnumType Name="UserType">
+          <Member Name="Admin" Value="0" />
+          <Member Name="Agent" Value="1" />
+          <Member Name="PublicUser" Value="2" />
+        </EnumType>
+        <EntityType Name="ContactAccount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="Account" Relationship="RealEstateManagerDataModel.AccountContactAccount" FromRole="ContactAccount" ToRole="Account" />
+          <Property Name="AccountId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Contact" Relationship="RealEstateManagerDataModel.ContactContactAccount" FromRole="ContactAccount" ToRole="Contact" />
+          <Property Name="ContactId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <Association Name="AccountContactAccount">
+          <End Type="RealEstateManagerDataModel.Account" Role="Account" Multiplicity="1" />
+          <End Type="RealEstateManagerDataModel.ContactAccount" Role="ContactAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContactAccount">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ContactContactAccount">
+          <End Type="RealEstateManagerDataModel.Contact" Role="Contact" Multiplicity="1" />
+          <End Type="RealEstateManagerDataModel.ContactAccount" Role="ContactAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContactAccount">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -526,6 +435,7 @@
           <ScalarProperty Name="Area" ColumnName="Area" />
           <ScalarProperty Name="BuildingInfoId" ColumnName="BuildingInfoId" />
           <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="FilePathsCSV" ColumnName="FilePathsCSV" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -543,13 +453,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Agents">
-      <EntityTypeMapping TypeName="IsTypeOf(RealEstateManagerDataModel.Agent)">
-        <MappingFragment StoreEntitySet="Agents">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="IsTypeOf(RealEstateManagerDataModel.Account)">
+        <MappingFragment StoreEntitySet="Accounts">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
           <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
@@ -558,27 +469,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="EstateAgents">
-      <EntityTypeMapping TypeName="IsTypeOf(RealEstateManagerDataModel.EstateAgent)">
-        <MappingFragment StoreEntitySet="EstateAgents">
+    <EntitySetMapping Name="EstateAccounts">
+      <EntityTypeMapping TypeName="IsTypeOf(RealEstateManagerDataModel.EstateAccount)">
+        <MappingFragment StoreEntitySet="EstateAccounts">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="EstateId" ColumnName="EstateId" />
-          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PublicUsers">
-      <EntityTypeMapping TypeName="IsTypeOf(RealEstateManagerDataModel.PublicUser)">
-        <MappingFragment StoreEntitySet="PublicUsers">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
-          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
-          <ScalarProperty Name="HashedPassword" ColumnName="HashedPassword" />
-          <ScalarProperty Name="ForgottenPasswordToken" ColumnName="ForgottenPasswordToken" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -590,19 +486,9 @@
           <ScalarProperty Name="Number" ColumnName="Number" />
           <ScalarProperty Name="Outcome" ColumnName="Outcome" />
           <ScalarProperty Name="EstateId" ColumnName="EstateId" />
-          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
           <ScalarProperty Name="PublicUserId" ColumnName="PublicUserId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Files">
-      <EntityTypeMapping TypeName="IsTypeOf(RealEstateManagerDataModel.File)">
-        <MappingFragment StoreEntitySet="Files">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PathOnFileSystem" ColumnName="PathOnFileSystem" />
-          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
-          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
-          <ScalarProperty Name="EstateId" ColumnName="EstateId" />
+          <ScalarProperty Name="FilePathsCSV" ColumnName="FilePathsCSV" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -612,6 +498,15 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactAccounts">
+      <EntityTypeMapping TypeName="IsTypeOf(RealEstateManagerDataModel.ContactAccount)">
+        <MappingFragment StoreEntitySet="ContactAccounts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

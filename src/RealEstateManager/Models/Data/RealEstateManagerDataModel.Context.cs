@@ -27,11 +27,10 @@ namespace RealEstateManager.Models.Data
     
         public virtual DbSet<Estate> Estates { get; set; }
         public virtual DbSet<BuildingInfo> BuildingInfoes { get; set; }
-        public virtual DbSet<Agent> Agents { get; set; }
-        public virtual DbSet<EstateAgent> EstateAgents { get; set; }
-        public virtual DbSet<PublicUser> PublicUsers { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<EstateAccount> EstateAccounts { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
-        public virtual DbSet<File> Files { get; set; }
         public virtual DbSet<SystemValue> SystemValues { get; set; }
+        public virtual DbSet<ContactAccount> ContactAccounts { get; set; }
     }
 }

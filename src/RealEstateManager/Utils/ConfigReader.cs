@@ -17,9 +17,17 @@ namespace RealEstateManager.Utils
             }
         }
 
-        public static string UserKey => GetSettingValue("UserKey");
+        public static Guid AdminRegistrationKey
+        {
+            get
+            {
+                var guidStringValue = GetSettingValue("AdminRegistrationKey");
 
-        public static string UserInitializationVector => GetSettingValue("UserInitializationVector");
+                return Guid.TryParse(guidStringValue, out var result)
+                    ? result
+                    : throw new InvalidOperationException("Invalid Admin Registration Key.");
+            }
+        }
 
         private static string GetSettingValue(string key)
         {

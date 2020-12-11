@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using RealEstateManager.Properties;
 
-namespace RealEstateManager.Models.Agent
+namespace RealEstateManager.Areas.Public.Models.Account
 {
-    public class AgentLoginModel
+    public class AccountLoginModel
     {
         [Display(
-            Name = "AgentLoginModel_Email",
+            Name = "Public_AccountLoginModel_Email",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -14,7 +14,7 @@ namespace RealEstateManager.Models.Agent
         public string EmailAddress { get; set; }
 
         [Display(
-            Name = "AgentLoginModel_Password",
+            Name = "Public_AccountLoginModel_Password",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -22,7 +22,7 @@ namespace RealEstateManager.Models.Agent
         public string Password { get; set; }
 
         [Display(
-            Name = "AgentLoginModel_RememberMe",
+            Name = "Public_AccountLoginModel_RememberMe",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",

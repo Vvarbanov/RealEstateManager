@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -129,25 +129,24 @@
     <Compile Include="Areas\Public\Controllers\BuildingInfoController.cs" />
     <Compile Include="Areas\Public\Controllers\EstateController.cs" />
     <Compile Include="Areas\Public\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Public\Models\Account\AccountRegisterAdminModel.cs" />
+    <Compile Include="Areas\Public\Models\Account\AccountRegisterPublicUserModel.cs" />
     <Compile Include="Areas\Public\Models\BuildingInfo\BuildingInfoGetModel.cs" />
     <Compile Include="Areas\Public\Models\Estate\EstateGetModel.cs" />
     <Compile Include="Areas\Public\Models\Estate\EstateListGetModel.cs" />
     <Compile Include="Areas\Public\PublicAreaRegistration.cs" />
-    <Compile Include="Controllers\AgentController.cs" />
+    <Compile Include="Areas\Public\Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BuildingInfoController.cs" />
     <Compile Include="Controllers\EstateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Models\Agent\AgentForgottenPasswordModel.cs" />
-    <Compile Include="Models\Agent\AgentInfoModel.cs" />
-    <Compile Include="Models\Agent\AgentLoginModel.cs" />
-    <Compile Include="Models\Agent\AgentRecoverPasswordModel.cs" />
-    <Compile Include="Models\Agent\AgentRegisterModel.cs" />
-    <Compile Include="Models\BuildingInfo\BuildingInfoCreationModel.cs" />
-    <Compile Include="Models\BuildingInfo\BuildingInfoDeletionModel.cs" />
-    <Compile Include="Models\BuildingInfo\BuildingInfoGetModel.cs" />
-    <Compile Include="Models\BuildingInfo\BuildingInfoUpdateModel.cs" />
-    <Compile Include="Models\Data\Agent.cs">
+    <Compile Include="Areas\Public\Models\Account\AccountForgottenPasswordModel.cs" />
+    <Compile Include="Filters\UserFilter.cs" />
+    <Compile Include="Areas\Public\Models\Account\AccountInfoModel.cs" />
+    <Compile Include="Areas\Public\Models\Account\AccountLoginModel.cs" />
+    <Compile Include="Areas\Public\Models\Account\AccountRecoverPasswordModel.cs" />
+    <Compile Include="Areas\Public\Models\Account\AccountRegisterAgentModel.cs" />
+    <Compile Include="Models\Data\Account.cs">
       <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Data\BuildingInfo.cs">
@@ -159,22 +158,19 @@
     <Compile Include="Models\Data\Contact.cs">
       <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Data\ContactAccount.cs">
+      <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Data\Estate.cs">
       <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Data\EstateAgent.cs">
+    <Compile Include="Models\Data\EstateAccount.cs">
       <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Data\EstateStatusType.cs">
       <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Data\EstateType.cs">
-      <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Data\File.cs">
-      <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Data\PublicUser.cs">
       <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Data\RealEstateManagerDataModel.Context.cs">
@@ -195,17 +191,22 @@
     <Compile Include="Models\Data\SystemValue.cs">
       <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Data\UserType.cs">
+      <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BuildingInfo\BuildingInfoCreationModel.cs" />
+    <Compile Include="Models\BuildingInfo\BuildingInfoDeletionModel.cs" />
+    <Compile Include="Models\BuildingInfo\BuildingInfoGetModel.cs" />
+    <Compile Include="Models\BuildingInfo\BuildingInfoUpdateModel.cs" />
     <Compile Include="Models\Estate\EstateCreationModel.cs" />
     <Compile Include="Models\Estate\EstateDeletionModel.cs" />
     <Compile Include="Models\Estate\EstateGetModel.cs" />
     <Compile Include="Models\Estate\EstateListGetModel.cs" />
     <Compile Include="Models\Estate\EstateUpdateModel.cs" />
-    <Compile Include="Repository\AgentIdentity.cs" />
-    <Compile Include="Repository\Data\AgentData.cs" />
+    <Compile Include="Repository\Data\AccountData.cs" />
     <Compile Include="Repository\Data\BuildingInfoData.cs" />
     <Compile Include="Repository\Data\EstateData.cs" />
     <Compile Include="Repository\EstatesContext.cs" />
-    <Compile Include="Repository\Interfaces\ICurrentIdentity.cs" />
     <Compile Include="Repository\Interfaces\ISet.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -216,8 +217,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Repository\PublicUserIdentity.cs" />
-    <Compile Include="Repository\Sets\AgentSet.cs" />
+    <Compile Include="Repository\CurrentIdentity.cs" />
+    <Compile Include="Repository\Sets\AccountSet.cs" />
     <Compile Include="Repository\Sets\BuildingInfoSet.cs" />
     <Compile Include="Repository\Sets\EstateSet.cs" />
     <Compile Include="Utils\ConfigReader.cs" />
@@ -331,9 +332,6 @@
     <Content Include="Content\bootstrap\bootstrap.scss" />
     <Content Include="Content\bootstrap\bootstrap-reboot.scss" />
     <Content Include="Content\bootstrap\bootstrap-grid.scss" />
-    <Content Include="Areas\Public\Views\Estate\Index.cshtml" />
-    <Content Include="Areas\Public\Views\Estate\Details.cshtml" />
-    <Content Include="Areas\Public\Views\BuildingInfo\Details.cshtml" />
     <None Include="Content\bootstrap\_custom.scss" />
     <None Include="Content\Site.scss" />
     <Content Include="Models\Data\RealEstateManagerDataModel.Context.tt">
@@ -351,6 +349,11 @@
     <Content Include="Areas\Public\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Public\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Public\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Public\Views\Account\Register.cshtml" />
+    <Content Include="Areas\Public\Views\Account\RegisterAdmin.cshtml" />
+    <Content Include="Areas\Public\Views\BuildingInfo\Details.cshtml" />
+    <Content Include="Areas\Public\Views\Estate\Index.cshtml" />
+    <Content Include="Areas\Public\Views\Estate\Details.cshtml" />
     <EntityDeploy Include="Models\Data\RealEstateManagerDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>RealEstateManagerDataModel.Designer.cs</LastGenOutput>
@@ -462,7 +465,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Views\Agent\Login.cshtml" />
+    <Content Include="Areas\Public\Views\Account\Login.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -481,14 +484,14 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Agent\Register.cshtml" />
+    <Content Include="Areas\Public\Views\Account\RegisterAgent.cshtml" />
     <Content Include="Views\Estate\Create.cshtml" />
     <Content Include="Views\Estate\Update.cshtml" />
     <Content Include="Views\Estate\Delete.cshtml" />
-    <Content Include="Views\Agent\Index.cshtml" />
-    <Content Include="Views\Agent\ForgottenPassword.cshtml" />
+    <Content Include="Areas\Public\Views\Account\Index.cshtml" />
+    <Content Include="Areas\Public\Views\Account\ForgottenPassword.cshtml" />
     <Content Include="Views\Home\OperationSuccessful.cshtml" />
-    <Content Include="Views\Agent\RecoverPassword.cshtml" />
+    <Content Include="Areas\Public\Views\Account\RecoverPassword.cshtml" />
     <Content Include="Views\BuildingInfo\Create.cshtml" />
     <Content Include="Views\BuildingInfo\Update.cshtml" />
     <Content Include="Views\BuildingInfo\Delete.cshtml" />
@@ -500,7 +503,6 @@
     <Folder Include="Areas\Public\Content\" />
     <Folder Include="Areas\Public\Data\" />
     <Folder Include="Areas\Public\Scripts\" />
-    <Folder Include="Views\Base\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>

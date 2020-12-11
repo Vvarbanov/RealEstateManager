@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+using System.Security.Principal;
+using System.Web.Mvc;
 using RealEstateManager.Repository;
 
 namespace RealEstateManager.Areas.Public.Controllers
@@ -22,6 +23,13 @@ namespace RealEstateManager.Areas.Public.Controllers
         public static BasePublicController GetController(ViewContext viewContext)
         {
             return (BasePublicController)viewContext.Controller;
+        }
+
+        public static CurrentIdentity GetCurrentIdentity(EstatesContext db, IPrincipal user)
+        {
+            return db.TryGetCurrentIdentity(user, out var identity) 
+                ? identity 
+                : null;
         }
 
         protected override void Dispose(bool disposing)

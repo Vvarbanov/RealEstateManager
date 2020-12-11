@@ -61,331 +61,6 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;Здравейте {0},&lt;/p&gt;
-        ///&lt;p&gt;Изпращаме Ви това писмо, защото получихме заявка, че сте забравили паролата си и искате да я смените.&lt;/p&gt;
-        ///&lt;b&gt;Ако Вие не сте поискали това, можете да игнорирате това писмо.&lt;/b&gt;
-        ///&lt;p&gt;Ако заявката идва от Вас, кликнете на този линк:&lt;p&gt;
-        ///&lt;br/&gt;
-        ///&lt;a href=&quot;{1}&quot;&gt;{1}&lt;/a&gt;
-        ///&lt;br/&gt;
-        ///&lt;p&gt;П.С.: Това е автоматично генерирано писмо. Моля не му отговаряйте.&lt;/p&gt;
-        ///&lt;br/&gt;
-        ///&lt;p&gt;Поздрави,&lt;/p&gt;
-        ///&lt;p&gt;RealEstateManger&lt;/p&gt;.
-        /// </summary>
-        public static string AgentForgottenPasswordEmail_Body {
-            get {
-                return ResourceManager.GetString("AgentForgottenPasswordEmail_Body", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to RealEstateManager - Възстановяване на акаунт при забравена парола.
-        /// </summary>
-        public static string AgentForgottenPasswordEmail_Subject {
-            get {
-                return ResourceManager.GetString("AgentForgottenPasswordEmail_Subject", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Възстановяване на акаунт при забравена парола.
-        /// </summary>
-        public static string AgentForgottenPasswordForm_Header {
-            get {
-                return ResourceManager.GetString("AgentForgottenPasswordForm_Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Напишете e-mail адреса на акаунта си и ще получите линк към страницата, на която да смените паролата си..
-        /// </summary>
-        public static string AgentForgottenPasswordForm_RecoveryDescription {
-            get {
-                return ResourceManager.GetString("AgentForgottenPasswordForm_RecoveryDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Изпращане.
-        /// </summary>
-        public static string AgentForgottenPasswordForm_SubmitButtonText {
-            get {
-                return ResourceManager.GetString("AgentForgottenPasswordForm_SubmitButtonText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to E-mail адрес.
-        /// </summary>
-        public static string AgentForgottenPasswordModel_EmailAddress {
-            get {
-                return ResourceManager.GetString("AgentForgottenPasswordModel_EmailAddress", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Възстановяване на забравена парола.
-        /// </summary>
-        public static string AgentForgottenPasswordPage_Title {
-            get {
-                return ResourceManager.GetString("AgentForgottenPasswordPage_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Детайли за агент.
-        /// </summary>
-        public static string AgentIndexForm_Header {
-            get {
-                return ResourceManager.GetString("AgentIndexForm_Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Детайли за агент.
-        /// </summary>
-        public static string AgentIndexPage_Title {
-            get {
-                return ResourceManager.GetString("AgentIndexPage_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to E-mail адрес.
-        /// </summary>
-        public static string AgentInfoModel_EmailAddress {
-            get {
-                return ResourceManager.GetString("AgentInfoModel_EmailAddress", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Парола.
-        /// </summary>
-        public static string AgentInfoModel_Password {
-            get {
-                return ResourceManager.GetString("AgentInfoModel_Password", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Телефонен номер.
-        /// </summary>
-        public static string AgentInfoModel_PhoneNumber {
-            get {
-                return ResourceManager.GetString("AgentInfoModel_PhoneNumber", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Потребителско име.
-        /// </summary>
-        public static string AgentInfoModel_Username {
-            get {
-                return ResourceManager.GetString("AgentInfoModel_Username", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Забравена парола.
-        /// </summary>
-        public static string AgentLoginForm_ForgottenPassword {
-            get {
-                return ResourceManager.GetString("AgentLoginForm_ForgottenPassword", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Вход в системата.
-        /// </summary>
-        public static string AgentLoginForm_Header {
-            get {
-                return ResourceManager.GetString("AgentLoginForm_Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to E-mail адрес.
-        /// </summary>
-        public static string AgentLoginModel_Email {
-            get {
-                return ResourceManager.GetString("AgentLoginModel_Email", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Парола.
-        /// </summary>
-        public static string AgentLoginModel_Password {
-            get {
-                return ResourceManager.GetString("AgentLoginModel_Password", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Запомни ме.
-        /// </summary>
-        public static string AgentLoginModel_RememberMe {
-            get {
-                return ResourceManager.GetString("AgentLoginModel_RememberMe", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Вход.
-        /// </summary>
-        public static string AgentLoginPage_Title {
-            get {
-                return ResourceManager.GetString("AgentLoginPage_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Въведете нова парола.
-        /// </summary>
-        public static string AgentRecoverPasswordForm_Header {
-            get {
-                return ResourceManager.GetString("AgentRecoverPasswordForm_Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Невалиден токен за възстановяване на акаунт..
-        /// </summary>
-        public static string AgentRecoverPasswordModel_InvalidToken_Error {
-            get {
-                return ResourceManager.GetString("AgentRecoverPasswordModel_InvalidToken_Error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Нова парола.
-        /// </summary>
-        public static string AgentRecoverPasswordModel_NewPassword {
-            get {
-                return ResourceManager.GetString("AgentRecoverPasswordModel_NewPassword", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Възстановяване на акаунт.
-        /// </summary>
-        public static string AgentRecoverPasswordPage_Title {
-            get {
-                return ResourceManager.GetString("AgentRecoverPasswordPage_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Този e-mail адрес вече е регистриран. Моля изберете друг..
-        /// </summary>
-        public static string AgentRegister_EmailAddressExists_Error {
-            get {
-                return ResourceManager.GetString("AgentRegister_EmailAddressExists_Error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Невалиден ключ за регистрация на брокер..
-        /// </summary>
-        public static string AgentRegister_IncorrectKey_Error {
-            get {
-                return ResourceManager.GetString("AgentRegister_IncorrectKey_Error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Това потребителско име вече е регистрирано. Моля изберете друго..
-        /// </summary>
-        public static string AgentRegister_UsernameExists_Error {
-            get {
-                return ResourceManager.GetString("AgentRegister_UsernameExists_Error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Регистрация на брокер.
-        /// </summary>
-        public static string AgentRegisterForm_Header {
-            get {
-                return ResourceManager.GetString("AgentRegisterForm_Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to E-mail адрес.
-        /// </summary>
-        public static string AgentRegisterModel_EmailAddress {
-            get {
-                return ResourceManager.GetString("AgentRegisterModel_EmailAddress", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Име.
-        /// </summary>
-        public static string AgentRegisterModel_FirstName {
-            get {
-                return ResourceManager.GetString("AgentRegisterModel_FirstName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Фамилия.
-        /// </summary>
-        public static string AgentRegisterModel_LastName {
-            get {
-                return ResourceManager.GetString("AgentRegisterModel_LastName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Парола.
-        /// </summary>
-        public static string AgentRegisterModel_Password {
-            get {
-                return ResourceManager.GetString("AgentRegisterModel_Password", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Телефонен номер.
-        /// </summary>
-        public static string AgentRegisterModel_PhoneNumber {
-            get {
-                return ResourceManager.GetString("AgentRegisterModel_PhoneNumber", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Регистрационен ключ.
-        /// </summary>
-        public static string AgentRegisterModel_RegistrationKey {
-            get {
-                return ResourceManager.GetString("AgentRegisterModel_RegistrationKey", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Потребителско име.
-        /// </summary>
-        public static string AgentRegisterModel_Username {
-            get {
-                return ResourceManager.GetString("AgentRegisterModel_Username", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Регистрация.
-        /// </summary>
-        public static string AgentRegisterPage_Title {
-            get {
-                return ResourceManager.GetString("AgentRegisterPage_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to RealEstateManager.
         /// </summary>
         public static string ApplicationName {
@@ -760,6 +435,520 @@ namespace RealEstateManager.Properties {
         public static string MenuButton_Estates {
             get {
                 return ResourceManager.GetString("MenuButton_Estates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Здравейте {0},&lt;/p&gt;
+        ///&lt;p&gt;Изпращаме Ви това писмо, защото получихме заявка, че сте забравили паролата си и искате да я смените.&lt;/p&gt;
+        ///&lt;b&gt;Ако Вие не сте поискали това, можете да игнорирате това писмо.&lt;/b&gt;
+        ///&lt;p&gt;Ако заявката идва от Вас, кликнете на този линк:&lt;p&gt;
+        ///&lt;br/&gt;
+        ///&lt;a href=&quot;{1}&quot;&gt;{1}&lt;/a&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;П.С.: Това е автоматично генерирано писмо. Моля не му отговаряйте.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;Поздрави,&lt;/p&gt;
+        ///&lt;p&gt;RealEstateManger&lt;/p&gt;.
+        /// </summary>
+        public static string Public_AccountForgottenPasswordEmail_Body {
+            get {
+                return ResourceManager.GetString("Public_AccountForgottenPasswordEmail_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RealEstateManager - Възстановяване на акаунт при забравена парола.
+        /// </summary>
+        public static string Public_AccountForgottenPasswordEmail_Subject {
+            get {
+                return ResourceManager.GetString("Public_AccountForgottenPasswordEmail_Subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Възстановяване на акаунт при забравена парола.
+        /// </summary>
+        public static string Public_AccountForgottenPasswordForm_Header {
+            get {
+                return ResourceManager.GetString("Public_AccountForgottenPasswordForm_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Напишете e-mail адреса на акаунта си и ще получите линк към страницата, на която да смените паролата си..
+        /// </summary>
+        public static string Public_AccountForgottenPasswordForm_RecoveryDescription {
+            get {
+                return ResourceManager.GetString("Public_AccountForgottenPasswordForm_RecoveryDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изпращане.
+        /// </summary>
+        public static string Public_AccountForgottenPasswordForm_SubmitButtonText {
+            get {
+                return ResourceManager.GetString("Public_AccountForgottenPasswordForm_SubmitButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail адрес.
+        /// </summary>
+        public static string Public_AccountForgottenPasswordModel_EmailAddress {
+            get {
+                return ResourceManager.GetString("Public_AccountForgottenPasswordModel_EmailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Възстановяване на забравена парола.
+        /// </summary>
+        public static string Public_AccountForgottenPasswordPage_Title {
+            get {
+                return ResourceManager.GetString("Public_AccountForgottenPasswordPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Детайли за агент.
+        /// </summary>
+        public static string Public_AccountIndexForm_Header {
+            get {
+                return ResourceManager.GetString("Public_AccountIndexForm_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Детайли за агент.
+        /// </summary>
+        public static string Public_AccountIndexPage_Title {
+            get {
+                return ResourceManager.GetString("Public_AccountIndexPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail адрес.
+        /// </summary>
+        public static string Public_AccountInfoModel_EmailAddress {
+            get {
+                return ResourceManager.GetString("Public_AccountInfoModel_EmailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Парола.
+        /// </summary>
+        public static string Public_AccountInfoModel_Password {
+            get {
+                return ResourceManager.GetString("Public_AccountInfoModel_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Телефонен номер.
+        /// </summary>
+        public static string Public_AccountInfoModel_PhoneNumber {
+            get {
+                return ResourceManager.GetString("Public_AccountInfoModel_PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Потребителско име.
+        /// </summary>
+        public static string Public_AccountInfoModel_Username {
+            get {
+                return ResourceManager.GetString("Public_AccountInfoModel_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Забравена парола.
+        /// </summary>
+        public static string Public_AccountLoginForm_ForgottenPassword {
+            get {
+                return ResourceManager.GetString("Public_AccountLoginForm_ForgottenPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вход в системата.
+        /// </summary>
+        public static string Public_AccountLoginForm_Header {
+            get {
+                return ResourceManager.GetString("Public_AccountLoginForm_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail адрес.
+        /// </summary>
+        public static string Public_AccountLoginModel_Email {
+            get {
+                return ResourceManager.GetString("Public_AccountLoginModel_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Парола.
+        /// </summary>
+        public static string Public_AccountLoginModel_Password {
+            get {
+                return ResourceManager.GetString("Public_AccountLoginModel_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Запомни ме.
+        /// </summary>
+        public static string Public_AccountLoginModel_RememberMe {
+            get {
+                return ResourceManager.GetString("Public_AccountLoginModel_RememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вход.
+        /// </summary>
+        public static string Public_AccountLoginPage_Title {
+            get {
+                return ResourceManager.GetString("Public_AccountLoginPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Въведете нова парола.
+        /// </summary>
+        public static string Public_AccountRecoverPasswordForm_Header {
+            get {
+                return ResourceManager.GetString("Public_AccountRecoverPasswordForm_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Невалиден токен за възстановяване на акаунт..
+        /// </summary>
+        public static string Public_AccountRecoverPasswordModel_InvalidToken_Error {
+            get {
+                return ResourceManager.GetString("Public_AccountRecoverPasswordModel_InvalidToken_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нова парола.
+        /// </summary>
+        public static string Public_AccountRecoverPasswordModel_NewPassword {
+            get {
+                return ResourceManager.GetString("Public_AccountRecoverPasswordModel_NewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Възстановяване на акаунт.
+        /// </summary>
+        public static string Public_AccountRecoverPasswordPage_Title {
+            get {
+                return ResourceManager.GetString("Public_AccountRecoverPasswordPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Този e-mail адрес вече е регистриран. Моля изберете друг..
+        /// </summary>
+        public static string Public_AccountRegister_EmailAddressExists_Error {
+            get {
+                return ResourceManager.GetString("Public_AccountRegister_EmailAddressExists_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Невалиден регистрационен ключ..
+        /// </summary>
+        public static string Public_AccountRegister_IncorrectKey_Error {
+            get {
+                return ResourceManager.GetString("Public_AccountRegister_IncorrectKey_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Това потребителско име вече е регистрирано. Моля изберете друго..
+        /// </summary>
+        public static string Public_AccountRegister_UsernameExists_Error {
+            get {
+                return ResourceManager.GetString("Public_AccountRegister_UsernameExists_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрация на администратор.
+        /// </summary>
+        public static string Public_AccountRegisterAdminForm_Header {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAdminForm_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail адрес.
+        /// </summary>
+        public static string Public_AccountRegisterAdminModel_EmailAddress {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAdminModel_EmailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Име.
+        /// </summary>
+        public static string Public_AccountRegisterAdminModel_FirstName {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAdminModel_FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Фамилия.
+        /// </summary>
+        public static string Public_AccountRegisterAdminModel_LastName {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAdminModel_LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Парола.
+        /// </summary>
+        public static string Public_AccountRegisterAdminModel_Password {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAdminModel_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Телефонен номер.
+        /// </summary>
+        public static string Public_AccountRegisterAdminModel_PhoneNumber {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAdminModel_PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрационен ключ за администратор.
+        /// </summary>
+        public static string Public_AccountRegisterAdminModel_RegistrationKey {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAdminModel_RegistrationKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Потребителско име.
+        /// </summary>
+        public static string Public_AccountRegisterAdminModel_Username {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAdminModel_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрация.
+        /// </summary>
+        public static string Public_AccountRegisterAdminPage_Title {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAdminPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрация на агент.
+        /// </summary>
+        public static string Public_AccountRegisterAgentForm_Header {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAgentForm_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail адрес.
+        /// </summary>
+        public static string Public_AccountRegisterAgentModel_EmailAddress {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAgentModel_EmailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Име.
+        /// </summary>
+        public static string Public_AccountRegisterAgentModel_FirstName {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAgentModel_FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Фамилия.
+        /// </summary>
+        public static string Public_AccountRegisterAgentModel_LastName {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAgentModel_LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Парола.
+        /// </summary>
+        public static string Public_AccountRegisterAgentModel_Password {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAgentModel_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Телефонен номер.
+        /// </summary>
+        public static string Public_AccountRegisterAgentModel_PhoneNumber {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAgentModel_PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрационен ключ за агент.
+        /// </summary>
+        public static string Public_AccountRegisterAgentModel_RegistrationKey {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAgentModel_RegistrationKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Потребителско име.
+        /// </summary>
+        public static string Public_AccountRegisterAgentModel_Username {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAgentModel_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрация.
+        /// </summary>
+        public static string Public_AccountRegisterAgentPage_Title {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterAgentPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрация на потребител.
+        /// </summary>
+        public static string Public_AccountRegisterPublicUserForm_Header {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterPublicUserForm_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail адрес.
+        /// </summary>
+        public static string Public_AccountRegisterPublicUserModel_EmailAddress {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterPublicUserModel_EmailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Име.
+        /// </summary>
+        public static string Public_AccountRegisterPublicUserModel_FirstName {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterPublicUserModel_FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Фамилия.
+        /// </summary>
+        public static string Public_AccountRegisterPublicUserModel_LastName {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterPublicUserModel_LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Парола.
+        /// </summary>
+        public static string Public_AccountRegisterPublicUserModel_Password {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterPublicUserModel_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Телефонен номер.
+        /// </summary>
+        public static string Public_AccountRegisterPublicUserModel_PhoneNumber {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterPublicUserModel_PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Потребителско име.
+        /// </summary>
+        public static string Public_AccountRegisterPublicUserModel_Username {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterPublicUserModel_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрация.
+        /// </summary>
+        public static string Public_AccountRegisterPublicUserPage_Title {
+            get {
+                return ResourceManager.GetString("Public_AccountRegisterPublicUserPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Административен панел.
+        /// </summary>
+        public static string Public_MenuButton_AdminArea {
+            get {
+                return ResourceManager.GetString("Public_MenuButton_AdminArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вход.
+        /// </summary>
+        public static string Public_MenuButton_Login {
+            get {
+                return ResourceManager.GetString("Public_MenuButton_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изход.
+        /// </summary>
+        public static string Public_MenuButton_Logout {
+            get {
+                return ResourceManager.GetString("Public_MenuButton_Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрация.
+        /// </summary>
+        public static string Public_MenuButton_Register {
+            get {
+                return ResourceManager.GetString("Public_MenuButton_Register", resourceCulture);
             }
         }
         

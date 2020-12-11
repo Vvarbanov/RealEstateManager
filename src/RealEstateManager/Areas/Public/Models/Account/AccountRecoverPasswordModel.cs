@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using RealEstateManager.Properties;
 
-namespace RealEstateManager.Models.Agent
+namespace RealEstateManager.Areas.Public.Models.Account
 {
-    public class AgentRecoverPasswordModel
+    public class AccountRecoverPasswordModel
     {
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -11,7 +11,7 @@ namespace RealEstateManager.Models.Agent
         public string Token { get; set; }
 
         [Display(
-            Name = "AgentRecoverPasswordModel_NewPassword",
+            Name = "Public_AccountRecoverPasswordModel_NewPassword",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",

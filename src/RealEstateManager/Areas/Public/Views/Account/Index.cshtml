@@ -1,0 +1,45 @@
+﻿@using RealEstateManager.Utils
+@model RealEstateManager.Areas.Public.Models.Account.AccountInfoModel
+
+@{
+    ViewBag.Title = Localization.GetString("Public_AccountIndexPage_Title");
+}
+
+@Html.ValidationSummary(true, null, new { @class = "text-danger" })
+
+@using (Html.BeginForm(new { returnUrl = ViewBag.ReturnUrl }))
+{
+    @Html.AntiForgeryToken()
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h3>@Localization.GetString("Public_AccountIndexForm_Header")</h3>
+        </div>
+        <div class="card-body bg-light">
+            @Html.HiddenFor(x => x.Id)
+            <div class="form-group">
+                @Html.LabelFor(x => x.Username)
+                @Html.EditorFor(x => x.Username, new {htmlAttributes = new {@class = "form-control", disabled = "disabled", @readonly = "readonly"}})
+                @Html.HiddenFor(x => x.Username)
+                @Html.ValidationMessageFor(x => x.Username, null, new {@class = "text-danger"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.EmailAddress)
+                @Html.EditorFor(x => x.EmailAddress, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(x => x.EmailAddress, null, new {@class = "text-danger"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Password)
+                @Html.PasswordFor(x => x.Password, new {@class = "form-control"})
+                @Html.ValidationMessageFor(x => x.Password, null, new {@class = "text-danger"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.PhoneNumber)
+                @Html.EditorFor(x => x.PhoneNumber, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(x => x.PhoneNumber, null, new {@class = "text-danger"})
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Submit")</button>
+            </div>
+        </div>
+    </div>
+}

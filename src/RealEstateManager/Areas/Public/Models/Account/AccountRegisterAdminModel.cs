@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using RealEstateManager.Models.Data;
 using RealEstateManager.Properties;
 using RealEstateManager.Repository.Data;
 using RealEstateManager.Utils;
 
-namespace RealEstateManager.Models.Agent
+namespace RealEstateManager.Areas.Public.Models.Account
 {
-    public class AgentRegisterModel : IValidatableObject
+    public class AccountRegisterAdminModel : IValidatableObject
     {
         [Display(
-            Name = "AgentRegisterModel_Username",
+            Name = "Public_AccountRegisterAdminModel_Username",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -18,7 +19,7 @@ namespace RealEstateManager.Models.Agent
         public string Username { get; set; }
 
         [Display(
-            Name = "AgentRegisterModel_EmailAddress",
+            Name = "Public_AccountRegisterAdminModel_EmailAddress",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -26,7 +27,7 @@ namespace RealEstateManager.Models.Agent
         public string EmailAddress { get; set; }
 
         [Display(
-            Name = "AgentRegisterModel_Password",
+            Name = "Public_AccountRegisterAdminModel_Password",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -34,7 +35,7 @@ namespace RealEstateManager.Models.Agent
         public string Password { get; set; }
 
         [Display(
-            Name = "AgentRegisterModel_FirstName",
+            Name = "Public_AccountRegisterAdminModel_FirstName",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -42,7 +43,7 @@ namespace RealEstateManager.Models.Agent
         public string FirstName { get; set; }
 
         [Display(
-            Name = "AgentRegisterModel_LastName",
+            Name = "Public_AccountRegisterAdminModel_LastName",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -50,21 +51,21 @@ namespace RealEstateManager.Models.Agent
         public string LastName { get; set; }
 
         [Display(
-            Name = "AgentRegisterModel_PhoneNumber",
+            Name = "Public_AccountRegisterAdminModel_PhoneNumber",
             ResourceType = typeof(Resources))]
         public string PhoneNumber { get; set; }
 
         [Display(
-            Name = "AgentRegisterModel_RegistrationKey",
+            Name = "Public_AccountRegisterAdminModel_RegistrationKey",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
             ErrorMessageResourceType = typeof(Resources))]
         public string RegistrationKey { get; set; }
 
-        public AgentInsertData ToData()
+        public AccountInsertData ToData()
         {
-            return new AgentInsertData
+            return new AccountInsertData
             {
                 Username = Username,
                 EmailAddress = EmailAddress,
@@ -72,6 +73,7 @@ namespace RealEstateManager.Models.Agent
                 FirstName = FirstName,
                 LastName = LastName,
                 PhoneNumber = PhoneNumber,
+                Type = UserType.Admin,
             };
         }
 
@@ -79,15 +81,15 @@ namespace RealEstateManager.Models.Agent
         {
             if (Guid.TryParse(RegistrationKey, out var result))
             {
-                if (result != ConfigReader.AgentRegistrationKey)
+                if (result != ConfigReader.AdminRegistrationKey)
                 {
-                    yield return new ValidationResult(Localization.GetString("AgentRegister_IncorrectKey_Error"),
-                        new[] {nameof(RegistrationKey)});
+                    yield return new ValidationResult(Localization.GetString("Public_AccountRegister_IncorrectKey_Error"),
+                        new[] { nameof(RegistrationKey) });
                 }
             }
             else
             {
-                yield return new ValidationResult(Localization.GetString("AgentRegister_IncorrectKey_Error"),
+                yield return new ValidationResult(Localization.GetString("Public_AccountRegister_IncorrectKey_Error"),
                     new[] { nameof(RegistrationKey) });
             }
         }

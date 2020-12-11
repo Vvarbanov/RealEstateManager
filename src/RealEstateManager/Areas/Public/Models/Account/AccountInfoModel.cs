@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 using RealEstateManager.Properties;
 using RealEstateManager.Repository.Data;
 
-namespace RealEstateManager.Models.Agent
+namespace RealEstateManager.Areas.Public.Models.Account
 {
-    public class AgentInfoModel
+    public class AccountInfoModel
     {
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -13,12 +13,12 @@ namespace RealEstateManager.Models.Agent
         public Guid Id { get; set; }
 
         [Display(
-            Name = "AgentInfoModel_Username",
+            Name = "Public_AccountInfoModel_Username",
             ResourceType = typeof(Resources))]
         public string Username { get; set; }
 
         [Display(
-            Name = "AgentInfoModel_EmailAddress",
+            Name = "Public_AccountInfoModel_EmailAddress",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -26,7 +26,7 @@ namespace RealEstateManager.Models.Agent
         public string EmailAddress { get; set; }
 
         [Display(
-            Name = "AgentInfoModel_PhoneNumber",
+            Name = "Public_AccountInfoModel_PhoneNumber",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -34,16 +34,16 @@ namespace RealEstateManager.Models.Agent
         public string PhoneNumber { get; set; }
 
         [Display(
-            Name = "AgentInfoModel_Password",
+            Name = "Public_AccountInfoModel_Password",
             ResourceType = typeof(Resources))]
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
             ErrorMessageResourceType = typeof(Resources))]
         public string Password { get; set; }
 
-        public AgentUpdateData ToUpdateData()
+        public AccountUpdateData ToData()
         {
-            return new AgentUpdateData
+            return new AccountUpdateData
             {
                 EmailAddress = EmailAddress,
                 PhoneNumber = PhoneNumber,

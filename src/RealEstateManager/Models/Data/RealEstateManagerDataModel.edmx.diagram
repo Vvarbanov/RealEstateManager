@@ -7,22 +7,17 @@
       <Diagram DiagramId="2df3a28f19b745d3bb356e3bfc6ba5ad" Name="Diagram1" ShowGrid="true" DisplayType="true" >
         <EntityTypeShape EntityType="RealEstateManagerDataModel.Estate" Width="2" PointX="3.75" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="RealEstateManagerDataModel.BuildingInfo" Width="1.5" PointX="0.5" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="RealEstateManagerDataModel.Agent" Width="2.375" PointX="6.75" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="RealEstateManagerDataModel.EstateAgent" Width="2" PointX="3.75" PointY="4.875" IsExpanded="true" />
-        <AssociationConnector Association="RealEstateManagerDataModel.EstateAgentEstate" />
-        <AssociationConnector Association="RealEstateManagerDataModel.EstateAgentAgent" />
-        <EntityTypeShape EntityType="RealEstateManagerDataModel.PublicUser" Width="2.375" PointX="9.875" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="RealEstateManagerDataModel.Contact" Width="2.125" PointX="10" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateManagerDataModel.Account" Width="2.375" PointX="6.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateManagerDataModel.EstateAccount" Width="2" PointX="3.75" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="RealEstateManagerDataModel.EstateAccountEstate" />
+        <AssociationConnector Association="RealEstateManagerDataModel.EstateAccountAccount" />
+        <EntityTypeShape EntityType="RealEstateManagerDataModel.Contact" Width="2.125" PointX="10.25" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="RealEstateManagerDataModel.ContactEstate" />
-        <AssociationConnector Association="RealEstateManagerDataModel.ContactAgent" />
-        <AssociationConnector Association="RealEstateManagerDataModel.ContactPublicUser" />
-        <EntityTypeShape EntityType="RealEstateManagerDataModel.File" Width="2" PointX="6.875" PointY="0.5" IsExpanded="true" />
-        <AssociationConnector Association="RealEstateManagerDataModel.FileContact" />
-        <AssociationConnector Association="RealEstateManagerDataModel.FileEstate" ManuallyRouted="false" >
-          <ConnectorPoint PointX="6.125" PointY="4.3287972005208326" />
-        </AssociationConnector>
         <AssociationConnector Association="RealEstateManagerDataModel.EstateBuildingInfo" />
         <EntityTypeShape EntityType="RealEstateManagerDataModel.SystemValue" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateManagerDataModel.ContactAccount" Width="1.625" PointX="10.5" PointY="4.875" />
+        <AssociationConnector Association="RealEstateManagerDataModel.AccountContactAccount" />
+        <AssociationConnector Association="RealEstateManagerDataModel.ContactContactAccount" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

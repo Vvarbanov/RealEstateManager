@@ -1,13 +1,10 @@
 ﻿using System.Security.Principal;
 using System.Web.Mvc;
-using RealEstateManager.Filters;
-using RealEstateManager.Models.Data;
 using RealEstateManager.Repository;
 
-namespace RealEstateManager.Controllers
+namespace RealEstateManager.Areas.Public.Controllers
 {
-    [UserFilter]
-    public abstract class BaseController : Controller
+    public class BasePublicController : Controller
     {
         private EstatesContext _db;
 
@@ -23,15 +20,15 @@ namespace RealEstateManager.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public static BaseController GetController(ViewContext viewContext)
+        public static BasePublicController GetController(ViewContext viewContext)
         {
-            return (BaseController)viewContext.Controller;
+            return (BasePublicController)viewContext.Controller;
         }
 
-        public static CurrentIdentity GetCurrentAgent(EstatesContext db, IPrincipal user)
+        public static CurrentIdentity GetCurrentIdentity(EstatesContext db, IPrincipal user)
         {
-            return db.TryGetCurrentIdentity(user, out var identity) && identity.Type != UserType.PublicUser
-                ? identity
+            return db.TryGetCurrentIdentity(user, out var identity) 
+                ? identity 
                 : null;
         }
 

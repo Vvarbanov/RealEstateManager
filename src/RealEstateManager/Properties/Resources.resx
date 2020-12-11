@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AgentForgottenPasswordEmail_Body" xml:space="preserve">
+  <data name="Public_AccountForgottenPasswordEmail_Body" xml:space="preserve">
     <value>&lt;p&gt;Здравейте {0},&lt;/p&gt;
 &lt;p&gt;Изпращаме Ви това писмо, защото получихме заявка, че сте забравили паролата си и искате да я смените.&lt;/p&gt;
 &lt;b&gt;Ако Вие не сте поискали това, можете да игнорирате това писмо.&lt;/b&gt;
@@ -130,109 +130,106 @@
 &lt;p&gt;Поздрави,&lt;/p&gt;
 &lt;p&gt;RealEstateManger&lt;/p&gt;</value>
   </data>
-  <data name="AgentForgottenPasswordEmail_Subject" xml:space="preserve">
+  <data name="Public_AccountForgottenPasswordEmail_Subject" xml:space="preserve">
     <value>RealEstateManager - Възстановяване на акаунт при забравена парола</value>
   </data>
-  <data name="AgentForgottenPasswordForm_Header" xml:space="preserve">
+  <data name="Public_AccountForgottenPasswordForm_Header" xml:space="preserve">
     <value>Възстановяване на акаунт при забравена парола</value>
   </data>
-  <data name="AgentForgottenPasswordForm_RecoveryDescription" xml:space="preserve">
+  <data name="Public_AccountForgottenPasswordForm_RecoveryDescription" xml:space="preserve">
     <value>Напишете e-mail адреса на акаунта си и ще получите линк към страницата, на която да смените паролата си.</value>
   </data>
-  <data name="AgentForgottenPasswordForm_SubmitButtonText" xml:space="preserve">
+  <data name="Public_AccountForgottenPasswordForm_SubmitButtonText" xml:space="preserve">
     <value>Изпращане</value>
   </data>
-  <data name="AgentForgottenPasswordModel_EmailAddress" xml:space="preserve">
+  <data name="Public_AccountForgottenPasswordModel_EmailAddress" xml:space="preserve">
     <value>E-mail адрес</value>
   </data>
-  <data name="AgentForgottenPasswordPage_Title" xml:space="preserve">
+  <data name="Public_AccountForgottenPasswordPage_Title" xml:space="preserve">
     <value>Възстановяване на забравена парола</value>
   </data>
-  <data name="AgentIndexForm_Header" xml:space="preserve">
+  <data name="Public_AccountIndexForm_Header" xml:space="preserve">
     <value>Детайли за агент</value>
   </data>
-  <data name="AgentIndexPage_Title" xml:space="preserve">
+  <data name="Public_AccountIndexPage_Title" xml:space="preserve">
     <value>Детайли за агент</value>
   </data>
-  <data name="AgentInfoModel_EmailAddress" xml:space="preserve">
+  <data name="Public_AccountInfoModel_EmailAddress" xml:space="preserve">
     <value>E-mail адрес</value>
   </data>
-  <data name="AgentInfoModel_Password" xml:space="preserve">
+  <data name="Public_AccountInfoModel_Password" xml:space="preserve">
     <value>Парола</value>
   </data>
-  <data name="AgentInfoModel_PhoneNumber" xml:space="preserve">
+  <data name="Public_AccountInfoModel_PhoneNumber" xml:space="preserve">
     <value>Телефонен номер</value>
   </data>
-  <data name="AgentInfoModel_Username" xml:space="preserve">
+  <data name="Public_AccountInfoModel_Username" xml:space="preserve">
     <value>Потребителско име</value>
   </data>
-  <data name="AgentLoginForm_ForgottenPassword" xml:space="preserve">
+  <data name="Public_AccountLoginForm_ForgottenPassword" xml:space="preserve">
     <value>Забравена парола</value>
   </data>
-  <data name="AgentLoginForm_Header" xml:space="preserve">
+  <data name="Public_AccountLoginForm_Header" xml:space="preserve">
     <value>Вход в системата</value>
   </data>
   <data name="Button_Login" xml:space="preserve">
     <value>Вход</value>
   </data>
-  <data name="AgentLoginModel_Email" xml:space="preserve">
+  <data name="Public_AccountLoginModel_Email" xml:space="preserve">
     <value>E-mail адрес</value>
   </data>
-  <data name="AgentLoginModel_Password" xml:space="preserve">
+  <data name="Public_AccountLoginModel_Password" xml:space="preserve">
     <value>Парола</value>
   </data>
-  <data name="AgentLoginModel_RememberMe" xml:space="preserve">
+  <data name="Public_AccountLoginModel_RememberMe" xml:space="preserve">
     <value>Запомни ме</value>
   </data>
-  <data name="AgentLoginPage_Title" xml:space="preserve">
+  <data name="Public_AccountLoginPage_Title" xml:space="preserve">
     <value>Вход</value>
   </data>
-  <data name="AgentRecoverPasswordForm_Header" xml:space="preserve">
+  <data name="Public_AccountRecoverPasswordForm_Header" xml:space="preserve">
     <value>Въведете нова парола</value>
   </data>
-  <data name="AgentRecoverPasswordModel_InvalidToken_Error" xml:space="preserve">
+  <data name="Public_AccountRecoverPasswordModel_InvalidToken_Error" xml:space="preserve">
     <value>Невалиден токен за възстановяване на акаунт.</value>
   </data>
-  <data name="AgentRecoverPasswordModel_NewPassword" xml:space="preserve">
+  <data name="Public_AccountRecoverPasswordModel_NewPassword" xml:space="preserve">
     <value>Нова парола</value>
   </data>
-  <data name="AgentRecoverPasswordPage_Title" xml:space="preserve">
+  <data name="Public_AccountRecoverPasswordPage_Title" xml:space="preserve">
     <value>Възстановяване на акаунт</value>
   </data>
-  <data name="AgentRegisterForm_Header" xml:space="preserve">
-    <value>Регистрация на брокер</value>
+  <data name="Public_AccountRegisterAgentForm_Header" xml:space="preserve">
+    <value>Регистрация на агент</value>
   </data>
-  <data name="AgentRegisterModel_EmailAddress" xml:space="preserve">
+  <data name="Public_AccountRegisterPublicUserModel_EmailAddress" xml:space="preserve">
     <value>E-mail адрес</value>
   </data>
-  <data name="AgentRegisterModel_FirstName" xml:space="preserve">
+  <data name="Public_AccountRegisterPublicUserModel_FirstName" xml:space="preserve">
     <value>Име</value>
   </data>
-  <data name="AgentRegisterModel_LastName" xml:space="preserve">
+  <data name="Public_AccountRegisterPublicUserModel_LastName" xml:space="preserve">
     <value>Фамилия</value>
   </data>
-  <data name="AgentRegisterModel_Password" xml:space="preserve">
+  <data name="Public_AccountRegisterPublicUserModel_Password" xml:space="preserve">
     <value>Парола</value>
   </data>
-  <data name="AgentRegisterModel_PhoneNumber" xml:space="preserve">
+  <data name="Public_AccountRegisterPublicUserModel_PhoneNumber" xml:space="preserve">
     <value>Телефонен номер</value>
   </data>
-  <data name="AgentRegisterModel_RegistrationKey" xml:space="preserve">
-    <value>Регистрационен ключ</value>
-  </data>
-  <data name="AgentRegisterModel_Username" xml:space="preserve">
+  <data name="Public_AccountRegisterPublicUserModel_Username" xml:space="preserve">
     <value>Потребителско име</value>
   </data>
-  <data name="AgentRegisterPage_Title" xml:space="preserve">
+  <data name="Public_AccountRegisterAgentPage_Title" xml:space="preserve">
     <value>Регистрация</value>
   </data>
-  <data name="AgentRegister_EmailAddressExists_Error" xml:space="preserve">
+  <data name="Public_AccountRegister_EmailAddressExists_Error" xml:space="preserve">
     <value>Този e-mail адрес вече е регистриран. Моля изберете друг.</value>
   </data>
-  <data name="AgentRegister_IncorrectKey_Error" xml:space="preserve">
-    <value>Невалиден ключ за регистрация на брокер.</value>
+  <data name="Public_AccountRegister_IncorrectKey_Error" xml:space="preserve">
+    <value>Невалиден регистрационен ключ.</value>
   </data>
-  <data name="AgentRegister_UsernameExists_Error" xml:space="preserve">
+  <data name="Public_AccountRegister_UsernameExists_Error" xml:space="preserve">
     <value>Това потребителско име вече е регистрирано. Моля изберете друго.</value>
   </data>
   <data name="ApplicationName" xml:space="preserve">
@@ -375,5 +372,71 @@
   </data>
   <data name="Button_Edit" xml:space="preserve">
     <value>Редактирай</value>
+  </data>
+  <data name="Public_MenuButton_AdminArea" xml:space="preserve">
+    <value>Административен панел</value>
+  </data>
+  <data name="Public_MenuButton_Login" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="Public_MenuButton_Logout" xml:space="preserve">
+    <value>Изход</value>
+  </data>
+  <data name="Public_MenuButton_Register" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="Public_AccountRegisterAgentModel_EmailAddress" xml:space="preserve">
+    <value>E-mail адрес</value>
+  </data>
+  <data name="Public_AccountRegisterAgentModel_FirstName" xml:space="preserve">
+    <value>Име</value>
+  </data>
+  <data name="Public_AccountRegisterAgentModel_LastName" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="Public_AccountRegisterAgentModel_Password" xml:space="preserve">
+    <value>Парола</value>
+  </data>
+  <data name="Public_AccountRegisterAgentModel_PhoneNumber" xml:space="preserve">
+    <value>Телефонен номер</value>
+  </data>
+  <data name="Public_AccountRegisterAgentModel_RegistrationKey" xml:space="preserve">
+    <value>Регистрационен ключ за агент</value>
+  </data>
+  <data name="Public_AccountRegisterAgentModel_Username" xml:space="preserve">
+    <value>Потребителско име</value>
+  </data>
+  <data name="Public_AccountRegisterAdminForm_Header" xml:space="preserve">
+    <value>Регистрация на администратор</value>
+  </data>
+  <data name="Public_AccountRegisterAdminModel_EmailAddress" xml:space="preserve">
+    <value>E-mail адрес</value>
+  </data>
+  <data name="Public_AccountRegisterAdminModel_FirstName" xml:space="preserve">
+    <value>Име</value>
+  </data>
+  <data name="Public_AccountRegisterAdminModel_LastName" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="Public_AccountRegisterAdminModel_Password" xml:space="preserve">
+    <value>Парола</value>
+  </data>
+  <data name="Public_AccountRegisterAdminModel_PhoneNumber" xml:space="preserve">
+    <value>Телефонен номер</value>
+  </data>
+  <data name="Public_AccountRegisterAdminModel_RegistrationKey" xml:space="preserve">
+    <value>Регистрационен ключ за администратор</value>
+  </data>
+  <data name="Public_AccountRegisterAdminModel_Username" xml:space="preserve">
+    <value>Потребителско име</value>
+  </data>
+  <data name="Public_AccountRegisterAdminPage_Title" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="Public_AccountRegisterPublicUserForm_Header" xml:space="preserve">
+    <value>Регистрация на потребител</value>
+  </data>
+  <data name="Public_AccountRegisterPublicUserPage_Title" xml:space="preserve">
+    <value>Регистрация</value>
   </data>
 </root>

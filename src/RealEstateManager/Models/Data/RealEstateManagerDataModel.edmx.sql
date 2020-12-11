@@ -2,9 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
-
--- Date Created: 12/01/2020 16:06:39
--- Generated from EDMX file: D:\Workspace\uni\5 semester\ST\RealEstateManager\src\RealEstateManager\Models\Data\RealEstateManagerDataModel.edmx
+-- Date Created: 12/11/2020 18:20:50
+-- Generated from EDMX file: D:\Code\MyRepo\RealEstateManager\src\RealEstateManager\Models\Data\RealEstateManagerDataModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -18,20 +17,14 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_EstateAgentEstate]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EstateAgents] DROP CONSTRAINT [FK_EstateAgentEstate];
+IF OBJECT_ID(N'[dbo].[FK_EstateAccountEstate]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EstateAccounts] DROP CONSTRAINT [FK_EstateAccountEstate];
 GO
-IF OBJECT_ID(N'[dbo].[FK_EstateAgentAgent]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EstateAgents] DROP CONSTRAINT [FK_EstateAgentAgent];
+IF OBJECT_ID(N'[dbo].[FK_EstateAccountAccount]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EstateAccounts] DROP CONSTRAINT [FK_EstateAccountAccount];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ContactEstate]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Contacts] DROP CONSTRAINT [FK_ContactEstate];
-GO
-IF OBJECT_ID(N'[dbo].[FK_ContactAgent]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Contacts] DROP CONSTRAINT [FK_ContactAgent];
-GO
-IF OBJECT_ID(N'[dbo].[FK_ContactPublicUser]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Contacts] DROP CONSTRAINT [FK_ContactPublicUser];
 GO
 IF OBJECT_ID(N'[dbo].[FK_FileContact]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Files] DROP CONSTRAINT [FK_FileContact];
@@ -41,6 +34,12 @@ IF OBJECT_ID(N'[dbo].[FK_FileEstate]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_EstateBuildingInfo]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Estates] DROP CONSTRAINT [FK_EstateBuildingInfo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AccountContactAccount]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ContactAccounts] DROP CONSTRAINT [FK_AccountContactAccount];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ContactContactAccount]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ContactAccounts] DROP CONSTRAINT [FK_ContactContactAccount];
 GO
 
 -- --------------------------------------------------
@@ -53,14 +52,11 @@ GO
 IF OBJECT_ID(N'[dbo].[BuildingInfoes]', 'U') IS NOT NULL
     DROP TABLE [dbo].[BuildingInfoes];
 GO
-IF OBJECT_ID(N'[dbo].[Agents]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Agents];
+IF OBJECT_ID(N'[dbo].[Accounts]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Accounts];
 GO
-IF OBJECT_ID(N'[dbo].[EstateAgents]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[EstateAgents];
-GO
-IF OBJECT_ID(N'[dbo].[PublicUsers]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PublicUsers];
+IF OBJECT_ID(N'[dbo].[EstateAccounts]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EstateAccounts];
 GO
 IF OBJECT_ID(N'[dbo].[Contacts]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Contacts];
@@ -70,6 +66,9 @@ IF OBJECT_ID(N'[dbo].[Files]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[SystemValues]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SystemValues];
+GO
+IF OBJECT_ID(N'[dbo].[ContactAccounts]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ContactAccounts];
 GO
 
 -- --------------------------------------------------
@@ -105,12 +104,13 @@ CREATE TABLE [dbo].[BuildingInfoes] (
 );
 GO
 
--- Creating table 'Agents'
-CREATE TABLE [dbo].[Agents] (
+-- Creating table 'Accounts'
+CREATE TABLE [dbo].[Accounts] (
     [Id] uniqueidentifier  NOT NULL,
     [FirstName] nvarchar(max)  NOT NULL,
     [LastName] nvarchar(max)  NOT NULL,
     [PhoneNumber] nvarchar(max)  NULL,
+    [Type] int  NOT NULL,
     [Username] nvarchar(max)  NOT NULL,
     [EmailAddress] nvarchar(max)  NOT NULL,
     [PasswordSalt] nvarchar(max)  NOT NULL,
@@ -119,25 +119,11 @@ CREATE TABLE [dbo].[Agents] (
 );
 GO
 
--- Creating table 'EstateAgents'
-CREATE TABLE [dbo].[EstateAgents] (
+-- Creating table 'EstateAccounts'
+CREATE TABLE [dbo].[EstateAccounts] (
     [Id] uniqueidentifier  NOT NULL,
     [EstateId] uniqueidentifier  NOT NULL,
-    [AgentId] uniqueidentifier  NOT NULL
-);
-GO
-
--- Creating table 'PublicUsers'
-CREATE TABLE [dbo].[PublicUsers] (
-    [Id] uniqueidentifier  NOT NULL,
-    [FirstName] nvarchar(max)  NOT NULL,
-    [LastName] nvarchar(max)  NOT NULL,
-    [PhoneNumber] nvarchar(max)  NULL,
-    [Username] nvarchar(max)  NOT NULL,
-    [EmailAddress] nvarchar(max)  NOT NULL,
-    [PasswordSalt] nvarchar(max)  NOT NULL,
-    [HashedPassword] nvarchar(max)  NOT NULL,
-    [ForgottenPasswordToken] nvarchar(max)  NULL
+    [AccountId] uniqueidentifier  NOT NULL
 );
 GO
 
@@ -148,7 +134,7 @@ CREATE TABLE [dbo].[Contacts] (
     [Number] nvarchar(max)  NOT NULL,
     [Outcome] nvarchar(max)  NOT NULL,
     [EstateId] uniqueidentifier  NOT NULL,
-    [AgentId] uniqueidentifier  NOT NULL,
+    [AccountId] uniqueidentifier  NOT NULL,
     [PublicUserId] uniqueidentifier  NOT NULL
 );
 GO
@@ -171,6 +157,14 @@ CREATE TABLE [dbo].[SystemValues] (
 );
 GO
 
+-- Creating table 'ContactAccounts'
+CREATE TABLE [dbo].[ContactAccounts] (
+    [Id] uniqueidentifier  NOT NULL,
+    [AccountId] uniqueidentifier  NOT NULL,
+    [ContactId] uniqueidentifier  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -187,21 +181,15 @@ ADD CONSTRAINT [PK_BuildingInfoes]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Agents'
-ALTER TABLE [dbo].[Agents]
-ADD CONSTRAINT [PK_Agents]
+-- Creating primary key on [Id] in table 'Accounts'
+ALTER TABLE [dbo].[Accounts]
+ADD CONSTRAINT [PK_Accounts]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'EstateAgents'
-ALTER TABLE [dbo].[EstateAgents]
-ADD CONSTRAINT [PK_EstateAgents]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
--- Creating primary key on [Id] in table 'PublicUsers'
-ALTER TABLE [dbo].[PublicUsers]
-ADD CONSTRAINT [PK_PublicUsers]
+-- Creating primary key on [Id] in table 'EstateAccounts'
+ALTER TABLE [dbo].[EstateAccounts]
+ADD CONSTRAINT [PK_EstateAccounts]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -223,38 +211,44 @@ ADD CONSTRAINT [PK_SystemValues]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
+-- Creating primary key on [Id] in table 'ContactAccounts'
+ALTER TABLE [dbo].[ContactAccounts]
+ADD CONSTRAINT [PK_ContactAccounts]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [EstateId] in table 'EstateAgents'
-ALTER TABLE [dbo].[EstateAgents]
-ADD CONSTRAINT [FK_EstateAgentEstate]
+-- Creating foreign key on [EstateId] in table 'EstateAccounts'
+ALTER TABLE [dbo].[EstateAccounts]
+ADD CONSTRAINT [FK_EstateAccountEstate]
     FOREIGN KEY ([EstateId])
     REFERENCES [dbo].[Estates]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_EstateAgentEstate'
-CREATE INDEX [IX_FK_EstateAgentEstate]
-ON [dbo].[EstateAgents]
+-- Creating non-clustered index for FOREIGN KEY 'FK_EstateAccountEstate'
+CREATE INDEX [IX_FK_EstateAccountEstate]
+ON [dbo].[EstateAccounts]
     ([EstateId]);
 GO
 
--- Creating foreign key on [AgentId] in table 'EstateAgents'
-ALTER TABLE [dbo].[EstateAgents]
-ADD CONSTRAINT [FK_EstateAgentAgent]
-    FOREIGN KEY ([AgentId])
-    REFERENCES [dbo].[Agents]
+-- Creating foreign key on [AccountId] in table 'EstateAccounts'
+ALTER TABLE [dbo].[EstateAccounts]
+ADD CONSTRAINT [FK_EstateAccountAccount]
+    FOREIGN KEY ([AccountId])
+    REFERENCES [dbo].[Accounts]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_EstateAgentAgent'
-CREATE INDEX [IX_FK_EstateAgentAgent]
-ON [dbo].[EstateAgents]
-    ([AgentId]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_EstateAccountAccount'
+CREATE INDEX [IX_FK_EstateAccountAccount]
+ON [dbo].[EstateAccounts]
+    ([AccountId]);
 GO
 
 -- Creating foreign key on [EstateId] in table 'Contacts'
@@ -270,36 +264,6 @@ GO
 CREATE INDEX [IX_FK_ContactEstate]
 ON [dbo].[Contacts]
     ([EstateId]);
-GO
-
--- Creating foreign key on [AgentId] in table 'Contacts'
-ALTER TABLE [dbo].[Contacts]
-ADD CONSTRAINT [FK_ContactAgent]
-    FOREIGN KEY ([AgentId])
-    REFERENCES [dbo].[Agents]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_ContactAgent'
-CREATE INDEX [IX_FK_ContactAgent]
-ON [dbo].[Contacts]
-    ([AgentId]);
-GO
-
--- Creating foreign key on [PublicUserId] in table 'Contacts'
-ALTER TABLE [dbo].[Contacts]
-ADD CONSTRAINT [FK_ContactPublicUser]
-    FOREIGN KEY ([PublicUserId])
-    REFERENCES [dbo].[PublicUsers]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_ContactPublicUser'
-CREATE INDEX [IX_FK_ContactPublicUser]
-ON [dbo].[Contacts]
-    ([PublicUserId]);
 GO
 
 -- Creating foreign key on [ContactId] in table 'Files'
@@ -319,8 +283,7 @@ GO
 
 -- Creating foreign key on [EstateId] in table 'Files'
 ALTER TABLE [dbo].[Files]
-ADD CONSTRAINT [FK_FileE
-state]
+ADD CONSTRAINT [FK_FileEstate]
     FOREIGN KEY ([EstateId])
     REFERENCES [dbo].[Estates]
         ([Id])
@@ -346,6 +309,36 @@ GO
 CREATE INDEX [IX_FK_EstateBuildingInfo]
 ON [dbo].[Estates]
     ([BuildingInfoId]);
+GO
+
+-- Creating foreign key on [AccountId] in table 'ContactAccounts'
+ALTER TABLE [dbo].[ContactAccounts]
+ADD CONSTRAINT [FK_AccountContactAccount]
+    FOREIGN KEY ([AccountId])
+    REFERENCES [dbo].[Accounts]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AccountContactAccount'
+CREATE INDEX [IX_FK_AccountContactAccount]
+ON [dbo].[ContactAccounts]
+    ([AccountId]);
+GO
+
+-- Creating foreign key on [ContactId] in table 'ContactAccounts'
+ALTER TABLE [dbo].[ContactAccounts]
+ADD CONSTRAINT [FK_ContactContactAccount]
+    FOREIGN KEY ([ContactId])
+    REFERENCES [dbo].[Contacts]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ContactContactAccount'
+CREATE INDEX [IX_FK_ContactContactAccount]
+ON [dbo].[ContactAccounts]
+    ([ContactId]);
 GO
 
 -- --------------------------------------------------

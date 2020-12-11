@@ -12,13 +12,13 @@ namespace RealEstateManager.Models.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class EstateAgent
+    public partial class ContactAccount
     {
         public System.Guid Id { get; set; }
-        public System.Guid EstateId { get; set; }
-        public System.Guid AgentId { get; set; }
+        public System.Guid AccountId { get; set; }
+        public System.Guid ContactId { get; set; }
     
-        public virtual Estate Estate { get; set; }
-        public virtual Agent Agent { get; set; }
+        public virtual Account Account { get; set; }
+        public virtual Contact Contact { get; set; }
     }
 }

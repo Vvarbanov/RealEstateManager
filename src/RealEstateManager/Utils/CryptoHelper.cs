@@ -6,23 +6,7 @@ namespace RealEstateManager.Utils
 {
     public static class CryptoHelper
     {
-        public static string EncryptAgentName(string plainText)
-        {
-            var userKey = Convert.FromBase64String(ConfigReader.UserKey);
-            var userInitializationVector = Convert.FromBase64String(ConfigReader.UserInitializationVector);
-
-            return EncryptStringToBytes(plainText, userKey, userInitializationVector);
-        }
-
-        public static string DecryptAgentName(string cryptoText)
-        {
-            var userKey = Convert.FromBase64String(ConfigReader.UserKey);
-            var userInitializationVector = Convert.FromBase64String(ConfigReader.UserInitializationVector);
-
-            return DecryptStringFromBytes(cryptoText, userKey, userInitializationVector);
-        }
-
-        private static string EncryptStringToBytes(string plainText, byte[] key, byte[] iv)
+        public static string EncryptStringToBytes(string plainText, byte[] key, byte[] iv)
         {
             if (plainText == null || plainText.Length <= 0)
                 throw new ArgumentNullException(nameof(plainText));
@@ -59,7 +43,7 @@ namespace RealEstateManager.Utils
             return Convert.ToBase64String(encrypted);
         }
 
-        private static string DecryptStringFromBytes(string cipherText, byte[] key, byte[] iv)
+        public static string DecryptStringFromBytes(string cipherText, byte[] key, byte[] iv)
         {
             if (cipherText == null || cipherText.Length <= 0)
                 throw new ArgumentNullException(nameof(cipherText));

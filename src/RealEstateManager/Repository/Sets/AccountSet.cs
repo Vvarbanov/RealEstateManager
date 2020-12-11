@@ -12,19 +12,19 @@ using RealEstateManager.Utils;
 
 namespace RealEstateManager.Repository.Sets
 {
-    public class AgentSet : ISet<Agent, Guid, AgentInsertData, AgentUpdateData>
+    public class AccountSet : ISet<Account, Guid, AccountInsertData, AccountUpdateData>
     {
         private readonly RealEstateManagerDataModelContainer _databaseContext;
 
-        public AgentSet(RealEstateManagerDataModelContainer databaseContext)
+        public AccountSet(RealEstateManagerDataModelContainer databaseContext)
         {
             _databaseContext = databaseContext;
         }
 
-        public Agent Insert(AgentInsertData data)
+        public Account Insert(AccountInsertData data)
         {
             if (!ValidateInsertData(data))
-                throw new InvalidOperationException("AgentInsertData contains invalid values.");
+                throw new InvalidOperationException($"{nameof(AccountInsertData)} contains invalid values.");
 
             if (!IsUsernameAvailable(data.Username))
                 throw new InvalidOperationException($"Username {data.Username} is already registered.");
@@ -34,7 +34,7 @@ namespace RealEstateManager.Repository.Sets
 
             var hashedPassword = PasswordHelper.GetHashedPassword(data.Password, out var salt);
 
-            var agent = new Agent
+            var account = new Account
             {
                 Username = data.Username,
                 EmailAddress = data.EmailAddress,
@@ -43,17 +43,18 @@ namespace RealEstateManager.Repository.Sets
                 FirstName = data.FirstName,
                 LastName = data.LastName,
                 PhoneNumber = data.PhoneNumber,
+                Type = data.Type,
             };
 
-            _databaseContext.Agents.Add(agent);
+            _databaseContext.Accounts.Add(account);
             _databaseContext.SaveChanges();
 
-            return agent;
+            return account;
         }
 
-        public Agent GetById(Guid id, string includeProperties = null)
+        public Account GetById(Guid id, string includeProperties = null)
         {
-            var query = _databaseContext.Agents
+            var query = _databaseContext.Accounts
                 .Where(x => x.Id == id);
 
             if (!string.IsNullOrWhiteSpace(includeProperties))
@@ -69,12 +70,12 @@ namespace RealEstateManager.Repository.Sets
             return query.FirstOrDefault();
         }
 
-        public IEnumerable<Agent> Get(
-            Expression<Func<Agent, bool>> filter = null,
-            Func<IQueryable<Agent>, IOrderedQueryable<Agent>> orderBy = null, 
+        public IEnumerable<Account> Get(
+            Expression<Func<Account, bool>> filter = null,
+            Func<IQueryable<Account>, IOrderedQueryable<Account>> orderBy = null, 
             string includeProperties = null)
         {
-            var query = _databaseContext.Agents.AsQueryable();
+            var query = _databaseContext.Accounts.AsQueryable();
 
             if (filter != null)
                 query = query.Where(filter);
@@ -95,29 +96,29 @@ namespace RealEstateManager.Repository.Sets
             return query;
         }
 
-        public void Update(Guid id, AgentUpdateData data)
+        public void Update(Guid id, AccountUpdateData data)
         {
             if (!ValidateUpdateData(data))
-                throw new InvalidOperationException("AgentUpdateData contains invalid values.");
+                throw new InvalidOperationException($"{nameof(AccountUpdateData)} contains invalid values.");
 
-            var agent = GetById(id);
+            var account = GetById(id);
 
-            if (agent == null)
-                throw new InvalidOperationException($"Agent with id {id} not found.");
+            if (account == null)
+                throw new InvalidOperationException($"Account with id {id} not found.");
 
-            agent.EmailAddress = data.EmailAddress;
-            agent.PhoneNumber = data.PhoneNumber;
+            account.EmailAddress = data.EmailAddress;
+            account.PhoneNumber = data.PhoneNumber;
 
             _databaseContext.SaveChanges();
         }
 
         public void Delete(Guid id)
         {
-            var agent = GetById(id);
+            var account = GetById(id);
 
-            if (agent != null)
+            if (account != null)
             {
-                _databaseContext.Agents.Remove(agent);
+                _databaseContext.Accounts.Remove(account);
                 _databaseContext.SaveChanges();
             }
         }
@@ -129,7 +130,7 @@ namespace RealEstateManager.Repository.Sets
 
             var trimmedUsername = username.Trim();
 
-            return !_databaseContext.Agents
+            return !_databaseContext.Accounts
                 .Any(x => x.Username == trimmedUsername);
         }
 
@@ -140,46 +141,42 @@ namespace RealEstateManager.Repository.Sets
 
             var trimmedEmail = email.Trim();
 
-            return !_databaseContext.Agents
+            return !_databaseContext.Accounts
                 .Any(x => x.EmailAddress == trimmedEmail);
         }
 
         public void ChangePassword(Guid id, string newPassword)
         {
-            var agent = GetById(id);
+            var account = GetById(id);
 
-            if (agent == null)
-                throw new InvalidOperationException($"Agent with id {id} not found.");
+            if (account == null)
+                throw new InvalidOperationException($"Account with id {id} not found.");
 
             var hashedPassword = PasswordHelper.GetHashedPassword(newPassword, out var salt);
 
-            agent.HashedPassword = hashedPassword;
-            agent.PasswordSalt = salt;
+            account.HashedPassword = hashedPassword;
+            account.PasswordSalt = salt;
 
             _databaseContext.SaveChanges();
         }
 
-        public bool IsValidAgent(string email, string password, out string username, out Guid id)
+        public bool IsValidUser(string email, string password, out Guid id)
         {
-            var agent = _databaseContext.Agents
-                .FirstOrDefault(x => x.EmailAddress.ToLower() == email.ToLower());
+            var account = _databaseContext.Accounts
+                .SingleOrDefault(x => x.EmailAddress.ToLower() == email.ToLower());
 
-            username = agent?.Username;
-
-            if (agent == null || 
-                !PasswordHelper.ValidateHash(password, agent.HashedPassword, agent.PasswordSalt))
+            if (account == null || 
+                !PasswordHelper.ValidateHash(password, account.HashedPassword, account.PasswordSalt))
             {
                 var failedLoginThrottle = new Random().Next(180, 220);
 
                 Thread.Sleep(failedLoginThrottle);
 
                 id = Guid.Empty;
-                username = null;
                 return false;
             }
 
-            id = agent.Id;
-            username = agent?.Username;
+            id = account.Id;
             return true;
         }
 
@@ -187,13 +184,13 @@ namespace RealEstateManager.Repository.Sets
         {
             var trimmedEmail = email.Trim();
 
-            var agent = Get(x => x.EmailAddress.ToLower() == trimmedEmail.ToLower())
+            var account = Get(x => x.EmailAddress.ToLower() == trimmedEmail.ToLower())
                 .FirstOrDefault();
 
-            if (agent == null)
+            if (account == null)
                 return false;
 
-            agent.ForgottenPasswordToken = token;
+            account.ForgottenPasswordToken = token;
 
             // TODO: Send asynchronous email
 
@@ -210,24 +207,24 @@ namespace RealEstateManager.Repository.Sets
             var trimmedToken = token.Trim();
             var trimmedPassword = newPassword.Trim();
 
-            var agent = Get(x => x.ForgottenPasswordToken.ToLower() == trimmedToken.ToLower())
+            var account = Get(x => x.ForgottenPasswordToken.ToLower() == trimmedToken.ToLower())
                 .FirstOrDefault();
 
-            if (agent == null)
+            if (account == null)
                 return false;
 
             var hashedPassword = PasswordHelper.GetHashedPassword(trimmedPassword, out var salt);
 
-            agent.HashedPassword = hashedPassword;
-            agent.PasswordSalt = salt;
-            agent.ForgottenPasswordToken = string.Empty;
+            account.HashedPassword = hashedPassword;
+            account.PasswordSalt = salt;
+            account.ForgottenPasswordToken = string.Empty;
 
             _databaseContext.SaveChanges();
 
             return true;
         }
 
-        private static bool ValidateInsertData(AgentInsertData data)
+        private static bool ValidateInsertData(AccountInsertData data)
         {
             return !string.IsNullOrWhiteSpace(data.LastName) &&
                    !string.IsNullOrWhiteSpace(data.FirstName) &&
@@ -236,7 +233,7 @@ namespace RealEstateManager.Repository.Sets
                    !string.IsNullOrWhiteSpace(data.Username);
         }
 
-        private static bool ValidateUpdateData(AgentUpdateData data)
+        private static bool ValidateUpdateData(AccountUpdateData data)
         {
             return !string.IsNullOrWhiteSpace(data.EmailAddress) &&
                    !string.IsNullOrWhiteSpace(data.PhoneNumber);

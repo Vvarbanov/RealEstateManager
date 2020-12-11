@@ -3,6 +3,7 @@
 
 @{
     var db = BaseController.GetController(ViewContext).Context;
+    var currentAgent = BaseController.GetCurrentAgent(db, User);
 }
 
 <!DOCTYPE html>
@@ -21,19 +22,17 @@
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    @Html.ActionLink(Localization.GetString("ApplicationName"), "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink(Localization.GetString("ApplicationName"), "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav mr-auto">
-                        @if (Request.IsAuthenticated)
+                        @if (Request.IsAuthenticated && currentAgent != null)
                         {
-                            var currentIdentity = db.GetCurrentIdentity(User);
-
                             <li class="nav-item">@Html.ActionLink(Localization.GetString("MenuButton_Estates"), "Index", "Home", null, new { @class = "nav-link" })</li>
                             <li class="nav-item">@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })</li>
                             <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>
-                            <li class="nav-item">@Html.ActionLink(currentIdentity.Name, "Index", "Agent", new { id = currentIdentity.Id }, new { @class = "nav-link" })</li>
-                            <li class="nav-item">@Html.ActionLink(Localization.GetString("MenuButton_AgentLogout"), "Logout", "Agent", null, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink(currentAgent.Name, "Index", "Account", new {area = "Public"}, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink(Localization.GetString("MenuButton_AgentLogout"), "Logout", "Account", new { area = "Public" }, new { @class = "nav-link" })</li>
                         }
                     </ul>
                 </div>

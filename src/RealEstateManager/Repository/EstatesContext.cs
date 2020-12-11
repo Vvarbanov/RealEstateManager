@@ -13,6 +13,7 @@ namespace RealEstateManager.Repository
         public RealEstateManagerDataModelContainer DatabaseContext { get; }
         public AgentSet Agents { get; }
         public EstateSet Estates { get; }
+        public BuildingInfoSet BuildingInfoes { get; }
 
         public ICurrentIdentity GetCurrentIdentity(IPrincipal user)
         {
@@ -20,7 +21,7 @@ namespace RealEstateManager.Repository
                 throw new ArgumentNullException(nameof(user));
 
             var userInfo = CryptoHelper.DecryptAgentName(user.Identity.Name);
-            var userInfoArray = userInfo.Split(new[] {'|'}, StringSplitOptions.RemoveEmptyEntries);
+            var userInfoArray = userInfo.Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
 
             ICurrentIdentity currentIdentity;
 
@@ -61,6 +62,7 @@ namespace RealEstateManager.Repository
             DatabaseContext = new RealEstateManagerDataModelContainer();
             Agents = new AgentSet(DatabaseContext);
             Estates = new EstateSet(DatabaseContext);
+            BuildingInfoes = new BuildingInfoSet(DatabaseContext);
         }
 
         public void Dispose()

@@ -5,6 +5,7 @@ using System.Web;
 using RealEstateManager.Properties;
 using System.ComponentModel.DataAnnotations;
 using RealEstateManager.Models.Data;
+using RealEstateManager.Models.BuildingInfo;
 
 namespace RealEstateManager.Models.Estate
 {
@@ -33,13 +34,41 @@ namespace RealEstateManager.Models.Estate
         public EstateStatusType Status { get; set; }
 
         [Display(
+            Name = "EstateModel_Address",
+            ResourceType = typeof(Resources))]
+        public string Address { get; set; }
+
+        [Display(
             Name = "EstateModel_PublicDescription",
             ResourceType = typeof(Resources))]
         public string PublicDescription { get; set; }
 
         [Display(
+            Name = "EstateModel_PublicDescription",
+            ResourceType = typeof(Resources))]
+        public string PrivateDescription { get; set; }
+
+        [Display(
             Name = "EstateModel_Area",
             ResourceType = typeof(Resources))]
         public double Area { get; set; }
+
+        public Data.BuildingInfo BuildingInfo { get; set; }
+
+        public BuildingInfoGetModel GetBuildingInfoModel()
+        {
+            return BuildingInfo != null
+                ? new BuildingInfoGetModel
+                {
+                    Act16 = BuildingInfo.Act16,
+                    View = BuildingInfo.View,
+                    Floors = BuildingInfo.Floors,
+                    Bedrooms = BuildingInfo.Bedrooms,
+                    Bathrooms = BuildingInfo.Bathrooms,
+                    Balconies = BuildingInfo.Balconies,
+                    Garages = BuildingInfo.Garages
+                }
+                : new BuildingInfoGetModel();
+        }
     }
 }

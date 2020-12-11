@@ -1,0 +1,60 @@
+﻿@using RealEstateManager.Utils
+@using RealEstateManager.Models.Data;
+@model RealEstateManager.Models.BuildingInfo.BuildingInfoCreationModel
+
+@{
+    ViewBag.Title = Localization.GetString("BuildingInfoCreationPage_Title");
+}
+
+@Html.ValidationSummary(true, null, new { @class = "text-danger" })
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h3>@Localization.GetString("BuildingInfoCreationPage_Header")</h3>
+        </div>
+        <div class="card-body bg-light">
+            @Html.HiddenFor(x => x.EstateId)
+            <div class="form-group">
+                @Html.LabelFor(x => x.View)
+                @Html.DropDownListFor(x => x.View, CustomEnumHelper.ToSelectList<BuildingViewType>(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.View, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Act16)
+                @Html.CheckBoxFor(x => x.Act16, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Act16, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Floors)
+                @Html.EditorFor(x => x.Floors, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Floors, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Bedrooms)
+                @Html.EditorFor(x => x.Bedrooms, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Bedrooms, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Bathrooms)
+                @Html.EditorFor(x => x.Bathrooms, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Bathrooms, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Balconies)
+                @Html.EditorFor(x => x.Balconies, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Balconies, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Garages)
+                @Html.EditorFor(x => x.Garages, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Garages, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Create")</button>
+            </div>
+        </div>
+    </div>
+}

@@ -17,7 +17,7 @@
         </div>
         <div class="card-body bg-light">
             @Html.HiddenFor(x => x.Id)
-
+            @Html.HiddenFor(x => x.BuildingInfoId)
             <div class="form-group">
                 @Html.LabelFor(x => x.Name)
                 @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "form-control" } })

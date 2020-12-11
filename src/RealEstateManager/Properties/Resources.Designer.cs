@@ -385,7 +385,223 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Назад.
+        ///   Looks up a localized string similar to Невалиден брой балкони. Те трябва да бъдат положително число..
+        /// </summary>
+        public static string BuildingInfoCreation_IncorrectBalconies_Error {
+            get {
+                return ResourceManager.GetString("BuildingInfoCreation_IncorrectBalconies_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Невалиден брой бани. Те трябва да бъдат положително число..
+        /// </summary>
+        public static string BuildingInfoCreation_IncorrectBathrooms_Error {
+            get {
+                return ResourceManager.GetString("BuildingInfoCreation_IncorrectBathrooms_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Невалиден брой спални. Те трябва да бъдат положително число..
+        /// </summary>
+        public static string BuildingInfoCreation_IncorrectBedrooms_Error {
+            get {
+                return ResourceManager.GetString("BuildingInfoCreation_IncorrectBedrooms_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Невалиден брой етажи. Те трябва да бъдат един или повече..
+        /// </summary>
+        public static string BuildingInfoCreation_IncorrectFloors_Error {
+            get {
+                return ResourceManager.GetString("BuildingInfoCreation_IncorrectFloors_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Невалиден брой гаражи. Те трябва да бъдат положително число..
+        /// </summary>
+        public static string BuildingInfoCreation_IncorrectGarages_Error {
+            get {
+                return ResourceManager.GetString("BuildingInfoCreation_IncorrectGarages_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Добавяне на детайли за имот.
+        /// </summary>
+        public static string BuildingInfoCreationPage_Header {
+            get {
+                return ResourceManager.GetString("BuildingInfoCreationPage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Добавяне на детайли.
+        /// </summary>
+        public static string BuildingInfoCreationPage_Title {
+            get {
+                return ResourceManager.GetString("BuildingInfoCreationPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изтриване на детайли за имот.
+        /// </summary>
+        public static string BuildingInfoDeletePage_Header {
+            get {
+                return ResourceManager.GetString("BuildingInfoDeletePage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сигурни ли сте че искате да изтриете детайлите за имота?.
+        /// </summary>
+        public static string BuildingInfoDeletePage_Text {
+            get {
+                return ResourceManager.GetString("BuildingInfoDeletePage_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изтриване на детайли.
+        /// </summary>
+        public static string BuildingInfoDeletePage_Title {
+            get {
+                return ResourceManager.GetString("BuildingInfoDeletePage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Детайли за информацията на имота.
+        /// </summary>
+        public static string BuildingInfoDetailsPage_Title {
+            get {
+                return ResourceManager.GetString("BuildingInfoDetailsPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Акт 16: .
+        /// </summary>
+        public static string BuildingInfoIndexPage_InfoAct16 {
+            get {
+                return ResourceManager.GetString("BuildingInfoIndexPage_InfoAct16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Няма.
+        /// </summary>
+        public static string BuildingInfoIndexPage_InfoAct16_No {
+            get {
+                return ResourceManager.GetString("BuildingInfoIndexPage_InfoAct16_No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Има.
+        /// </summary>
+        public static string BuildingInfoIndexPage_InfoAct16_Yes {
+            get {
+                return ResourceManager.GetString("BuildingInfoIndexPage_InfoAct16_Yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изглед:.
+        /// </summary>
+        public static string BuildingInfoIndexPage_InfoViewType {
+            get {
+                return ResourceManager.GetString("BuildingInfoIndexPage_InfoViewType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Акт 16.
+        /// </summary>
+        public static string BuildingInfoModel_Act16 {
+            get {
+                return ResourceManager.GetString("BuildingInfoModel_Act16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Брой Балкони/Тераси.
+        /// </summary>
+        public static string BuildingInfoModel_Balconies {
+            get {
+                return ResourceManager.GetString("BuildingInfoModel_Balconies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Брой Бани.
+        /// </summary>
+        public static string BuildingInfoModel_Bathrooms {
+            get {
+                return ResourceManager.GetString("BuildingInfoModel_Bathrooms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Брой Спални.
+        /// </summary>
+        public static string BuildingInfoModel_Bedrooms {
+            get {
+                return ResourceManager.GetString("BuildingInfoModel_Bedrooms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Брой Етажи.
+        /// </summary>
+        public static string BuildingInfoModel_Floors {
+            get {
+                return ResourceManager.GetString("BuildingInfoModel_Floors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Брой Гаражи.
+        /// </summary>
+        public static string BuildingInfoModel_Garages {
+            get {
+                return ResourceManager.GetString("BuildingInfoModel_Garages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изглед.
+        /// </summary>
+        public static string BuildingInfoModel_View {
+            get {
+                return ResourceManager.GetString("BuildingInfoModel_View", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обновяване на детайлите за имот.
+        /// </summary>
+        public static string BuildingInfoUpdatePage_Header {
+            get {
+                return ResourceManager.GetString("BuildingInfoUpdatePage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обновяване на детайли.
+        /// </summary>
+        public static string BuildingInfoUpdatePage_Title {
+            get {
+                return ResourceManager.GetString("BuildingInfoUpdatePage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Създай.
         /// </summary>
         public static string HomeOperationSuccessfulPage_ReturnToHome {
             get {
@@ -421,7 +637,16 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Изход.
+        ///   Looks up a localized string similar to Редактирай Инфо.
+        /// </summary>
+        public static string Button_Edit_Info {
+            get {
+                return ResourceManager.GetString("Button_Edit_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вход.
         /// </summary>
         public static string MenuButton_AgentLogout {
             get {
@@ -435,6 +660,15 @@ namespace RealEstateManager.Properties {
         public static string MenuButton_Estates {
             get {
                 return ResourceManager.GetString("MenuButton_Estates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обнови.
+        /// </summary>
+        public static string Button_Update {
+            get {
+                return ResourceManager.GetString("Button_Update", resourceCulture);
             }
         }
         
@@ -546,6 +780,15 @@ namespace RealEstateManager.Properties {
                 return ResourceManager.GetString("Public_AccountInfoModel_Password", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Информация за имот.
+        /// </summary>
+        public static string EstateDetailsPage_Header {
+            get {
+                return ResourceManager.GetString("EstateDetailsPage_Header", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Телефонен номер.
@@ -555,6 +798,15 @@ namespace RealEstateManager.Properties {
                 return ResourceManager.GetString("Public_AccountInfoModel_PhoneNumber", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Няма обяви за имоти..
+        /// </summary>
+        public static string EstateGet_NoEstates_Error {
+            get {
+                return ResourceManager.GetString("EstateGet_NoEstates_Error", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Потребителско име.
@@ -562,6 +814,15 @@ namespace RealEstateManager.Properties {
         public static string Public_AccountInfoModel_Username {
             get {
                 return ResourceManager.GetString("Public_AccountInfoModel_Username", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to кв. м..
+        /// </summary>
+        public static string EstateIndexPage_AreaSign {
+            get {
+                return ResourceManager.GetString("EstateIndexPage_AreaSign", resourceCulture);
             }
         }
         
@@ -949,6 +1210,42 @@ namespace RealEstateManager.Properties {
         public static string Public_MenuButton_Register {
             get {
                 return ResourceManager.GetString("Public_MenuButton_Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Запад.
+        /// </summary>
+        public static string RealEstateManager_Models_Data_BuildingViewType_East {
+            get {
+                return ResourceManager.GetString("RealEstateManager_Models_Data_BuildingViewType_East", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Север.
+        /// </summary>
+        public static string RealEstateManager_Models_Data_BuildingViewType_North {
+            get {
+                return ResourceManager.GetString("RealEstateManager_Models_Data_BuildingViewType_North", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Юг.
+        /// </summary>
+        public static string RealEstateManager_Models_Data_BuildingViewType_South {
+            get {
+                return ResourceManager.GetString("RealEstateManager_Models_Data_BuildingViewType_South", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изток.
+        /// </summary>
+        public static string RealEstateManager_Models_Data_BuildingViewType_West {
+            get {
+                return ResourceManager.GetString("RealEstateManager_Models_Data_BuildingViewType_West", resourceCulture);
             }
         }
         

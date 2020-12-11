@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RealEstateManager.Models.Estate
+namespace RealEstateManager.Areas.Public.Models.Estate
 {
     public class EstateListGetModel
     {
@@ -11,7 +11,7 @@ namespace RealEstateManager.Models.Estate
             Estates = estates;
         }
 
-        public EstateListGetModel(IEnumerable<Data.Estate> estates)
+        public EstateListGetModel(IEnumerable<RealEstateManager.Models.Data.Estate> estates)
         {
             Estates = new List<EstateGetModel>();
 
@@ -27,8 +27,7 @@ namespace RealEstateManager.Models.Estate
                         Status = estate.Status,
                         Address = estate.Address,
                         PublicDescription = estate.PublicDescription,
-                        PrivateDescription = estate.PrivateDescription,
-                        Area = estate.Area,
+                        Area = estate.Area
                     });
             }
         }

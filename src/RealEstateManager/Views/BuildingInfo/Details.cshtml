@@ -1,0 +1,37 @@
+﻿@using RealEstateManager.Utils
+@model RealEstateManager.Models.BuildingInfo.BuildingInfoGetModel
+
+@{
+    ViewBag.Title = Localization.GetString("BuildingInfoDetailsPage_Title");
+}
+
+@using (Html.BeginForm())
+{
+    <p>
+        @Localization.GetString("BuildingInfoIndexPage_InfoViewType") @CustomEnumHelper.GetLocalizedName(Model.View)
+    </p>
+    <p>
+        @Localization.GetString("BuildingInfoIndexPage_InfoAct16") @(Model.Act16?
+        @Localization.GetString("BuildingInfoIndexPage_InfoAct16_Yes") : @Localization.GetString("BuildingInfoIndexPage_InfoAct16_No"))
+    </p>
+    <p>
+        @Html.LabelFor(x => x.Floors):
+        @Html.DisplayFor(x => x.Floors)
+    </p>
+    <p>
+        @Html.LabelFor(x => x.Bedrooms):
+        @Html.DisplayFor(x => x.Bedrooms)
+    </p>
+    <p>
+        @Html.LabelFor(x => x.Bathrooms):
+        @Html.DisplayFor(x => x.Bathrooms)
+    </p>
+    <p>
+        @Html.LabelFor(x => x.Balconies):
+        @Html.DisplayFor(x => x.Balconies)
+    </p>
+    <p>
+        @Html.LabelFor(x => x.Garages):
+        @Html.DisplayFor(x => x.Garages)
+    </p>
+}

@@ -126,12 +126,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Public\Controllers\BasePublicController.cs" />
+    <Compile Include="Areas\Public\Controllers\BuildingInfoController.cs" />
+    <Compile Include="Areas\Public\Controllers\EstateController.cs" />
     <Compile Include="Areas\Public\Controllers\HomeController.cs" />
     <Compile Include="Areas\Public\Models\Account\AccountRegisterAdminModel.cs" />
     <Compile Include="Areas\Public\Models\Account\AccountRegisterPublicUserModel.cs" />
+    <Compile Include="Areas\Public\Models\BuildingInfo\BuildingInfoGetModel.cs" />
+    <Compile Include="Areas\Public\Models\Estate\EstateGetModel.cs" />
+    <Compile Include="Areas\Public\Models\Estate\EstateListGetModel.cs" />
     <Compile Include="Areas\Public\PublicAreaRegistration.cs" />
     <Compile Include="Areas\Public\Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BuildingInfoController.cs" />
     <Compile Include="Controllers\EstateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Public\Models\Account\AccountForgottenPasswordModel.cs" />
@@ -188,12 +194,17 @@
     <Compile Include="Models\Data\UserType.cs">
       <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BuildingInfo\BuildingInfoCreationModel.cs" />
+    <Compile Include="Models\BuildingInfo\BuildingInfoDeletionModel.cs" />
+    <Compile Include="Models\BuildingInfo\BuildingInfoGetModel.cs" />
+    <Compile Include="Models\BuildingInfo\BuildingInfoUpdateModel.cs" />
     <Compile Include="Models\Estate\EstateCreationModel.cs" />
     <Compile Include="Models\Estate\EstateDeletionModel.cs" />
     <Compile Include="Models\Estate\EstateGetModel.cs" />
     <Compile Include="Models\Estate\EstateListGetModel.cs" />
     <Compile Include="Models\Estate\EstateUpdateModel.cs" />
     <Compile Include="Repository\Data\AccountData.cs" />
+    <Compile Include="Repository\Data\BuildingInfoData.cs" />
     <Compile Include="Repository\Data\EstateData.cs" />
     <Compile Include="Repository\EstatesContext.cs" />
     <Compile Include="Repository\Interfaces\ISet.cs" />
@@ -208,6 +219,7 @@
     </Compile>
     <Compile Include="Repository\CurrentIdentity.cs" />
     <Compile Include="Repository\Sets\AccountSet.cs" />
+    <Compile Include="Repository\Sets\BuildingInfoSet.cs" />
     <Compile Include="Repository\Sets\EstateSet.cs" />
     <Compile Include="Utils\ConfigReader.cs" />
     <Compile Include="Utils\CryptoHelper.cs" />
@@ -320,8 +332,6 @@
     <Content Include="Content\bootstrap\bootstrap.scss" />
     <Content Include="Content\bootstrap\bootstrap-reboot.scss" />
     <Content Include="Content\bootstrap\bootstrap-grid.scss" />
-    <Content Include="Areas\Public\Views\Account\Register.cshtml" />
-    <Content Include="Areas\Public\Views\Account\RegisterAdmin.cshtml" />
     <None Include="Content\bootstrap\_custom.scss" />
     <None Include="Content\Site.scss" />
     <Content Include="Models\Data\RealEstateManagerDataModel.Context.tt">
@@ -339,6 +349,11 @@
     <Content Include="Areas\Public\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Public\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Public\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Public\Views\Account\Register.cshtml" />
+    <Content Include="Areas\Public\Views\Account\RegisterAdmin.cshtml" />
+    <Content Include="Areas\Public\Views\BuildingInfo\Details.cshtml" />
+    <Content Include="Areas\Public\Views\Estate\Index.cshtml" />
+    <Content Include="Areas\Public\Views\Estate\Details.cshtml" />
     <EntityDeploy Include="Models\Data\RealEstateManagerDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>RealEstateManagerDataModel.Designer.cs</LastGenOutput>
@@ -477,6 +492,11 @@
     <Content Include="Areas\Public\Views\Account\ForgottenPassword.cshtml" />
     <Content Include="Views\Home\OperationSuccessful.cshtml" />
     <Content Include="Areas\Public\Views\Account\RecoverPassword.cshtml" />
+    <Content Include="Views\BuildingInfo\Create.cshtml" />
+    <Content Include="Views\BuildingInfo\Update.cshtml" />
+    <Content Include="Views\BuildingInfo\Delete.cshtml" />
+    <Content Include="Views\BuildingInfo\Details.cshtml" />
+    <Content Include="Views\Estate\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

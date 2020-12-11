@@ -1,0 +1,45 @@
+﻿@using RealEstateManager.Utils
+@model RealEstateManager.Models.Estate.EstateGetModel
+
+@{
+    ViewBag.Title = Localization.GetString("EstateIndexPage_Title");
+}
+
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <h3>@Localization.GetString("EstateDetailsPage_Header")</h3>
+    </div>
+    <div class="card-body bg-light">
+        <div class="jumbotron jumbotron-padding">
+            <h1 class="display-4">@Model.Name</h1>
+            <p class="lead">@Localization.GetString("EstateIndexPage_EstateType") @CustomEnumHelper.GetLocalizedName(Model.Type)</p>
+            <p class="lead">@Localization.GetString("EstateIndexPage_EstateStatus") @CustomEnumHelper.GetLocalizedName(Model.Status)</p>
+            <hr class="my-4">
+
+            <p class="lead">
+                @Html.LabelFor(x => x.Area):
+                @Html.DisplayFor(x => x.Area)
+                @Localization.GetString("EstateIndexPage_AreaSign")
+            </p>
+            <p class="lead">
+                @Html.LabelFor(x => x.Price):
+                @Html.DisplayFor(x => x.Price)
+                @Localization.GetString("EstateIndexPage_MoneySign")
+            </p>
+            <p class="lead">
+                @Html.LabelFor(x => x.Address):
+                @Html.DisplayFor(x => x.Address)
+            </p>
+            @if (Model.BuildingInfoGetModel != null)
+            {
+                @Html.Partial("~/Views/BuildingInfo/Details.cshtml", Model.BuildingInfoGetModel)
+            }
+            <p>@Html.DisplayFor(x => x.PrivateDescription)</p>
+            <p>@Html.DisplayFor(x => x.PublicDescription)</p>
+
+            @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Estate", new { id = Model.Id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink(Localization.GetString("Button_Edit_Info"), "Update", "BuildingInfo", new { id = Model.BuildingInfoGetModel.Id}, new { @class = "btn btn-primary" })
+            @Html.ActionLink(Localization.GetString("Button_Delete"), "Delete", "Estate", new { id = Model.Id }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+</div>

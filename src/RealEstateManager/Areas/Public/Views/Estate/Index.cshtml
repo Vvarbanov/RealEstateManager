@@ -1,5 +1,5 @@
 ﻿@using RealEstateManager.Utils
-@model RealEstateManager.Models.Estate.EstateListGetModel
+@model RealEstateManager.Areas.Public.Models.Estate.EstateListGetModel
 
 @{
     ViewBag.Title = Localization.GetString("EstateIndexPage_Title");
@@ -35,8 +35,6 @@
                         @Html.DisplayFor(x => estate.Address)
                     </p>
                     @Html.ActionLink(Localization.GetString("Button_Details"), "Details", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink(Localization.GetString("Button_Delete"), "Delete", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
                 </div>
             }
         }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Security.Principal;
 using System.Web.Security;
@@ -12,12 +12,14 @@ namespace RealEstateManager.Repository
         public RealEstateManagerDataModelContainer DatabaseContext { get; }
         public AccountSet Accounts { get; }
         public EstateSet Estates { get; }
+        public BuildingInfoSet BuildingInfoes { get; }
 
         public EstatesContext()
         {
             DatabaseContext = new RealEstateManagerDataModelContainer();
             Accounts = new AccountSet(DatabaseContext);
             Estates = new EstateSet(DatabaseContext);
+            BuildingInfoes = new BuildingInfoSet(DatabaseContext);
         }
 
         public bool TryGetCurrentIdentity(IPrincipal user, out CurrentIdentity identity)

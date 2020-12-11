@@ -2,15 +2,13 @@
 using RealEstateManager.Properties;
 using System.ComponentModel.DataAnnotations;
 
-namespace RealEstateManager.Models.Estate
+namespace RealEstateManager.Models.BuildingInfo
 {
-    public class EstateDeletionModel
+    public class BuildingInfoDeletionModel
     {
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
             ErrorMessageResourceType = typeof(Resources))]
         public Guid Id { get; set; }
-
-        public Guid? BuildingInfoId { get; set; }
     }
 }

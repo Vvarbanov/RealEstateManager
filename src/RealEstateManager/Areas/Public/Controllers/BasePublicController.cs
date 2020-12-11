@@ -1,4 +1,4 @@
-﻿using System.Security.Principal;
+using System.Security.Principal;
 using System.Web.Mvc;
 using RealEstateManager.Repository;
 

@@ -2,12 +2,11 @@
 
 namespace RealEstateManager.Areas.Public.Controllers
 {
-    public class HomeController : BasePublicController
+    public class BuildingInfoController : BasePublicController
     {
-        // GET: Public/Home
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "Estate");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

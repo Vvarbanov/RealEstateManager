@@ -62,7 +62,6 @@ namespace RealEstateManager.Controllers
             return View(model);
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Update(BuildingInfoUpdateModel model)

@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace RealEstateManager.Areas.Public.Controllers
 {
-    public class EstateController : BaseController
+    public class EstateController : BasePublicController
     {
         public ActionResult Index()
         {

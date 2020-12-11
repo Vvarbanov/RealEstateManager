@@ -2,7 +2,7 @@
 
 namespace RealEstateManager.Areas.Public.Controllers
 {
-    public class BuildingInfoController : BaseController
+    public class BuildingInfoController : BasePublicController
     {
         public ActionResult Index()
         {

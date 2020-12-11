@@ -3,7 +3,7 @@ using RealEstateManager.Repository;
 
 namespace RealEstateManager.Areas.Public.Controllers
 {
-    public class BaseController : Controller
+    public class BasePublicController : Controller
     {
         private EstatesContext _db;
 
@@ -19,9 +19,9 @@ namespace RealEstateManager.Areas.Public.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public static BaseController GetController(ViewContext viewContext)
+        public static BasePublicController GetController(ViewContext viewContext)
         {
-            return (BaseController)viewContext.Controller;
+            return (BasePublicController)viewContext.Controller;
         }
 
         protected override void Dispose(bool disposing)

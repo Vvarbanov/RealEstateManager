@@ -30,15 +30,15 @@
                 @Html.LabelFor(x => x.Address):
                 @Html.DisplayFor(x => x.Address)
             </p>
-            @if (Model.BuildingInfo != null)
+            @if (Model.BuildingInfoGetModel != null)
             {
-                @Html.Partial("~/Views/BuildingInfo/Details.cshtml", Model.GetBuildingInfoModel())
+                @Html.Partial("~/Views/BuildingInfo/Details.cshtml", Model.BuildingInfoGetModel)
             }
             <p>@Html.DisplayFor(x => x.PrivateDescription)</p>
             <p>@Html.DisplayFor(x => x.PublicDescription)</p>
 
             @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Estate", new { id = Model.Id }, new { @class = "btn btn-primary" })
-            @Html.ActionLink(Localization.GetString("Button_Edit_Info"), "Update", "BuildingInfo", new { id = Model.BuildingInfo.Id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink(Localization.GetString("Button_Edit_Info"), "Update", "BuildingInfo", new { id = Model.BuildingInfoGetModel.Id}, new { @class = "btn btn-primary" })
             @Html.ActionLink(Localization.GetString("Button_Delete"), "Delete", "Estate", new { id = Model.Id }, new { @class = "btn btn-primary" })
         </div>
     </div>

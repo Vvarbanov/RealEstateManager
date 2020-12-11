@@ -53,22 +53,6 @@ namespace RealEstateManager.Models.Estate
             ResourceType = typeof(Resources))]
         public double Area { get; set; }
 
-        public Data.BuildingInfo BuildingInfo { get; set; }
-
-        public BuildingInfoGetModel GetBuildingInfoModel()
-        {
-            return BuildingInfo != null
-                ? new BuildingInfoGetModel
-                {
-                    Act16 = BuildingInfo.Act16,
-                    View = BuildingInfo.View,
-                    Floors = BuildingInfo.Floors,
-                    Bedrooms = BuildingInfo.Bedrooms,
-                    Bathrooms = BuildingInfo.Bathrooms,
-                    Balconies = BuildingInfo.Balconies,
-                    Garages = BuildingInfo.Garages
-                }
-                : new BuildingInfoGetModel();
-        }
+        public BuildingInfoGetModel BuildingInfoGetModel { get; set; }
     }
 }

@@ -9,6 +9,8 @@ namespace RealEstateManager.Models.BuildingInfo
 {
     public class BuildingInfoGetModel
     {
+        public Guid Id { get; set; }
+
         [Display(
             Name = "BuildingInfoModel_View",
             ResourceType = typeof(Resources))]

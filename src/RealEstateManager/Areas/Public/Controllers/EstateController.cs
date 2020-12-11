@@ -1,4 +1,5 @@
 ﻿using RealEstateManager.Areas.Public.Models.Estate;
+using RealEstateManager.Areas.Public.Models.BuildingInfo;
 using System;
 using System.Linq;
 using System.Web.Mvc;
@@ -23,10 +24,21 @@ namespace RealEstateManager.Areas.Public.Controllers
 
             var existing = db.Estates.GetById(id.Value, "BuildingInfo");
 
-            if (existing == null)
+            if (existing == null || existing.BuildingInfo == null)
                 return RedirectToAction("Index", "Home");
 
-            var model = new EstateGetModel
+            var buildingInfoModel = new BuildingInfoGetModel
+            {
+                Act16 = existing.BuildingInfo.Act16,
+                View = existing.BuildingInfo.View,
+                Floors = existing.BuildingInfo.Floors,
+                Bedrooms = existing.BuildingInfo.Bedrooms,
+                Bathrooms = existing.BuildingInfo.Bathrooms,
+                Balconies = existing.BuildingInfo.Balconies,
+                Garages = existing.BuildingInfo.Garages
+            };
+
+            var estateModel = new EstateGetModel
             {
                 Id = existing.Id,
                 Name = existing.Name,
@@ -36,10 +48,10 @@ namespace RealEstateManager.Areas.Public.Controllers
                 Address = existing.Address,
                 PublicDescription = existing.PublicDescription,
                 Area = existing.Area,
-                BuildingInfo = existing.BuildingInfo
+                BuildingInfoGetModel = buildingInfoModel
             };
 
-            return View(model);
+            return View(estateModel);
         }
     }
 }

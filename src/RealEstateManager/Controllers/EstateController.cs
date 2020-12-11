@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using RealEstateManager.Models.Estate;
 using RealEstateManager.Models.Data;
+using RealEstateManager.Models.BuildingInfo;
 
 namespace RealEstateManager.Controllers
 {
@@ -28,7 +29,19 @@ namespace RealEstateManager.Controllers
             if (existing == null)
                 return RedirectToAction("Index", "Home");
 
-            var model = new EstateGetModel
+            var buildingInfoModel = new BuildingInfoGetModel
+            {
+                Id = existing.BuildingInfo.Id,
+                Act16 = existing.BuildingInfo.Act16,
+                View = existing.BuildingInfo.View,
+                Floors = existing.BuildingInfo.Floors,
+                Bedrooms = existing.BuildingInfo.Bedrooms,
+                Bathrooms = existing.BuildingInfo.Bathrooms,
+                Balconies = existing.BuildingInfo.Balconies,
+                Garages = existing.BuildingInfo.Garages
+            };
+
+            var estateModel = new EstateGetModel
             {
                 Id = existing.Id,
                 Name = existing.Name,
@@ -39,10 +52,10 @@ namespace RealEstateManager.Controllers
                 PublicDescription = existing.PublicDescription,
                 PrivateDescription = existing.PrivateDescription,
                 Area = existing.Area,
-                BuildingInfo = existing.BuildingInfo
+                BuildingInfoGetModel = buildingInfoModel
             };
 
-            return View(model);
+            return View(estateModel);
         }
 
         public ActionResult Create()

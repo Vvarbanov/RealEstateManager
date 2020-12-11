@@ -33,7 +33,7 @@ namespace RealEstateManager.Repository.Sets
                 Balconies = data.Balconies,
                 Garages = data.Garages
             };
-            var estate = _databaseContext.Estates.Where(x => x.Id == data.EstateId).FirstOrDefault();
+            var estate = _databaseContext.Estates.FirstOrDefault(x => x.Id == data.EstateId);
             if (estate == null)
                 throw new InvalidOperationException("BuildingInfoData contains invalid properties. Estate id is incorrect");
 

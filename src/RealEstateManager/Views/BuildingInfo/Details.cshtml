@@ -15,18 +15,23 @@
         @Localization.GetString("BuildingInfoIndexPage_InfoAct16_Yes") : @Localization.GetString("BuildingInfoIndexPage_InfoAct16_No"))
     </p>
     <p>
-        @Localization.GetString("BuildingInfoIndexPage_InfoFloors") @Model.Floors
+        @Html.LabelFor(x => x.Floors):
+        @Html.DisplayFor(x => x.Floors)
     </p>
     <p>
-        @Localization.GetString("BuildingInfoIndexPage_InfoBedrooms") @Model.Bedrooms
+        @Html.LabelFor(x => x.Bedrooms):
+        @Html.DisplayFor(x => x.Bedrooms)
     </p>
     <p>
-        @Localization.GetString("BuildingInfoIndexPage_InfoBathrooms") @Model.Bathrooms
+        @Html.LabelFor(x => x.Bathrooms):
+        @Html.DisplayFor(x => x.Bathrooms)
     </p>
     <p>
-        @Localization.GetString("BuildingInfoIndexPage_InfoBalconies") @Model.Balconies
+        @Html.LabelFor(x => x.Balconies):
+        @Html.DisplayFor(x => x.Balconies)
     </p>
     <p>
-        @Localization.GetString("BuildingInfoIndexPage_InfoGarages") @Model.Garages
+        @Html.LabelFor(x => x.Garages):
+        @Html.DisplayFor(x => x.Garages)
     </p>
 }

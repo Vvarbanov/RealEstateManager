@@ -10,7 +10,7 @@
 .dl-horizontal dt {
   white-space: normal; }
 
-.jumbotron {
+.jumbotron-padding {
   padding: 2rem !important; }
 
 /* Set width on the form input elements since they're 100% wide by default */

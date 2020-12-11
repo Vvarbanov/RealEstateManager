@@ -58,7 +58,7 @@ namespace RealEstateManager.Controllers
             {
                 var estate = db.Estates.Insert(model.ToData());
 
-                if (model.Type.Equals(EstateType.Apartment) || model.Type.Equals(EstateType.House))
+                if (model.Type == EstateType.Apartment || model.Type == EstateType.House)
                     return RedirectToAction("Create", "BuildingInfo", new { estateId = estate.Id });
 
                 return RedirectToAction("Index", "Home");
@@ -103,7 +103,7 @@ namespace RealEstateManager.Controllers
             {
                 db.Estates.Update(model.Id, model.ToData());
 
-                if (model.Type.Equals(EstateType.Apartment) || model.Type.Equals(EstateType.House))
+                if (model.Type == EstateType.Apartment || model.Type == EstateType.House)
                 {
                     if (model.BuildingInfoId.HasValue)
                         return RedirectToAction("Update", "BuildingInfo", new { id = model.BuildingInfoId.Value, estateId = model.Id });
@@ -111,7 +111,7 @@ namespace RealEstateManager.Controllers
                     return RedirectToAction("Create", "BuildingInfo", new { estateId = model.Id });
                 }
 
-                if (model.Type.Equals(EstateType.Land) && model.BuildingInfoId.HasValue)
+                if (model.Type == EstateType.Land && model.BuildingInfoId.HasValue)
                     db.BuildingInfoes.Delete(model.BuildingInfoId.Value);
 
                 return RedirectToAction("Index", "Home");

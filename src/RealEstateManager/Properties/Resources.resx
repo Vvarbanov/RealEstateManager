@@ -271,15 +271,6 @@
   <data name="EstateIndexPage_AreaSign" xml:space="preserve">
     <value>кв. м.</value>
   </data>
-  <data name="EstateIndexPage_EstateArea" xml:space="preserve">
-    <value>Площ:</value>
-  </data>
-  <data name="EstateIndexPage_EstatePrice" xml:space="preserve">
-    <value>Цена:</value>
-  </data>
-  <data name="EstateIndexPage_EstateStatus" xml:space="preserve">
-    <value>Статус:</value>
-  </data>
   <data name="EstateIndexPage_EstateType" xml:space="preserve">
     <value>Тип на имота:</value>
   </data>
@@ -376,21 +367,6 @@
   <data name="BuildingInfoModel_Act16" xml:space="preserve">
     <value>Акт 16</value>
   </data>
-  <data name="BuildingInfoModel_Balconies" xml:space="preserve">
-    <value>Брой Балкони/Тераси</value>
-  </data>
-  <data name="BuildingInfoModel_Bathrooms" xml:space="preserve">
-    <value>Брой Бани</value>
-  </data>
-  <data name="BuildingInfoModel_Bedrooms" xml:space="preserve">
-    <value>Брой Спални</value>
-  </data>
-  <data name="BuildingInfoModel_Floors" xml:space="preserve">
-    <value>Брой Етажи</value>
-  </data>
-  <data name="BuildingInfoModel_Garages" xml:space="preserve">
-    <value>Брой Гаражи</value>
-  </data>
   <data name="BuildingInfoModel_View" xml:space="preserve">
     <value>Изглед</value>
   </data>
@@ -439,21 +415,6 @@
   <data name="BuildingInfoIndexPage_InfoAct16" xml:space="preserve">
     <value>Акт 16: </value>
   </data>
-  <data name="BuildingInfoIndexPage_InfoBalconies" xml:space="preserve">
-    <value>Брой балкони/тераси:</value>
-  </data>
-  <data name="BuildingInfoIndexPage_InfoBathrooms" xml:space="preserve">
-    <value>Брой бани:</value>
-  </data>
-  <data name="BuildingInfoIndexPage_InfoBedrooms" xml:space="preserve">
-    <value>Брой спални:</value>
-  </data>
-  <data name="BuildingInfoIndexPage_InfoFloors" xml:space="preserve">
-    <value>Брой етажи: </value>
-  </data>
-  <data name="BuildingInfoIndexPage_InfoGarages" xml:space="preserve">
-    <value>Брой гаражи:</value>
-  </data>
   <data name="EstateDetailsPage_Header" xml:space="preserve">
     <value>Информация за имот</value>
   </data>
@@ -478,7 +439,25 @@
   <data name="BuildingInfoIndexPage_InfoAct16_Yes" xml:space="preserve">
     <value>Има</value>
   </data>
-  <data name="EstateIndexPage_EstateAddress" xml:space="preserve">
-    <value>Адрес:</value>
+  <data name="BuildingInfoModel_Balconies" xml:space="preserve">
+    <value>Брой Балкони/Тераси</value>
+  </data>
+  <data name="BuildingInfoModel_Bathrooms" xml:space="preserve">
+    <value>Брой Бани</value>
+  </data>
+  <data name="BuildingInfoModel_Bedrooms" xml:space="preserve">
+    <value>Брой Спални</value>
+  </data>
+  <data name="BuildingInfoModel_Floors" xml:space="preserve">
+    <value>Брой Етажи</value>
+  </data>
+  <data name="BuildingInfoModel_Garages" xml:space="preserve">
+    <value>Брой Гаражи</value>
+  </data>
+  <data name="Button_Edit_Info" xml:space="preserve">
+    <value>Редактирай Инфо</value>
+  </data>
+  <data name="EstateIndexPage_EstateStatus" xml:space="preserve">
+    <value>Статус:</value>
   </data>
 </root>

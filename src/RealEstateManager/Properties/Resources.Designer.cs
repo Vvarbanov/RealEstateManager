@@ -521,51 +521,6 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Брой балкони/тераси:.
-        /// </summary>
-        public static string BuildingInfoIndexPage_InfoBalconies {
-            get {
-                return ResourceManager.GetString("BuildingInfoIndexPage_InfoBalconies", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Брой бани:.
-        /// </summary>
-        public static string BuildingInfoIndexPage_InfoBathrooms {
-            get {
-                return ResourceManager.GetString("BuildingInfoIndexPage_InfoBathrooms", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Брой спални:.
-        /// </summary>
-        public static string BuildingInfoIndexPage_InfoBedrooms {
-            get {
-                return ResourceManager.GetString("BuildingInfoIndexPage_InfoBedrooms", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Брой етажи: .
-        /// </summary>
-        public static string BuildingInfoIndexPage_InfoFloors {
-            get {
-                return ResourceManager.GetString("BuildingInfoIndexPage_InfoFloors", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Брой гаражи:.
-        /// </summary>
-        public static string BuildingInfoIndexPage_InfoGarages {
-            get {
-                return ResourceManager.GetString("BuildingInfoIndexPage_InfoGarages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Изглед:.
         /// </summary>
         public static string BuildingInfoIndexPage_InfoViewType {
@@ -688,6 +643,15 @@ namespace RealEstateManager.Properties {
         public static string Button_Edit {
             get {
                 return ResourceManager.GetString("Button_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Редактирай Инфо.
+        /// </summary>
+        public static string Button_Edit_Info {
+            get {
+                return ResourceManager.GetString("Button_Edit_Info", resourceCulture);
             }
         }
         
@@ -823,33 +787,6 @@ namespace RealEstateManager.Properties {
         public static string EstateIndexPage_AreaSign {
             get {
                 return ResourceManager.GetString("EstateIndexPage_AreaSign", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Адрес:.
-        /// </summary>
-        public static string EstateIndexPage_EstateAddress {
-            get {
-                return ResourceManager.GetString("EstateIndexPage_EstateAddress", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Площ:.
-        /// </summary>
-        public static string EstateIndexPage_EstateArea {
-            get {
-                return ResourceManager.GetString("EstateIndexPage_EstateArea", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Цена:.
-        /// </summary>
-        public static string EstateIndexPage_EstatePrice {
-            get {
-                return ResourceManager.GetString("EstateIndexPage_EstatePrice", resourceCulture);
             }
         }
         

@@ -322,12 +322,6 @@
   <data name="InvalidLoginDetailsError" xml:space="preserve">
     <value>Невалиден e-mail или парола.</value>
   </data>
-  <data name="MenuButton_AgentLogin" xml:space="preserve">
-    <value>Вход</value>
-  </data>
-  <data name="MenuButton_AgentLogout" xml:space="preserve">
-    <value>Изход</value>
-  </data>
   <data name="RequiredFieldError" xml:space="preserve">
     <value>Това поле е задължително.</value>
   </data>
@@ -468,6 +462,7 @@
   </data>
   <data name="Public_AccountRegisterPublicUserPage_Title" xml:space="preserve">
     <value>Регистрация</value>
+  </data>
   <data name="Button_Update" xml:space="preserve">
     <value>Обнови</value>
   </data>
@@ -521,5 +516,8 @@
   </data>
   <data name="EstateIndexPage_EstateStatus" xml:space="preserve">
     <value>Статус:</value>
+  </data>
+  <data name="MenuButton_Logout" xml:space="preserve">
+    <value>Изход</value>
   </data>
 </root>

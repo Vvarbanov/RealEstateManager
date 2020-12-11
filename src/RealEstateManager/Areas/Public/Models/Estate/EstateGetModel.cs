@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using RealEstateManager.Properties;
 using System.ComponentModel.DataAnnotations;
 using RealEstateManager.Models.Data;
-using RealEstateManager.Models.BuildingInfo;
+using RealEstateManager.Areas.Public.Models.BuildingInfo;
 
-namespace RealEstateManager.Models.Estate
+namespace RealEstateManager.Areas.Public.Models.Estate
 {
     public class EstateGetModel
     {
@@ -42,11 +39,6 @@ namespace RealEstateManager.Models.Estate
             Name = "EstateModel_PublicDescription",
             ResourceType = typeof(Resources))]
         public string PublicDescription { get; set; }
-
-        [Display(
-            Name = "EstateModel_PublicDescription",
-            ResourceType = typeof(Resources))]
-        public string PrivateDescription { get; set; }
 
         [Display(
             Name = "EstateModel_Area",

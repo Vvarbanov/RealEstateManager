@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using RealEstateManager.Models.Data;
+﻿using RealEstateManager.Models.Data;
 using RealEstateManager.Properties;
 using System.ComponentModel.DataAnnotations;
 
-namespace RealEstateManager.Models.BuildingInfo
+namespace RealEstateManager.Areas.Public.Models.BuildingInfo
 {
     public class BuildingInfoGetModel
     {
-        public Guid Id { get; set; }
-
         [Display(
             Name = "BuildingInfoModel_View",
             ResourceType = typeof(Resources))]

@@ -1,0 +1,46 @@
+﻿@using RealEstateManager.Utils
+@model RealEstateManager.Areas.Public.Models.Estate.EstateListGetModel
+
+@{
+    ViewBag.Title = Localization.GetString("EstateIndexPage_Title");
+}
+
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <h3>@Localization.GetString("EstateIndexPage_Header")</h3>
+    </div>
+    <div class="card-body bg-light">
+        @if (Model != null && Model.Estates != null)
+        {
+            foreach (var estate in Model.Estates)
+            {
+                <div class="jumbotron jumbotron-padding">
+                    <h1 class="display-4">@estate.Name</h1>
+                    <p class="lead">@Localization.GetString("EstateIndexPage_EstateType") @CustomEnumHelper.GetLocalizedName(estate.Type)</p>
+                    <p class="lead">@Localization.GetString("EstateIndexPage_EstateStatus") @CustomEnumHelper.GetLocalizedName(estate.Status)</p>
+                    <hr class="my-4">
+
+                    <p class="lead">
+                        @Html.LabelFor(x => estate.Area):
+                        @Html.DisplayFor(x => estate.Area)
+                        @Localization.GetString("EstateIndexPage_AreaSign")
+                    </p>
+                    <p class="lead">
+                        @Html.LabelFor(x => estate.Price):
+                        @Html.DisplayFor(x => estate.Price)
+                        @Localization.GetString("EstateIndexPage_MoneySign")
+                    </p>
+                    <p class="lead">
+                        @Html.LabelFor(x => estate.Address):
+                        @Html.DisplayFor(x => estate.Address)
+                    </p>
+                    @Html.ActionLink(Localization.GetString("Button_Details"), "Details", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
+                </div>
+            }
+        }
+        else
+        {
+            <p>@Localization.GetString("EstateGet_NoEstates_Error")</p>
+        }
+    </div>
+</div>

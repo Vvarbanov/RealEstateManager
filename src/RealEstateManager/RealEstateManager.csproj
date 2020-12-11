@@ -125,7 +125,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Public\Controllers\BasePublicController.cs" />
+    <Compile Include="Areas\Public\Controllers\BuildingInfoController.cs" />
+    <Compile Include="Areas\Public\Controllers\EstateController.cs" />
     <Compile Include="Areas\Public\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Public\Models\BuildingInfo\BuildingInfoGetModel.cs" />
+    <Compile Include="Areas\Public\Models\Estate\EstateGetModel.cs" />
+    <Compile Include="Areas\Public\Models\Estate\EstateListGetModel.cs" />
     <Compile Include="Areas\Public\PublicAreaRegistration.cs" />
     <Compile Include="Controllers\AgentController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -325,6 +331,9 @@
     <Content Include="Content\bootstrap\bootstrap.scss" />
     <Content Include="Content\bootstrap\bootstrap-reboot.scss" />
     <Content Include="Content\bootstrap\bootstrap-grid.scss" />
+    <Content Include="Areas\Public\Views\Estate\Index.cshtml" />
+    <Content Include="Areas\Public\Views\Estate\Details.cshtml" />
+    <Content Include="Areas\Public\Views\BuildingInfo\Details.cshtml" />
     <None Include="Content\bootstrap\_custom.scss" />
     <None Include="Content\Site.scss" />
     <Content Include="Models\Data\RealEstateManagerDataModel.Context.tt">

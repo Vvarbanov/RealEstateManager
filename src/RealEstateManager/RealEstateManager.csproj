@@ -125,7 +125,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Public\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Public\Controllers\BasePublicController.cs" />
     <Compile Include="Areas\Public\Controllers\BuildingInfoController.cs" />
     <Compile Include="Areas\Public\Controllers\EstateController.cs" />
     <Compile Include="Areas\Public\Controllers\HomeController.cs" />

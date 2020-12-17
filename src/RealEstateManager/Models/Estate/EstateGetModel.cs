@@ -6,6 +6,7 @@ using RealEstateManager.Properties;
 using System.ComponentModel.DataAnnotations;
 using RealEstateManager.Models.Data;
 using RealEstateManager.Models.BuildingInfo;
+using RealEstateManager.Models.EstateAccount;
 
 namespace RealEstateManager.Models.Estate
 {
@@ -54,5 +55,7 @@ namespace RealEstateManager.Models.Estate
         public double Area { get; set; }
 
         public BuildingInfoGetModel BuildingInfoGetModel { get; set; }
+
+        public List<EstateAccountGetModel> EstateAgents { get; set; }
     }
 }

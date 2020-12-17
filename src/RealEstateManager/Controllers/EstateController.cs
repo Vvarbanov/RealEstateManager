@@ -12,7 +12,7 @@ namespace RealEstateManager.Controllers
     {
         public ActionResult Index()
         {
-            var existing = db.Estates.Get(null, x => x.OrderByDescending(y => y.UpdateDate));
+            var existing = db.Estates.Get(null, x => x.OrderByDescending(y => y.UpdateDate), nameof(Estate.Account));
 
             var model = new EstateListGetModel(existing);
 
@@ -24,7 +24,7 @@ namespace RealEstateManager.Controllers
             if (!id.HasValue)
                 return RedirectToAction("Index", "Home");
 
-            var existing = db.Estates.GetById(id.Value, "BuildingInfo");
+            var existing = db.Estates.GetById(id.Value, nameof(Estate.BuildingInfo));
 
             if (existing == null)
                 return RedirectToAction("Index", "Home");

@@ -1,0 +1,32 @@
+﻿@using RealEstateManager.Utils
+@using RealEstateManager.Models.Data;
+@model RealEstateManager.Models.EstateAccount.EstateAccountListModel
+
+@{
+    ViewBag.Title = Localization.GetString("EstateAccountCreationPage_Title");
+}
+
+@Html.ValidationSummary(true, null, new { @class = "text-danger" })
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h3>@Localization.GetString("EstateAccountUpdatePage_Header")</h3>
+        </div>
+        <div class="card-body bg-light">
+            <p>@Localization.GetString("EstateAccountUpdatePage_Text")</p>
+            @foreach (var estateAgent in Model.EstateAgents)
+            {
+                @Html.HiddenFor(x => estateAgent.EstateId)
+                @Html.HiddenFor(x => estateAgent.UserId)
+                @Html.DisplayFor(x => estateAgent.Username)
+                @Html.EditorFor(x => estateAgent.HasRights)
+            }
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Update")</button>
+            </div>
+        </div>
+    </div>
+}

@@ -1,7 +1,10 @@
 ﻿@using RealEstateManager.Utils
+@using RealEstateManager.Controllers
 @model RealEstateManager.Models.Estate.EstateListGetModel
 
 @{
+    var db = BaseController.GetController(ViewContext).Context;
+    var currentAgent = BaseController.GetCurrentAgent(db, User);
     ViewBag.Title = Localization.GetString("EstateIndexPage_Title");
 }
 
@@ -35,8 +38,15 @@
                         @Html.DisplayFor(x => estate.Address)
                     </p>
                     @Html.ActionLink(Localization.GetString("Button_Details"), "Details", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink(Localization.GetString("Button_Delete"), "Delete", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
+                    @if (EstateAgentHelper.IsAgentAuthorized(currentAgent, estate))
+                    {
+                        @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink(Localization.GetString("Button_Delete"), "Delete", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
+                    }
+                    @if (EstateAgentHelper.isAdminAuthorized(currentAgent, estate))
+                    {
+                        @Html.ActionLink(Localization.GetString("Button_Edit_Rights"), "Update", "EstateAccount", new { estateId = estate.Id }, new { @class = "btn btn-primary" })
+                    }
                 </div>
             }
         }

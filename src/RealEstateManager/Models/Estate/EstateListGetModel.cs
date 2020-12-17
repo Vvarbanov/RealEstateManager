@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using RealEstateManager.Models.Data;
+using RealEstateManager.Models.EstateAccount;
+using RealEstateManager.Repository;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace RealEstateManager.Models.Estate
 {
@@ -29,6 +34,13 @@ namespace RealEstateManager.Models.Estate
                         PublicDescription = estate.PublicDescription,
                         PrivateDescription = estate.PrivateDescription,
                         Area = estate.Area,
+                        EstateAgents = estate.Account
+                        .Select(x => new EstateAccountGetModel
+                        {
+                            EstateId = x.EstateId,
+                            AccountId = x.AccountId
+                        })
+                        .ToList()
                     });
             }
         }

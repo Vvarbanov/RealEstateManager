@@ -138,6 +138,7 @@
     <Compile Include="Areas\Public\Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BuildingInfoController.cs" />
+    <Compile Include="Controllers\EstateAccountController.cs" />
     <Compile Include="Controllers\EstateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Public\Models\Account\AccountForgottenPasswordModel.cs" />
@@ -198,6 +199,12 @@
     <Compile Include="Models\BuildingInfo\BuildingInfoDeletionModel.cs" />
     <Compile Include="Models\BuildingInfo\BuildingInfoGetModel.cs" />
     <Compile Include="Models\BuildingInfo\BuildingInfoUpdateModel.cs" />
+    <Compile Include="Models\EstateAccount\EstateAccountCreationModel.cs" />
+    <Compile Include="Models\EstateAccount\EstateAccountDeletionModel.cs" />
+    <Compile Include="Models\EstateAccount\EstateAccountGetModel.cs" />
+    <Compile Include="Models\EstateAccount\EstateAccountModel.cs" />
+    <Compile Include="Models\EstateAccount\EstateAccountUpdateModel.cs" />
+    <Compile Include="Models\EstateAccount\EstateAccountListModel.cs" />
     <Compile Include="Models\Estate\EstateCreationModel.cs" />
     <Compile Include="Models\Estate\EstateDeletionModel.cs" />
     <Compile Include="Models\Estate\EstateGetModel.cs" />
@@ -205,6 +212,7 @@
     <Compile Include="Models\Estate\EstateUpdateModel.cs" />
     <Compile Include="Repository\Data\AccountData.cs" />
     <Compile Include="Repository\Data\BuildingInfoData.cs" />
+    <Compile Include="Repository\Data\EstateAccountData.cs" />
     <Compile Include="Repository\Data\EstateData.cs" />
     <Compile Include="Repository\EstatesContext.cs" />
     <Compile Include="Repository\Interfaces\ISet.cs" />
@@ -220,10 +228,12 @@
     <Compile Include="Repository\CurrentIdentity.cs" />
     <Compile Include="Repository\Sets\AccountSet.cs" />
     <Compile Include="Repository\Sets\BuildingInfoSet.cs" />
+    <Compile Include="Repository\Sets\EstateAccountSet.cs" />
     <Compile Include="Repository\Sets\EstateSet.cs" />
     <Compile Include="Utils\ConfigReader.cs" />
     <Compile Include="Utils\CryptoHelper.cs" />
     <Compile Include="Utils\CustomEnumHelper.cs" />
+    <Compile Include="Utils\EstateAgentHelper.cs" />
     <Compile Include="Utils\Localization.cs" />
     <Compile Include="Utils\PasswordHelper.cs" />
   </ItemGroup>
@@ -497,6 +507,9 @@
     <Content Include="Views\BuildingInfo\Delete.cshtml" />
     <Content Include="Views\BuildingInfo\Details.cshtml" />
     <Content Include="Views\Estate\Details.cshtml" />
+    <Content Include="Views\EstateAccount\Create.cshtml" />
+    <Content Include="Views\EstateAccount\Delete.cshtml" />
+    <Content Include="Views\EstateAccount\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

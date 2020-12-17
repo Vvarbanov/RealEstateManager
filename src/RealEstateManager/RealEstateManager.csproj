@@ -199,11 +199,7 @@
     <Compile Include="Models\BuildingInfo\BuildingInfoDeletionModel.cs" />
     <Compile Include="Models\BuildingInfo\BuildingInfoGetModel.cs" />
     <Compile Include="Models\BuildingInfo\BuildingInfoUpdateModel.cs" />
-    <Compile Include="Models\EstateAccount\EstateAccountCreationModel.cs" />
-    <Compile Include="Models\EstateAccount\EstateAccountDeletionModel.cs" />
-    <Compile Include="Models\EstateAccount\EstateAccountGetModel.cs" />
     <Compile Include="Models\EstateAccount\EstateAccountModel.cs" />
-    <Compile Include="Models\EstateAccount\EstateAccountUpdateModel.cs" />
     <Compile Include="Models\EstateAccount\EstateAccountListModel.cs" />
     <Compile Include="Models\Estate\EstateCreationModel.cs" />
     <Compile Include="Models\Estate\EstateDeletionModel.cs" />
@@ -507,8 +503,6 @@
     <Content Include="Views\BuildingInfo\Delete.cshtml" />
     <Content Include="Views\BuildingInfo\Details.cshtml" />
     <Content Include="Views\Estate\Details.cshtml" />
-    <Content Include="Views\EstateAccount\Create.cshtml" />
-    <Content Include="Views\EstateAccount\Delete.cshtml" />
     <Content Include="Views\EstateAccount\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>

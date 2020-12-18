@@ -38,9 +38,12 @@
                         @Html.DisplayFor(x => estate.Address)
                     </p>
                     @Html.ActionLink(Localization.GetString("Button_Details"), "Details", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
-                    @if (EstateAgentHelper.IsAgentAuthorized(currentAgent, estate))
+                    @if (EstateAgentHelper.IsAgentAuthorized(currentAgent, estate) || EstateAgentHelper.isAdminAuthorized(currentAgent))
                     {
                         @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
+                    }
+                    @if (EstateAgentHelper.IsAgentAuthorized(currentAgent, estate) || EstateAgentHelper.isAdminAuthorized(currentAgent))
+                    {
                         @Html.ActionLink(Localization.GetString("Button_Delete"), "Delete", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
                     }
                     @if (EstateAgentHelper.isAdminAuthorized(currentAgent))

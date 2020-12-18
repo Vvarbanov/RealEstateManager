@@ -200,7 +200,6 @@
     <Compile Include="Models\BuildingInfo\BuildingInfoGetModel.cs" />
     <Compile Include="Models\BuildingInfo\BuildingInfoUpdateModel.cs" />
     <Compile Include="Models\EstateAccount\EstateAccountModel.cs" />
-    <Compile Include="Models\EstateAccount\EstateAccountListModel.cs" />
     <Compile Include="Models\Estate\EstateCreationModel.cs" />
     <Compile Include="Models\Estate\EstateDeletionModel.cs" />
     <Compile Include="Models\Estate\EstateGetModel.cs" />

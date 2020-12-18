@@ -10,9 +10,8 @@ namespace RealEstateManager.Utils
     {
         public static bool IsAgentAuthorized(CurrentIdentity currentIdentity, EstateGetModel estate)
         {
-            return currentIdentity != null &&
-                (currentIdentity.Type == UserType.Admin ||
-                estate.EstateAgents.Any(x => x.EstateId == estate.Id && x.UserId == currentIdentity.Id));
+            return currentIdentity != null && estate.EstateAgents != null &&
+                estate.EstateAgents.Any(x => x.EstateId == estate.Id && x.UserId == currentIdentity.Id);
         }
 
         public static bool isAdminAuthorized(CurrentIdentity currentIdentity)

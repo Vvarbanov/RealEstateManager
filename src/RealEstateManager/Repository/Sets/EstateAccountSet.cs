@@ -94,28 +94,20 @@ namespace RealEstateManager.Repository.Sets
             return query.FirstOrDefault();
         }
 
-        public void Update(EstateAccountListModel data)
+        public void Update(List<EstateAccountData> data)
         {
-            foreach (var model in data.EstateAgents)
+            foreach (var item in data)
             {
-                if (model.HasRights &&
-                    getExisting(model.EstateId, model.UserId) == null)
+                if (item.HasRights &&
+                    getExisting(item.EstateId, item.AccountId) == null)
                 {
-                    Insert(new EstateAccountData
-                    {
-                        EstateId = model.EstateId,
-                        AccountId = model.UserId
-                    });
+                    Insert(item);
                 }
 
-                if (!model.HasRights &&
-                    getExisting(model.EstateId, model.UserId) != null)
+                if (!item.HasRights &&
+                    getExisting(item.EstateId, item.AccountId) != null)
                 {
-                    Delete(new EstateAccountData
-                    {
-                        EstateId = model.EstateId,
-                        AccountId = model.UserId
-                    });
+                    Delete(item);
                 }
             }
 

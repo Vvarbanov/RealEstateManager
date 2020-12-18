@@ -10,5 +10,7 @@ namespace RealEstateManager.Repository.Data
         public Guid EstateId { get; set; }
 
         public Guid AccountId { get; set; }
+
+        public bool HasRights { get; set; }
     }
 }

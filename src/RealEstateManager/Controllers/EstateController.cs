@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using RealEstateManager.Models.Estate;
 using RealEstateManager.Models.Data;
 using RealEstateManager.Models.BuildingInfo;
+using RealEstateManager.Models.EstateAccount;
 
 namespace RealEstateManager.Controllers
 {
@@ -24,7 +25,7 @@ namespace RealEstateManager.Controllers
             if (!id.HasValue)
                 return RedirectToAction("Index", "Home");
 
-            var existing = db.Estates.GetById(id.Value, nameof(Estate.BuildingInfo));
+            var existing = db.Estates.GetById(id.Value, nameof(Estate.BuildingInfo) + "," + nameof(Estate.Account));
 
             if (existing == null)
                 return RedirectToAction("Index", "Home");
@@ -52,7 +53,14 @@ namespace RealEstateManager.Controllers
                 PublicDescription = existing.PublicDescription,
                 PrivateDescription = existing.PrivateDescription,
                 Area = existing.Area,
-                BuildingInfoGetModel = buildingInfoModel
+                BuildingInfoGetModel = buildingInfoModel,
+                EstateAgents = existing.Account
+                        .Select(x => new EstateAccountModel
+                        {
+                            EstateId = x.EstateId,
+                            UserId = x.AccountId
+                        })
+                        .ToList()
             };
 
             return View(estateModel);

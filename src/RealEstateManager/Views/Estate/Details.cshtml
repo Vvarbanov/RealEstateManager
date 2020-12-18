@@ -40,10 +40,16 @@
             <p>@Html.DisplayFor(x => x.PrivateDescription)</p>
             <p>@Html.DisplayFor(x => x.PublicDescription)</p>
 
-            @if (EstateAgentHelper.IsAgentAuthorized(currentAgent, Model))
+            @if (EstateAgentHelper.IsAgentAuthorized(currentAgent, Model) || EstateAgentHelper.isAdminAuthorized(currentAgent))
             {
                 @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Estate", new { id = Model.Id }, new { @class = "btn btn-primary" })
+            }
+            @if (EstateAgentHelper.IsAgentAuthorized(currentAgent, Model) || EstateAgentHelper.isAdminAuthorized(currentAgent))
+            {
                 @Html.ActionLink(Localization.GetString("Button_Edit_Info"), "Update", "BuildingInfo", new { id = Model.BuildingInfoGetModel.Id }, new { @class = "btn btn-primary" })
+            }
+            @if (EstateAgentHelper.IsAgentAuthorized(currentAgent, Model) || EstateAgentHelper.isAdminAuthorized(currentAgent))
+            {
                 @Html.ActionLink(Localization.GetString("Button_Delete"), "Delete", "Estate", new { id = Model.Id }, new { @class = "btn btn-primary" })
             }
             @if (EstateAgentHelper.isAdminAuthorized(currentAgent))

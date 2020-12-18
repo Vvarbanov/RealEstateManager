@@ -56,6 +56,6 @@ namespace RealEstateManager.Models.Estate
 
         public BuildingInfoGetModel BuildingInfoGetModel { get; set; }
 
-        public List<EstateAccountGetModel> EstateAgents { get; set; }
+        public List<EstateAccountModel> EstateAgents { get; set; }
     }
 }

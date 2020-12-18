@@ -35,10 +35,10 @@ namespace RealEstateManager.Models.Estate
                         PrivateDescription = estate.PrivateDescription,
                         Area = estate.Area,
                         EstateAgents = estate.Account
-                        .Select(x => new EstateAccountGetModel
+                        .Select(x => new EstateAccountModel
                         {
                             EstateId = x.EstateId,
-                            AccountId = x.AccountId
+                            UserId = x.AccountId
                         })
                         .ToList()
                     });

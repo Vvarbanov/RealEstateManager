@@ -520,4 +520,16 @@
   <data name="MenuButton_Logout" xml:space="preserve">
     <value>Изход</value>
   </data>
+  <data name="Button_Edit_Rights" xml:space="preserve">
+    <value>Обнови права</value>
+  </data>
+  <data name="EstateAccountCreationPage_Title" xml:space="preserve">
+    <value>Права</value>
+  </data>
+  <data name="EstateAccountUpdatePage_Header" xml:space="preserve">
+    <value>Обновяване на правата</value>
+  </data>
+  <data name="EstateAccountUpdatePage_Text" xml:space="preserve">
+    <value>Обновяване на правата на агентите</value>
+  </data>
 </root>

@@ -18,7 +18,7 @@ namespace RealEstateManager
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap/bootstrap.min.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.min.css"));
         }
     }
 }

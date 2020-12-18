@@ -6,8 +6,6 @@
     ViewBag.Title = Localization.GetString("BuildingInfoUpdatePage_Title");
 }
 
-@Html.ValidationSummary(true, null, new { @class = "text-danger" })
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -55,6 +53,8 @@
                 @Html.ValidationMessageFor(x => x.Garages, null, new { @class = "text-danger" })
             </div>
             <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Update")</button>
+            <br />
+            @Html.ValidationSummary(true, null, new { @class = "text-danger" })
         </div>
     </div>
 }

@@ -135,6 +135,8 @@
     <Compile Include="Areas\Public\Controllers\BuildingInfoController.cs" />
     <Compile Include="Areas\Public\Controllers\EstateController.cs" />
     <Compile Include="Areas\Public\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Public\Models\Account\AccountDeleteModel.cs" />
+    <Compile Include="Areas\Public\Models\Account\AccountItemModel.cs" />
     <Compile Include="Areas\Public\Models\Account\AccountRegisterAdminModel.cs" />
     <Compile Include="Areas\Public\Models\Account\AccountRegisterPublicUserModel.cs" />
     <Compile Include="Areas\Public\Models\BuildingInfo\BuildingInfoGetModel.cs" />
@@ -338,6 +340,8 @@
     <Content Include="Content\bootstrap\bootstrap.scss" />
     <Content Include="Content\bootstrap\bootstrap-reboot.scss" />
     <Content Include="Content\bootstrap\bootstrap-grid.scss" />
+    <Content Include="Areas\Public\Views\Account\Ban.cshtml" />
+    <Content Include="Areas\Public\Views\Account\Index.cshtml" />
     <None Include="Content\bootstrap\_custom.scss" />
     <None Include="Content\Site.scss" />
     <Content Include="Models\Data\RealEstateManagerDataModel.Context.tt">
@@ -354,7 +358,6 @@
     <Content Include="Areas\Public\Views\web.config" />
     <Content Include="Areas\Public\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Public\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Public\Views\Home\Index.cshtml" />
     <Content Include="Areas\Public\Views\Account\Register.cshtml" />
     <Content Include="Areas\Public\Views\Account\RegisterAdmin.cshtml" />
     <Content Include="Areas\Public\Views\BuildingInfo\Details.cshtml" />
@@ -477,8 +480,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Estate\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -496,7 +497,6 @@
     <Content Include="Views\Estate\Delete.cshtml" />
     <Content Include="Areas\Public\Views\Account\Details.cshtml" />
     <Content Include="Areas\Public\Views\Account\ForgottenPassword.cshtml" />
-    <Content Include="Views\Home\OperationSuccessful.cshtml" />
     <Content Include="Areas\Public\Views\Account\RecoverPassword.cshtml" />
     <Content Include="Views\BuildingInfo\Create.cshtml" />
     <Content Include="Views\BuildingInfo\Update.cshtml" />

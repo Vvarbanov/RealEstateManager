@@ -1,8 +1,8 @@
 ﻿@using RealEstateManager.Utils
-@model RealEstateManager.Models.BuildingInfo.BuildingInfoDeletionModel
+@model RealEstateManager.Areas.Public.Models.Account.AccountDeleteModel
 
 @{
-    ViewBag.Title = Localization.GetString("BuildingInfoDeletePage_Title");
+    ViewBag.Title = Localization.GetString("AccountDeletePage_Title");
 }
 
 @using (Html.BeginForm())
@@ -10,14 +10,14 @@
     @Html.AntiForgeryToken()
     <div class="card">
         <div class="card-header bg-primary text-white">
-            <h3>@Localization.GetString("BuildingInfoDeletePage_Header")</h3>
+            <h3>@Localization.GetString("AccountDeletePage_Header")</h3>
         </div>
         <div class="card-body bg-light">
-            <p>@Localization.GetString("BuildingInfoDeletePage_Text")</p>
+            <p>@Localization.GetString("AccountDeletePage_Text")</p>
             <div class="form-group">
                 @Html.HiddenFor(x => x.Id)
             </div>
-            <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Delete")</button>
+            <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Ban")</button>
             <br />
             @Html.ValidationSummary(true, null, new { @class = "text-danger" })
         </div>

@@ -27,6 +27,11 @@ caption {
     display: block;
 }
 
+.validation-summary-errors ul {
+    list-style: none;
+    padding: 0;
+}
+
 /* Set width on the form input elements since they're 100% wide by default */
 /*input,
 select,

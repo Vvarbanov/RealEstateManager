@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using PagedList;
 using RealEstateManager.Areas.Public.Models.Account;
+using RealEstateManager.Models.Data;
 using RealEstateManager.Utils;
 
 namespace RealEstateManager.Areas.Public.Controllers
@@ -11,6 +15,66 @@ namespace RealEstateManager.Areas.Public.Controllers
     [AllowAnonymous]
     public class AccountController : BasePublicController
     {
+        public ActionResult Index(string sortOrder = null, string currentFilter = null, int? page = null)
+        {
+            if (db.TryGetCurrentIdentity(User, out var currentIdentity) && currentIdentity.Type != UserType.Admin)
+                return RedirectToAction("Index", "Home");
+
+            ViewBag.CurrentFilter = currentFilter;
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.SortByType = "type";
+
+            Func<IQueryable<Account>, IOrderedQueryable<Account>> orderFunc;
+
+            switch (sortOrder)
+            {
+                case "type":
+                    {
+                        orderFunc = x => x.OrderBy(y => y.Type);
+
+                        ViewBag.SortByType = "type_desc";
+
+                        break;
+                    }
+                case "type_desc":
+                    {
+                        orderFunc = x => x.OrderByDescending(y => y.Type);
+
+                        break;
+                    }
+                default:
+                    {
+                        orderFunc = null;
+
+                        break;
+                    }
+            }
+
+            Expression<Func<Account, bool>> filter = null;
+
+            if (!string.IsNullOrWhiteSpace(currentFilter))
+            {
+                filter = x => x.Username.Contains(currentFilter) ||
+                              x.EmailAddress.Contains(currentFilter);
+            }
+
+            var pageSize = ConfigReader.Pagination_PageSize;
+            var pageNumber = page ?? 1;
+
+            var model = db.Accounts
+                .Get(filter, orderFunc)
+                .Select(x => new AccountItemModel
+                {
+                    Id = x.Id,
+                    Type = x.Type,
+                    EmailAddress = x.EmailAddress,
+                    Username = x.Username,
+                })
+                .ToPagedList(pageNumber, pageSize);
+
+            return View(model);
+        }
+
         public ActionResult Details()
         {
             if (!db.TryGetCurrentIdentity(User, out var identity))
@@ -247,6 +311,42 @@ namespace RealEstateManager.Areas.Public.Controllers
 
                 ModelState.AddModelError(string.Empty,
                     Localization.GetString("Public_AccountRecoverPasswordModel_InvalidToken_Error"));
+            }
+
+            return View(model);
+        }
+
+        public ActionResult Ban(Guid? accountId)
+        {
+            if (!accountId.HasValue)
+                return RedirectToAction("Index", "Home");
+
+            var currentIdentity = GetCurrentIdentity(db, User);
+
+            if (currentIdentity == null || currentIdentity.Type != UserType.Admin)
+                return RedirectToAction("Index", "Home");
+
+            var model = new AccountDeleteModel
+            {
+                Id = accountId.Value,
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Ban(AccountDeleteModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var account = db.Accounts.GetById(model.Id);
+
+                if (account == null || account.Type == UserType.Admin)
+                    return RedirectToAction("Index", "Home");
+
+                db.Accounts.Delete(account.Id);
+
+                return RedirectToAction("Index", "Home");
             }
 
             return View(model);

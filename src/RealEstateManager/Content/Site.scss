@@ -16,6 +16,17 @@
     padding: 2rem !important;
 }
 
+caption {
+    caption-side: top;
+}
+
+.pagination li a {
+    padding: 0.5rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    display: block;
+}
+
 /* Set width on the form input elements since they're 100% wide by default */
 /*input,
 select,

@@ -61,6 +61,105 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to E-mail адрес.
+        /// </summary>
+        public static string Account_TableHeader_EmailAddress {
+            get {
+                return ResourceManager.GetString("Account_TableHeader_EmailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер.
+        /// </summary>
+        public static string Account_TableHeader_Number {
+            get {
+                return ResourceManager.GetString("Account_TableHeader_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Операции.
+        /// </summary>
+        public static string Account_TableHeader_Operations {
+            get {
+                return ResourceManager.GetString("Account_TableHeader_Operations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип.
+        /// </summary>
+        public static string Account_TableHeader_Type {
+            get {
+                return ResourceManager.GetString("Account_TableHeader_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Потребителско име.
+        /// </summary>
+        public static string Account_TableHeader_Username {
+            get {
+                return ResourceManager.GetString("Account_TableHeader_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Блокиране на съществуващ акаунт.
+        /// </summary>
+        public static string AccountDeletePage_Header {
+            get {
+                return ResourceManager.GetString("AccountDeletePage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сигурни ли сте, че искате да блокирате акаунта?.
+        /// </summary>
+        public static string AccountDeletePage_Text {
+            get {
+                return ResourceManager.GetString("AccountDeletePage_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Блокиране на акаунт.
+        /// </summary>
+        public static string AccountDeletePage_Title {
+            get {
+                return ResourceManager.GetString("AccountDeletePage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Всички потребители.
+        /// </summary>
+        public static string AccountIndexPage_Header {
+            get {
+                return ResourceManager.GetString("AccountIndexPage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Търсене.
+        /// </summary>
+        public static string AccountIndexPage_Search {
+            get {
+                return ResourceManager.GetString("AccountIndexPage_Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Потребители.
+        /// </summary>
+        public static string AccountIndexPage_Title {
+            get {
+                return ResourceManager.GetString("AccountIndexPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to RealEstateManager.
         /// </summary>
         public static string ApplicationName {
@@ -169,42 +268,6 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Акт 16: .
-        /// </summary>
-        public static string BuildingInfoIndexPage_InfoAct16 {
-            get {
-                return ResourceManager.GetString("BuildingInfoIndexPage_InfoAct16", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Няма.
-        /// </summary>
-        public static string BuildingInfoIndexPage_InfoAct16_No {
-            get {
-                return ResourceManager.GetString("BuildingInfoIndexPage_InfoAct16_No", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Има.
-        /// </summary>
-        public static string BuildingInfoIndexPage_InfoAct16_Yes {
-            get {
-                return ResourceManager.GetString("BuildingInfoIndexPage_InfoAct16_Yes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Изглед:.
-        /// </summary>
-        public static string BuildingInfoIndexPage_InfoViewType {
-            get {
-                return ResourceManager.GetString("BuildingInfoIndexPage_InfoViewType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Акт 16.
         /// </summary>
         public static string BuildingInfoModel_Act16 {
@@ -286,6 +349,15 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Блокирай.
+        /// </summary>
+        public static string Button_Ban {
+            get {
+                return ResourceManager.GetString("Button_Ban", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Създай.
         /// </summary>
         public static string Button_Create {
@@ -354,6 +426,69 @@ namespace RealEstateManager.Properties {
         public static string Button_Update {
             get {
                 return ResourceManager.GetString("Button_Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Площ.
+        /// </summary>
+        public static string Estate_TableHeader_Area {
+            get {
+                return ResourceManager.GetString("Estate_TableHeader_Area", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Име.
+        /// </summary>
+        public static string Estate_TableHeader_Name {
+            get {
+                return ResourceManager.GetString("Estate_TableHeader_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер.
+        /// </summary>
+        public static string Estate_TableHeader_Number {
+            get {
+                return ResourceManager.GetString("Estate_TableHeader_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Операции.
+        /// </summary>
+        public static string Estate_TableHeader_Operations {
+            get {
+                return ResourceManager.GetString("Estate_TableHeader_Operations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Цена.
+        /// </summary>
+        public static string Estate_TableHeader_Price {
+            get {
+                return ResourceManager.GetString("Estate_TableHeader_Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Статус.
+        /// </summary>
+        public static string Estate_TableHeader_Status {
+            get {
+                return ResourceManager.GetString("Estate_TableHeader_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип.
+        /// </summary>
+        public static string Estate_TableHeader_Type {
+            get {
+                return ResourceManager.GetString("Estate_TableHeader_Type", resourceCulture);
             }
         }
         
@@ -448,38 +583,11 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Няма обяви за имоти..
-        /// </summary>
-        public static string EstateGet_NoEstates_Error {
-            get {
-                return ResourceManager.GetString("EstateGet_NoEstates_Error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to кв. м..
         /// </summary>
         public static string EstateIndexPage_AreaSign {
             get {
                 return ResourceManager.GetString("EstateIndexPage_AreaSign", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Статус:.
-        /// </summary>
-        public static string EstateIndexPage_EstateStatus {
-            get {
-                return ResourceManager.GetString("EstateIndexPage_EstateStatus", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Тип на имота:.
-        /// </summary>
-        public static string EstateIndexPage_EstateType {
-            get {
-                return ResourceManager.GetString("EstateIndexPage_EstateType", resourceCulture);
             }
         }
         
@@ -498,6 +606,15 @@ namespace RealEstateManager.Properties {
         public static string EstateIndexPage_MoneySign {
             get {
                 return ResourceManager.GetString("EstateIndexPage_MoneySign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Търсене.
+        /// </summary>
+        public static string EstateIndexPage_Search {
+            get {
+                return ResourceManager.GetString("EstateIndexPage_Search", resourceCulture);
             }
         }
         
@@ -621,9 +738,9 @@ namespace RealEstateManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Невалиден e-mail или парола..
         /// </summary>
-        public static string InvalidLoginDetailsError {
+        public static string InvalidLoginDetails_Error {
             get {
-                return ResourceManager.GetString("InvalidLoginDetailsError", resourceCulture);
+                return ResourceManager.GetString("InvalidLoginDetails_Error", resourceCulture);
             }
         }
         
@@ -637,11 +754,56 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Нов имот.
+        /// </summary>
+        public static string MenuButton_Estates_Create {
+            get {
+                return ResourceManager.GetString("MenuButton_Estates_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Всички имоти.
+        /// </summary>
+        public static string MenuButton_Estates_ViewAll {
+            get {
+                return ResourceManager.GetString("MenuButton_Estates_ViewAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Изход.
         /// </summary>
         public static string MenuButton_Logout {
             get {
                 return ResourceManager.GetString("MenuButton_Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Потребители.
+        /// </summary>
+        public static string MenuButton_Users {
+            get {
+                return ResourceManager.GetString("MenuButton_Users", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Няма записи, които да бъдат показани за вашата заявка..
+        /// </summary>
+        public static string NoEntriesFound_Error {
+            get {
+                return ResourceManager.GetString("NoEntriesFound_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Страница {0} от {1}.
+        /// </summary>
+        public static string Pagination_Summary {
+            get {
+                return ResourceManager.GetString("Pagination_Summary", resourceCulture);
             }
         }
         
@@ -1160,7 +1322,115 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Изток.
+        /// </summary>
+        public static string Public_RealEstateManager_Models_Data_BuildingViewType_East {
+            get {
+                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_BuildingViewType_East", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Север.
+        /// </summary>
+        public static string Public_RealEstateManager_Models_Data_BuildingViewType_North {
+            get {
+                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_BuildingViewType_North", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Юг.
+        /// </summary>
+        public static string Public_RealEstateManager_Models_Data_BuildingViewType_South {
+            get {
+                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_BuildingViewType_South", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Запад.
+        /// </summary>
+        public static string Public_RealEstateManager_Models_Data_BuildingViewType_West {
+            get {
+                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_BuildingViewType_West", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Под наем.
+        /// </summary>
+        public static string Public_RealEstateManager_Models_Data_EstateStatusType_ForRent {
+            get {
+                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_EstateStatusType_ForRent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to За продан.
+        /// </summary>
+        public static string Public_RealEstateManager_Models_Data_EstateStatusType_ForSale {
+            get {
+                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_EstateStatusType_ForSale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Апартамент.
+        /// </summary>
+        public static string Public_RealEstateManager_Models_Data_EstateType_Apartment {
+            get {
+                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_EstateType_Apartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Къща.
+        /// </summary>
+        public static string Public_RealEstateManager_Models_Data_EstateType_House {
+            get {
+                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_EstateType_House", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Земя.
+        /// </summary>
+        public static string Public_RealEstateManager_Models_Data_EstateType_Land {
+            get {
+                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_EstateType_Land", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Администратор.
+        /// </summary>
+        public static string Public_RealEstateManager_Models_Data_UserType_Admin {
+            get {
+                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_UserType_Admin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Агент.
+        /// </summary>
+        public static string Public_RealEstateManager_Models_Data_UserType_Agent {
+            get {
+                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_UserType_Agent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Публичен.
+        /// </summary>
+        public static string Public_RealEstateManager_Models_Data_UserType_PublicUser {
+            get {
+                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_UserType_PublicUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Изток.
         /// </summary>
         public static string RealEstateManager_Models_Data_BuildingViewType_East {
             get {
@@ -1187,7 +1457,7 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Изток.
+        ///   Looks up a localized string similar to Запад.
         /// </summary>
         public static string RealEstateManager_Models_Data_BuildingViewType_West {
             get {

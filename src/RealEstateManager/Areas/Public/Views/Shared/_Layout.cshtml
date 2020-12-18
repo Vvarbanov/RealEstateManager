@@ -17,7 +17,7 @@
         @Styles.Render("~/Content/css")
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
             <div class="container">
                 <div class="navbar-brand">
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
@@ -36,7 +36,7 @@
                                     <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_AdminArea"), "Index", "Home", new { area = string.Empty }, new { @class = "nav-link" })</li>
                                 }
 
-                                <li class="nav-item">@Html.ActionLink(currentIdentity.Name, "Index", "Account", null, new { @class = "nav-link" })</li>
+                                <li class="nav-item">@Html.ActionLink(currentIdentity.Name, "Details", "Account", null, new { @class = "nav-link" })</li>
                                 <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_Logout"), "Logout", "Account", null, new { @class = "nav-link" })</li>
                             }
                         }
@@ -60,6 +60,51 @@
 
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
+    
+        <script>
+            @{
+                var area = ViewContext.RouteData.DataTokens["area"] == null 
+                    ? "/Admin/" 
+                    : "/";
+            }
+
+            $(function() {
+                var action = "@ViewContext.RouteData.Values["Action"].ToString()";
+                var controller = "@ViewContext.RouteData.Values["Controller"].ToString()";
+                var area = "@area";
+
+                var finalUrl = area;
+
+                if (action === "Index")
+                    finalUrl = finalUrl + controller + "/";
+                else
+                    finalUrl = finalUrl + controller + "/" + action + "/";
+
+                var navLinks = $(".nav-item a").not(".dropdown-item");
+
+                navLinks.each(function (index) {
+                    var link = $(this);
+                    var href = link.attr("href") + "/";
+
+                    if (href === "#/")
+                    {
+                        var childLink = link
+                            .parent()
+                            .find(".dropdown-item")
+                            .first();
+
+                        href = childLink.attr("href") + "/";
+                    }
+
+                    if (finalUrl.indexOf(href) >= 0)
+                    {
+                        link.addClass("active");
+                        return false;
+                    }
+                });
+            });
+        </script>
+
         @RenderSection("scripts", required: false)
     </body>
 </html>

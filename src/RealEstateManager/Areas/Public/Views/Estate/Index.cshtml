@@ -16,10 +16,14 @@
             {
                 <div class="jumbotron jumbotron-padding">
                     <h1 class="display-4">@estate.Name</h1>
-                    <p class="lead">@Localization.GetString("EstateIndexPage_EstateType") @CustomEnumHelper.GetLocalizedName(estate.Type)</p>
-                    <p class="lead">@Localization.GetString("EstateIndexPage_EstateStatus") @CustomEnumHelper.GetLocalizedName(estate.Status)</p>
-                    <hr class="my-4">
-
+                    <p class="lead">
+                        @Html.LabelFor(x => estate.Type):
+                        @CustomEnumHelper.GetLocalizedName(estate.Type, ViewContext)
+                    </p>
+                    <p class="lead">
+                        @Html.LabelFor(x => estate.Status):
+                        @CustomEnumHelper.GetLocalizedName(estate.Status, ViewContext)
+                    </p>
                     <p class="lead">
                         @Html.LabelFor(x => estate.Area):
                         @Html.DisplayFor(x => estate.Area)

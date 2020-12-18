@@ -27,7 +27,7 @@
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
-                    @Html.EditorFor(x => x.RememberMe, new { htmlAttributes = new { @class = "custom-control-input" } })
+                    @Html.CheckBoxFor(x => x.RememberMe, new { @class = "custom-control-input" })
                     @Html.LabelFor(x => x.RememberMe, new { @class = "custom-control-label" })
                 </div>
                 @Html.ValidationMessageFor(x => x.RememberMe, null, new { @class = "text-danger" })

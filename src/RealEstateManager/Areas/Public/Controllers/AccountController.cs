@@ -11,7 +11,7 @@ namespace RealEstateManager.Areas.Public.Controllers
     [AllowAnonymous]
     public class AccountController : BasePublicController
     {
-        public ActionResult Index()
+        public ActionResult Details()
         {
             if (!db.TryGetCurrentIdentity(User, out var identity))
                 return RedirectToAction("Index", "Home");
@@ -29,7 +29,7 @@ namespace RealEstateManager.Areas.Public.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(AccountInfoModel model)
+        public ActionResult Details(AccountInfoModel model)
         {
             if (ModelState.IsValid)
             {
@@ -171,7 +171,7 @@ namespace RealEstateManager.Areas.Public.Controllers
                     return RedirectToReturnUrlOrHome(returnUrl);
                 }
 
-                ModelState.AddModelError(string.Empty, Localization.GetString("InvalidLoginDetailsError"));
+                ModelState.AddModelError(string.Empty, Localization.GetString("InvalidLoginDetails_Error"));
             }
 
             return View(model);

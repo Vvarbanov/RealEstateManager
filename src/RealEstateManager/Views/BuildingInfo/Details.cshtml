@@ -8,11 +8,14 @@
 @using (Html.BeginForm())
 {
     <p>
-        @Localization.GetString("BuildingInfoIndexPage_InfoViewType") @CustomEnumHelper.GetLocalizedName(Model.View)
+        @Html.LabelFor(x => x.View):
+        @CustomEnumHelper.GetLocalizedName(Model.View, ViewContext)
     </p>
     <p>
-        @Localization.GetString("BuildingInfoIndexPage_InfoAct16") @(Model.Act16?
-        @Localization.GetString("BuildingInfoIndexPage_InfoAct16_Yes") : @Localization.GetString("BuildingInfoIndexPage_InfoAct16_No"))
+        <div class="custom-control custom-checkbox">
+            @Html.CheckBoxFor(x => x.Act16, new { @class = "custom-control-input", disabled = "disabled" })
+            @Html.LabelFor(x => x.Act16, new { @class = "custom-control-label" })
+        </div>
     </p>
     <p>
         @Html.LabelFor(x => x.Floors):

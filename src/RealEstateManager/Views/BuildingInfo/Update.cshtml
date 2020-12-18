@@ -23,8 +23,10 @@
                 @Html.ValidationMessageFor(x => x.View, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
-                @Html.LabelFor(x => x.Act16)
-                @Html.CheckBoxFor(x => x.Act16, new { htmlAttributes = new { @class = "form-control" } })
+                <div class="custom-control custom-checkbox">
+                    @Html.CheckBoxFor(x => x.Act16, new { @class = "custom-control-input" })
+                    @Html.LabelFor(x => x.Act16, new { @class = "custom-control-label" })
+                </div>
                 @Html.ValidationMessageFor(x => x.Act16, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
@@ -52,9 +54,7 @@
                 @Html.EditorFor(x => x.Garages, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(x => x.Garages, null, new { @class = "text-danger" })
             </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Update")</button>
-            </div>
+            <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Update")</button>
         </div>
     </div>
 }

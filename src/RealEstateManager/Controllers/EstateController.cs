@@ -1,20 +1,159 @@
 ﻿using System;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web.Mvc;
+using PagedList;
 using RealEstateManager.Models.Estate;
 using RealEstateManager.Models.Data;
 using RealEstateManager.Models.BuildingInfo;
+using RealEstateManager.Utils;
 
 namespace RealEstateManager.Controllers
 {
     [Authorize]
     public class EstateController : BaseController
     {
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder = null, string currentFilter = null, int? page = null)
         {
-            var existing = db.Estates.Get(null, x => x.OrderByDescending(y => y.UpdateDate));
+            ViewBag.CurrentFilter = currentFilter;
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.SortByName = "name";
+            ViewBag.SortByType = "type";
+            ViewBag.SortByStatus = "status";
+            ViewBag.SortByArea = "area";
+            ViewBag.SortByPrice = "price";
 
-            var model = new EstateListGetModel(existing);
+            Func<IQueryable<Estate>, IOrderedQueryable<Estate>> orderFunc;
+
+            #region A large fucking switch statement
+            switch (sortOrder)
+            {
+                case "name":
+                {
+                    orderFunc = x => x
+                        .OrderBy(y => y.Name)
+                        .ThenByDescending(y => y.UpdateDate);
+
+                    ViewBag.SortByName = "name_desc";
+
+                    break;
+                }
+                case "name_desc":
+                {
+                    orderFunc = x => x
+                        .OrderByDescending(y => y.Name)
+                        .ThenByDescending(y => y.UpdateDate);
+
+                    break;
+                }
+                case "type":
+                {
+                    orderFunc = x => x
+                        .OrderBy(y => y.Type)
+                        .ThenByDescending(y => y.UpdateDate);
+
+                    ViewBag.SortByType = "type_desc";
+
+                    break;
+                }
+                case "type_desc":
+                {
+                    orderFunc = x => x
+                        .OrderByDescending(y => y.Type)
+                        .ThenByDescending(y => y.UpdateDate);
+                    
+                    break;
+                }
+                case "status":
+                {
+                    orderFunc = x => x
+                        .OrderBy(y => y.Status)
+                        .ThenByDescending(y => y.UpdateDate);
+
+                    ViewBag.SortByStatus = "status_desc";
+
+                    break;
+                }
+                case "status_desc":
+                {
+                    orderFunc = x => x
+                        .OrderByDescending(y => y.Status)
+                        .ThenByDescending(y => y.UpdateDate);
+                    
+                    break;
+                }
+                case "area":
+                {
+                    orderFunc = x => x
+                        .OrderBy(y => y.Area)
+                        .ThenByDescending(y => y.UpdateDate);
+
+                    ViewBag.SortByArea = "area_desc";
+
+                    break;
+                }
+                case "area_desc":
+                {
+                    orderFunc = x => x
+                        .OrderByDescending(y => y.Area)
+                        .ThenByDescending(y => y.UpdateDate);
+
+                    break;
+                }
+                case "price":
+                {
+                    orderFunc = x => x
+                        .OrderBy(y => y.Price)
+                        .ThenByDescending(y => y.UpdateDate);
+
+                    ViewBag.SortByPrice = "price_desc";
+
+                    break;
+                }
+                case "price_desc":
+                {
+                    orderFunc = x => x
+                        .OrderByDescending(y => y.Price)
+                        .ThenByDescending(y => y.UpdateDate);
+
+                    break;
+                }
+                default:
+                {
+                    orderFunc = x => x.OrderByDescending(y => y.UpdateDate);
+                    break;
+                }
+            }
+            #endregion
+
+            Expression<Func<Estate, bool>> filter = null;
+
+            if (!string.IsNullOrWhiteSpace(currentFilter))
+            {
+                filter = x =>
+                    x.Name.Contains(currentFilter) || 
+                    x.Address.Contains(currentFilter) ||
+                    x.PublicDescription.Contains(currentFilter);
+            }
+
+            var pageSize = ConfigReader.Pagination_PageSize;
+            var pageNumber = page ?? 1;
+
+            var model = db.Estates
+                .Get(filter, orderFunc)
+                .Select(x => new EstateGetModel
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Type = x.Type,
+                    Price = x.Price,
+                    Status = x.Status,
+                    Address = x.Address,
+                    PublicDescription = x.PublicDescription,
+                    PrivateDescription = x.PrivateDescription,
+                    Area = x.Area,
+                })
+                .ToPagedList(pageNumber, pageSize);
 
             return View(model);
         }

@@ -18,11 +18,11 @@
                     <h1 class="display-4">@estate.Name</h1>
                     <p class="lead">
                         @Html.LabelFor(x => estate.Type):
-                        @CustomEnumHelper.GetLocalizedName(estate.Type, ViewContext)
+                        @CustomEnumHelper.GetLocalizedName(estate.Type)
                     </p>
                     <p class="lead">
                         @Html.LabelFor(x => estate.Status):
-                        @CustomEnumHelper.GetLocalizedName(estate.Status, ViewContext)
+                        @CustomEnumHelper.GetLocalizedName(estate.Status)
                     </p>
                     <p class="lead">
                         @Html.LabelFor(x => estate.Area):

@@ -430,6 +430,15 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Това поле съдържа невалиден e-mail..
+        /// </summary>
+        public static string EmailFormatError {
+            get {
+                return ResourceManager.GetString("EmailFormatError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Площ.
         /// </summary>
         public static string Estate_TableHeader_Area {
@@ -1318,87 +1327,6 @@ namespace RealEstateManager.Properties {
         public static string Public_MenuButton_Register {
             get {
                 return ResourceManager.GetString("Public_MenuButton_Register", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Изток.
-        /// </summary>
-        public static string Public_RealEstateManager_Models_Data_BuildingViewType_East {
-            get {
-                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_BuildingViewType_East", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Север.
-        /// </summary>
-        public static string Public_RealEstateManager_Models_Data_BuildingViewType_North {
-            get {
-                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_BuildingViewType_North", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Юг.
-        /// </summary>
-        public static string Public_RealEstateManager_Models_Data_BuildingViewType_South {
-            get {
-                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_BuildingViewType_South", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Запад.
-        /// </summary>
-        public static string Public_RealEstateManager_Models_Data_BuildingViewType_West {
-            get {
-                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_BuildingViewType_West", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Под наем.
-        /// </summary>
-        public static string Public_RealEstateManager_Models_Data_EstateStatusType_ForRent {
-            get {
-                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_EstateStatusType_ForRent", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to За продан.
-        /// </summary>
-        public static string Public_RealEstateManager_Models_Data_EstateStatusType_ForSale {
-            get {
-                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_EstateStatusType_ForSale", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Апартамент.
-        /// </summary>
-        public static string Public_RealEstateManager_Models_Data_EstateType_Apartment {
-            get {
-                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_EstateType_Apartment", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Къща.
-        /// </summary>
-        public static string Public_RealEstateManager_Models_Data_EstateType_House {
-            get {
-                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_EstateType_House", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Земя.
-        /// </summary>
-        public static string Public_RealEstateManager_Models_Data_EstateType_Land {
-            get {
-                return ResourceManager.GetString("Public_RealEstateManager_Models_Data_EstateType_Land", resourceCulture);
             }
         }
         

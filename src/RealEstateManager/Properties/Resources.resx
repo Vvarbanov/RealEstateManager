@@ -574,33 +574,6 @@
   <data name="NoEntriesFound_Error" xml:space="preserve">
     <value>Няма записи, които да бъдат показани за вашата заявка.</value>
   </data>
-  <data name="Public_RealEstateManager_Models_Data_BuildingViewType_East" xml:space="preserve">
-    <value>Изток</value>
-  </data>
-  <data name="Public_RealEstateManager_Models_Data_BuildingViewType_North" xml:space="preserve">
-    <value>Север</value>
-  </data>
-  <data name="Public_RealEstateManager_Models_Data_BuildingViewType_South" xml:space="preserve">
-    <value>Юг</value>
-  </data>
-  <data name="Public_RealEstateManager_Models_Data_BuildingViewType_West" xml:space="preserve">
-    <value>Запад</value>
-  </data>
-  <data name="Public_RealEstateManager_Models_Data_EstateStatusType_ForRent" xml:space="preserve">
-    <value>Под наем</value>
-  </data>
-  <data name="Public_RealEstateManager_Models_Data_EstateStatusType_ForSale" xml:space="preserve">
-    <value>За продан</value>
-  </data>
-  <data name="Public_RealEstateManager_Models_Data_EstateType_Apartment" xml:space="preserve">
-    <value>Апартамент</value>
-  </data>
-  <data name="Public_RealEstateManager_Models_Data_EstateType_House" xml:space="preserve">
-    <value>Къща</value>
-  </data>
-  <data name="Public_RealEstateManager_Models_Data_EstateType_Land" xml:space="preserve">
-    <value>Земя</value>
-  </data>
   <data name="Public_RealEstateManager_Models_Data_UserType_Admin" xml:space="preserve">
     <value>Администратор</value>
   </data>
@@ -609,5 +582,8 @@
   </data>
   <data name="Public_RealEstateManager_Models_Data_UserType_PublicUser" xml:space="preserve">
     <value>Публичен</value>
+  </data>
+  <data name="EmailFormatError" xml:space="preserve">
+    <value>Това поле съдържа невалиден e-mail.</value>
   </data>
 </root>

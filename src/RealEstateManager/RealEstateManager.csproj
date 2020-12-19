@@ -235,6 +235,12 @@
     <Compile Include="Utils\PasswordHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Public\Content\Site.css">
+      <DependentUpon>Site.scss</DependentUpon>
+    </Content>
+    <Content Include="Areas\Public\Content\Site.min.css">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap\bootstrap.css">
       <DependentUpon>bootstrap.scss</DependentUpon>
     </Content>
@@ -343,6 +349,7 @@
     <Content Include="Areas\Public\Views\Account\Ban.cshtml" />
     <Content Include="Areas\Public\Views\Account\Index.cshtml" />
     <Content Include="Areas\Public\Views\Home\OperationSuccessful.cshtml" />
+    <Content Include="Areas\Public\Content\Site.scss" />
     <None Include="Content\bootstrap\_custom.scss" />
     <None Include="Content\Site.scss" />
     <Content Include="Models\Data\RealEstateManagerDataModel.Context.tt">
@@ -507,7 +514,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Public\Content\" />
     <Folder Include="Areas\Public\Data\" />
     <Folder Include="Areas\Public\Scripts\" />
     <Folder Include="Areas\Public\Views\Shared\DisplayTemplates\" />

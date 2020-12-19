@@ -14,11 +14,11 @@
             <h1 class="display-4">@Model.Name</h1>
             <p class="lead">
                 @Html.LabelFor(x => x.Type):
-                @CustomEnumHelper.GetLocalizedName(Model.Type, ViewContext)
+                @CustomEnumHelper.GetLocalizedName(Model.Type)
             </p>
             <p class="lead">
                 @Html.LabelFor(x => x.Status):
-                @CustomEnumHelper.GetLocalizedName(Model.Status, ViewContext)
+                @CustomEnumHelper.GetLocalizedName(Model.Status)
             </p>
             <p class="lead">
                 @Html.LabelFor(x => x.Area):

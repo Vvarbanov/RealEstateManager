@@ -342,6 +342,7 @@
     <Content Include="Content\bootstrap\bootstrap-grid.scss" />
     <Content Include="Areas\Public\Views\Account\Ban.cshtml" />
     <Content Include="Areas\Public\Views\Account\Index.cshtml" />
+    <Content Include="Areas\Public\Views\Home\OperationSuccessful.cshtml" />
     <None Include="Content\bootstrap\_custom.scss" />
     <None Include="Content\Site.scss" />
     <Content Include="Models\Data\RealEstateManagerDataModel.Context.tt">

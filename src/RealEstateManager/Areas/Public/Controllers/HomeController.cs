@@ -8,5 +8,10 @@ namespace RealEstateManager.Areas.Public.Controllers
         {
             return RedirectToAction("Index", "Estate");
         }
+
+        public ActionResult OperationSuccessful()
+        {
+            return View();
+        }
     }
 }

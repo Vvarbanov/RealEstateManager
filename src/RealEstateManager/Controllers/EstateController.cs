@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web.Mvc;
@@ -168,17 +169,22 @@ namespace RealEstateManager.Controllers
             if (existing == null)
                 return RedirectToAction("Index", "Home");
 
-            var buildingInfoModel = new BuildingInfoGetModel
+            BuildingInfoGetModel buildingInfoModel = null;
+
+            if (existing.Type == EstateType.House || existing.Type == EstateType.Apartment)
             {
-                Id = existing.BuildingInfo.Id,
-                Act16 = existing.BuildingInfo.Act16,
-                View = existing.BuildingInfo.View,
-                Floors = existing.BuildingInfo.Floors,
-                Bedrooms = existing.BuildingInfo.Bedrooms,
-                Bathrooms = existing.BuildingInfo.Bathrooms,
-                Balconies = existing.BuildingInfo.Balconies,
-                Garages = existing.BuildingInfo.Garages
-            };
+                buildingInfoModel = new BuildingInfoGetModel
+                {
+                    Id = existing.BuildingInfo.Id,
+                    Act16 = existing.BuildingInfo.Act16,
+                    View = existing.BuildingInfo.View,
+                    Floors = existing.BuildingInfo.Floors,
+                    Bedrooms = existing.BuildingInfo.Bedrooms,
+                    Bathrooms = existing.BuildingInfo.Bathrooms,
+                    Balconies = existing.BuildingInfo.Balconies,
+                    Garages = existing.BuildingInfo.Garages
+                };
+            }
 
             var estateModel = new EstateGetModel
             {
@@ -191,7 +197,11 @@ namespace RealEstateManager.Controllers
                 PublicDescription = existing.PublicDescription,
                 PrivateDescription = existing.PrivateDescription,
                 Area = existing.Area,
-                BuildingInfoGetModel = buildingInfoModel
+                BuildingInfoGetModel = buildingInfoModel,
+                ImagePaths = existing.FilePathsCSV
+                    ?.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x => x.Replace(Request.ServerVariables["APPL_PHYSICAL_PATH"], "\\"))
+                    .ToList()
             };
 
             return View(estateModel);
@@ -208,7 +218,23 @@ namespace RealEstateManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                var estate = db.Estates.Insert(model.ToData());
+                Directory.CreateDirectory(Server.MapPath(ConfigReader.ImageUploadDirectory));
+
+                string filesPathCSV = null;
+
+                if (model.Images != null)
+                {
+                    var safeImages = model.GetSafeImages(Server);
+
+                    filesPathCSV = string.Join(",", safeImages.Select(x => x.SaveLocation));
+
+                    foreach (var item in safeImages)
+                    {
+                        item.File.SaveAs(item.SaveLocation);
+                    }
+                }
+
+                var estate = db.Estates.Insert(model.ToData(filesPathCSV));
 
                 if (model.Type == EstateType.Apartment || model.Type == EstateType.House)
                     return RedirectToAction("Create", "BuildingInfo", new { estateId = estate.Id });
@@ -239,10 +265,13 @@ namespace RealEstateManager.Controllers
                 Status = existing.Status,
                 PublicDescription = existing.PublicDescription,
                 PrivateDescription = existing.PrivateDescription,
-                Area = existing.Area
+                Area = existing.Area,
+                BuildingInfoId = existing.BuildingInfoId,
+                ExistingImagePaths = existing.FilePathsCSV
+                    ?.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x => x.Replace(Request.ServerVariables["APPL_PHYSICAL_PATH"], "\\"))
+                    .ToList(),
             };
-
-            model.BuildingInfoId = existing.BuildingInfoId;
 
             return View(model);
         }
@@ -253,18 +282,43 @@ namespace RealEstateManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Estates.Update(model.Id, model.ToData());
+                Directory.CreateDirectory(Server.MapPath(ConfigReader.ImageUploadDirectory));
 
-                if (model.Type == EstateType.Apartment || model.Type == EstateType.House)
+                var filesPathCSV = model.ExistingImagePathsAsCSV(Server);
+
+                if (model.Images != null)
                 {
-                    if (model.BuildingInfoId.HasValue)
-                        return RedirectToAction("Update", "BuildingInfo", new { id = model.BuildingInfoId.Value, estateId = model.Id });
+                    var safeImages = model.GetSafeImages(Server);
 
-                    return RedirectToAction("Create", "BuildingInfo", new { estateId = model.Id });
+                    var newFilesPathsCSV = string.Join(",", safeImages.Select(x => x.SaveLocation));
+
+                    if (!string.IsNullOrWhiteSpace(newFilesPathsCSV))
+                        filesPathCSV = string.Join(",", filesPathCSV, newFilesPathsCSV);
+
+                    foreach (var item in safeImages)
+                    {
+                        item.File.SaveAs(item.SaveLocation);
+                    }
                 }
 
-                if (model.Type == EstateType.Land && model.BuildingInfoId.HasValue)
-                    db.BuildingInfoes.Delete(model.BuildingInfoId.Value);
+                db.Estates.Update(model.Id, model.ToData(filesPathCSV));
+
+                switch (model.Type)
+                {
+                    case EstateType.Apartment:
+                    case EstateType.House:
+                    {
+                        return model.BuildingInfoId.HasValue
+                            ? RedirectToAction("Update", "BuildingInfo",
+                                new {id = model.BuildingInfoId.Value, estateId = model.Id})
+                            : RedirectToAction("Create", "BuildingInfo", new {estateId = model.Id});
+                    }
+                    case EstateType.Land when model.BuildingInfoId.HasValue:
+                    {
+                        db.BuildingInfoes.Delete(model.BuildingInfoId.Value);
+                        break;
+                    }
+                }
 
                 return RedirectToAction("Index", "Home");
             }

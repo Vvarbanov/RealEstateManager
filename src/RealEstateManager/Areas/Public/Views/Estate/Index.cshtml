@@ -1,5 +1,5 @@
 ﻿@using RealEstateManager.Utils
-@model RealEstateManager.Areas.Public.Models.Estate.EstateListGetModel
+@model List<RealEstateManager.Areas.Public.Models.Estate.EstateGetModel>
 
 @{
     ViewBag.Title = Localization.GetString("EstateIndexPage_Title");
@@ -10,37 +10,23 @@
         <h3>@Localization.GetString("EstateIndexPage_Header")</h3>
     </div>
     <div class="card-body bg-light">
-        @if (Model != null && Model.Estates != null)
+        @if (Model != null && Model.Count > 0 )
         {
-            foreach (var estate in Model.Estates)
-            {
-                <div class="jumbotron jumbotron-padding">
-                    <h1 class="display-4">@estate.Name</h1>
-                    <p class="lead">
-                        @Html.LabelFor(x => estate.Type):
-                        @CustomEnumHelper.GetLocalizedName(estate.Type)
-                    </p>
-                    <p class="lead">
-                        @Html.LabelFor(x => estate.Status):
-                        @CustomEnumHelper.GetLocalizedName(estate.Status)
-                    </p>
-                    <p class="lead">
-                        @Html.LabelFor(x => estate.Area):
-                        @Html.DisplayFor(x => estate.Area)
-                        @Localization.GetString("EstateIndexPage_AreaSign")
-                    </p>
-                    <p class="lead">
-                        @Html.LabelFor(x => estate.Price):
-                        @Html.DisplayFor(x => estate.Price)
-                        @Localization.GetString("EstateIndexPage_MoneySign")
-                    </p>
-                    <p class="lead">
-                        @Html.LabelFor(x => estate.Address):
-                        @Html.DisplayFor(x => estate.Address)
-                    </p>
-                    @Html.ActionLink(Localization.GetString("Button_Details"), "Details", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
-                </div>
-            }
+            <div class="container">
+                @foreach (var estate in Model)
+                {
+                    <div class="row">
+                        @if (estate.ExistingImagePaths != null && estate.ExistingImagePaths.Count > 0)
+                        {
+                            @Html.Partial("_IndexItemWithGallery", estate)
+                        }
+                        else
+                        {
+                            @Html.Partial("_IndexItem", estate)
+                        }
+                    </div>
+                }
+            </div>
         }
         else
         {

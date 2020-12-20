@@ -70,7 +70,7 @@ namespace RealEstateManager.Repository.Sets
             return query.FirstOrDefault();
         }
 
-        public IEnumerable<Account> Get(
+        public IQueryable<Account> Get(
             Expression<Func<Account, bool>> filter = null,
             Func<IQueryable<Account>, IOrderedQueryable<Account>> orderBy = null, 
             string includeProperties = null)

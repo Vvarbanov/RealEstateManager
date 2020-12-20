@@ -33,7 +33,8 @@ namespace RealEstateManager.Repository.Sets
                 Price = data.Price,
                 Status = data.Status,
                 Type = data.Type,
-                UpdateDate = DateTime.Now
+                FilePathsCSV = data.FilePathsCSV,
+                UpdateDate = DateTime.Now,
             };
 
             _databaseContext.Estates.Add(estate);
@@ -42,7 +43,7 @@ namespace RealEstateManager.Repository.Sets
             return estate;
         }
 
-        public IEnumerable<Estate> Get(
+        public IQueryable<Estate> Get(
             Expression<Func<Estate, bool>> filter = null,
             Func<IQueryable<Estate>, IOrderedQueryable<Estate>> orderBy = null,
             string includeProperties = null)
@@ -104,6 +105,7 @@ namespace RealEstateManager.Repository.Sets
             estate.Price = data.Price;
             estate.Status = data.Status;
             estate.Type = data.Type;
+            estate.FilePathsCSV = data.FilePathsCSV;
             estate.UpdateDate = DateTime.Now;
 
             _databaseContext.SaveChanges();

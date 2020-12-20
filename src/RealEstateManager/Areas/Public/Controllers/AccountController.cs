@@ -29,25 +29,25 @@ namespace RealEstateManager.Areas.Public.Controllers
             switch (sortOrder)
             {
                 case "type":
-                    {
-                        orderFunc = x => x.OrderBy(y => y.Type);
+                {
+                    orderFunc = x => x.OrderBy(y => y.Type);
 
-                        ViewBag.SortByType = "type_desc";
+                    ViewBag.SortByType = "type_desc";
 
-                        break;
-                    }
+                    break;
+                }
                 case "type_desc":
-                    {
-                        orderFunc = x => x.OrderByDescending(y => y.Type);
+                {
+                    orderFunc = x => x.OrderByDescending(y => y.Type);
 
-                        break;
-                    }
+                    break;
+                }
                 default:
-                    {
-                        orderFunc = null;
+                {
+                    orderFunc = x => x.OrderBy(y => y.Type);
 
-                        break;
-                    }
+                    break;
+                }
             }
 
             Expression<Func<Account, bool>> filter = null;

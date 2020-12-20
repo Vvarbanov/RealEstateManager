@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using RealEstateManager.Properties;
 using System.ComponentModel.DataAnnotations;
 using RealEstateManager.Models.Data;
@@ -52,6 +50,11 @@ namespace RealEstateManager.Models.Estate
             Name = "EstateModel_Area",
             ResourceType = typeof(Resources))]
         public double Area { get; set; }
+
+        [Display(
+            Name = "EstateGetModel_ImagePaths",
+            ResourceType = typeof(Resources))]
+        public List<string> ImagePaths { get; set; }
 
         public BuildingInfoGetModel BuildingInfoGetModel { get; set; }
     }

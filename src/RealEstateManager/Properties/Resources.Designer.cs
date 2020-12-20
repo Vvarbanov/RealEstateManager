@@ -538,6 +538,15 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Изображения.
+        /// </summary>
+        public static string EstateCreationModel_Images {
+            get {
+                return ResourceManager.GetString("EstateCreationModel_Images", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Добавяне на нов имот.
         /// </summary>
         public static string EstateCreationPage_Header {
@@ -588,6 +597,15 @@ namespace RealEstateManager.Properties {
         public static string EstateDetailsPage_Header {
             get {
                 return ResourceManager.GetString("EstateDetailsPage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Галерия.
+        /// </summary>
+        public static string EstateGetModel_ImagePaths {
+            get {
+                return ResourceManager.GetString("EstateGetModel_ImagePaths", resourceCulture);
             }
         }
         
@@ -705,6 +723,24 @@ namespace RealEstateManager.Properties {
         public static string EstateModel_Type {
             get {
                 return ResourceManager.GetString("EstateModel_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Съществуващи изображения.
+        /// </summary>
+        public static string EstateUpdateModel_ImagePaths {
+            get {
+                return ResourceManager.GetString("EstateUpdateModel_ImagePaths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нови изображения.
+        /// </summary>
+        public static string EstateUpdateModel_Images {
+            get {
+                return ResourceManager.GetString("EstateUpdateModel_Images", resourceCulture);
             }
         }
         
@@ -1408,6 +1444,24 @@ namespace RealEstateManager.Properties {
         public static string RealEstateManager_Models_Data_EstateStatusType_ForSale {
             get {
                 return ResourceManager.GetString("RealEstateManager_Models_Data_EstateStatusType_ForSale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отдаден под наем.
+        /// </summary>
+        public static string RealEstateManager_Models_Data_EstateStatusType_RentedOut {
+            get {
+                return ResourceManager.GetString("RealEstateManager_Models_Data_EstateStatusType_RentedOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Продаден.
+        /// </summary>
+        public static string RealEstateManager_Models_Data_EstateStatusType_Sold {
+            get {
+                return ResourceManager.GetString("RealEstateManager_Models_Data_EstateStatusType_Sold", resourceCulture);
             }
         }
         

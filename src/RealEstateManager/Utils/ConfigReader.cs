@@ -41,6 +41,18 @@ namespace RealEstateManager.Utils
             }
         }
 
+        public static string ImageUploadDirectory
+        {
+            get
+            {
+                var result = GetSettingValue("ImageUploadDirectory");
+
+                return !string.IsNullOrWhiteSpace(result)
+                    ? result
+                    : throw new InvalidOperationException("Invalid upload directory.");
+            }
+        }
+
         private static string GetSettingValue(string key)
         {
             return WebConfigurationManager.AppSettings[key] ?? string.Empty;

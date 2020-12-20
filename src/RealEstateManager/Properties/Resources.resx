@@ -586,4 +586,22 @@
   <data name="EmailFormatError" xml:space="preserve">
     <value>Това поле съдържа невалиден e-mail.</value>
   </data>
+  <data name="EstateCreationModel_Images" xml:space="preserve">
+    <value>Изображения</value>
+  </data>
+  <data name="EstateGetModel_ImagePaths" xml:space="preserve">
+    <value>Галерия</value>
+  </data>
+  <data name="EstateUpdateModel_ImagePaths" xml:space="preserve">
+    <value>Съществуващи изображения</value>
+  </data>
+  <data name="EstateUpdateModel_Images" xml:space="preserve">
+    <value>Нови изображения</value>
+  </data>
+  <data name="RealEstateManager_Models_Data_EstateStatusType_RentedOut" xml:space="preserve">
+    <value>Отдаден под наем</value>
+  </data>
+  <data name="RealEstateManager_Models_Data_EstateStatusType_Sold" xml:space="preserve">
+    <value>Продаден</value>
+  </data>
 </root>

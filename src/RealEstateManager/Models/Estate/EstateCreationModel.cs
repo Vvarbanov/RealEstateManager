@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using RealEstateManager.Models.Data;
 using RealEstateManager.Properties;
 using RealEstateManager.Repository.Data;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 using RealEstateManager.Utils;
 
 namespace RealEstateManager.Models.Estate
 {
-    public class EstateCreationModel : IValidatableObject
+    public class EstateCreationModel : EstateBaseModel, IValidatableObject
     {
         [Display(
             Name = "EstateModel_Name",
@@ -75,7 +74,12 @@ namespace RealEstateManager.Models.Estate
             ErrorMessageResourceType = typeof(Resources))]
         public double Area { get; set; }
 
-        public EstateData ToData()
+        [Display(
+            Name = "EstateCreationModel_Images",
+            ResourceType = typeof(Resources))]
+        public override List<HttpPostedFileBase> Images { get; set; }
+
+        public EstateData ToData(string filesPathCSV = null)
         {
             return new EstateData
             {
@@ -86,7 +90,8 @@ namespace RealEstateManager.Models.Estate
                 PrivateDescription = PrivateDescription,
                 PublicDescription = PublicDescription,
                 Status = Status,
-                Type = Type
+                Type = Type,
+                FilePathsCSV = filesPathCSV,
             };
         }
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -15,7 +14,7 @@ namespace RealEstateManager.Repository.Interfaces
 
         TEntity GetById(TPrimaryKey id, string includeProperties = null);
 
-        IEnumerable<TEntity> Get(
+        IQueryable<TEntity> Get(
             Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             string includeProperties = null);

@@ -42,6 +42,21 @@
                 @Html.Partial("~/Areas/Public/Views/BuildingInfo/Details.cshtml", Model.BuildingInfoGetModel)
             }
             <p>@Html.DisplayFor(x => x.PublicDescription)</p>
+
+            <hr class="my-4">
+
+            @if (Model.ExistingImagePaths != null && Model.ExistingImagePaths.Count > 0)
+            {
+                @Html.LabelFor(x => x.ExistingImagePaths)
+                <div class="mb-4">
+                    @foreach (var imagePath in Model.ExistingImagePaths)
+                    {
+                        <a data-fancybox="@Model.Id" href="@imagePath">
+                            <img src="@imagePath" width="128" height="128" alt="EstateImage" />
+                        </a>
+                    }
+                </div>
+            }
         </div>
     </div>
 </div>

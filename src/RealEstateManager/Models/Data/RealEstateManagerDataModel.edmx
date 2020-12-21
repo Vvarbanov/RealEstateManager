@@ -271,6 +271,8 @@
         <EnumType Name="EstateStatusType">
           <Member Name="ForSale" Value="0" />
           <Member Name="ForRent" Value="1" />
+          <Member Name="Sold" Value="2" />
+          <Member Name="RentedOut" Value="3" />
         </EnumType>
         <EntityType Name="Account">
           <Key>

@@ -6,9 +6,7 @@
     ViewBag.Title = Localization.GetString("EstateCreationPage_Title");
 }
 
-@Html.ValidationSummary(true, null, new { @class = "text-danger" })
-
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Estate", FormMethod.Post, new {enctype = "multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
     <div class="card">
@@ -57,8 +55,13 @@
                 @Html.ValidationMessageFor(x => x.Status, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Create")</button>
+                @Html.LabelFor(x => x.Images)
+                @Html.TextBoxFor(x => x.Images, new { type ="file", multiple = "multiple", @class = "d-block" })
+                @Html.ValidationMessageFor(x => x.Images, null, new { @class = "text-danger" })
             </div>
+            <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Create")</button>
+            <br />
+            @Html.ValidationSummary(true, null, new { @class = "text-danger" })
         </div>
     </div>
 }

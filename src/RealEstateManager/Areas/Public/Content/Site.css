@@ -10,6 +10,9 @@
 .dl-horizontal dt {
   white-space: normal; }
 
+.jumbotron-padding {
+  padding: 2rem !important; }
+
 caption {
   caption-side: top; }
 
@@ -22,16 +25,6 @@ caption {
 .validation-summary-errors ul {
   list-style: none;
   padding: 0; }
-
-.image-container-unit {
-  text-align: center;
-  width: 12rem;
-  margin: 1rem;
-  padding-bottom: 1rem;
-  border: 0.25rem solid #DDD; }
-
-.image-container-unit img {
-  margin: 1rem; }
 
 /* Set width on the form input elements since they're 100% wide by default */
 /*input,

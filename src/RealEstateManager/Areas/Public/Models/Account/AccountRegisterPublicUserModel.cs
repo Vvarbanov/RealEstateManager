@@ -21,6 +21,9 @@ namespace RealEstateManager.Areas.Public.Models.Account
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
             ErrorMessageResourceType = typeof(Resources))]
+        [EmailAddress(
+            ErrorMessageResourceName = "EmailFormatError",
+            ErrorMessageResourceType = typeof(Resources))]
         public string EmailAddress { get; set; }
 
         [Display(

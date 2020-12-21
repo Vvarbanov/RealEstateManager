@@ -45,7 +45,7 @@ namespace RealEstateManager.Repository.Sets
             return buildingInfo;
         }
 
-        public IEnumerable<BuildingInfo> Get(
+        public IQueryable<BuildingInfo> Get(
             Expression<Func<BuildingInfo, bool>> filter = null,
             Func<IQueryable<BuildingInfo>, IOrderedQueryable<BuildingInfo>> orderBy = null,
             string includeProperties = null)

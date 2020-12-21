@@ -14,6 +14,8 @@ namespace RealEstateManager.Models.Data
     public enum EstateStatusType : int
     {
         ForSale = 0,
-        ForRent = 1
+        ForRent = 1,
+        Sold = 2,
+        RentedOut = 3
     }
 }

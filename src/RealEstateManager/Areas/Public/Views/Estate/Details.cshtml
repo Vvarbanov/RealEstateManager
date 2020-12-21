@@ -12,10 +12,14 @@
     <div class="card-body bg-light">
         <div class="jumbotron jumbotron-padding">
             <h1 class="display-4">@Model.Name</h1>
-            <p class="lead">@Localization.GetString("EstateIndexPage_EstateType") @CustomEnumHelper.GetLocalizedName(Model.Type)</p>
-            <p class="lead">@Localization.GetString("EstateIndexPage_EstateStatus") @CustomEnumHelper.GetLocalizedName(Model.Status)</p>
-            <hr class="my-4">
-
+            <p class="lead">
+                @Html.LabelFor(x => x.Type):
+                @CustomEnumHelper.GetLocalizedName(Model.Type)
+            </p>
+            <p class="lead">
+                @Html.LabelFor(x => x.Status):
+                @CustomEnumHelper.GetLocalizedName(Model.Status)
+            </p>
             <p class="lead">
                 @Html.LabelFor(x => x.Area):
                 @Html.DisplayFor(x => x.Area)
@@ -30,11 +34,29 @@
                 @Html.LabelFor(x => x.Address):
                 @Html.DisplayFor(x => x.Address)
             </p>
+
+            <hr class="my-4">
+
             @if (Model.BuildingInfoGetModel != null)
             {
                 @Html.Partial("~/Areas/Public/Views/BuildingInfo/Details.cshtml", Model.BuildingInfoGetModel)
-                            }
+            }
             <p>@Html.DisplayFor(x => x.PublicDescription)</p>
+
+            <hr class="my-4">
+
+            @if (Model.ExistingImagePaths != null && Model.ExistingImagePaths.Count > 0)
+            {
+                @Html.LabelFor(x => x.ExistingImagePaths)
+                <div class="mb-4">
+                    @foreach (var imagePath in Model.ExistingImagePaths)
+                    {
+                        <a data-fancybox="@Model.Id" href="@imagePath">
+                            <img src="@imagePath" width="128" height="128" alt="EstateImage" />
+                        </a>
+                    }
+                </div>
+            }
         </div>
     </div>
 </div>

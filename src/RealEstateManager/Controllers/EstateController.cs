@@ -1,21 +1,170 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web.Mvc;
+using PagedList;
 using RealEstateManager.Models.Estate;
 using RealEstateManager.Models.Data;
 using RealEstateManager.Models.BuildingInfo;
 using RealEstateManager.Models.EstateAccount;
+using RealEstateManager.Utils;
+using RealEstateManager.Repository.Data;
 
 namespace RealEstateManager.Controllers
 {
     [Authorize]
     public class EstateController : BaseController
     {
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder = null, string currentFilter = null, int? page = null)
         {
-            var existing = db.Estates.Get(null, x => x.OrderByDescending(y => y.UpdateDate), nameof(Estate.Account));
+            ViewBag.CurrentFilter = currentFilter;
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.SortByName = "name";
+            ViewBag.SortByType = "type";
+            ViewBag.SortByStatus = "status";
+            ViewBag.SortByArea = "area";
+            ViewBag.SortByPrice = "price";
 
-            var model = new EstateListGetModel(existing);
+            Func<IQueryable<Estate>, IOrderedQueryable<Estate>> orderFunc;
+
+            #region A large fucking switch statement
+            switch (sortOrder)
+            {
+                case "name":
+                    {
+                        orderFunc = x => x
+                            .OrderBy(y => y.Name)
+                            .ThenByDescending(y => y.UpdateDate);
+
+                        ViewBag.SortByName = "name_desc";
+
+                        break;
+                    }
+                case "name_desc":
+                    {
+                        orderFunc = x => x
+                            .OrderByDescending(y => y.Name)
+                            .ThenByDescending(y => y.UpdateDate);
+
+                        break;
+                    }
+                case "type":
+                    {
+                        orderFunc = x => x
+                            .OrderBy(y => y.Type)
+                            .ThenByDescending(y => y.UpdateDate);
+
+                        ViewBag.SortByType = "type_desc";
+
+                        break;
+                    }
+                case "type_desc":
+                    {
+                        orderFunc = x => x
+                            .OrderByDescending(y => y.Type)
+                            .ThenByDescending(y => y.UpdateDate);
+
+                        break;
+                    }
+                case "status":
+                    {
+                        orderFunc = x => x
+                            .OrderBy(y => y.Status)
+                            .ThenByDescending(y => y.UpdateDate);
+
+                        ViewBag.SortByStatus = "status_desc";
+
+                        break;
+                    }
+                case "status_desc":
+                    {
+                        orderFunc = x => x
+                            .OrderByDescending(y => y.Status)
+                            .ThenByDescending(y => y.UpdateDate);
+
+                        break;
+                    }
+                case "area":
+                    {
+                        orderFunc = x => x
+                            .OrderBy(y => y.Area)
+                            .ThenByDescending(y => y.UpdateDate);
+
+                        ViewBag.SortByArea = "area_desc";
+
+                        break;
+                    }
+                case "area_desc":
+                    {
+                        orderFunc = x => x
+                            .OrderByDescending(y => y.Area)
+                            .ThenByDescending(y => y.UpdateDate);
+
+                        break;
+                    }
+                case "price":
+                    {
+                        orderFunc = x => x
+                            .OrderBy(y => y.Price)
+                            .ThenByDescending(y => y.UpdateDate);
+
+                        ViewBag.SortByPrice = "price_desc";
+
+                        break;
+                    }
+                case "price_desc":
+                    {
+                        orderFunc = x => x
+                            .OrderByDescending(y => y.Price)
+                            .ThenByDescending(y => y.UpdateDate);
+
+                        break;
+                    }
+                default:
+                    {
+                        orderFunc = x => x.OrderByDescending(y => y.UpdateDate);
+                        break;
+                    }
+            }
+            #endregion
+
+            Expression<Func<Estate, bool>> filter = null;
+
+            if (!string.IsNullOrWhiteSpace(currentFilter))
+            {
+                filter = x =>
+                    x.Name.Contains(currentFilter) ||
+                    x.Address.Contains(currentFilter) ||
+                    x.PublicDescription.Contains(currentFilter);
+            }
+
+            var pageSize = ConfigReader.Pagination_PageSize;
+            var pageNumber = page ?? 1;
+
+            var model = db.Estates
+                .Get(filter, orderFunc, nameof(Estate.Account))
+                .Select(x => new EstateGetModel
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Type = x.Type,
+                    Price = x.Price,
+                    Status = x.Status,
+                    Address = x.Address,
+                    PublicDescription = x.PublicDescription,
+                    PrivateDescription = x.PrivateDescription,
+                    Area = x.Area,
+                    EstateAgents = x.Account
+                        .Select(y => new EstateAccountModel
+                        {
+                            EstateId = y.EstateId,
+                            UserId = y.AccountId,
+                            Username = y.Account.Username
+                        })
+                        .ToList()
+                })
+                .ToPagedList(pageNumber, pageSize);
 
             return View(model);
         }
@@ -30,17 +179,22 @@ namespace RealEstateManager.Controllers
             if (existing == null)
                 return RedirectToAction("Index", "Home");
 
-            var buildingInfoModel = new BuildingInfoGetModel
+            BuildingInfoGetModel buildingInfoModel = null;
+
+            if (existing.Type == EstateType.House || existing.Type == EstateType.Apartment)
             {
-                Id = existing.BuildingInfo.Id,
-                Act16 = existing.BuildingInfo.Act16,
-                View = existing.BuildingInfo.View,
-                Floors = existing.BuildingInfo.Floors,
-                Bedrooms = existing.BuildingInfo.Bedrooms,
-                Bathrooms = existing.BuildingInfo.Bathrooms,
-                Balconies = existing.BuildingInfo.Balconies,
-                Garages = existing.BuildingInfo.Garages
-            };
+                buildingInfoModel = new BuildingInfoGetModel
+                {
+                    Id = existing.BuildingInfo.Id,
+                    Act16 = existing.BuildingInfo.Act16,
+                    View = existing.BuildingInfo.View,
+                    Floors = existing.BuildingInfo.Floors,
+                    Bedrooms = existing.BuildingInfo.Bedrooms,
+                    Bathrooms = existing.BuildingInfo.Bathrooms,
+                    Balconies = existing.BuildingInfo.Balconies,
+                    Garages = existing.BuildingInfo.Garages
+                };
+            }
 
             var estateModel = new EstateGetModel
             {
@@ -54,13 +208,18 @@ namespace RealEstateManager.Controllers
                 PrivateDescription = existing.PrivateDescription,
                 Area = existing.Area,
                 BuildingInfoGetModel = buildingInfoModel,
+                ImagePaths = existing.FilePathsCSV
+                    ?.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x => x.Replace(Request.ServerVariables["APPL_PHYSICAL_PATH"], "\\"))
+                    .ToList(),
                 EstateAgents = existing.Account
-                        .Select(x => new EstateAccountModel
-                        {
-                            EstateId = x.EstateId,
-                            UserId = x.AccountId
-                        })
-                        .ToList()
+                    .Select(x => new EstateAccountModel
+                    {
+                        EstateId = x.EstateId,
+                        UserId = x.AccountId,
+                        Username = x.Account.Username
+                    })
+                    .ToList()
             };
 
             return View(estateModel);
@@ -77,7 +236,30 @@ namespace RealEstateManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                var estate = db.Estates.Insert(model.ToData());
+                Directory.CreateDirectory(Server.MapPath(ConfigReader.ImageUploadDirectory));
+
+                string filesPathCSV = null;
+
+                if (model.Images != null)
+                {
+                    var safeImages = model.GetSafeImages(Server);
+
+                    filesPathCSV = string.Join(",", safeImages.Select(x => x.SaveLocation));
+
+                    foreach (var item in safeImages)
+                    {
+                        item.File.SaveAs(item.SaveLocation);
+                    }
+                }
+
+                var estate = db.Estates.Insert(model.ToData(filesPathCSV));
+
+                db.EstateAccounts.Insert(new EstateAccountData
+                {
+                    AccountId = GetCurrentAgent(db, User).Id,
+                    EstateId = estate.Id,
+                    HasRights = true
+                });
 
                 if (model.Type == EstateType.Apartment || model.Type == EstateType.House)
                     return RedirectToAction("Create", "BuildingInfo", new { estateId = estate.Id });
@@ -93,7 +275,7 @@ namespace RealEstateManager.Controllers
             if (!id.HasValue)
                 return RedirectToAction("Index", "Home");
 
-            var existing = db.Estates.GetById(id.Value);
+            var existing = db.Estates.GetById(id.Value, nameof(Estate.Account));
 
             if (existing == null)
                 return RedirectToAction("Index", "Home");
@@ -108,10 +290,21 @@ namespace RealEstateManager.Controllers
                 Status = existing.Status,
                 PublicDescription = existing.PublicDescription,
                 PrivateDescription = existing.PrivateDescription,
-                Area = existing.Area
+                Area = existing.Area,
+                BuildingInfoId = existing.BuildingInfoId,
+                ExistingImagePaths = existing.FilePathsCSV
+                    ?.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x => x.Replace(Request.ServerVariables["APPL_PHYSICAL_PATH"], "\\"))
+                    .ToList(),
+                EstateAgents = existing.Account
+                    .Select(x => new EstateAccountModel
+                    {
+                        EstateId = x.EstateId,
+                        UserId = x.AccountId,
+                        Username = x.Account.Username
+                    })
+                    .ToList()
             };
-
-            model.BuildingInfoId = existing.BuildingInfoId;
 
             return View(model);
         }
@@ -122,18 +315,47 @@ namespace RealEstateManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Estates.Update(model.Id, model.ToData());
-
-                if (model.Type == EstateType.Apartment || model.Type == EstateType.House)
+                var currentAgent = GetCurrentAgent(db, User);
+                if (EstateAgentHelper.IsAgentAuthorized(currentAgent, model.ToData()) || EstateAgentHelper.isAdminAuthorized(currentAgent))
                 {
-                    if (model.BuildingInfoId.HasValue)
-                        return RedirectToAction("Update", "BuildingInfo", new { id = model.BuildingInfoId.Value, estateId = model.Id });
+                    Directory.CreateDirectory(Server.MapPath(ConfigReader.ImageUploadDirectory));
 
-                    return RedirectToAction("Create", "BuildingInfo", new { estateId = model.Id });
+                    var filesPathCSV = model.ExistingImagePathsAsCSV(Server);
+
+                    if (model.Images != null)
+                    {
+                        var safeImages = model.GetSafeImages(Server);
+
+                        var newFilesPathsCSV = string.Join(",", safeImages.Select(x => x.SaveLocation));
+
+                        if (!string.IsNullOrWhiteSpace(newFilesPathsCSV))
+                            filesPathCSV = string.Join(",", filesPathCSV, newFilesPathsCSV);
+
+                        foreach (var item in safeImages)
+                        {
+                            item.File.SaveAs(item.SaveLocation);
+                        }
+                    }
+
+                    db.Estates.Update(model.Id, model.ToData(filesPathCSV));
+
+                    switch (model.Type)
+                    {
+                        case EstateType.Apartment:
+                        case EstateType.House:
+                            {
+                                return model.BuildingInfoId.HasValue
+                                    ? RedirectToAction("Update", "BuildingInfo",
+                                        new { id = model.BuildingInfoId.Value, estateId = model.Id })
+                                    : RedirectToAction("Create", "BuildingInfo", new { estateId = model.Id });
+                            }
+                        case EstateType.Land when model.BuildingInfoId.HasValue:
+                            {
+                                db.BuildingInfoes.Delete(model.BuildingInfoId.Value);
+                                break;
+                            }
+                    }
                 }
-
-                if (model.Type == EstateType.Land && model.BuildingInfoId.HasValue)
-                    db.BuildingInfoes.Delete(model.BuildingInfoId.Value);
 
                 return RedirectToAction("Index", "Home");
             }
@@ -154,7 +376,15 @@ namespace RealEstateManager.Controllers
             var model = new EstateDeletionModel
             {
                 Id = existing.Id,
-                BuildingInfoId = existing.BuildingInfoId
+                BuildingInfoId = existing.BuildingInfoId,
+                EstateAgents = existing.Account
+                    .Select(x => new EstateAccountModel
+                    {
+                        EstateId = x.EstateId,
+                        UserId = x.AccountId,
+                        Username = x.Account.Username
+                    })
+                    .ToList()
             };
 
             return View(model);
@@ -166,10 +396,14 @@ namespace RealEstateManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (model.BuildingInfoId.HasValue)
-                    db.BuildingInfoes.Delete(model.BuildingInfoId.Value);
+                var currentAgent = GetCurrentAgent(db, User);
+                if (EstateAgentHelper.IsAgentAuthorized(currentAgent, model.ToData()) || EstateAgentHelper.isAdminAuthorized(currentAgent))
+                {
+                    if (model.BuildingInfoId.HasValue)
+                        db.BuildingInfoes.Delete(model.BuildingInfoId.Value);
 
-                db.Estates.Delete(model.Id);
+                    db.Estates.Delete(model.Id);
+                }
                 return RedirectToAction("Index", "Home");
             }
 

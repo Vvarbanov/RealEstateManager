@@ -12,32 +12,17 @@
     white-space: normal;
 }
 
-caption {
-    caption-side: top;
+.jumbotron-padding {
+    padding: 2rem !important;
 }
 
-.pagination li a {
-    padding: 0.5rem;
-    margin-left: 0.25rem;
-    margin-right: 0.25rem;
-    display: block;
+caption {
+    caption-side: top;
 }
 
 .validation-summary-errors ul {
     list-style: none;
     padding: 0;
-}
-
-.image-container-unit {
-    text-align: center;
-    width: 12rem;
-    margin: 1rem;
-    padding-bottom: 1rem;
-    border: 0.25rem solid #DDD;
-}
-
-.image-container-unit img {
-    margin: 1rem;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */

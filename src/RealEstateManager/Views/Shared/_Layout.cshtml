@@ -13,25 +13,30 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>@ViewBag.Title - @Localization.GetString("ApplicationName")</title>
-        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/admincss")
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
             <div class="container">
                 <div class="navbar-brand">
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    @Html.ActionLink(Localization.GetString("ApplicationName"), "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
+                    @Html.ActionLink(Localization.GetString("ApplicationName"), "Index", "Home", new { area = "Public" }, new { @class = "navbar-brand" })
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav mr-auto">
                         @if (Request.IsAuthenticated && currentAgent != null)
                         {
-                            <li class="nav-item">@Html.ActionLink(Localization.GetString("MenuButton_Estates"), "Index", "Home", null, new { @class = "nav-link" })</li>
-                            <li class="nav-item">@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })</li>
-                            <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>
-                            <li class="nav-item">@Html.ActionLink(currentAgent.Name, "Index", "Account", new {area = "Public"}, new { @class = "nav-link" })</li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">@Localization.GetString("MenuButton_Estates")</a>
+                                <div class="dropdown-menu">
+                                    @Html.ActionLink(Localization.GetString("MenuButton_Estates_ViewAll"), "Index", "Estate", null, new { @class = "dropdown-item" })
+                                    @Html.ActionLink(Localization.GetString("MenuButton_Estates_Create"), "Create", "Estate", null, new { @class = "dropdown-item" })
+                                </div>
+                            </li>
+                            <li class="nav-item">@Html.ActionLink(Localization.GetString("MenuButton_Users"), "Index", "Account", new { area = "Public" }, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink(currentAgent.Name, "Details", "Account", new { area = "Public" }, new { @class = "nav-link" })</li>
                             <li class="nav-item">@Html.ActionLink(Localization.GetString("MenuButton_Logout"), "Logout", "Account", new { area = "Public" }, new { @class = "nav-link" })</li>
                         }
                     </ul>
@@ -48,6 +53,54 @@
 
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
+
+        <script>
+            @{
+                var area = ViewContext.RouteData.DataTokens["area"] == null
+                    ? "/Admin/"
+                    : "/";
+            }
+
+            $(function() {
+                var action = "@ViewContext.RouteData.Values["Action"].ToString()";
+                var controller = "@ViewContext.RouteData.Values["Controller"].ToString()";
+                var area = "@area";
+
+                var finalUrl = area;
+
+                if (action === "Index")
+                    finalUrl = finalUrl + controller + "/";
+                else
+                    finalUrl = finalUrl + controller + "/" + action + "/";
+
+                var navLinks = $(".nav-item a").not(".dropdown-item");
+
+                navLinks.each(function (index) {
+                    var link = $(this);
+                    var href = link.attr("href") + "/";
+
+                    if (href === "#/")
+                    {
+                        var childLink = link
+                            .parent()
+                            .find(".dropdown-item")
+                            .first();
+
+                        href = childLink.attr("href") + "/";
+                    }
+
+                    if (finalUrl.indexOf(href) >= 0)
+                    {
+                        link.addClass("active");
+                        return false;
+                    }
+                });
+            });
+        </script>
+    
+        @Scripts.Render("~/bundles/jqueryfancybox")
+        @Scripts.Render("~/Scripts/jquery.validate.min.js")
+        @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
         @RenderSection("scripts", required: false)
     </body>
 </html>

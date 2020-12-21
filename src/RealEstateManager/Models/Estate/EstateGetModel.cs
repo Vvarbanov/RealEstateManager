@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using RealEstateManager.Properties;
 using System.ComponentModel.DataAnnotations;
 using RealEstateManager.Models.Data;
 using RealEstateManager.Models.BuildingInfo;
 using RealEstateManager.Models.EstateAccount;
+using RealEstateManager.Repository.Data;
 
 namespace RealEstateManager.Models.Estate
 {
@@ -54,8 +53,31 @@ namespace RealEstateManager.Models.Estate
             ResourceType = typeof(Resources))]
         public double Area { get; set; }
 
+        [Display(
+            Name = "EstateGetModel_ImagePaths",
+            ResourceType = typeof(Resources))]
+        public List<string> ImagePaths { get; set; }
+
         public BuildingInfoGetModel BuildingInfoGetModel { get; set; }
 
         public List<EstateAccountModel> EstateAgents { get; set; }
+
+        public EstateData ToData(string newAndExistingFilesPathsCSV = null)
+        {
+            return new EstateData
+            {
+                Id = Id,
+                Name = Name,
+                Address = Address,
+                Area = Area,
+                Price = Price,
+                PrivateDescription = PrivateDescription,
+                PublicDescription = PublicDescription,
+                Status = Status,
+                Type = Type,
+                FilePathsCSV = newAndExistingFilesPathsCSV,
+                EstateAgents = EstateAgents
+            };
+        }
     }
 }

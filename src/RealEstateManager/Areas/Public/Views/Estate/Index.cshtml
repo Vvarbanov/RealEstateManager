@@ -1,5 +1,6 @@
-﻿@using RealEstateManager.Utils
-@model List<RealEstateManager.Areas.Public.Models.Estate.EstateGetModel>
+﻿@using PagedList.Mvc
+@using RealEstateManager.Utils
+@model PagedList.IPagedList<RealEstateManager.Areas.Public.Models.Estate.EstateGetModel>
 
 @{
     ViewBag.Title = Localization.GetString("EstateIndexPage_Title");
@@ -10,19 +11,47 @@
         <h3>@Localization.GetString("EstateIndexPage_Header")</h3>
     </div>
     <div class="card-body bg-light">
-        @if (Model != null && Model.Count > 0 )
+        @if (Model != null && Model.Count > 0)
         {
-            <div class="container">
+            <div class="container estate-list">
+                <div class="row">
+                    <div class="col col-12">
+                        @using (Html.BeginForm("Index", "Estate", FormMethod.Get))
+                        {
+                            <div class="form-group">
+                                @Localization.GetString("EstateIndexPage_Search")
+                                @Html.TextBox("currentFilter", ViewBag.CurrentFilter as string, new {@class = "form-control"})
+                            </div>
+                            <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Submit")</button>
+                        }
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-12">
+                        <table class="table table-striped table-bordered table-responsive-sm">
+                            <thead class="thead-light">
+                            <tr>
+                                <th>Сортиране по:</th>
+                                <th>@Html.ActionLink(Localization.GetString("Public_Estate_SortingLabel_Name"), "Index", "Estate", new { sortOrder = ViewBag.SortByName, currentFilter = ViewBag.CurrentFilter }, null)</th>
+                                <th>@Html.ActionLink(Localization.GetString("Public_Estate_SortingLabel_Type"), "Index", "Estate", new { sortOrder = ViewBag.SortByType, currentFilter = ViewBag.CurrentFilter }, null)</th>
+                                <th>@Html.ActionLink(Localization.GetString("Public_Estate_SortingLabel_Status"), "Index", "Estate", new { sortOrder = ViewBag.SortByStatus, currentFilter = ViewBag.CurrentFilter }, null)</th>
+                                <th>@Html.ActionLink(Localization.GetString("Public_Estate_SortingLabel_Area"), "Index", "Estate", new { sortOrder = ViewBag.SortByArea, currentFilter = ViewBag.CurrentFilter }, null)</th>
+                                <th>@Html.ActionLink(Localization.GetString("Public_Estate_SortingLabel_Price"), "Index", "Estate", new { sortOrder = ViewBag.SortByPrice, currentFilter = ViewBag.CurrentFilter }, null)</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
                 @foreach (var estate in Model)
                 {
                     <div class="row">
                         @if (estate.ExistingImagePaths != null && estate.ExistingImagePaths.Count > 0)
                         {
-                            @Html.Partial("_IndexItemWithGallery", estate)
+                            @Html.Partial("_IndexItemWithGallery", estate, ViewData)
                         }
                         else
                         {
-                            @Html.Partial("_IndexItem", estate)
+                            @Html.Partial("_IndexItem", estate, ViewData)
                         }
                     </div>
                 }
@@ -32,5 +61,23 @@
         {
             <p>@Localization.GetString("EstateGet_NoEstates_Error")</p>
         }
+        <br/>
+        @{
+            var currentPage = 0;
+            var pageCount = 0;
+
+            if (Model != null)
+            {
+                currentPage = Model.PageCount < Model.PageNumber
+                    ? 0
+                    : Model.PageNumber;
+
+                pageCount = Model.PageCount;
+            }
+        }
+
+        @string.Format(Localization.GetString("Pagination_Summary"), currentPage, pageCount)
+
+        @Html.PagedListPager(Model, x => Url.Action("Index", new {page = x, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter}))
     </div>
 </div>

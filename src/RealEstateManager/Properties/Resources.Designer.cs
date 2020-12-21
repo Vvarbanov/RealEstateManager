@@ -1331,6 +1331,51 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Площ.
+        /// </summary>
+        public static string Public_Estate_SortingLabel_Area {
+            get {
+                return ResourceManager.GetString("Public_Estate_SortingLabel_Area", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Име.
+        /// </summary>
+        public static string Public_Estate_SortingLabel_Name {
+            get {
+                return ResourceManager.GetString("Public_Estate_SortingLabel_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Цена.
+        /// </summary>
+        public static string Public_Estate_SortingLabel_Price {
+            get {
+                return ResourceManager.GetString("Public_Estate_SortingLabel_Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Статус.
+        /// </summary>
+        public static string Public_Estate_SortingLabel_Status {
+            get {
+                return ResourceManager.GetString("Public_Estate_SortingLabel_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип.
+        /// </summary>
+        public static string Public_Estate_SortingLabel_Type {
+            get {
+                return ResourceManager.GetString("Public_Estate_SortingLabel_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Административен панел.
         /// </summary>
         public static string Public_MenuButton_AdminArea {

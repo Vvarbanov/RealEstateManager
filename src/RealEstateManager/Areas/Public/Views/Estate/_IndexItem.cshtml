@@ -3,7 +3,10 @@
 
 <div class="col col-12">
     <div class="jumbotron jumbotron-padding">
-        <h1 class="display-4">@Model.Name</h1>
+        <p class="lead">
+            @Html.LabelFor(x => x.Name):
+            @Html.DisplayFor(x => x.Name)
+        </p>
         <p class="lead">
             @Html.LabelFor(x => x.Type):
             @CustomEnumHelper.GetLocalizedName(Model.Type)

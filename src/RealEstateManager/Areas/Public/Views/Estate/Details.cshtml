@@ -39,7 +39,7 @@
 
             @if (Model.BuildingInfoGetModel != null)
             {
-                @Html.Partial("~/Areas/Public/Views/BuildingInfo/Details.cshtml", Model.BuildingInfoGetModel)
+                @Html.Partial("~/Areas/Public/Views/BuildingInfo/Details.cshtml", Model.BuildingInfoGetModel, ViewData)
             }
             <p>@Html.DisplayFor(x => x.PublicDescription)</p>
 

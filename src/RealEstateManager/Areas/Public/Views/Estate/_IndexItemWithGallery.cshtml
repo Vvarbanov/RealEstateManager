@@ -1,9 +1,12 @@
 ﻿@using RealEstateManager.Utils
 @model RealEstateManager.Areas.Public.Models.Estate.EstateGetModel
 
-<div class="col col-6">
+<div class="col col-md-6 col-12">
     <div class="jumbotron jumbotron-padding">
-        <h1 class="display-4">@Model.Name</h1>
+        <p class="lead">
+            @Html.LabelFor(x => x.Name):
+            @Html.DisplayFor(x => x.Name)
+        </p>
         <p class="lead">
             @Html.LabelFor(x => x.Type):
             @CustomEnumHelper.GetLocalizedName(Model.Type)
@@ -26,10 +29,10 @@
             @Html.LabelFor(x => x.Address):
             @Html.DisplayFor(x => x.Address)
         </p>
-        @Html.ActionLink(Localization.GetString("Button_Details"), "Details", "Estate", new {id = Model.Id}, new {@class = "btn btn-primary"})
+        @Html.ActionLink(Localization.GetString("Button_Details"), "Details", "Estate", new { id = Model.Id }, new { @class = "btn btn-primary" })
     </div>
 </div>
-<div class="col col-6">
+<div class="col col-md-6 col-12">
     @if (Model.ExistingImagePaths != null && Model.ExistingImagePaths.Count > 0)
     {
         @Html.LabelFor(x => x.ExistingImagePaths)

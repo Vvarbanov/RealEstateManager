@@ -615,5 +615,19 @@
   </data>
   <data name="EstateAccountUpdatePage_Text" xml:space="preserve">
     <value>Обновяване на правата на агентите</value>
+  <data name="Public_Estate_SortingLabel_Area" xml:space="preserve">
+    <value>Площ</value>
+  </data>
+  <data name="Public_Estate_SortingLabel_Name" xml:space="preserve">
+    <value>Име</value>
+  </data>
+  <data name="Public_Estate_SortingLabel_Price" xml:space="preserve">
+    <value>Цена</value>
+  </data>
+  <data name="Public_Estate_SortingLabel_Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="Public_Estate_SortingLabel_Type" xml:space="preserve">
+    <value>Тип</value>
   </data>
 </root>

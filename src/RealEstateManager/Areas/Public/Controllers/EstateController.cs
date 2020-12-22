@@ -171,7 +171,7 @@ namespace RealEstateManager.Areas.Public.Controllers
 
             BuildingInfoGetModel buildingInfoModel = null;
 
-            if (existing.Type == EstateType.House || existing.Type == EstateType.Apartment)
+            if (existing.BuildingInfo != null && (existing.Type == EstateType.House || existing.Type == EstateType.Apartment))
             {
                 buildingInfoModel = new BuildingInfoGetModel
                 {

@@ -1,23 +1,37 @@
-﻿using RealEstateManager.Models.Data;
-using RealEstateManager.Repository;
-using RealEstateManager.Repository.Data;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using RealEstateManager.Models.Data;
+using RealEstateManager.Models.EstateAccount;
+using RealEstateManager.Repository;
 
 namespace RealEstateManager.Utils
 {
     public static class EstateAgentHelper
     {
-        public static bool IsAgentAuthorized(CurrentIdentity currentIdentity, EstateData estate)
+        public static bool IsAccountAuthorized(
+            CurrentIdentity currentIdentity, Guid estateId, List<EstateAccountModel> estateAccounts)
         {
-            return currentIdentity != null && estate.EstateAgents != null &&
-                estate.EstateAgents.Any(x => x.EstateId == estate.Id && x.UserId == currentIdentity.Id);
+            if (currentIdentity == null || currentIdentity.Type == UserType.PublicUser)
+                return false;
+
+            if (currentIdentity.Type == UserType.Admin)
+                return true;
+
+            return estateAccounts != null &&
+                estateAccounts.Any(x => x.EstateId == estateId && x.AccountId == currentIdentity.Id);
         }
 
-        public static bool isAdminAuthorized(CurrentIdentity currentIdentity)
+        public static bool IsAccountAuthorized(
+            CurrentIdentity currentIdentity, Guid estateId, EstatesContext db)
+        {
+            return db.Estates.IsAccountAuthorized(currentIdentity, estateId);
+        }
+
+        public static bool IsAccountAdmin(CurrentIdentity currentIdentity)
         {
             return currentIdentity != null &&
-                (currentIdentity.Type == UserType.Admin);
+                currentIdentity.Type == UserType.Admin;
         }
     }
 }

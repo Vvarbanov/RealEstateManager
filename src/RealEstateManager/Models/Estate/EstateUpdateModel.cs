@@ -6,7 +6,6 @@ using RealEstateManager.Repository.Data;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 using RealEstateManager.Utils;
-using RealEstateManager.Models.EstateAccount;
 
 namespace RealEstateManager.Models.Estate
 {
@@ -93,8 +92,6 @@ namespace RealEstateManager.Models.Estate
 
         public Guid? BuildingInfoId { get; set; }
 
-        public List<EstateAccountModel> EstateAgents { get; set; }
-
         public string ExistingImagePathsAsCSV(HttpServerUtilityBase server)
         {
             string filesPathCSV = null;
@@ -119,7 +116,6 @@ namespace RealEstateManager.Models.Estate
         {
             return new EstateData
             {
-                Id = Id,
                 Name = Name,
                 Address = Address,
                 Area = Area,
@@ -129,7 +125,6 @@ namespace RealEstateManager.Models.Estate
                 Status = Status,
                 Type = Type,
                 FilePathsCSV = newAndExistingFilesPathsCSV,
-                EstateAgents = EstateAgents
             };
         }
 

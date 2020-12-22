@@ -62,27 +62,31 @@
                 </div>
             }
 
-            @if (EstateAgentHelper.IsAgentAuthorized(currentAgent, Model.ToData()) || EstateAgentHelper.isAdminAuthorized(currentAgent))
+            @{
+                var isAccountAuthorized = EstateAgentHelper.IsAccountAuthorized(currentAgent, Model.Id, Model.EstateAccounts);
+            }
+
+            @if (isAccountAuthorized)
             {
                 @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Estate", new { id = Model.Id }, new { @class = "btn btn-primary" })
             }
 
             @if (Model.BuildingInfoGetModel != null)
             {
-                if (EstateAgentHelper.IsAgentAuthorized(currentAgent, Model.ToData()) || EstateAgentHelper.isAdminAuthorized(currentAgent))
+                if (isAccountAuthorized)
                 {
-                    @Html.ActionLink(Localization.GetString("Button_Edit_Info"), "Update", "BuildingInfo", new { id = Model.BuildingInfoGetModel.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink(Localization.GetString("Button_Edit_Info"), "Update", "BuildingInfo", new { estateId = Model.Id }, new { @class = "btn btn-primary" })
                 }
             }
 
-            @if (EstateAgentHelper.IsAgentAuthorized(currentAgent, Model.ToData()) || EstateAgentHelper.isAdminAuthorized(currentAgent))
-            {
-                @Html.ActionLink(Localization.GetString("Button_Delete"), "Delete", "Estate", new { id = Model.Id }, new { @class = "btn btn-primary" })
-            }
-
-            @if (EstateAgentHelper.isAdminAuthorized(currentAgent))
+            @if (EstateAgentHelper.IsAccountAdmin(currentAgent))
             {
                 @Html.ActionLink(Localization.GetString("Button_Edit_Rights"), "Update", "EstateAccount", new { estateId = Model.Id }, new { @class = "btn btn-primary" })
+            }
+
+            @if (isAccountAuthorized)
+            {
+                @Html.ActionLink(Localization.GetString("Button_Delete"), "Delete", "Estate", new { id = Model.Id }, new { @class = "btn btn-primary" })
             }
         </div>
     </div>

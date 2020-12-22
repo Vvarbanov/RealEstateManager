@@ -206,6 +206,7 @@
     <Compile Include="Models\BuildingInfo\BuildingInfoDeletionModel.cs" />
     <Compile Include="Models\BuildingInfo\BuildingInfoGetModel.cs" />
     <Compile Include="Models\BuildingInfo\BuildingInfoUpdateModel.cs" />
+    <Compile Include="Models\EstateAccount\EstateAccountListModel.cs" />
     <Compile Include="Models\Estate\EstateBaseModel.cs" />
     <Compile Include="Models\EstateAccount\EstateAccountModel.cs" />
     <Compile Include="Models\Estate\EstateCreationModel.cs" />
@@ -231,7 +232,6 @@
     <Compile Include="Repository\CurrentIdentity.cs" />
     <Compile Include="Repository\Sets\AccountSet.cs" />
     <Compile Include="Repository\Sets\BuildingInfoSet.cs" />
-    <Compile Include="Repository\Sets\EstateAccountSet.cs" />
     <Compile Include="Repository\Sets\EstateSet.cs" />
     <Compile Include="Utils\ConfigReader.cs" />
     <Compile Include="Utils\CryptoHelper.cs" />

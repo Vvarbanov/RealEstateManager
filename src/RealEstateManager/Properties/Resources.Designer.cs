@@ -520,11 +520,29 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Има права.
+        /// </summary>
+        public static string EstateAccountModel_HasRights {
+            get {
+                return ResourceManager.GetString("EstateAccountModel_HasRights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Обновяване на правата.
         /// </summary>
         public static string EstateAccountUpdatePage_Header {
             get {
                 return ResourceManager.GetString("EstateAccountUpdatePage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Няма регистрирани Агенти в системата..
+        /// </summary>
+        public static string EstateAccountUpdatePage_NoRegisteredAgents_Error {
+            get {
+                return ResourceManager.GetString("EstateAccountUpdatePage_NoRegisteredAgents_Error", resourceCulture);
             }
         }
         

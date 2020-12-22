@@ -13,7 +13,6 @@ namespace RealEstateManager.Repository
         public AccountSet Accounts { get; }
         public EstateSet Estates { get; }
         public BuildingInfoSet BuildingInfoes { get; }
-        public EstateAccountSet EstateAccounts { get; }
 
         public EstatesContext()
         {
@@ -21,7 +20,6 @@ namespace RealEstateManager.Repository
             Accounts = new AccountSet(DatabaseContext);
             Estates = new EstateSet(DatabaseContext);
             BuildingInfoes = new BuildingInfoSet(DatabaseContext);
-            EstateAccounts = new EstateAccountSet(DatabaseContext);
         }
 
         public bool TryGetCurrentIdentity(IPrincipal user, out CurrentIdentity identity)

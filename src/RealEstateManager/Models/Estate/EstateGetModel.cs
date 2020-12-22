@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations;
 using RealEstateManager.Models.Data;
 using RealEstateManager.Models.BuildingInfo;
 using RealEstateManager.Models.EstateAccount;
-using RealEstateManager.Repository.Data;
 
 namespace RealEstateManager.Models.Estate
 {
@@ -60,24 +59,6 @@ namespace RealEstateManager.Models.Estate
 
         public BuildingInfoGetModel BuildingInfoGetModel { get; set; }
 
-        public List<EstateAccountModel> EstateAgents { get; set; }
-
-        public EstateData ToData(string newAndExistingFilesPathsCSV = null)
-        {
-            return new EstateData
-            {
-                Id = Id,
-                Name = Name,
-                Address = Address,
-                Area = Area,
-                Price = Price,
-                PrivateDescription = PrivateDescription,
-                PublicDescription = PublicDescription,
-                Status = Status,
-                Type = Type,
-                FilePathsCSV = newAndExistingFilesPathsCSV,
-                EstateAgents = EstateAgents
-            };
-        }
+        public List<EstateAccountModel> EstateAccounts { get; set; }
     }
 }

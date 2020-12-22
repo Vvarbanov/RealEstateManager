@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/11/2020 18:38:44
+-- Date Created: 12/22/2020 14:03:01
 -- Generated from EDMX file: D:\Code\MyRepo\RealEstateManager\src\RealEstateManager\Models\Data\RealEstateManagerDataModel.edmx
 -- --------------------------------------------------
 
@@ -126,8 +126,6 @@ CREATE TABLE [dbo].[Contacts] (
     [Number] nvarchar(max)  NOT NULL,
     [Outcome] nvarchar(max)  NOT NULL,
     [EstateId] uniqueidentifier  NOT NULL,
-    [AccountId] uniqueidentifier  NOT NULL,
-    [PublicUserId] uniqueidentifier  NOT NULL,
     [FilePathsCSV] nvarchar(max)  NULL
 );
 GO
@@ -249,7 +247,7 @@ ADD CONSTRAINT [FK_EstateBuildingInfo]
     FOREIGN KEY ([BuildingInfoId])
     REFERENCES [dbo].[BuildingInfoes]
         ([Id])
-    ON DELETE CASCADE ON UPDATE NO ACTION;
+    ON DELETE SET NULL ON UPDATE NO ACTION;
 GO
 
 -- Creating unique non-clustered index for FOREIGN KEY 'FK_EstateBuildingInfo'

@@ -44,17 +44,24 @@
                         <tr>
                             <td>
                                 @Html.ActionLink(Localization.GetString("Button_Details"), "Details", "Estate", new { id = Model[i].Id }, new { @class = "btn btn-primary" })
-                                @if (EstateAgentHelper.IsAgentAuthorized(currentAgent, Model[i].ToData()) || EstateAgentHelper.isAdminAuthorized(currentAgent))
+
+                                @{
+                                    var isAccountAuthorized = EstateAgentHelper.IsAccountAuthorized(currentAgent, Model[i].Id, Model[i].EstateAccounts);
+                                }
+
+                                @if (isAccountAuthorized)
                                 {
                                     @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Estate", new { id = Model[i].Id }, new { @class = "btn btn-primary" })
                                 }
-                                @if (EstateAgentHelper.IsAgentAuthorized(currentAgent, Model[i].ToData()) || EstateAgentHelper.isAdminAuthorized(currentAgent))
-                                {
-                                    @Html.ActionLink(Localization.GetString("Button_Delete"), "Delete", "Estate", new { id = Model[i].Id }, new { @class = "btn btn-primary" })
-                                }
-                                @if (EstateAgentHelper.isAdminAuthorized(currentAgent))
+
+                                @if (EstateAgentHelper.IsAccountAdmin(currentAgent))
                                 {
                                     @Html.ActionLink(Localization.GetString("Button_Edit_Rights"), "Update", "EstateAccount", new { estateId = Model[i].Id }, new { @class = "btn btn-primary" })
+                                }
+
+                                @if (isAccountAuthorized)
+                                {
+                                    @Html.ActionLink(Localization.GetString("Button_Delete"), "Delete", "Estate", new { id = Model[i].Id }, new { @class = "btn btn-primary" })
                                 }
                             </td>
                             <td>

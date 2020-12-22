@@ -17,13 +17,6 @@
             <div class="form-group">
                 @Html.HiddenFor(x => x.Id)
                 @Html.HiddenFor(x => x.BuildingInfoId)
-                @for (var i = 0; i < Model.EstateAgents.Count; i++)
-                {
-                    @Html.HiddenFor(x => Model.EstateAgents[i].EstateId);
-                    @Html.HiddenFor(x => Model.EstateAgents[i].UserId);
-                    @Html.HiddenFor(x => Model.EstateAgents[i].HasRights);
-                    @Html.HiddenFor(x => Model.EstateAgents[i].Username);
-                }
             </div>
             <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Delete")</button>
             <br />

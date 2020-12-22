@@ -122,6 +122,63 @@ namespace RealEstateManager.Repository.Sets
             _databaseContext.SaveChanges();
         }
 
+        public void UpdateRights(Guid estateId, List<EstateAccountData> data)
+        {
+            var estate = _databaseContext.Estates
+                .Include(nameof(Estate.EstateAccounts))
+                .FirstOrDefault(x => x.Id == estateId);
+
+            if (estate == null)
+                throw new InvalidOperationException($"Estate with id {estateId} not found.");
+
+            if (data.All(x => x.EstateId != estateId))
+                throw new InvalidOperationException(
+                    $"All elements in the {nameof(EstateAccountData)} " +
+                    $"List must have the same {nameof(EstateAccountData.EstateId)}.");
+
+            var estateAccountsToRemove = new List<EstateAccount>();
+
+            var estateAccountsToAdd = new List<EstateAccount>();
+
+            foreach (var item in data)
+            {
+                var estateAccountToUpdate = estate.EstateAccounts
+                    .FirstOrDefault(x => x.EstateId == item.EstateId && x.AccountId == item.AccountId);
+
+                if (estateAccountToUpdate != null && !item.HasRights)
+                {
+                    estateAccountsToRemove.Add(estateAccountToUpdate);
+                }
+                else if (estateAccountToUpdate == null && item.HasRights)
+                {
+                    estateAccountsToAdd.Add(new EstateAccount
+                    {
+                        AccountId = item.AccountId,
+                        EstateId = item.EstateId,
+                    });
+                }
+            }
+
+            _databaseContext.EstateAccounts.RemoveRange(estateAccountsToRemove);
+            _databaseContext.EstateAccounts.AddRange(estateAccountsToAdd);
+            _databaseContext.SaveChanges();
+        }
+
+        public bool IsAccountAuthorized(CurrentIdentity account, Guid estateId)
+        {
+            var estate = _databaseContext.Estates
+                .Include(nameof(Estate.EstateAccounts))
+                .FirstOrDefault(x => x.Id == estateId);
+
+            if (estate == null || account == null || account.Type == UserType.PublicUser)
+                return false;
+
+            if (account.Type == UserType.Admin)
+                return true;
+
+            return estate.EstateAccounts.Any(x => x.AccountId == account.Id);
+        }
+
         private static bool ValidateInsertData(EstateData data)
         {
             return !string.IsNullOrWhiteSpace(data.Address) &&

@@ -1,14 +1,9 @@
 ﻿using RealEstateManager.Models.Data;
-using RealEstateManager.Models.EstateAccount;
-using System;
-using System.Collections.Generic;
 
 namespace RealEstateManager.Repository.Data
 {
     public class EstateData
     {
-        public Guid Id { get; set; }
-
         public string Name { get; set; }
 
         public EstateType Type { get; set; }
@@ -26,7 +21,5 @@ namespace RealEstateManager.Repository.Data
         public double Area { get; set; }
 
         public string FilePathsCSV { get; set; }
-
-        public List<EstateAccountModel> EstateAgents { get; set; }
     }
 }

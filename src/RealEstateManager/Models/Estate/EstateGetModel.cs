@@ -4,6 +4,7 @@ using RealEstateManager.Properties;
 using System.ComponentModel.DataAnnotations;
 using RealEstateManager.Models.Data;
 using RealEstateManager.Models.BuildingInfo;
+using RealEstateManager.Models.EstateAccount;
 
 namespace RealEstateManager.Models.Estate
 {
@@ -57,5 +58,7 @@ namespace RealEstateManager.Models.Estate
         public List<string> ImagePaths { get; set; }
 
         public BuildingInfoGetModel BuildingInfoGetModel { get; set; }
+
+        public List<EstateAccountModel> EstateAccounts { get; set; }
     }
 }

@@ -403,6 +403,15 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Права.
+        /// </summary>
+        public static string Button_Edit_Rights {
+            get {
+                return ResourceManager.GetString("Button_Edit_Rights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Вход.
         /// </summary>
         public static string Button_Login {
@@ -498,6 +507,51 @@ namespace RealEstateManager.Properties {
         public static string Estate_TableHeader_Type {
             get {
                 return ResourceManager.GetString("Estate_TableHeader_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Права.
+        /// </summary>
+        public static string EstateAccountCreationPage_Title {
+            get {
+                return ResourceManager.GetString("EstateAccountCreationPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Има права.
+        /// </summary>
+        public static string EstateAccountModel_HasRights {
+            get {
+                return ResourceManager.GetString("EstateAccountModel_HasRights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обновяване на правата.
+        /// </summary>
+        public static string EstateAccountUpdatePage_Header {
+            get {
+                return ResourceManager.GetString("EstateAccountUpdatePage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Няма регистрирани Агенти в системата..
+        /// </summary>
+        public static string EstateAccountUpdatePage_NoRegisteredAgents_Error {
+            get {
+                return ResourceManager.GetString("EstateAccountUpdatePage_NoRegisteredAgents_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обновяване на правата на агентите.
+        /// </summary>
+        public static string EstateAccountUpdatePage_Text {
+            get {
+                return ResourceManager.GetString("EstateAccountUpdatePage_Text", resourceCulture);
             }
         }
         

@@ -164,14 +164,15 @@ namespace RealEstateManager.Areas.Public.Controllers
             if (!id.HasValue)
                 return RedirectToAction("Index", "Home");
 
-            var existing = db.Estates.GetById(id.Value, "BuildingInfo");
+            var existing = db.Estates.GetById(id.Value, nameof(Estate.BuildingInfo));
 
             if (existing == null)
                 return RedirectToAction("Index", "Home");
 
             BuildingInfoGetModel buildingInfoModel = null;
 
-            if (existing.Type == EstateType.House || existing.Type == EstateType.Apartment)
+            if (existing.BuildingInfo != null &&
+                (existing.Type == EstateType.House || existing.Type == EstateType.Apartment))
             {
                 buildingInfoModel = new BuildingInfoGetModel
                 {

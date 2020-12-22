@@ -1,7 +1,10 @@
 ﻿@using RealEstateManager.Utils
+@using RealEstateManager.Controllers
 @model RealEstateManager.Models.Estate.EstateGetModel
 
 @{
+    var db = BaseController.GetController(ViewContext).Context;
+    var currentAgent = BaseController.GetCurrentAgent(db, User);
     ViewBag.Title = Localization.GetString("EstateIndexPage_Title");
 }
 
@@ -59,14 +62,32 @@
                 </div>
             }
 
-            @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Estate", new { id = Model.Id }, new { @class = "btn btn-primary" })
+            @{
+                var isAccountAuthorized = EstateAgentHelper.IsAccountAuthorized(currentAgent, Model.Id, Model.EstateAccounts);
+            }
+
+            @if (isAccountAuthorized)
+            {
+                @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Estate", new { id = Model.Id }, new { @class = "btn btn-primary" })
+            }
 
             @if (Model.BuildingInfoGetModel != null)
             {
-                @Html.ActionLink(Localization.GetString("Button_Edit_Info"), "Update", "BuildingInfo", new { id = Model.BuildingInfoGetModel.Id }, new { @class = "btn btn-primary" })
+                if (isAccountAuthorized)
+                {
+                    @Html.ActionLink(Localization.GetString("Button_Edit_Info"), "Update", "BuildingInfo", new { estateId = Model.Id }, new { @class = "btn btn-primary" })
+                }
             }
 
-            @Html.ActionLink(Localization.GetString("Button_Delete"), "Delete", "Estate", new { id = Model.Id }, new { @class = "btn btn-primary" })
+            @if (EstateAgentHelper.IsAccountAdmin(currentAgent))
+            {
+                @Html.ActionLink(Localization.GetString("Button_Edit_Rights"), "Update", "EstateAccount", new { estateId = Model.Id }, new { @class = "btn btn-primary" })
+            }
+
+            @if (isAccountAuthorized)
+            {
+                @Html.ActionLink(Localization.GetString("Button_Delete"), "Delete", "Estate", new { id = Model.Id }, new { @class = "btn btn-primary" })
+            }
         </div>
     </div>
 </div>

@@ -100,8 +100,6 @@
     <Property Name="Number" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Outcome" Type="nvarchar(max)" Nullable="false" />
     <Property Name="EstateId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="AccountId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PublicUserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="FilePathsCSV" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="SystemValues">
@@ -242,7 +240,7 @@
           <Property Name="PublicDescription" Type="String" Nullable="true" />
           <Property Name="PrivateDescription" Type="String" Nullable="true" />
           <Property Name="Area" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Account" Relationship="RealEstateManagerDataModel.EstateAccountEstate" FromRole="Estate" ToRole="EstateAccount" />
+          <NavigationProperty Name="EstateAccounts" Relationship="RealEstateManagerDataModel.EstateAccountEstate" FromRole="Estate" ToRole="EstateAccount" />
           <NavigationProperty Name="Contacts" Relationship="RealEstateManagerDataModel.ContactEstate" FromRole="Estate" ToRole="Contact" />
           <NavigationProperty Name="BuildingInfo" Relationship="RealEstateManagerDataModel.EstateBuildingInfo" FromRole="Estate" ToRole="BuildingInfo" />
           <Property Name="BuildingInfoId" Type="Guid" Nullable="true" />
@@ -287,9 +285,9 @@
           <Property Name="EmailAddress" Type="String" Nullable="false" />
           <Property Name="PasswordSalt" Type="String" Nullable="false" />
           <Property Name="HashedPassword" Type="String" Nullable="false" />
-          <NavigationProperty Name="Estates" Relationship="RealEstateManagerDataModel.EstateAccountAccount" FromRole="Account" ToRole="EstateAccount" />
+          <NavigationProperty Name="EstateAccounts" Relationship="RealEstateManagerDataModel.EstateAccountAccount" FromRole="Account" ToRole="EstateAccount" />
           <Property Name="ForgottenPasswordToken" Type="String" Nullable="true" />
-          <NavigationProperty Name="Contacts" Relationship="RealEstateManagerDataModel.AccountContactAccount" FromRole="Account" ToRole="ContactAccount" />
+          <NavigationProperty Name="ContactAccounts" Relationship="RealEstateManagerDataModel.AccountContactAccount" FromRole="Account" ToRole="ContactAccount" />
         </EntityType>
         <EntityType Name="EstateAccount">
           <Key>
@@ -335,9 +333,7 @@
           <NavigationProperty Name="Estate" Relationship="RealEstateManagerDataModel.ContactEstate" FromRole="Contact" ToRole="Estate" />
           <Property Name="Outcome" Type="String" Nullable="false" />
           <Property Name="EstateId" Nullable="false" Type="Guid" />
-          <Property Name="AccountId" Nullable="false" Type="Guid" />
-          <Property Name="PublicUserId" Type="Guid" Nullable="false" />
-          <NavigationProperty Name="Accounts" Relationship="RealEstateManagerDataModel.ContactContactAccount" FromRole="Contact" ToRole="ContactAccount" />
+          <NavigationProperty Name="ContactAccounts" Relationship="RealEstateManagerDataModel.ContactContactAccount" FromRole="Contact" ToRole="ContactAccount" />
           <Property Name="FilePathsCSV" Type="String" Nullable="true" />
         </EntityType>
         <Association Name="ContactEstate">
@@ -488,8 +484,6 @@
           <ScalarProperty Name="Number" ColumnName="Number" />
           <ScalarProperty Name="Outcome" ColumnName="Outcome" />
           <ScalarProperty Name="EstateId" ColumnName="EstateId" />
-          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
-          <ScalarProperty Name="PublicUserId" ColumnName="PublicUserId" />
           <ScalarProperty Name="FilePathsCSV" ColumnName="FilePathsCSV" />
         </MappingFragment>
       </EntityTypeMapping>

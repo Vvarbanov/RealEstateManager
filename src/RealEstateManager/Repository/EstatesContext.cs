@@ -29,7 +29,7 @@ namespace RealEstateManager.Repository
             if (user?.Identity == null)
                 return false;
 
-            if (!Guid.TryParse(user.Identity.Name, out var userId)) 
+            if (!Guid.TryParse(user.Identity.Name, out var userId))
                 return false;
 
             var account = DatabaseContext.Accounts

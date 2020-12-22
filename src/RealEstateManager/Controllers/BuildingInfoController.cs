@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Web.Mvc;
 using RealEstateManager.Models.BuildingInfo;
+using RealEstateManager.Models.Data;
+using RealEstateManager.Utils;
 
 namespace RealEstateManager.Controllers
 {
@@ -15,11 +16,22 @@ namespace RealEstateManager.Controllers
 
         public ActionResult Create(Guid? estateId)
         {
-            if (!estateId.HasValue)
+            var currentAccount = GetCurrentAgent(db, User);
+
+            if (currentAccount == null ||
+                !estateId.HasValue ||
+                !EstateAgentHelper.IsAccountAuthorized(currentAccount, estateId.Value, db))
                 return RedirectToAction("Index", "Home");
 
-            var model = new BuildingInfoCreationModel();
-            model.EstateId = estateId.Value;
+            var estate = db.Estates.GetById(estateId.Value, $"{nameof(Estate.BuildingInfo)}");
+
+            if (estate == null || estate.BuildingInfo != null)
+                return RedirectToAction("Index", "Home");
+
+            var model = new BuildingInfoCreationModel
+            {
+                EstateId = estateId.Value,
+            };
 
             return View(model);
         }
@@ -37,26 +49,30 @@ namespace RealEstateManager.Controllers
             return View(model);
         }
 
-        public ActionResult Update(Guid? id)
+        public ActionResult Update(Guid? estateId)
         {
-            if (!id.HasValue)
+            var currentAccount = GetCurrentAgent(db, User);
+
+            if (currentAccount == null ||
+                !estateId.HasValue ||
+                !EstateAgentHelper.IsAccountAuthorized(currentAccount, estateId.Value, db))
                 return RedirectToAction("Index", "Home");
 
-            var existing = db.BuildingInfoes.GetById(id.Value);
+            var estate = db.Estates.GetById(estateId.Value, $"{nameof(Estate.BuildingInfo)}");
 
-            if (existing == null)
+            if (estate?.BuildingInfo == null)
                 return RedirectToAction("Index", "Home");
 
             var model = new BuildingInfoUpdateModel
             {
-                Id = existing.Id,
-                View = existing.View,
-                Act16 = existing.Act16,
-                Floors = existing.Floors,
-                Bedrooms = existing.Bedrooms,
-                Bathrooms = existing.Bathrooms,
-                Balconies = existing.Balconies,
-                Garages = existing.Garages
+                Id = estate.BuildingInfo.Id,
+                View = estate.BuildingInfo.View,
+                Act16 = estate.BuildingInfo.Act16,
+                Floors = estate.BuildingInfo.Floors,
+                Bedrooms = estate.BuildingInfo.Bedrooms,
+                Bathrooms = estate.BuildingInfo.Bathrooms,
+                Balconies = estate.BuildingInfo.Balconies,
+                Garages = estate.BuildingInfo.Garages
             };
 
             return View(model);
@@ -75,19 +91,23 @@ namespace RealEstateManager.Controllers
             return View(model);
         }
 
-        public ActionResult Delete(Guid? id)
+        public ActionResult Delete(Guid? estateId)
         {
-            if (!id.HasValue)
+            var currentAccount = GetCurrentAgent(db, User);
+
+            if (currentAccount == null ||
+                !estateId.HasValue ||
+                !EstateAgentHelper.IsAccountAuthorized(currentAccount, estateId.Value, db))
                 return RedirectToAction("Index", "Home");
 
-            var existing = db.BuildingInfoes.GetById(id.Value);
+            var estate = db.Estates.GetById(estateId.Value, $"{nameof(Estate.BuildingInfo)}");
 
-            if (existing == null)
+            if (estate?.BuildingInfo == null)
                 return RedirectToAction("Index", "Home");
 
             var model = new BuildingInfoDeletionModel
             {
-                Id = existing.Id
+                Id = estate.BuildingInfo.Id
             };
 
             return View(model);

@@ -17,8 +17,8 @@ namespace RealEstateManager.Models.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Account()
         {
-            this.Estates = new HashSet<EstateAccount>();
-            this.Contacts = new HashSet<ContactAccount>();
+            this.EstateAccounts = new HashSet<EstateAccount>();
+            this.ContactAccounts = new HashSet<ContactAccount>();
         }
     
         public System.Guid Id { get; set; }
@@ -33,8 +33,8 @@ namespace RealEstateManager.Models.Data
         public string ForgottenPasswordToken { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EstateAccount> Estates { get; set; }
+        public virtual ICollection<EstateAccount> EstateAccounts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ContactAccount> Contacts { get; set; }
+        public virtual ICollection<ContactAccount> ContactAccounts { get; set; }
     }
 }

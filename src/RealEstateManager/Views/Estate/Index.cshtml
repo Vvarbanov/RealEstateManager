@@ -1,8 +1,11 @@
 ﻿@using PagedList.Mvc
 @using RealEstateManager.Utils
+@using RealEstateManager.Controllers
 @model PagedList.IPagedList<RealEstateManager.Models.Estate.EstateGetModel>
 
 @{
+    var db = BaseController.GetController(ViewContext).Context;
+    var currentAgent = BaseController.GetCurrentAgent(db, User);
     ViewBag.Title = Localization.GetString("EstateIndexPage_Title");
 }
 
@@ -41,8 +44,25 @@
                         <tr>
                             <td>
                                 @Html.ActionLink(Localization.GetString("Button_Details"), "Details", "Estate", new { id = Model[i].Id }, new { @class = "btn btn-primary" })
-                                @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Estate", new { id = Model[i].Id }, new { @class = "btn btn-primary" })
-                                @Html.ActionLink(Localization.GetString("Button_Delete"), "Delete", "Estate", new { id = Model[i].Id }, new { @class = "btn btn-primary" })
+
+                                @{
+                                    var isAccountAuthorized = EstateAgentHelper.IsAccountAuthorized(currentAgent, Model[i].Id, Model[i].EstateAccounts);
+                                }
+
+                                @if (isAccountAuthorized)
+                                {
+                                    @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Estate", new { id = Model[i].Id }, new { @class = "btn btn-primary" })
+                                }
+
+                                @if (EstateAgentHelper.IsAccountAdmin(currentAgent))
+                                {
+                                    @Html.ActionLink(Localization.GetString("Button_Edit_Rights"), "Update", "EstateAccount", new { estateId = Model[i].Id }, new { @class = "btn btn-primary" })
+                                }
+
+                                @if (isAccountAuthorized)
+                                {
+                                    @Html.ActionLink(Localization.GetString("Button_Delete"), "Delete", "Estate", new { id = Model[i].Id }, new { @class = "btn btn-primary" })
+                                }
                             </td>
                             <td>
                                 @Html.DisplayFor(x => i)

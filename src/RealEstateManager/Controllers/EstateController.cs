@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -7,7 +8,9 @@ using PagedList;
 using RealEstateManager.Models.Estate;
 using RealEstateManager.Models.Data;
 using RealEstateManager.Models.BuildingInfo;
+using RealEstateManager.Models.EstateAccount;
 using RealEstateManager.Utils;
+using RealEstateManager.Repository.Data;
 
 namespace RealEstateManager.Controllers
 {
@@ -62,7 +65,7 @@ namespace RealEstateManager.Controllers
                     orderFunc = x => x
                         .OrderByDescending(y => y.Type)
                         .ThenByDescending(y => y.UpdateDate);
-                    
+
                     break;
                 }
                 case "status":
@@ -80,7 +83,7 @@ namespace RealEstateManager.Controllers
                     orderFunc = x => x
                         .OrderByDescending(y => y.Status)
                         .ThenByDescending(y => y.UpdateDate);
-                    
+
                     break;
                 }
                 case "area":
@@ -132,7 +135,7 @@ namespace RealEstateManager.Controllers
             if (!string.IsNullOrWhiteSpace(currentFilter))
             {
                 filter = x =>
-                    x.Name.Contains(currentFilter) || 
+                    x.Name.Contains(currentFilter) ||
                     x.Address.Contains(currentFilter) ||
                     x.PublicDescription.Contains(currentFilter);
             }
@@ -141,7 +144,7 @@ namespace RealEstateManager.Controllers
             var pageNumber = page ?? 1;
 
             var model = db.Estates
-                .Get(filter, orderFunc)
+                .Get(filter, orderFunc, nameof(Estate.EstateAccounts))
                 .Select(x => new EstateGetModel
                 {
                     Id = x.Id,
@@ -153,6 +156,13 @@ namespace RealEstateManager.Controllers
                     PublicDescription = x.PublicDescription,
                     PrivateDescription = x.PrivateDescription,
                     Area = x.Area,
+                    EstateAccounts = x.EstateAccounts
+                        .Select(y => new EstateAccountModel
+                        {
+                            AccountId = y.AccountId,
+                            EstateId = y.EstateId,
+                        })
+                        .ToList(),
                 })
                 .ToPagedList(pageNumber, pageSize);
 
@@ -164,7 +174,8 @@ namespace RealEstateManager.Controllers
             if (!id.HasValue)
                 return RedirectToAction("Index", "Home");
 
-            var existing = db.Estates.GetById(id.Value, "BuildingInfo");
+            var existing = db.Estates.GetById(
+                id.Value, $"{nameof(Estate.BuildingInfo)},{nameof(Estate.EstateAccounts)}");
 
             if (existing == null)
                 return RedirectToAction("Index", "Home");
@@ -201,7 +212,14 @@ namespace RealEstateManager.Controllers
                 ImagePaths = existing.FilePathsCSV
                     ?.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries)
                     .Select(x => x.Replace(Request.ServerVariables["APPL_PHYSICAL_PATH"], "\\"))
-                    .ToList()
+                    .ToList(),
+                EstateAccounts = existing.EstateAccounts
+                    .Select(x => new EstateAccountModel
+                    {
+                        AccountId = x.AccountId,
+                        EstateId = x.EstateId,
+                    })
+                    .ToList(),
             };
 
             return View(estateModel);
@@ -218,6 +236,11 @@ namespace RealEstateManager.Controllers
         {
             if (ModelState.IsValid)
             {
+                var currentAgent = GetCurrentAgent(db, User);
+
+                if (currentAgent == null)
+                    return RedirectToAction("Index", "Home");
+
                 Directory.CreateDirectory(Server.MapPath(ConfigReader.ImageUploadDirectory));
 
                 string filesPathCSV = null;
@@ -235,6 +258,21 @@ namespace RealEstateManager.Controllers
                 }
 
                 var estate = db.Estates.Insert(model.ToData(filesPathCSV));
+
+                if (currentAgent.Type == UserType.Agent)
+                {
+                    db.Estates.UpdateRights(
+                        estate.Id,
+                        new List<EstateAccountData>
+                        {
+                            new EstateAccountData
+                            {
+                                AccountId = GetCurrentAgent(db, User).Id,
+                                EstateId = estate.Id,
+                                HasRights = true,
+                            }
+                        });
+                }
 
                 if (model.Type == EstateType.Apartment || model.Type == EstateType.House)
                     return RedirectToAction("Create", "BuildingInfo", new { estateId = estate.Id });
@@ -282,41 +320,45 @@ namespace RealEstateManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                Directory.CreateDirectory(Server.MapPath(ConfigReader.ImageUploadDirectory));
-
-                var filesPathCSV = model.ExistingImagePathsAsCSV(Server);
-
-                if (model.Images != null)
+                var currentAgent = GetCurrentAgent(db, User);
+                if (EstateAgentHelper.IsAccountAuthorized(currentAgent, model.Id, db))
                 {
-                    var safeImages = model.GetSafeImages(Server);
+                    Directory.CreateDirectory(Server.MapPath(ConfigReader.ImageUploadDirectory));
 
-                    var newFilesPathsCSV = string.Join(",", safeImages.Select(x => x.SaveLocation));
+                    var filesPathCSV = model.ExistingImagePathsAsCSV(Server);
 
-                    if (!string.IsNullOrWhiteSpace(newFilesPathsCSV))
-                        filesPathCSV = string.Join(",", filesPathCSV, newFilesPathsCSV);
-
-                    foreach (var item in safeImages)
+                    if (model.Images != null)
                     {
-                        item.File.SaveAs(item.SaveLocation);
+                        var safeImages = model.GetSafeImages(Server);
+
+                        var newFilesPathsCSV = string.Join(",", safeImages.Select(x => x.SaveLocation));
+
+                        if (!string.IsNullOrWhiteSpace(newFilesPathsCSV))
+                            filesPathCSV = string.Join(",", filesPathCSV, newFilesPathsCSV);
+
+                        foreach (var item in safeImages)
+                        {
+                            item.File.SaveAs(item.SaveLocation);
+                        }
                     }
-                }
 
-                db.Estates.Update(model.Id, model.ToData(filesPathCSV));
+                    db.Estates.Update(model.Id, model.ToData(filesPathCSV));
 
-                switch (model.Type)
-                {
-                    case EstateType.Apartment:
-                    case EstateType.House:
+                    switch (model.Type)
                     {
-                        return model.BuildingInfoId.HasValue
-                            ? RedirectToAction("Update", "BuildingInfo",
-                                new {id = model.BuildingInfoId.Value, estateId = model.Id})
-                            : RedirectToAction("Create", "BuildingInfo", new {estateId = model.Id});
-                    }
-                    case EstateType.Land when model.BuildingInfoId.HasValue:
-                    {
-                        db.BuildingInfoes.Delete(model.BuildingInfoId.Value);
-                        break;
+                        case EstateType.Apartment:
+                        case EstateType.House:
+                        {
+                            return model.BuildingInfoId.HasValue
+                                ? RedirectToAction("Update", "BuildingInfo",
+                                    new { estateId = model.Id })
+                                : RedirectToAction("Create", "BuildingInfo", new { estateId = model.Id });
+                        }
+                        case EstateType.Land when model.BuildingInfoId.HasValue:
+                        {
+                            db.BuildingInfoes.Delete(model.BuildingInfoId.Value);
+                            break;
+                        }
                     }
                 }
 
@@ -339,7 +381,7 @@ namespace RealEstateManager.Controllers
             var model = new EstateDeletionModel
             {
                 Id = existing.Id,
-                BuildingInfoId = existing.BuildingInfoId
+                BuildingInfoId = existing.BuildingInfoId,
             };
 
             return View(model);
@@ -351,10 +393,16 @@ namespace RealEstateManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (model.BuildingInfoId.HasValue)
-                    db.BuildingInfoes.Delete(model.BuildingInfoId.Value);
+                var currentAgent = GetCurrentAgent(db, User);
 
-                db.Estates.Delete(model.Id);
+                if (EstateAgentHelper.IsAccountAuthorized(currentAgent, model.Id, db))
+                {
+                    if (model.BuildingInfoId.HasValue)
+                        db.BuildingInfoes.Delete(model.BuildingInfoId.Value);
+
+                    db.Estates.Delete(model.Id);
+                }
+
                 return RedirectToAction("Index", "Home");
             }
 

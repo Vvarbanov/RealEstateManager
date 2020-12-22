@@ -1,0 +1,47 @@
+﻿@using RealEstateManager.Utils
+@using RealEstateManager.Models.EstateAccount;
+
+@model EstateAccountListModel
+
+@{
+    ViewBag.Title = Localization.GetString("EstateAccountCreationPage_Title");
+}
+
+@Html.ValidationSummary(true, null, new { @class = "text-danger" })
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h3>@Localization.GetString("EstateAccountUpdatePage_Header")</h3>
+        </div>
+        <div class="card-body bg-light">
+            <p>@Localization.GetString("EstateAccountUpdatePage_Text")</p>
+            @Html.HiddenFor(x => x.EstateId)
+            @if (Model.EstateAccounts.Count > 0)
+            {
+                for (var i = 0; i < Model.EstateAccounts.Count; ++i)
+                {
+                    <div class="form-group">
+                        @Html.HiddenFor(x => x.EstateAccounts[i].EstateId)
+                        @Html.HiddenFor(x => x.EstateAccounts[i].AccountId)
+                        @Html.HiddenFor(x => x.EstateAccounts[i].Username)
+                        @Html.DisplayFor(x => x.EstateAccounts[i].Username):
+                        <div class="custom-control custom-checkbox">
+                            @Html.CheckBoxFor(x => x.EstateAccounts[i].HasRights, new { @class = "custom-control-input" })
+                            @Html.LabelFor(x => x.EstateAccounts[i].HasRights, new { @class = "custom-control-label" })
+                        </div>
+                        @Html.ValidationMessageFor(x => x.EstateAccounts[i].HasRights, null, new { @class = "text-danger" })
+                    </div>
+                }
+                
+                <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Update")</button>
+            }
+            else
+            {
+                @Localization.GetString("EstateAccountUpdatePage_NoRegisteredAgents_Error")
+            }
+        </div>
+    </div>
+}

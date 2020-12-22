@@ -604,6 +604,18 @@
   <data name="RealEstateManager_Models_Data_EstateStatusType_Sold" xml:space="preserve">
     <value>Продаден</value>
   </data>
+  <data name="Button_Edit_Rights" xml:space="preserve">
+    <value>Права</value>
+  </data>
+  <data name="EstateAccountCreationPage_Title" xml:space="preserve">
+    <value>Права</value>
+  </data>
+  <data name="EstateAccountUpdatePage_Header" xml:space="preserve">
+    <value>Обновяване на правата</value>
+  </data>
+  <data name="EstateAccountUpdatePage_Text" xml:space="preserve">
+    <value>Обновяване на правата на агентите</value>
+  </data>
   <data name="Public_Estate_SortingLabel_Area" xml:space="preserve">
     <value>Площ</value>
   </data>
@@ -618,5 +630,11 @@
   </data>
   <data name="Public_Estate_SortingLabel_Type" xml:space="preserve">
     <value>Тип</value>
+  </data>
+  <data name="EstateAccountModel_HasRights" xml:space="preserve">
+    <value>Има права</value>
+  </data>
+  <data name="EstateAccountUpdatePage_NoRegisteredAgents_Error" xml:space="preserve">
+    <value>Няма регистрирани Агенти в системата.</value>
   </data>
 </root>

@@ -249,7 +249,7 @@ ADD CONSTRAINT [FK_EstateBuildingInfo]
     FOREIGN KEY ([BuildingInfoId])
     REFERENCES [dbo].[BuildingInfoes]
         ([Id])
-    ON DELETE CASCADE ON UPDATE NO ACTION;
+    ON DELETE SET NULL ON UPDATE NO ACTION;
 GO
 
 -- Creating unique non-clustered index for FOREIGN KEY 'FK_EstateBuildingInfo'

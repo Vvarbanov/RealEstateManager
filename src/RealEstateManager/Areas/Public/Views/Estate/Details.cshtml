@@ -12,6 +12,7 @@
     <div class="card-body bg-light">
         <div class="jumbotron jumbotron-padding">
             <h1 class="display-4">@Model.Name</h1>
+            @Html.ActionLink(Localization.GetString("Button_Contact"), "Create", "Contact", new { estateId = Model.Id }, new { @class = "btn btn-primary" })
             <p class="lead">
                 @Html.LabelFor(x => x.Type):
                 @CustomEnumHelper.GetLocalizedName(Model.Type)

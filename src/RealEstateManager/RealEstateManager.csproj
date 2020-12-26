@@ -133,6 +133,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Public\Controllers\BasePublicController.cs" />
     <Compile Include="Areas\Public\Controllers\BuildingInfoController.cs" />
+    <Compile Include="Areas\Public\Controllers\ContactController.cs" />
     <Compile Include="Areas\Public\Controllers\EstateController.cs" />
     <Compile Include="Areas\Public\Controllers\HomeController.cs" />
     <Compile Include="Areas\Public\Models\Account\AccountDeleteModel.cs" />
@@ -140,6 +141,7 @@
     <Compile Include="Areas\Public\Models\Account\AccountRegisterAdminModel.cs" />
     <Compile Include="Areas\Public\Models\Account\AccountRegisterPublicUserModel.cs" />
     <Compile Include="Areas\Public\Models\BuildingInfo\BuildingInfoGetModel.cs" />
+    <Compile Include="Areas\Public\Models\Contact\ContactCreationModel.cs" />
     <Compile Include="Areas\Public\Models\Estate\EstateGetModel.cs" />
     <Compile Include="Areas\Public\PublicAreaRegistration.cs" />
     <Compile Include="Areas\Public\Controllers\AccountController.cs" />
@@ -154,6 +156,7 @@
     <Compile Include="Areas\Public\Models\Account\AccountLoginModel.cs" />
     <Compile Include="Areas\Public\Models\Account\AccountRecoverPasswordModel.cs" />
     <Compile Include="Areas\Public\Models\Account\AccountRegisterAgentModel.cs" />
+    <Compile Include="Models\Contact\ContactCreationModel.cs" />
     <Compile Include="Models\Data\Account.cs">
       <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
     </Compile>
@@ -216,6 +219,8 @@
     <Compile Include="Models\Estate\EstateUpdateModel.cs" />
     <Compile Include="Repository\Data\AccountData.cs" />
     <Compile Include="Repository\Data\BuildingInfoData.cs" />
+    <Compile Include="Repository\Data\ContactAccountData.cs" />
+    <Compile Include="Repository\Data\ContactData.cs" />
     <Compile Include="Repository\Data\EstateAccountData.cs" />
     <Compile Include="Repository\Data\EstateData.cs" />
     <Compile Include="Repository\EstatesContext.cs" />
@@ -232,6 +237,8 @@
     <Compile Include="Repository\CurrentIdentity.cs" />
     <Compile Include="Repository\Sets\AccountSet.cs" />
     <Compile Include="Repository\Sets\BuildingInfoSet.cs" />
+    <Compile Include="Repository\Sets\ContactAccountSet.cs" />
+    <Compile Include="Repository\Sets\ContactSet.cs" />
     <Compile Include="Repository\Sets\EstateSet.cs" />
     <Compile Include="Utils\ConfigReader.cs" />
     <Compile Include="Utils\CryptoHelper.cs" />
@@ -358,6 +365,7 @@
     <Content Include="Areas\Public\Views\Home\OperationSuccessful.cshtml" />
     <Content Include="Areas\Public\Content\Site.scss" />
     <Content Include="Areas\Public\Views\Estate\_IndexItem.cshtml" />
+    <Content Include="Areas\Public\Views\Contact\Create.cshtml" />
     <None Include="Areas\Public\Views\Estate\_IndexItemWithGallery.cshtml" />
     <None Include="Content\bootstrap\_custom.scss" />
     <None Include="Content\Site.scss" />

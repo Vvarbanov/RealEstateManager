@@ -1,0 +1,27 @@
+﻿@using RealEstateManager.Utils
+@using RealEstateManager.Models.Data;
+@model RealEstateManager.Areas.Public.Models.Contact.ContactCreationModel
+
+@{
+    ViewBag.Title = Localization.GetString("ContactCreationPage_Title");
+}
+
+@using (Html.BeginForm("Create", "Contact", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h3>@Localization.GetString("ContactCreationPage_Header")</h3>
+        </div>
+        <div class="card-body bg-light">
+            <div class="form-group">
+                @Html.LabelFor(x => x.DateTime)
+                @Html.EditorFor(x => x.DateTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.DateTime, null, new { @class = "text-danger" })
+            </div>
+            <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Create")</button>
+            <br />
+            @Html.ValidationSummary(true, null, new { @class = "text-danger" })
+        </div>
+    </div>
+}

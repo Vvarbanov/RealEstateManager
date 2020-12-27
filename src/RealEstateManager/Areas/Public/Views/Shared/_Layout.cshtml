@@ -15,6 +15,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>@ViewBag.Title - @Localization.GetString("ApplicationName")</title>
         @Styles.Render("~/Content/publiccss")
+        <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+        <link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -64,8 +66,8 @@
 
         <script>
             @{
-                var area = ViewContext.RouteData.DataTokens["area"] == null 
-                    ? "/Admin/" 
+                var area = ViewContext.RouteData.DataTokens["area"] == null
+                    ? "/Admin/"
                     : "/";
             }
 
@@ -107,5 +109,8 @@
         </script>
 
         @RenderSection("scripts", required: false)
+        <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+        <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+        <script src="~/Scripts/site.js"></script>
     </body>
 </html>

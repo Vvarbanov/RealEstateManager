@@ -12,9 +12,17 @@ namespace RealEstateManager.Areas.Public.Controllers
 {
     public class ContactController : BasePublicController
     {
-        public ActionResult Create()
+        public ActionResult Create(Guid? estateId)
         {
-            return View();
+            if (!estateId.HasValue)
+                return RedirectToAction("Index", "Home");
+
+            var model = new ContactCreationModel
+            {
+                EstateId = estateId.Value
+            };
+
+            return View(model);
         }
 
         [HttpPost]
@@ -23,6 +31,7 @@ namespace RealEstateManager.Areas.Public.Controllers
         {
             if (ModelState.IsValid)
             {
+                var data = model.ToData();
                 var contact = db.Contacts.Insert(model.ToData());
                 db.ContactAccounts.Insert(new ContactAccountData
                 {

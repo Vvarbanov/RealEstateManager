@@ -9,30 +9,38 @@ using System;
 
 namespace RealEstateManager.Areas.Public.Models.Contact
 {
-    public class ContactCreationModel
+    public class ContactCreationModel : IValidatableObject
     {
         [Display(
-            Name = "EstateModel_Name",
-            ResourceType = typeof(Resources))]
+           Name = "EstateModel_Name",
+           ResourceType = typeof(Resources))]
         [Required(
-            ErrorMessageResourceName = "RequiredFieldError",
-            ErrorMessageResourceType = typeof(Resources))]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
+           ErrorMessageResourceName = "RequiredFieldError",
+           ErrorMessageResourceType = typeof(Resources))]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime DateTime { get; set; }
 
-        public string Number { get; set; }
-
-        public string Outcome { get; set; }
+        public Guid EstateId { get; set; }
 
         public ContactData ToData()
         {
             return new ContactData
             {
                 DateTime = DateTime,
-                Number = Number,
-                Outcome = Outcome,
+                EstateId = EstateId,
+                Number = string.Empty,
+                Outcome = string.Empty,
+                FilePathsCSV = null
             };
+        }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (DateTime < DateTime.Now)
+            {
+                yield return new ValidationResult(Localization.GetString("ContactCreation_IncorrectDate_Error"),
+                    new[] { nameof(DateTime) });
+            }
         }
     }
 }

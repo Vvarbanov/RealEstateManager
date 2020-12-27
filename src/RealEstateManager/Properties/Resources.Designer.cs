@@ -439,6 +439,15 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Датата трябва да е в бъдещето..
+        /// </summary>
+        public static string ContactCreation_IncorrectDate_Error {
+            get {
+                return ResourceManager.GetString("ContactCreation_IncorrectDate_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Това поле съдържа невалиден e-mail..
         /// </summary>
         public static string EmailFormatError {

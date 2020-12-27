@@ -25,7 +25,8 @@ namespace RealEstateManager.Repository.Sets
                 DateTime = data.DateTime,
                 Number = data.Number,
                 Outcome = data.Outcome,
-                FilePathsCSV = data.FilePathsCSV
+                FilePathsCSV = data.FilePathsCSV,
+                EstateId = data.EstateId
             };
 
             _databaseContext.Contacts.Add(contact);

@@ -637,4 +637,7 @@
   <data name="EstateAccountUpdatePage_NoRegisteredAgents_Error" xml:space="preserve">
     <value>Няма регистрирани Агенти в системата.</value>
   </data>
+  <data name="ContactCreation_IncorrectDate_Error" xml:space="preserve">
+    <value>Датата трябва да е в бъдещето.</value>
+  </data>
 </root>

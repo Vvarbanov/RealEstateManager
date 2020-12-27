@@ -14,6 +14,7 @@
             <h3>@Localization.GetString("ContactCreationPage_Header")</h3>
         </div>
         <div class="card-body bg-light">
+            @Html.HiddenFor(x => x.EstateId)
             <div class="form-group">
                 @Html.LabelFor(x => x.DateTime)
                 @Html.EditorFor(x => x.DateTime, new { htmlAttributes = new { @class = "form-control" } })

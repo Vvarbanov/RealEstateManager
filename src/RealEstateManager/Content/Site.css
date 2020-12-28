@@ -11,8 +11,23 @@
   white-space: normal; }
 
 .jumbotron-padding {
-  padding: 2rem !important; }
-
+    padding: 2rem !important;
+    
+}
+.jumbotron-padding-estate {
+    padding: 2rem !important;
+    background-color: #fbddb2;
+}
+.bg-estate {
+    background-color: beige;
+}
+.bg-card {
+    background-color: #edbb79;
+}
+.btn-estate {
+    color: white;
+    background-color: #fc9403;
+}
 /* Set width on the form input elements since they're 100% wide by default */
 /*input,
 select,

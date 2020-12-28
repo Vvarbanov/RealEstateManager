@@ -10,56 +10,78 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@ViewBag.Title - @Localization.GetString("ApplicationName")</title>
-        @Styles.Render("~/Content/css")
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <div class="navbar-brand">
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    @Html.ActionLink(Localization.GetString("ApplicationName"), "Index", "Home", null, new { @class = "navbar-brand" })
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - @Localization.GetString("ApplicationName")</title>
+    @Styles.Render("~/Content/css")
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+    <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
+        <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item active">
+                @Html.ActionLink(Localization.GetString("ApplicationName"), "Index", "Home", null, new { @class = "navbar-brand" })
+            </li>
+            <li class="nav-item">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">@Localization.GetString("Categories")</a>
+                <div class="dropdown-menu" style="">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav mr-auto">
-                        @if (Request.IsAuthenticated)
-                        {
-                            if (currentIdentity != null)
-                            {
-                                if (currentIdentity.Type != UserType.PublicUser)
-                                {
-                                    <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_AdminArea"), "Index", "Home", new { area = string.Empty }, new { @class = "nav-link" })</li>
-                                }
+            </li>
 
-                                <li class="nav-item">@Html.ActionLink(currentIdentity.Name, "Index", "Account", null, new { @class = "nav-link" })</li>
-                                <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_Logout"), "Logout", "Account", null, new { @class = "nav-link" })</li>
-                            }
-                        }
-                        else
-                        {
-                            <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_Login"), "Login", "Account", null, new { @class = "nav-link" })</li>
-                            <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_Register"), "Register", "Account", null, new { @class = "nav-link" })</li>
-                        }
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        </ul>
+    </div>
+    <div class="mx-auto my-2 order-0 order-md-1 position-relative">
+        <a class="mx-auto" href="#">
+            <img src="~/Content/Resources/final.png">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
+        <ul class="navbar-nav mr-auto text-center">
+            @if (Request.IsAuthenticated)
+            {
+                if (currentIdentity != null)
+                {
+                    if (currentIdentity.Type != UserType.PublicUser)
+                    {
+                        <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_AdminArea"), "Index", "Home", new { area = string.Empty }, new { @class = "nav-link" })</li>
+                    }
 
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&#169; @DateTime.Now.Year - @Localization.GetString("ApplicationName")</p>
-            </footer>
-        </div>
+                    <li class="nav-item">@Html.ActionLink(currentIdentity.Name, "Index", "Account", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_Logout"), "Logout", "Account", null, new { @class = "nav-link" })</li>
+                }
+            }
+            else
+            {
+                <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_Login"), "Login", "Account", null, new { @class = "nav-link" })</li>
+                <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_Register"), "Register", "Account", null, new { @class = "nav-link" })</li>
+            }
+        </ul>
+    </div>
+</nav>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-    </body>
+    
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&#169; @DateTime.Now.Year - @Localization.GetString("ApplicationName")</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
 </html>

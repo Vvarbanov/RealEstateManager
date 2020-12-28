@@ -11,7 +11,7 @@
 {
     @Html.AntiForgeryToken()
     <div class="card">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header bg-card text-white">
             <h3>@Localization.GetString("Public_AccountRegisterPublicUserForm_Header")</h3>
         </div>
         <div class="card-body bg-light">
@@ -46,7 +46,7 @@
                 @Html.ValidationMessageFor(x => x.PhoneNumber, null, new { @class = "text-danger" })
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Submit")</button>
+                <button type="submit" class="btn btn-estate">@Localization.GetString("Button_Submit")</button>
             </div>
         </div>
     </div>

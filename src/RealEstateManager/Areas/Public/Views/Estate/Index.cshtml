@@ -5,16 +5,26 @@
     ViewBag.Title = Localization.GetString("EstateIndexPage_Title");
 }
 
+@if (!Request.IsAuthenticated)
+{
+
+    <div class="alert alert-dismissible alert-warning">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">@Localization.GetString("Warning")</h4>
+    <p class="mb-0">@Html.Raw(@String.Format(Localization.GetString("WelcomeAlertMessage"),@Html.ActionLink(Localization.GetString("AlertRegister"),"Register","Account","null",new {@class ="alert-link"}),@Html.ActionLink(Localization.GetString("AlertLogin"),"Login","Account","null",new {@class ="alert-link"})))</p>
+</div>
+}
+
 <div class="card">
-    <div class="card-header bg-primary text-white">
+    <div class="card-header bg-card text-white">
         <h3>@Localization.GetString("EstateIndexPage_Header")</h3>
     </div>
-    <div class="card-body bg-light">
+    <div class="card-body bg-estate">
         @if (Model != null && Model.Estates != null)
         {
             foreach (var estate in Model.Estates)
             {
-                <div class="jumbotron jumbotron-padding">
+                <div class="jumbotron jumbotron-padding-estate">
                     <h1 class="display-4">@estate.Name</h1>
                     <p class="lead">@Localization.GetString("EstateIndexPage_EstateType") @CustomEnumHelper.GetLocalizedName(estate.Type)</p>
                     <p class="lead">@Localization.GetString("EstateIndexPage_EstateStatus") @CustomEnumHelper.GetLocalizedName(estate.Status)</p>
@@ -34,7 +44,7 @@
                         @Html.LabelFor(x => estate.Address):
                         @Html.DisplayFor(x => estate.Address)
                     </p>
-                    @Html.ActionLink(Localization.GetString("Button_Details"), "Details", "Estate", new { id = estate.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink(Localization.GetString("Button_Details"), "Details", "Estate", new { id = estate.Id }, new { @class = "btn btn-estate" })
                 </div>
             }
         }

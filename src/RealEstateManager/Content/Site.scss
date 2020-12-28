@@ -2,7 +2,7 @@
 .body-content {
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-top: 3rem;
+    padding-top: 1rem;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -15,7 +15,22 @@
 .jumbotron-padding {
     padding: 2rem !important;
 }
+.jumbotron-padding-estate {
+    padding: 2rem !important;
+    background-color: #fbddb2;
+}
+.bg-estate{
+    background-color: beige;
+}
 
+.bg-card {
+    background-color: #edbb79;
+}
+
+.btn-estate {
+    color: white;
+    background-color: #fc9403;
+}
 /* Set width on the form input elements since they're 100% wide by default */
 /*input,
 select,

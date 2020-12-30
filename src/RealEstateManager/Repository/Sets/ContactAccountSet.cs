@@ -20,14 +20,15 @@ namespace RealEstateManager.Repository.Sets
 
         public ContactAccount Insert(ContactAccountData data)
         {
-            var contactAccount = new ContactAccount
+            var contactAccount = new ContactAccount();
+            if (!Get(x => x.AccountId == data.AccountId && x.ContactId == data.ContactId).Any())
             {
-                AccountId = data.AccountId,
-                ContactId = data.ContactId
-            };
+                contactAccount.AccountId = data.AccountId;
+                contactAccount.ContactId = data.ContactId;
 
-            _databaseContext.ContactAccounts.Add(contactAccount);
-            _databaseContext.SaveChanges();
+                _databaseContext.ContactAccounts.Add(contactAccount);
+                _databaseContext.SaveChanges();
+            }
 
             return contactAccount;
         }

@@ -147,6 +147,7 @@
     <Compile Include="Areas\Public\Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BuildingInfoController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\EstateAccountController.cs" />
     <Compile Include="Controllers\EstateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -156,6 +157,9 @@
     <Compile Include="Areas\Public\Models\Account\AccountLoginModel.cs" />
     <Compile Include="Areas\Public\Models\Account\AccountRecoverPasswordModel.cs" />
     <Compile Include="Areas\Public\Models\Account\AccountRegisterAgentModel.cs" />
+    <Compile Include="Models\Contact\ContactGetModel.cs" />
+    <Compile Include="Models\Contact\ContactImageModel.cs" />
+    <Compile Include="Models\Contact\ContactUpdateModel.cs" />
     <Compile Include="Models\Data\Account.cs">
       <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
     </Compile>
@@ -637,7 +641,8 @@
     <Folder Include="Areas\Public\Data\" />
     <Folder Include="Areas\Public\Scripts\" />
     <Folder Include="Areas\Public\Views\Shared\DisplayTemplates\" />
-    <Folder Include="Models\Contact\" />
+    <Folder Include="Views\Contact\" />
+    <Folder Include="Views\Default\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>

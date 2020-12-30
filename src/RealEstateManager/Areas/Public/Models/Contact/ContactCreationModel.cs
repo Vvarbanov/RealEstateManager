@@ -17,7 +17,6 @@ namespace RealEstateManager.Areas.Public.Models.Contact
         [Required(
            ErrorMessageResourceName = "RequiredFieldError",
            ErrorMessageResourceType = typeof(Resources))]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime DateTime { get; set; }
 
         public Guid EstateId { get; set; }

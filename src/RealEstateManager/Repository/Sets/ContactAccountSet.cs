@@ -20,7 +20,7 @@ namespace RealEstateManager.Repository.Sets
 
         public ContactAccount Insert(ContactAccountData data)
         {
-            if (Get(x => x.AccountId == data.AccountId && x.ContactId == data.ContactId).Any())
+            if (Exists(data.ContactId, data.AccountId))
                 throw new InvalidOperationException($"ContactAccount for this contact id ${data.ContactId} and user id ${data.AccountId} already exists.");
 
             var contactAccount = new ContactAccount
@@ -101,6 +101,11 @@ namespace RealEstateManager.Repository.Sets
 
             _databaseContext.ContactAccounts.Remove(contactAccount);
             _databaseContext.SaveChanges();
+        }
+
+        public bool Exists(Guid contactId, Guid accountId)
+        {
+            return Get(x => x.AccountId == accountId && x.ContactId == contactId).Any();
         }
     }
 }

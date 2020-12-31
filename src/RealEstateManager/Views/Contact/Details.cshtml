@@ -15,6 +15,10 @@
     <div class="card-body bg-light">
         <div class="jumbotron jumbotron-padding">
             <h1 class="display-4">@Model.DateTime</h1>
+            @using (Html.BeginForm("Index", "Contact", FormMethod.Get))
+            {
+            <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Join_Contact")</button>
+            }
             <p class="lead">
                 @Html.LabelFor(x => x.Number):
                 @Html.DisplayFor(x => x.Number)
@@ -46,6 +50,7 @@
             {
                 @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Contact", new { id = Model.Id }, new { @class = "btn btn-primary" })
             }
+
         </div>
     </div>
 </div>

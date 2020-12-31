@@ -128,11 +128,16 @@ namespace RealEstateManager.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Details(ContactGetModel model)
         {
+            var currentAgent = GetCurrentAgent(db, User);
+            if (db.ContactAccounts.Exists(model.Id, currentAgent.Id))
+                return View(model);
+
             db.ContactAccounts.Insert(new ContactAccountData
             {
                 ContactId = model.Id,
-                AccountId = GetCurrentAgent(db, User).Id
+                AccountId = currentAgent.Id
             });
+
             return RedirectToAction("Index");
         }
 

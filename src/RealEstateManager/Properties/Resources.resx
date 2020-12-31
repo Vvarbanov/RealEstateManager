@@ -703,4 +703,7 @@
   <data name="ContactIndexPage_Search" xml:space="preserve">
     <value>Търсене</value>
   </data>
+  <data name="Button_Join_Contact" xml:space="preserve">
+    <value>Заявяване на участие</value>
+  </data>
 </root>

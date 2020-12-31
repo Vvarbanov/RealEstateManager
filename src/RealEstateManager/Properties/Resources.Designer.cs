@@ -430,6 +430,15 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Заявяване на участие.
+        /// </summary>
+        public static string Button_Join_Contact {
+            get {
+                return ResourceManager.GetString("Button_Join_Contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Вход.
         /// </summary>
         public static string Button_Login {

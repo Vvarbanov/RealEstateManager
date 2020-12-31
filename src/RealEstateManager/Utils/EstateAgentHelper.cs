@@ -33,5 +33,11 @@ namespace RealEstateManager.Utils
             return currentIdentity != null &&
                 currentIdentity.Type == UserType.Admin;
         }
+
+        public static bool IsAccountPublicUser(CurrentIdentity currentIdentity)
+        {
+            return currentIdentity != null &&
+                currentIdentity.Type == UserType.PublicUser;
+        }
     }
 }

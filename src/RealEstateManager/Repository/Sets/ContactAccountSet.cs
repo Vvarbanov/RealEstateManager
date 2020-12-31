@@ -20,15 +20,17 @@ namespace RealEstateManager.Repository.Sets
 
         public ContactAccount Insert(ContactAccountData data)
         {
-            var contactAccount = new ContactAccount();
-            if (!Get(x => x.AccountId == data.AccountId && x.ContactId == data.ContactId).Any())
-            {
-                contactAccount.AccountId = data.AccountId;
-                contactAccount.ContactId = data.ContactId;
+            if (Get(x => x.AccountId == data.AccountId && x.ContactId == data.ContactId).Any())
+                throw new InvalidOperationException($"ContactAccount for this contact id ${data.ContactId} and user id ${data.AccountId} already exists.");
 
-                _databaseContext.ContactAccounts.Add(contactAccount);
-                _databaseContext.SaveChanges();
-            }
+            var contactAccount = new ContactAccount
+            {
+                AccountId = data.AccountId,
+                ContactId = data.ContactId
+            };
+
+            _databaseContext.ContactAccounts.Add(contactAccount);
+            _databaseContext.SaveChanges();
 
             return contactAccount;
         }

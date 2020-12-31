@@ -634,6 +634,7 @@
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\TimeSpan.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -641,7 +642,6 @@
     <Folder Include="Areas\Public\Data\" />
     <Folder Include="Areas\Public\Scripts\" />
     <Folder Include="Areas\Public\Views\Shared\DisplayTemplates\" />
-    <Folder Include="Views\Contact\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>

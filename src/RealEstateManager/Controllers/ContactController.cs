@@ -32,7 +32,7 @@ namespace RealEstateManager.Controllers
                             .OrderBy(y => y.DateTime)
                             .ThenByDescending(y => y.Id);
 
-                        ViewBag.SortByName = "date_time_desc";
+                        ViewBag.SortByDateTime = "date_time_desc";
 
                         break;
                     }
@@ -50,7 +50,7 @@ namespace RealEstateManager.Controllers
                             .OrderBy(y => y.Number)
                             .ThenByDescending(y => y.Id);
 
-                        ViewBag.SortByName = "number_desc";
+                        ViewBag.SortByNumber = "number_desc";
 
                         break;
                     }
@@ -72,9 +72,9 @@ namespace RealEstateManager.Controllers
 
             Expression<Func<Contact, bool>> filter = null;
 
-            filter = x => (estateId.HasValue &&
+            filter = x => (!estateId.HasValue ||
                             x.EstateId == estateId.Value) &&
-                          (accountId.HasValue &&
+                          (!accountId.HasValue ||
                             x.ContactAccounts.Any(y => y.AccountId == accountId.Value)) &&
                           (currentFilter == null ||
                             x.Outcome.Contains(currentFilter) ||

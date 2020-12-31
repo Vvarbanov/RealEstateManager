@@ -31,7 +31,6 @@ namespace RealEstateManager.Areas.Public.Controllers
         {
             if (ModelState.IsValid)
             {
-                var data = model.ToData();
                 var contact = db.Contacts.Insert(model.ToData());
                 db.ContactAccounts.Insert(new ContactAccountData
                 {

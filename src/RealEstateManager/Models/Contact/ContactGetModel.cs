@@ -15,22 +15,22 @@ namespace RealEstateManager.Models.Contact
         public Guid EstateId { get; set; }
 
         [Display(
-            Name = "EstateModel_Name",
+            Name = "ContactModel_DateTime",
             ResourceType = typeof(Resources))]
         public DateTime DateTime { get; set; }
 
         [Display(
-            Name = "EstateModel_Name",
+            Name = "ContactModel_Outcome",
             ResourceType = typeof(Resources))]
         public string Outcome { get; set; }
 
         [Display(
-            Name = "EstateModel_Name",
+            Name = "ContactModel_Number",
             ResourceType = typeof(Resources))]
         public string Number { get; set; }
 
         [Display(
-            Name = "EstateGetModel_ImagePaths",
+            Name = "ContactModel_ImagePaths",
             ResourceType = typeof(Resources))]
         public List<string> ImagePaths { get; set; }
 

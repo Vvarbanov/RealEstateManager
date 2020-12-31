@@ -547,6 +547,15 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Търсене.
+        /// </summary>
+        public static string ContactIndexPage_Search {
+            get {
+                return ResourceManager.GetString("ContactIndexPage_Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Контакти.
         /// </summary>
         public static string ContactIndexPage_Title {

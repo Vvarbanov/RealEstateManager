@@ -700,4 +700,7 @@
   <data name="ContactCreationPage_Title" xml:space="preserve">
     <value>Създай контакт</value>
   </data>
+  <data name="ContactIndexPage_Search" xml:space="preserve">
+    <value>Търсене</value>
+  </data>
 </root>

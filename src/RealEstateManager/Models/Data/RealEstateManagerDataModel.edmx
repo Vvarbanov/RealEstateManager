@@ -114,7 +114,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="AccountId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ContactId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
@@ -383,7 +383,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Account" Relationship="RealEstateManagerDataModel.AccountContactAccount" FromRole="ContactAccount" ToRole="Account" />
           <Property Name="AccountId" Type="Guid" Nullable="false" />
           <NavigationProperty Name="Contact" Relationship="RealEstateManagerDataModel.ContactContactAccount" FromRole="ContactAccount" ToRole="Contact" />

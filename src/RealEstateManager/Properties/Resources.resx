@@ -706,4 +706,7 @@
   <data name="Button_Join_Contact" xml:space="preserve">
     <value>Заявяване на участие</value>
   </data>
+  <data name="ContactCreation_MissingDate_Error" xml:space="preserve">
+    <value>Не са въведени дата и час.</value>
+  </data>
 </root>

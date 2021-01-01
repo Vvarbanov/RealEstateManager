@@ -11,7 +11,7 @@ using System.IO;
 
 namespace RealEstateManager.Models.Contact
 {
-    public class ContactUpdateModel
+    public class ContactUpdateModel : IValidatableObject
     {
         public Guid Id { get; set; }
 
@@ -20,16 +20,26 @@ namespace RealEstateManager.Models.Contact
         [Display(
             Name = "ContactModel_DateTime",
             ResourceType = typeof(Resources))]
-        public DateTime DateTime { get; set; }
+        [Required(
+           ErrorMessageResourceName = "RequiredFieldError",
+           ErrorMessageResourceType = typeof(Resources))]
+        [DisplayFormat(DataFormatString = "{0:dd-MMM-y HH:mm:ss}", ApplyFormatInEditMode = true)]
+        public DateTime? ContactDateTime { get; set; }
 
         [Display(
             Name = "ContactModel_Outcome",
             ResourceType = typeof(Resources))]
+        [Required(
+           ErrorMessageResourceName = "RequiredFieldError",
+           ErrorMessageResourceType = typeof(Resources))]
         public string Outcome { get; set; }
 
         [Display(
             Name = "ContactModel_Number",
             ResourceType = typeof(Resources))]
+        [Required(
+           ErrorMessageResourceName = "RequiredFieldError",
+           ErrorMessageResourceType = typeof(Resources))]
         public string Number { get; set; }
 
         [Display(
@@ -82,7 +92,7 @@ namespace RealEstateManager.Models.Contact
         {
             return new ContactData
             {
-                DateTime = DateTime,
+                DateTime = ContactDateTime.Value,
                 EstateId = EstateId,
                 Number = Number,
                 Outcome = Outcome,
@@ -92,10 +102,15 @@ namespace RealEstateManager.Models.Contact
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (DateTime < DateTime.Now)
+            if (!ContactDateTime.HasValue)
+            {
+                yield return new ValidationResult(Localization.GetString("ContactCreation_MissingDate_Error"),
+                    new[] { nameof(ContactDateTime) });
+            }
+            else if (ContactDateTime.Value < DateTime.Now)
             {
                 yield return new ValidationResult(Localization.GetString("ContactCreation_IncorrectDate_Error"),
-                    new[] { nameof(DateTime) });
+                    new[] { nameof(ContactDateTime) });
             }
         }
     }

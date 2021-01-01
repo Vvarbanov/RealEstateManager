@@ -14,10 +14,17 @@
     </div>
     <div class="card-body bg-light">
         <div class="jumbotron jumbotron-padding">
-            <h1 class="display-4">@Model.DateTime</h1>
-            @using (Html.BeginForm("Index", "Contact", FormMethod.Get))
+            <h1 class="display-4">@Model.ContactDateTime</h1>
+            @if (!db.ContactAccounts.Exists(Model.Id, currentAgent.Id))
             {
-            <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Join_Contact")</button>
+                using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(x => x.Id)
+                    @Html.HiddenFor(x => x.EstateId)
+
+                    <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Join_Contact")</button>
+                }
             }
             <p class="lead">
                 @Html.LabelFor(x => x.Number):

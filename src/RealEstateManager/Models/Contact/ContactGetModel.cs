@@ -17,7 +17,8 @@ namespace RealEstateManager.Models.Contact
         [Display(
             Name = "ContactModel_DateTime",
             ResourceType = typeof(Resources))]
-        public DateTime DateTime { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd-MMM-y HH:mm:ss}", ApplyFormatInEditMode = true)]
+        public DateTime? ContactDateTime { get; set; }
 
         [Display(
             Name = "ContactModel_Outcome",

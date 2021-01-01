@@ -520,6 +520,15 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Не са въведени дата и час..
+        /// </summary>
+        public static string ContactCreation_MissingDate_Error {
+            get {
+                return ResourceManager.GetString("ContactCreation_MissingDate_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Създаване на нов контакт.
         /// </summary>
         public static string ContactCreationPage_Header {

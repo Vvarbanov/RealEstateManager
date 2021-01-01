@@ -89,7 +89,7 @@ namespace RealEstateManager.Controllers
                 {
                     Id = x.Id,
                     EstateId = x.EstateId,
-                    DateTime = x.DateTime,
+                    ContactDateTime = x.DateTime,
                     Number = x.Number,
                     Outcome = x.Outcome
                 })
@@ -112,7 +112,7 @@ namespace RealEstateManager.Controllers
             {
                 Id = existing.Id,
                 EstateId = existing.EstateId,
-                DateTime = existing.DateTime,
+                ContactDateTime = existing.DateTime,
                 Number = existing.Number,
                 Outcome = existing.Outcome,
                 ImagePaths = existing.FilePathsCSV
@@ -155,7 +155,7 @@ namespace RealEstateManager.Controllers
             {
                 Id = existing.Id,
                 EstateId = existing.EstateId,
-                DateTime = existing.DateTime,
+                ContactDateTime = existing.DateTime,
                 Outcome = existing.Outcome,
                 Number = existing.Number,
                 ExistingImagePaths = existing.FilePathsCSV

@@ -12,12 +12,13 @@ namespace RealEstateManager.Areas.Public.Models.Contact
     public class ContactCreationModel : IValidatableObject
     {
         [Display(
-           Name = "EstateModel_Name",
+           Name = "ContactModel_DateTime",
            ResourceType = typeof(Resources))]
         [Required(
            ErrorMessageResourceName = "RequiredFieldError",
            ErrorMessageResourceType = typeof(Resources))]
-        public DateTime DateTime { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd-MMM-y HH:mm:ss}", ApplyFormatInEditMode = true)]
+        public DateTime? ContactDateTime { get; set; }
 
         public Guid EstateId { get; set; }
 
@@ -25,7 +26,7 @@ namespace RealEstateManager.Areas.Public.Models.Contact
         {
             return new ContactData
             {
-                DateTime = DateTime,
+                DateTime = ContactDateTime.Value,
                 EstateId = EstateId,
                 Number = string.Empty,
                 Outcome = string.Empty,
@@ -35,10 +36,15 @@ namespace RealEstateManager.Areas.Public.Models.Contact
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (DateTime < DateTime.Now)
+            if (!ContactDateTime.HasValue)
+            {
+                yield return new ValidationResult(Localization.GetString("ContactCreation_MissingDate_Error"),
+                    new[] { nameof(ContactDateTime) });
+            }
+            else if (ContactDateTime.Value < DateTime.Now)
             {
                 yield return new ValidationResult(Localization.GetString("ContactCreation_IncorrectDate_Error"),
-                    new[] { nameof(DateTime) });
+                    new[] { nameof(ContactDateTime) });
             }
         }
     }

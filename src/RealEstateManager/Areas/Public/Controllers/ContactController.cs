@@ -17,6 +17,10 @@ namespace RealEstateManager.Areas.Public.Controllers
             if (!estateId.HasValue)
                 return RedirectToAction("Index", "Home");
 
+            db.TryGetCurrentIdentity(User, out var currentIdentity);
+            if (!EstateAgentHelper.IsAccountPublicUser(currentIdentity))
+                return RedirectToAction("Index", "Home");
+
             var model = new ContactCreationModel
             {
                 EstateId = estateId.Value

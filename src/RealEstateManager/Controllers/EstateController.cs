@@ -14,7 +14,6 @@ using RealEstateManager.Repository.Data;
 
 namespace RealEstateManager.Controllers
 {
-    [Authorize]
     public class EstateController : BaseController
     {
         public ActionResult Index(string sortOrder = null, string currentFilter = null, int? page = null)

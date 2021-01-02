@@ -6,7 +6,6 @@ using RealEstateManager.Utils;
 
 namespace RealEstateManager.Controllers
 {
-    [Authorize]
     public class BuildingInfoController : BaseController
     {
         public ActionResult Index()

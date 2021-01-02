@@ -709,4 +709,7 @@
   <data name="ContactCreation_MissingDate_Error" xml:space="preserve">
     <value>Не са въведени дата и час.</value>
   </data>
+  <data name="MenuButton_Contacts" xml:space="preserve">
+    <value>Контакти</value>
+  </data>
 </root>

@@ -7,6 +7,7 @@ using RealEstateManager.Repository;
 namespace RealEstateManager.Controllers
 {
     [UserFilter]
+    [Authorize]
     public abstract class BaseController : Controller
     {
         private EstatesContext _db;

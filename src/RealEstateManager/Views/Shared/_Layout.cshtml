@@ -37,6 +37,7 @@
                                     @Html.ActionLink(Localization.GetString("MenuButton_Estates_Create"), "Create", "Estate", null, new { @class = "dropdown-item" })
                                 </div>
                             </li>
+                            <li class="nav-item">@Html.ActionLink(Localization.GetString("MenuButton_Contacts"), "Index", "Contact", null, new { @class = "nav-link" })</li>
                             <li class="nav-item">@Html.ActionLink(Localization.GetString("MenuButton_Users"), "Index", "Account", new { area = "Public" }, new { @class = "nav-link" })</li>
                             <li class="nav-item">@Html.ActionLink(currentAgent.Name, "Details", "Account", new { area = "Public" }, new { @class = "nav-link" })</li>
                             <li class="nav-item">@Html.ActionLink(Localization.GetString("MenuButton_Logout"), "Logout", "Account", new { area = "Public" }, new { @class = "nav-link" })</li>

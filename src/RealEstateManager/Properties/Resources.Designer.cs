@@ -1060,6 +1060,15 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Контакти.
+        /// </summary>
+        public static string MenuButton_Contacts {
+            get {
+                return ResourceManager.GetString("MenuButton_Contacts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Имоти.
         /// </summary>
         public static string MenuButton_Estates {

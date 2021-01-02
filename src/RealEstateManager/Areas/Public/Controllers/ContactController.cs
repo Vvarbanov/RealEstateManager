@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Linq;
-using System.Linq.Expressions;
 using System.Web.Mvc;
-using PagedList;
 using RealEstateManager.Areas.Public.Models.Contact;
-using RealEstateManager.Models.Data;
 using RealEstateManager.Repository.Data;
 using RealEstateManager.Utils;
 
 namespace RealEstateManager.Areas.Public.Controllers
 {
+    [Authorize]
     public class ContactController : BasePublicController
     {
         public ActionResult Create(Guid? estateId)

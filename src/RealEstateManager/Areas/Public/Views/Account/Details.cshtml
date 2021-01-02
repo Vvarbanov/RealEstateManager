@@ -18,7 +18,7 @@
         <div class="card-body bg-light">
             @if (!EstateAgentHelper.IsAccountPublicUser(currentIdentity))
             {
-                @Html.ActionLink(Localization.GetString("Button_My_Contacts"), "Index", "Contact", new { area = string.Empty, accountId = Model.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink(Localization.GetString("Button_My_Contacts"), "Index", "Contact", new { area = string.Empty, accountId = Model.Id }, new { @class = "btn btn-primary mb-4" })
             }
 
             @Html.HiddenFor(x => x.Id)

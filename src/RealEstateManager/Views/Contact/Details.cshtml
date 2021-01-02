@@ -1,0 +1,63 @@
+﻿@using RealEstateManager.Utils
+@using RealEstateManager.Controllers
+@model RealEstateManager.Models.Contact.ContactGetModel
+
+@{
+    var db = BaseController.GetController(ViewContext).Context;
+    var currentAgent = BaseController.GetCurrentAgent(db, User);
+    ViewBag.Title = Localization.GetString("ContactIndexPage_Title");
+}
+
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <h3>@Localization.GetString("ContactDetailsPage_Header")</h3>
+    </div>
+    <div class="card-body bg-light">
+        <div class="jumbotron jumbotron-padding">
+            <h1 class="display-4">@Model.ContactDateTime</h1>
+            @if (!db.ContactAccounts.Exists(Model.Id, currentAgent.Id))
+            {
+                using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(x => x.Id)
+                    @Html.HiddenFor(x => x.EstateId)
+
+                    <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Join_Contact")</button>
+                }
+            }
+            <p class="lead">
+                @Html.LabelFor(x => x.Number):
+                @Html.DisplayFor(x => x.Number)
+            </p>
+            <p class="lead">
+                @Html.LabelFor(x => x.Outcome):
+                @Html.DisplayFor(x => x.Outcome)
+            </p>
+            <hr class="my-4">
+
+            @if (Model.ImagePaths != null && Model.ImagePaths.Count > 0)
+            {
+                @Html.LabelFor(x => x.ImagePaths)
+                <div class="mb-4">
+                    @foreach (var imagePath in Model.ImagePaths)
+                    {
+                        <a data-fancybox="@Model.Id" href="@imagePath">
+                            <img src="@imagePath" width="128" height="128" alt="EstateImage" />
+                        </a>
+                    }
+                </div>
+            }
+
+            @{
+                var isAccountAuthorized = EstateAgentHelper.IsAccountAuthorized(currentAgent, Model.EstateId, db);
+            }
+
+            @if (isAccountAuthorized)
+            {
+                @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Contact", new { id = Model.Id }, new { @class = "btn btn-primary" })
+            }
+
+        </div>
+    </div>
+</div>

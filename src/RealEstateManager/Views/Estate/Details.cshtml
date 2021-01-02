@@ -68,6 +68,11 @@
 
             @if (isAccountAuthorized)
             {
+                @Html.ActionLink(Localization.GetString("Button_Contacts"), "Index", "Contact", new { estateId = Model.Id }, new { @class = "btn btn-primary" })
+            }
+
+            @if (isAccountAuthorized)
+            {
                 @Html.ActionLink(Localization.GetString("Button_Edit"), "Update", "Estate", new { id = Model.Id }, new { @class = "btn btn-primary" })
             }
 

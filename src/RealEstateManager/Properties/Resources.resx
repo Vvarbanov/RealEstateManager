@@ -637,4 +637,76 @@
   <data name="EstateAccountUpdatePage_NoRegisteredAgents_Error" xml:space="preserve">
     <value>Няма регистрирани Агенти в системата.</value>
   </data>
+  <data name="ContactCreation_IncorrectDate_Error" xml:space="preserve">
+    <value>Датата трябва да е в бъдещето.</value>
+  </data>
+  <data name="Button_Contacts" xml:space="preserve">
+    <value>Контакти</value>
+  </data>
+  <data name="Button_My_Contacts" xml:space="preserve">
+    <value>Моите контакти</value>
+  </data>
+  <data name="ContactDetailsPage_Header" xml:space="preserve">
+    <value>Детайли за контакт</value>
+  </data>
+  <data name="ContactIndexPage_Header" xml:space="preserve">
+    <value>Всички контакти</value>
+  </data>
+  <data name="ContactIndexPage_Title" xml:space="preserve">
+    <value>Контакти</value>
+  </data>
+  <data name="ContactModel_DateTime" xml:space="preserve">
+    <value>Дата и час</value>
+  </data>
+  <data name="ContactModel_ImagePaths" xml:space="preserve">
+    <value>Галерия</value>
+  </data>
+  <data name="ContactModel_Number" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="ContactModel_Outcome" xml:space="preserve">
+    <value>Резултат</value>
+  </data>
+  <data name="ContactUpdateModel_ImagePaths" xml:space="preserve">
+    <value>Съществуващи изображения</value>
+  </data>
+  <data name="ContactUpdateModel_Images" xml:space="preserve">
+    <value>Нови снимки</value>
+  </data>
+  <data name="ContactUpdatePage_Header" xml:space="preserve">
+    <value>Обнови съществуващ контакт</value>
+  </data>
+  <data name="ContactUpdatePage_Title" xml:space="preserve">
+    <value>Обнови контакт</value>
+  </data>
+  <data name="Contact_TableHeader_DateTime" xml:space="preserve">
+    <value>Дата и час</value>
+  </data>
+  <data name="Contact_TableHeader_Number" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="Contact_TableHeader_Operations" xml:space="preserve">
+    <value>Операции</value>
+  </data>
+  <data name="Contact_TableHeader_Outcome" xml:space="preserve">
+    <value>Резултат</value>
+  </data>
+  <data name="Button_Contact" xml:space="preserve">
+    <value>Заяви контакт</value>
+  </data>
+  <data name="ContactCreationPage_Header" xml:space="preserve">
+    <value>Създаване на нов контакт</value>
+  </data>
+  <data name="ContactCreationPage_Title" xml:space="preserve">
+    <value>Създай контакт</value>
+  </data>
+  <data name="ContactIndexPage_Search" xml:space="preserve">
+    <value>Търсене</value>
+  </data>
+  <data name="Button_Join_Contact" xml:space="preserve">
+    <value>Заявяване на участие</value>
+  </data>
+  <data name="ContactCreation_MissingDate_Error" xml:space="preserve">
+    <value>Не са въведени дата и час.</value>
+  </data>
 </root>

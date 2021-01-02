@@ -1,7 +1,10 @@
 ﻿@using RealEstateManager.Utils
+@using RealEstateManager.Areas.Public.Controllers;
 @model RealEstateManager.Areas.Public.Models.Estate.EstateGetModel
 
 @{
+    var db = BasePublicController.GetController(ViewContext).Context;
+    var currentIdentity = BasePublicController.GetCurrentIdentity(db, User);
     ViewBag.Title = Localization.GetString("EstateIndexPage_Title");
 }
 
@@ -12,6 +15,10 @@
     <div class="card-body bg-light">
         <div class="jumbotron jumbotron-padding">
             <h1 class="display-4">@Model.Name</h1>
+            @if (EstateAgentHelper.IsAccountPublicUser(currentIdentity))
+            {
+                @Html.ActionLink(Localization.GetString("Button_Contact"), "Create", "Contact", new { estateId = Model.Id }, new { @class = "btn btn-primary" })
+            }
             <p class="lead">
                 @Html.LabelFor(x => x.Type):
                 @CustomEnumHelper.GetLocalizedName(Model.Type)

@@ -14,6 +14,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>@ViewBag.Title - @Localization.GetString("ApplicationName")</title>
         @Styles.Render("~/Content/admincss")
+        <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+        <link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -99,8 +101,9 @@
         </script>
     
         @Scripts.Render("~/bundles/jqueryfancybox")
-        @Scripts.Render("~/Scripts/jquery.validate.min.js")
-        @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
         @RenderSection("scripts", required: false)
+        <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+        <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+        <script src="~/Scripts/site.js"></script>
     </body>
 </html>

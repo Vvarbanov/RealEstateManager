@@ -133,6 +133,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Public\Controllers\BasePublicController.cs" />
     <Compile Include="Areas\Public\Controllers\BuildingInfoController.cs" />
+    <Compile Include="Areas\Public\Controllers\ContactController.cs" />
     <Compile Include="Areas\Public\Controllers\EstateController.cs" />
     <Compile Include="Areas\Public\Controllers\HomeController.cs" />
     <Compile Include="Areas\Public\Models\Account\AccountDeleteModel.cs" />
@@ -140,11 +141,13 @@
     <Compile Include="Areas\Public\Models\Account\AccountRegisterAdminModel.cs" />
     <Compile Include="Areas\Public\Models\Account\AccountRegisterPublicUserModel.cs" />
     <Compile Include="Areas\Public\Models\BuildingInfo\BuildingInfoGetModel.cs" />
+    <Compile Include="Areas\Public\Models\Contact\ContactCreationModel.cs" />
     <Compile Include="Areas\Public\Models\Estate\EstateGetModel.cs" />
     <Compile Include="Areas\Public\PublicAreaRegistration.cs" />
     <Compile Include="Areas\Public\Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BuildingInfoController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\EstateAccountController.cs" />
     <Compile Include="Controllers\EstateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -154,6 +157,9 @@
     <Compile Include="Areas\Public\Models\Account\AccountLoginModel.cs" />
     <Compile Include="Areas\Public\Models\Account\AccountRecoverPasswordModel.cs" />
     <Compile Include="Areas\Public\Models\Account\AccountRegisterAgentModel.cs" />
+    <Compile Include="Models\Contact\ContactGetModel.cs" />
+    <Compile Include="Models\Contact\ContactImageModel.cs" />
+    <Compile Include="Models\Contact\ContactUpdateModel.cs" />
     <Compile Include="Models\Data\Account.cs">
       <DependentUpon>RealEstateManagerDataModel.tt</DependentUpon>
     </Compile>
@@ -216,6 +222,8 @@
     <Compile Include="Models\Estate\EstateUpdateModel.cs" />
     <Compile Include="Repository\Data\AccountData.cs" />
     <Compile Include="Repository\Data\BuildingInfoData.cs" />
+    <Compile Include="Repository\Data\ContactAccountData.cs" />
+    <Compile Include="Repository\Data\ContactData.cs" />
     <Compile Include="Repository\Data\EstateAccountData.cs" />
     <Compile Include="Repository\Data\EstateData.cs" />
     <Compile Include="Repository\EstatesContext.cs" />
@@ -232,6 +240,8 @@
     <Compile Include="Repository\CurrentIdentity.cs" />
     <Compile Include="Repository\Sets\AccountSet.cs" />
     <Compile Include="Repository\Sets\BuildingInfoSet.cs" />
+    <Compile Include="Repository\Sets\ContactAccountSet.cs" />
+    <Compile Include="Repository\Sets\ContactSet.cs" />
     <Compile Include="Repository\Sets\EstateSet.cs" />
     <Compile Include="Utils\ConfigReader.cs" />
     <Compile Include="Utils\CryptoHelper.cs" />
@@ -253,6 +263,8 @@
     <Content Include="Content\bootstrap\bootstrap.min.css">
       <DependentUpon>bootstrap.css</DependentUpon>
     </Content>
+    <Content Include="Content\jquery-ui-timepicker-addon.css" />
+    <Content Include="Content\jquery-ui-timepicker-addon.min.css" />
     <Content Include="Content\jquery.fancybox.min.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css">
@@ -261,6 +273,47 @@
     <Content Include="Content\Site.min.css">
       <DependentUpon>Site.css</DependentUpon>
     </Content>
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\bootstrap\_variables.scss" />
@@ -358,7 +411,11 @@
     <Content Include="Areas\Public\Views\Home\OperationSuccessful.cshtml" />
     <Content Include="Areas\Public\Content\Site.scss" />
     <Content Include="Areas\Public\Views\Estate\_IndexItem.cshtml" />
+    <Content Include="Areas\Public\Views\Contact\Create.cshtml" />
     <None Include="Areas\Public\Views\Estate\_IndexItemWithGallery.cshtml" />
+    <Content Include="Areas\Public\Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Areas\Public\Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Areas\Public\Views\Shared\EditorTemplates\TimeSpan.cshtml" />
     <None Include="Content\bootstrap\_custom.scss" />
     <None Include="Content\Site.scss" />
     <Content Include="Models\Data\RealEstateManagerDataModel.Context.tt">
@@ -399,6 +456,52 @@
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-addon-i18n.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-addon-i18n.min.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-af.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-am.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-bg.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-ca.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-cs.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-da.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-de.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-el.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-es.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-et.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-eu.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-fa.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-fi.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-fr.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-gl.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-he.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-hr.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-hu.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-id.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-it.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-ja.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-ko.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-lt.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-lv.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-mk.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-nl.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-no.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-pl.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-pt-BR.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-pt.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-ro.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-ru.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-sk.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-sl.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-sq.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-sr-RS.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-sr-YU.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-sv.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-th.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-tr.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-uk.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-vi.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-zh-CN.js" />
+    <Content Include="Scripts\i18n\jquery-ui-timepicker-zh-TW.js" />
     <Content Include="Scripts\index.js.flow" />
     <Content Include="Scripts\esm\popper.min.js.map" />
     <Content Include="Scripts\esm\popper.js.map" />
@@ -416,6 +519,11 @@
     <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.5.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery-ui-sliderAccess.js" />
+    <Content Include="Scripts\jquery-ui-timepicker-addon.js" />
+    <Content Include="Scripts\jquery-ui-timepicker-addon.min.js" />
     <Content Include="Scripts\jquery.fancybox.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -425,6 +533,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\site.js" />
     <Content Include="Scripts\src\index.js" />
     <Content Include="Scripts\src\methods\defaults.js" />
     <Content Include="Scripts\src\methods\destroy.js" />
@@ -522,6 +631,12 @@
     <Content Include="Views\BuildingInfo\Details.cshtml" />
     <Content Include="Views\Estate\Details.cshtml" />
     <Content Include="Views\EstateAccount\Update.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TimeSpan.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\Details.cshtml" />
+    <Content Include="Views\Contact\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -529,9 +644,8 @@
     <Folder Include="Areas\Public\Data\" />
     <Folder Include="Areas\Public\Scripts\" />
     <Folder Include="Areas\Public\Views\Shared\DisplayTemplates\" />
-    <Folder Include="Areas\Public\Views\Shared\EditorTemplates\" />
+    <Folder Include="Views\Default\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
-    <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

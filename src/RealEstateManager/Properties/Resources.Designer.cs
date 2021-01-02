@@ -358,6 +358,24 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Заяви контакт.
+        /// </summary>
+        public static string Button_Contact {
+            get {
+                return ResourceManager.GetString("Button_Contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Контакти.
+        /// </summary>
+        public static string Button_Contacts {
+            get {
+                return ResourceManager.GetString("Button_Contacts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Създай.
         /// </summary>
         public static string Button_Create {
@@ -412,11 +430,29 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Заявяване на участие.
+        /// </summary>
+        public static string Button_Join_Contact {
+            get {
+                return ResourceManager.GetString("Button_Join_Contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Вход.
         /// </summary>
         public static string Button_Login {
             get {
                 return ResourceManager.GetString("Button_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Моите контакти.
+        /// </summary>
+        public static string Button_My_Contacts {
+            get {
+                return ResourceManager.GetString("Button_My_Contacts", resourceCulture);
             }
         }
         
@@ -435,6 +471,186 @@ namespace RealEstateManager.Properties {
         public static string Button_Update {
             get {
                 return ResourceManager.GetString("Button_Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата и час.
+        /// </summary>
+        public static string Contact_TableHeader_DateTime {
+            get {
+                return ResourceManager.GetString("Contact_TableHeader_DateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер.
+        /// </summary>
+        public static string Contact_TableHeader_Number {
+            get {
+                return ResourceManager.GetString("Contact_TableHeader_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Операции.
+        /// </summary>
+        public static string Contact_TableHeader_Operations {
+            get {
+                return ResourceManager.GetString("Contact_TableHeader_Operations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Резултат.
+        /// </summary>
+        public static string Contact_TableHeader_Outcome {
+            get {
+                return ResourceManager.GetString("Contact_TableHeader_Outcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Датата трябва да е в бъдещето..
+        /// </summary>
+        public static string ContactCreation_IncorrectDate_Error {
+            get {
+                return ResourceManager.GetString("ContactCreation_IncorrectDate_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не са въведени дата и час..
+        /// </summary>
+        public static string ContactCreation_MissingDate_Error {
+            get {
+                return ResourceManager.GetString("ContactCreation_MissingDate_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Създаване на нов контакт.
+        /// </summary>
+        public static string ContactCreationPage_Header {
+            get {
+                return ResourceManager.GetString("ContactCreationPage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Създай контакт.
+        /// </summary>
+        public static string ContactCreationPage_Title {
+            get {
+                return ResourceManager.GetString("ContactCreationPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Детайли за контакт.
+        /// </summary>
+        public static string ContactDetailsPage_Header {
+            get {
+                return ResourceManager.GetString("ContactDetailsPage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Всички контакти.
+        /// </summary>
+        public static string ContactIndexPage_Header {
+            get {
+                return ResourceManager.GetString("ContactIndexPage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Търсене.
+        /// </summary>
+        public static string ContactIndexPage_Search {
+            get {
+                return ResourceManager.GetString("ContactIndexPage_Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Контакти.
+        /// </summary>
+        public static string ContactIndexPage_Title {
+            get {
+                return ResourceManager.GetString("ContactIndexPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата и час.
+        /// </summary>
+        public static string ContactModel_DateTime {
+            get {
+                return ResourceManager.GetString("ContactModel_DateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Галерия.
+        /// </summary>
+        public static string ContactModel_ImagePaths {
+            get {
+                return ResourceManager.GetString("ContactModel_ImagePaths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер.
+        /// </summary>
+        public static string ContactModel_Number {
+            get {
+                return ResourceManager.GetString("ContactModel_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Резултат.
+        /// </summary>
+        public static string ContactModel_Outcome {
+            get {
+                return ResourceManager.GetString("ContactModel_Outcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Съществуващи изображения.
+        /// </summary>
+        public static string ContactUpdateModel_ImagePaths {
+            get {
+                return ResourceManager.GetString("ContactUpdateModel_ImagePaths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нови снимки.
+        /// </summary>
+        public static string ContactUpdateModel_Images {
+            get {
+                return ResourceManager.GetString("ContactUpdateModel_Images", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обнови съществуващ контакт.
+        /// </summary>
+        public static string ContactUpdatePage_Header {
+            get {
+                return ResourceManager.GetString("ContactUpdatePage_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обнови контакт.
+        /// </summary>
+        public static string ContactUpdatePage_Title {
+            get {
+                return ResourceManager.GetString("ContactUpdatePage_Title", resourceCulture);
             }
         }
         

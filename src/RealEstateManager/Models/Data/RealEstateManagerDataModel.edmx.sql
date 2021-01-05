@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/11/2020 18:20:50
+-- Date Created: 12/22/2020 14:03:01
 -- Generated from EDMX file: D:\Code\MyRepo\RealEstateManager\src\RealEstateManager\Models\Data\RealEstateManagerDataModel.edmx
 -- --------------------------------------------------
 
@@ -25,12 +25,6 @@ IF OBJECT_ID(N'[dbo].[FK_EstateAccountAccount]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_ContactEstate]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Contacts] DROP CONSTRAINT [FK_ContactEstate];
-GO
-IF OBJECT_ID(N'[dbo].[FK_FileContact]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Files] DROP CONSTRAINT [FK_FileContact];
-GO
-IF OBJECT_ID(N'[dbo].[FK_FileEstate]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Files] DROP CONSTRAINT [FK_FileEstate];
 GO
 IF OBJECT_ID(N'[dbo].[FK_EstateBuildingInfo]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Estates] DROP CONSTRAINT [FK_EstateBuildingInfo];
@@ -61,9 +55,6 @@ GO
 IF OBJECT_ID(N'[dbo].[Contacts]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Contacts];
 GO
-IF OBJECT_ID(N'[dbo].[Files]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Files];
-GO
 IF OBJECT_ID(N'[dbo].[SystemValues]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SystemValues];
 GO
@@ -87,7 +78,8 @@ CREATE TABLE [dbo].[Estates] (
     [PrivateDescription] nvarchar(max)  NULL,
     [Area] float  NOT NULL,
     [BuildingInfoId] uniqueidentifier  NULL,
-    [UpdateDate] datetime  NOT NULL
+    [UpdateDate] datetime  NOT NULL,
+    [FilePathsCSV] nvarchar(max)  NULL
 );
 GO
 
@@ -134,18 +126,7 @@ CREATE TABLE [dbo].[Contacts] (
     [Number] nvarchar(max)  NOT NULL,
     [Outcome] nvarchar(max)  NOT NULL,
     [EstateId] uniqueidentifier  NOT NULL,
-    [AccountId] uniqueidentifier  NOT NULL,
-    [PublicUserId] uniqueidentifier  NOT NULL
-);
-GO
-
--- Creating table 'Files'
-CREATE TABLE [dbo].[Files] (
-    [Id] uniqueidentifier  NOT NULL,
-    [PathOnFileSystem] nvarchar(max)  NOT NULL,
-    [DisplayName] nvarchar(max)  NULL,
-    [ContactId] uniqueidentifier  NULL,
-    [EstateId] uniqueidentifier  NULL
+    [FilePathsCSV] nvarchar(max)  NULL
 );
 GO
 
@@ -196,12 +177,6 @@ GO
 -- Creating primary key on [Id] in table 'Contacts'
 ALTER TABLE [dbo].[Contacts]
 ADD CONSTRAINT [PK_Contacts]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
--- Creating primary key on [Id] in table 'Files'
-ALTER TABLE [dbo].[Files]
-ADD CONSTRAINT [PK_Files]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -263,36 +238,6 @@ GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_ContactEstate'
 CREATE INDEX [IX_FK_ContactEstate]
 ON [dbo].[Contacts]
-    ([EstateId]);
-GO
-
--- Creating foreign key on [ContactId] in table 'Files'
-ALTER TABLE [dbo].[Files]
-ADD CONSTRAINT [FK_FileContact]
-    FOREIGN KEY ([ContactId])
-    REFERENCES [dbo].[Contacts]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_FileContact'
-CREATE INDEX [IX_FK_FileContact]
-ON [dbo].[Files]
-    ([ContactId]);
-GO
-
--- Creating foreign key on [EstateId] in table 'Files'
-ALTER TABLE [dbo].[Files]
-ADD CONSTRAINT [FK_FileEstate]
-    FOREIGN KEY ([EstateId])
-    REFERENCES [dbo].[Estates]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_FileEstate'
-CREATE INDEX [IX_FK_FileEstate]
-ON [dbo].[Files]
     ([EstateId]);
 GO
 

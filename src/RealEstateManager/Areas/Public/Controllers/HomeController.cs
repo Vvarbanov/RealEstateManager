@@ -4,10 +4,14 @@ namespace RealEstateManager.Areas.Public.Controllers
 {
     public class HomeController : BasePublicController
     {
-        // GET: Public/Home
         public ActionResult Index()
         {
             return RedirectToAction("Index", "Estate");
+        }
+
+        public ActionResult OperationSuccessful()
+        {
+            return View();
         }
     }
 }

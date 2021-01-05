@@ -12,8 +12,32 @@
     white-space: normal;
 }
 
-.jumbotron-padding {
-    padding: 2rem !important;
+caption {
+    caption-side: top;
+}
+
+.pagination li a {
+    padding: 0.5rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    display: block;
+}
+
+.validation-summary-errors ul {
+    list-style: none;
+    padding: 0;
+}
+
+.image-container-unit {
+    text-align: center;
+    width: 12rem;
+    margin: 1rem;
+    padding-bottom: 1rem;
+    border: 0.25rem solid #DDD;
+}
+
+.image-container-unit img {
+    margin: 1rem;
 }
 .jumbotron-padding-estate {
     padding: 2rem !important;

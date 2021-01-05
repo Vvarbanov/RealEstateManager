@@ -17,7 +17,7 @@ namespace RealEstateManager.Models.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Estate()
         {
-            this.Account = new HashSet<EstateAccount>();
+            this.EstateAccounts = new HashSet<EstateAccount>();
             this.Contacts = new HashSet<Contact>();
         }
     
@@ -35,7 +35,7 @@ namespace RealEstateManager.Models.Data
         public string FilePathsCSV { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EstateAccount> Account { get; set; }
+        public virtual ICollection<EstateAccount> EstateAccounts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contact> Contacts { get; set; }
         public virtual BuildingInfo BuildingInfo { get; set; }

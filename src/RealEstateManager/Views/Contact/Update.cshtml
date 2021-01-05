@@ -1,0 +1,94 @@
+﻿@using RealEstateManager.Utils
+
+@model RealEstateManager.Models.Contact.ContactUpdateModel
+@{
+    ViewBag.Title = Localization.GetString("ContactUpdatePage_Title");
+}
+
+@using (Html.BeginForm("Update", "Contact", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h3>@Localization.GetString("ContactUpdatePage_Header")</h3>
+        </div>
+        <div class="card-body bg-light">
+            @Html.HiddenFor(x => x.Id)
+            @Html.HiddenFor(x => x.EstateId)
+            <div class="form-group">
+                @Html.LabelFor(x => x.ContactDateTime)
+                @Html.EditorFor(x => x.ContactDateTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.ContactDateTime, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Outcome)
+                @Html.EditorFor(x => x.Outcome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Outcome, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Number)
+                @Html.EditorFor(x => x.Number, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Number, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.ExistingImagePaths)
+                @if (Model.ExistingImagePaths != null)
+                {
+                    for (var i = 0; i < Model.ExistingImagePaths.Count; ++i)
+                    {
+                        @Html.HiddenFor(x => Model.ExistingImagePaths[i], new { @class = "image-path" })
+                    }
+                    <div class="image-container"></div>
+                }
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Images)
+                @Html.TextBoxFor(x => x.Images, new { type = "file", multiple = "multiple", @class = "d-block" })
+                @Html.ValidationMessageFor(x => x.Images, null, new { @class = "text-danger" })
+            </div>
+            <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Edit")</button>
+            <br />
+            @Html.ValidationSummary(true, null, new { @class = "text-danger" })
+        </div>
+    </div>
+}
+
+@section Scripts{
+    <script>
+        $(function() {
+            function UpdateExistingImages() {
+                var images = $(".image-path");
+                var imageContainer = $(".image-container");
+
+                images.each(function(index) {
+                    var item = $(this);
+
+                    var containerElement = $("<div/>")
+                        .attr("class", "image-container-unit")
+                        .appendTo(imageContainer);
+
+                    var imgElement = $("<img/>")
+                        .attr("src", item.attr("value"))
+                        .attr("width", "128")
+                        .attr("height", "128")
+                        .appendTo(containerElement);
+
+                    var btnElement = $("<span/>")
+                        .attr("class", "btn btn-primary")
+                        .data("path", item.attr("value"))
+                        .text("@Localization.GetString("Button_Delete")")
+                        .appendTo(containerElement);
+
+                    btnElement.on("click", function () {
+                        item.remove();
+                        containerElement.remove();
+                    });
+
+                    imageContainer.append(containerElement);
+                });
+            }
+
+            UpdateExistingImages();
+        });
+    </script>
+}

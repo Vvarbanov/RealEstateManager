@@ -1,5 +1,4 @@
-﻿using System;
-using RealEstateManager.Models.Data;
+﻿using RealEstateManager.Models.Data;
 
 namespace RealEstateManager.Repository.Data
 {
@@ -20,5 +19,7 @@ namespace RealEstateManager.Repository.Data
         public string PrivateDescription { get; set; }
 
         public double Area { get; set; }
+
+        public string FilePathsCSV { get; set; }
     }
 }

@@ -5,8 +5,6 @@
     ViewBag.Title = Localization.GetString("Public_AccountRegisterPublicUserPage_Title");
 }
 
-@Html.ValidationSummary(true, null, new { @class = "text-danger" })
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -45,9 +43,9 @@
                 @Html.EditorFor(x => x.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(x => x.PhoneNumber, null, new { @class = "text-danger" })
             </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-estate">@Localization.GetString("Button_Submit")</button>
-            </div>
+            <button type="submit" class="btn btn-estate">@Localization.GetString("Button_Submit")</button>
+            <br />
+            @Html.ValidationSummary(true, null, new { @class = "text-danger" })
         </div>
     </div>
 }

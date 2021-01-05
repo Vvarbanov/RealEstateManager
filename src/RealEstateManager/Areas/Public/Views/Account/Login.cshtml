@@ -5,8 +5,6 @@
     ViewBag.Title = Localization.GetString("Public_AccountLoginPage_Title");
 }
 
-@Html.ValidationSummary(true, null, new { @class = "text-danger" })
-
 @using (Html.BeginForm(new { returnUrl = ViewBag.ReturnUrl }))
 {
     @Html.AntiForgeryToken()
@@ -27,15 +25,15 @@
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox">
-                    @Html.EditorFor(x => x.RememberMe, new { htmlAttributes = new { @class = "custom-control-input" } })
+                    @Html.CheckBoxFor(x => x.RememberMe, new { @class = "custom-control-input" })
                     @Html.LabelFor(x => x.RememberMe, new { @class = "custom-control-label" })
                 </div>
                 @Html.ValidationMessageFor(x => x.RememberMe, null, new { @class = "text-danger" })
             </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-estate">@Localization.GetString("Button_Login")</button>
-                @Html.ActionLink(Localization.GetString("Public_AccountLoginForm_ForgottenPassword"), "ForgottenPassword")
-            </div>
+            <button type="submit" class="btn btn-estate">@Localization.GetString("Button_Login")</button>
+            @Html.ActionLink(Localization.GetString("Public_AccountLoginForm_ForgottenPassword"), "ForgottenPassword")
+            <br />
+            @Html.ValidationSummary(true, null, new { @class = "text-danger" })
         </div>
     </div>
 }

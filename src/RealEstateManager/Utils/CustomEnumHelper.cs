@@ -49,7 +49,7 @@ namespace RealEstateManager.Utils
             return new SelectList(items, "Value", "Text", defaultValue, disabledValues);
         }
 
-        public static string GetLocalizedName<TEnum>(TEnum value)
+        public static string GetLocalizedName<TEnum>(TEnum value, ViewContext viewContext = null)
             where TEnum : struct, Enum
         {
             var enumType = typeof(TEnum);
@@ -57,11 +57,23 @@ namespace RealEstateManager.Utils
             if (enumType.FullName == null)
                 throw new InvalidOperationException($"Cannot localize Enum: {typeof(TEnum)}.FullName returned null.");
 
+            var areaPrefix = string.Empty;
+
+            if (viewContext?.RouteData != null)
+            {
+                if (viewContext.RouteData.DataTokens.TryGetValue("area", out var area))
+                {
+                    areaPrefix = area.ToString() == string.Empty 
+                        ? string.Empty 
+                        : $"{area}_";
+                }
+            }
+
             var enumFullName = enumType.FullName.Replace('.', '_');
 
             var enumValueName = Enum.GetName(enumType, value);
 
-            var localizationKey = $"{enumFullName}_{enumValueName}";
+            var localizationKey = $"{areaPrefix}{enumFullName}_{enumValueName}";
 
             return Localization.GetString(localizationKey);
         }

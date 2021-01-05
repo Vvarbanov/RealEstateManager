@@ -13,6 +13,8 @@ namespace RealEstateManager.Repository
         public AccountSet Accounts { get; }
         public EstateSet Estates { get; }
         public BuildingInfoSet BuildingInfoes { get; }
+        public ContactSet Contacts { get; }
+        public ContactAccountSet ContactAccounts { get; }
 
         public EstatesContext()
         {
@@ -20,6 +22,8 @@ namespace RealEstateManager.Repository
             Accounts = new AccountSet(DatabaseContext);
             Estates = new EstateSet(DatabaseContext);
             BuildingInfoes = new BuildingInfoSet(DatabaseContext);
+            Contacts = new ContactSet(DatabaseContext);
+            ContactAccounts = new ContactAccountSet(DatabaseContext);
         }
 
         public bool TryGetCurrentIdentity(IPrincipal user, out CurrentIdentity identity)
@@ -29,7 +33,7 @@ namespace RealEstateManager.Repository
             if (user?.Identity == null)
                 return false;
 
-            if (!Guid.TryParse(user.Identity.Name, out var userId)) 
+            if (!Guid.TryParse(user.Identity.Name, out var userId))
                 return false;
 
             var account = DatabaseContext.Accounts

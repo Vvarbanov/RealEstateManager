@@ -10,29 +10,44 @@
 <!DOCTYPE html>
 
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - @Localization.GetString("ApplicationName")</title>
-    @Styles.Render("~/Content/css")
-</head>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - @Localization.GetString("ApplicationName")</title>
+        @Styles.Render("~/Content/publiccss")
+        <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+        <link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent sticky-top">
+            <div class="container">
+                <div class="navbar-brand">
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    @Html.ActionLink(Localization.GetString("ApplicationName"), "Index", "Home", null, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav mr-auto">
+                        @if (Request.IsAuthenticated)
+                        {
+                            if (currentIdentity != null)
+                            {
+                                if (currentIdentity.Type != UserType.PublicUser)
+                                {
+                                    <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_AdminArea"), "Index", "Home", new { area = string.Empty }, new { @class = "nav-link" })</li>
+                                }
 
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-    <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
-        <ul class="navbar-nav ml-auto text-center">
-            <li class="nav-item active">
-                @Html.ActionLink(Localization.GetString("ApplicationName"), "Index", "Home", null, new { @class = "navbar-brand" })
-            </li>
-            <li class="nav-item">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">@Localization.GetString("Categories")</a>
-                <div class="dropdown-menu" style="">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
+                                <li class="nav-item">@Html.ActionLink(currentIdentity.Name, "Details", "Account", null, new { @class = "nav-link" })</li>
+                                <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_Logout"), "Logout", "Account", null, new { @class = "nav-link" })</li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_Login"), "Login", "Account", null, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_Register"), "Register", "Account", null, new { @class = "nav-link" })</li>
+                        }
+                    </ul>
                 </div>
             </li>
 
@@ -80,8 +95,57 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/jqueryfancybox")
+
+        <script>
+            @{
+                var area = ViewContext.RouteData.DataTokens["area"] == null
+                    ? "/Admin/"
+                    : "/";
+            }
+
+            $(function() {
+                var action = "@ViewContext.RouteData.Values["Action"].ToString()";
+                var controller = "@ViewContext.RouteData.Values["Controller"].ToString()";
+                var area = "@area";
+
+                var finalUrl = area;
+
+                if (action === "Index")
+                    finalUrl = finalUrl + controller + "/";
+                else
+                    finalUrl = finalUrl + controller + "/" + action + "/";
+
+                var navLinks = $(".nav-item a").not(".dropdown-item");
+
+                navLinks.each(function (index) {
+                    var link = $(this);
+                    var href = link.attr("href") + "/";
+
+                    if (href === "#/")
+                    {
+                        var childLink = link
+                            .parent()
+                            .find(".dropdown-item")
+                            .first();
+
+                        href = childLink.attr("href") + "/";
+                    }
+
+                    if (finalUrl.indexOf(href) >= 0)
+                    {
+                        link.addClass("active");
+                        return false;
+                    }
+                });
+            });
+        </script>
+
+        @RenderSection("scripts", required: false)
+        <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+        <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+        <script src="~/Scripts/site.js"></script>
+    </body>
 </html>

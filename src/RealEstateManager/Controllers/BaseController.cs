@@ -7,6 +7,7 @@ using RealEstateManager.Repository;
 namespace RealEstateManager.Controllers
 {
     [UserFilter]
+    [Authorize]
     public abstract class BaseController : Controller
     {
         private EstatesContext _db;
@@ -20,7 +21,7 @@ namespace RealEstateManager.Controllers
             if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
                 return Redirect(returnUrl);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home", null);
         }
 
         public static BaseController GetController(ViewContext viewContext)

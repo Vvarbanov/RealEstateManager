@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using RealEstateManager.Models.Data;
 using RealEstateManager.Properties;
 using RealEstateManager.Repository.Data;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 using RealEstateManager.Utils;
 
 namespace RealEstateManager.Models.Estate
 {
-    public class EstateUpdateModel : IValidatableObject
+    public class EstateUpdateModel : EstateBaseModel, IValidatableObject
     {
         [Required(
             ErrorMessageResourceName = "RequiredFieldError",
@@ -80,9 +80,39 @@ namespace RealEstateManager.Models.Estate
             ErrorMessageResourceType = typeof(Resources))]
         public double Area { get; set; }
 
+        [Display(
+            Name = "EstateUpdateModel_ImagePaths",
+            ResourceType = typeof(Resources))]
+        public List<string> ExistingImagePaths { get; set; }
+
+        [Display(
+            Name = "EstateUpdateModel_Images",
+            ResourceType = typeof(Resources))]
+        public override List<HttpPostedFileBase> Images { get; set; }
+
         public Guid? BuildingInfoId { get; set; }
 
-        public EstateData ToData()
+        public string ExistingImagePathsAsCSV(HttpServerUtilityBase server)
+        {
+            string filesPathCSV = null;
+
+            if (ExistingImagePaths != null)
+            {
+                for (var i = 0; i < ExistingImagePaths.Count; ++i)
+                {
+                    var saveLocation = server.MapPath(ExistingImagePaths[i]);
+
+                    if (i < ExistingImagePaths.Count - 1)
+                        filesPathCSV += saveLocation + ",";
+                    else
+                        filesPathCSV += saveLocation;
+                }
+            }
+
+            return filesPathCSV;
+        }
+
+        public EstateData ToData(string newAndExistingFilesPathsCSV = null)
         {
             return new EstateData
             {
@@ -93,7 +123,8 @@ namespace RealEstateManager.Models.Estate
                 PrivateDescription = PrivateDescription,
                 PublicDescription = PublicDescription,
                 Status = Status,
-                Type = Type
+                Type = Type,
+                FilePathsCSV = newAndExistingFilesPathsCSV,
             };
         }
 

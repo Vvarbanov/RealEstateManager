@@ -17,7 +17,7 @@
             <h1 class="display-4">@Model.Name</h1>
             @if (EstateAgentHelper.IsAccountPublicUser(currentIdentity))
             {
-                @Html.ActionLink(Localization.GetString("Button_Contact"), "Create", "Contact", new { estateId = Model.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink(Localization.GetString("Button_Contact"), "Create", "Contact", new { estateId = Model.Id }, new { @class = "btn btn-estate" })
             }
             <p class="lead">
                 @Html.LabelFor(x => x.Type):

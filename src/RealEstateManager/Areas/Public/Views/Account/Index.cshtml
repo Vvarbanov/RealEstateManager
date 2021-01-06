@@ -15,7 +15,7 @@
     <div class="card-header bg-card text-white">
         <h3>@Localization.GetString("AccountIndexPage_Header")</h3>
     </div>
-    <div class="card-body bg-light">
+    <div class="card-body bg-estate">
         <div class="p-2">
             @using (Html.BeginForm("Index", "Account", FormMethod.Get))
             {
@@ -47,7 +47,7 @@
                                      currentIdentity != null &&
                                      currentIdentity.Type == UserType.Admin)
                                 {
-                                    @Html.ActionLink(Localization.GetString("Button_Ban"), "Ban", "Account", new {accountId = Model[i].Id}, new {@class = "btn btn-primary"})
+                                    @Html.ActionLink(Localization.GetString("Button_Ban"), "Ban", "Account", new {accountId = Model[i].Id}, new {@class = "btn btn-estate"})
                                 }
                             </td>
                             <td>

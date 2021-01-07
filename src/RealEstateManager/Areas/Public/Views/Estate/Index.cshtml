@@ -31,7 +31,6 @@
                         <table class="table table-striped table-bordered table-responsive-sm">
                             <thead class="thead-light">
                             <tr>
-                                <th>Сортиране по:</th>
                                 <th>@Html.ActionLink(Localization.GetString("Public_Estate_SortingLabel_Name"), "Index", "Estate", new { sortOrder = ViewBag.SortByName, currentFilter = ViewBag.CurrentFilter }, null)</th>
                                 <th>@Html.ActionLink(Localization.GetString("Public_Estate_SortingLabel_Type"), "Index", "Estate", new { sortOrder = ViewBag.SortByType, currentFilter = ViewBag.CurrentFilter }, null)</th>
                                 <th>@Html.ActionLink(Localization.GetString("Public_Estate_SortingLabel_Status"), "Index", "Estate", new { sortOrder = ViewBag.SortByStatus, currentFilter = ViewBag.CurrentFilter }, null)</th>

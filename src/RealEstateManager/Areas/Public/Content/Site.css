@@ -24,22 +24,18 @@ caption {
   margin-bottom: 4rem; }
 
 .jumbotron-padding-estate {
-    padding: 2rem !important;
-    background-color: #fbddb2;}
+  padding: 2rem !important;
+  background-color: #fbddb2; }
 
 .bg-estate {
-    background-color: beige;}
+  background-color: beige; }
 
 .bg-card {
-    background-color: #edbb79;}
+  background-color: #edbb79; }
 
 .btn-estate {
-    color: white;
-    background-color: #fc9403;}
-
-.navbar-brand-estate {
-    padding-top: 6rem;
-}
+  color: white;
+  background-color: #fc9403; }
 
 /* Set width on the form input elements since they're 100% wide by default */
 /*input,

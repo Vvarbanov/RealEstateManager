@@ -251,6 +251,7 @@
     <Compile Include="Utils\PasswordHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Public\Content\Images\final.png" />
     <Content Include="Areas\Public\Content\Site.css">
       <DependentUpon>Site.scss</DependentUpon>
     </Content>
@@ -263,7 +264,6 @@
     <Content Include="Content\bootstrap\bootstrap.min.css">
       <DependentUpon>bootstrap.css</DependentUpon>
     </Content>
-    <Content Include="Content\Resources\final.png" />
     <Content Include="Content\jquery-ui-timepicker-addon.css" />
     <Content Include="Content\jquery-ui-timepicker-addon.min.css" />
     <Content Include="Content\jquery.fancybox.min.css" />

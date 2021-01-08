@@ -9,15 +9,15 @@
 {
     @Html.AntiForgeryToken()
     <div class="card">
-        <div class="card-header bg-card text-white">
+        <div class="card-header card-orange text-white">
             <h3>@Localization.GetString("AccountDeletePage_Header")</h3>
         </div>
-        <div class="card-body bg-estate">
+        <div class="card-body bg-orange">
             <p>@Localization.GetString("AccountDeletePage_Text")</p>
             <div class="form-group">
                 @Html.HiddenFor(x => x.Id)
             </div>
-            <button type="submit" class="btn btn-estate">@Localization.GetString("Button_Ban")</button>
+            <button type="submit" class="btn btn-orange">@Localization.GetString("Button_Ban")</button>
             <br />
             @Html.ValidationSummary(true, null, new { @class = "text-danger" })
         </div>

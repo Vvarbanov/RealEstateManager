@@ -23,13 +23,31 @@ namespace RealEstateManager
                 "~/Content/bootstrap/bootstrap.min.css",
                 "~/Content/PagedList.css",
                 "~/Content/jquery.fancybox.min.css",
-                "~/Content/Site.min.css"));
+                "~/Content/Site.min.css",
+                "~/Content/themes/base/jquery-ui.css",
+                "~/Content/jquery-ui-timepicker-addon.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/publiccss").Include(
                 "~/Content/bootstrap/bootstrap.min.css",
                 "~/Content/PagedList.css",
                 "~/Content/jquery.fancybox.min.css",
-                "~/Areas/Public/Content/Site.min.css"));
+                "~/Areas/Public/Content/Site.min.css",
+                "~/Content/themes/base/jquery-ui.css",
+                "~/Content/jquery-ui-timepicker-addon.min.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/adminjqueryuijs").Include(
+                "~/Scripts/jquery-ui-1.12.1.min.js",
+                "~/Scripts/jquery-ui-timepicker-addon.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/publicjqueryuijs").Include(
+                "~/Scripts/jquery-ui-1.12.1.min.js",
+                "~/Scripts/jquery-ui-timepicker-addon.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/adminjs").Include(
+                "~/Scripts/site.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/publicjs").Include(
+                "~/Areas/Public/Scripts/site.js"));
         }
     }
 }

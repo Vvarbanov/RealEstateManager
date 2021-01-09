@@ -10,61 +10,67 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@ViewBag.Title - @Localization.GetString("ApplicationName")</title>
-        @Styles.Render("~/Content/publiccss")
-        <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
-        <link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-            <div class="container">
-                <div class="navbar-brand">
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - @Localization.GetString("ApplicationName")</title>
+    @Styles.Render("~/Content/publiccss")
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <div class="navbar-nav mx-auto">
+            <div>
+                <a href="/">
+                    <img src="~/Areas/Public/Content/Images/final.png" class="d-block my-4">
+                </a>
+                <div class="text-center">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    @Html.ActionLink(Localization.GetString("ApplicationName"), "Index", "Home", null, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav mr-auto">
-                        @if (Request.IsAuthenticated)
-                        {
-                            if (currentIdentity != null)
-                            {
-                                if (currentIdentity.Type != UserType.PublicUser)
-                                {
-                                    <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_AdminArea"), "Index", "Home", new { area = string.Empty }, new { @class = "nav-link" })</li>
-                                }
-
-                                <li class="nav-item">@Html.ActionLink(currentIdentity.Name, "Details", "Account", null, new { @class = "nav-link" })</li>
-                                <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_Logout"), "Logout", "Account", null, new { @class = "nav-link" })</li>
-                            }
-                        }
-                        else
-                        {
-                            <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_Login"), "Login", "Account", null, new { @class = "nav-link" })</li>
-                            <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_Register"), "Register", "Account", null, new { @class = "nav-link" })</li>
-                        }
-                    </ul>
                 </div>
             </div>
-        </nav>
 
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&#169; @DateTime.Now.Year - @Localization.GetString("ApplicationName")</p>
-            </footer>
+            <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
+                <ul class="nav navbar-nav mr-auto text-center">
+                    @if (Request.IsAuthenticated)
+                    {
+                        if (currentIdentity != null)
+                        {
+                            if (currentIdentity.Type != UserType.PublicUser)
+                            {
+                                <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_AdminArea"), "Index", "Home", new { area = string.Empty }, new { @class = "nav-link" })</li>
+                            }
+
+                            <li class="nav-item">@Html.ActionLink(currentIdentity.Name, "Details", "Account", null, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_Logout"), "Logout", "Account", null, new { @class = "nav-link" })</li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_Login"), "Login", "Account", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink(Localization.GetString("Public_MenuButton_Register"), "Register", "Account", null, new { @class = "nav-link" })</li>
+                    }
+                </ul>
+            </div>
         </div>
+    </nav>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @Scripts.Render("~/bundles/jqueryfancybox")
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&#169; @DateTime.Now.Year - @Localization.GetString("ApplicationName")</p>
+        </footer>
+    </div>
 
-        <script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryfancybox")
+    @Scripts.Render("~/bundles/publicjqueryuijs")
+    @Scripts.Render("~/bundles/publicjs")
+    @RenderSection("scripts", required: false)
+
+    <script>
             @{
                 var area = ViewContext.RouteData.DataTokens["area"] == null
                     ? "/Admin/"
@@ -106,11 +112,6 @@
                     }
                 });
             });
-        </script>
-
-        @RenderSection("scripts", required: false)
-        <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-        <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
-        <script src="~/Scripts/site.js"></script>
-    </body>
+    </script>
+</body>
 </html>

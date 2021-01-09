@@ -499,6 +499,18 @@
   <data name="MenuButton_Logout" xml:space="preserve">
     <value>Изход</value>
   </data>
+  <data name="AlertLogin" xml:space="preserve">
+    <value>влезете</value>
+  </data>
+  <data name="AlertRegister" xml:space="preserve">
+    <value>регистрирате</value>
+  </data>
+  <data name="WelcomeAlertMessage" xml:space="preserve">
+    <value>За да се възползвате от функционалностите на сайта е нужно да се  {0} или да {1} в профила си.</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Внимание!</value>
+  </data>
   <data name="Estate_TableHeader_Area" xml:space="preserve">
     <value>Площ</value>
   </data>

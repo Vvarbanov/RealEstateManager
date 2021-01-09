@@ -61,6 +61,15 @@ namespace RealEstateManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to влезете.
+        /// </summary>
+        public static string AlertLogin {
+            get {
+                return ResourceManager.GetString("AlertLogin", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to E-mail адрес.
         /// </summary>
         public static string Account_TableHeader_EmailAddress {
@@ -69,6 +78,15 @@ namespace RealEstateManager.Properties {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to регистрирате.
+        /// </summary>
+        public static string AlertRegister {
+            get {
+                return ResourceManager.GetString("AlertRegister", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Номер.
         /// </summary>
@@ -1822,6 +1840,24 @@ namespace RealEstateManager.Properties {
         public static string RequiredFieldError {
             get {
                 return ResourceManager.GetString("RequiredFieldError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Внимание!.
+        /// </summary>
+        public static string Warning {
+            get {
+                return ResourceManager.GetString("Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to За да се възползвате от функционалностите на сайта е нужно да се  {0} или да {1} в профила си..
+        /// </summary>
+        public static string WelcomeAlertMessage {
+            get {
+                return ResourceManager.GetString("WelcomeAlertMessage", resourceCulture);
             }
         }
     }

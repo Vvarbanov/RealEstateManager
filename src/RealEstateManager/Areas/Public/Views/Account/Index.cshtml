@@ -1,4 +1,4 @@
-﻿@using PagedList.Mvc
+@using PagedList.Mvc
 @using RealEstateManager.Areas.Public.Controllers
 @using RealEstateManager.Models.Data
 @using RealEstateManager.Utils
@@ -12,10 +12,10 @@
 }
 
 <div class="card">
-    <div class="card-header bg-primary text-white">
+    <div class="card-header card-orange text-white">
         <h3>@Localization.GetString("AccountIndexPage_Header")</h3>
     </div>
-    <div class="card-body bg-light">
+    <div class="card-body bg-orange">
         <div class="p-2">
             @using (Html.BeginForm("Index", "Account", FormMethod.Get))
             {
@@ -23,7 +23,7 @@
                     @Localization.GetString("AccountIndexPage_Search")
                     @Html.TextBox("currentFilter", ViewBag.CurrentFilter as string, new { @class = "form-control" })
                 </div>
-                <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Submit")</button>
+                <button type="submit" class="btn btn-orange">@Localization.GetString("Button_Submit")</button>
             }
         </div>
         <table class="table table-striped table-bordered table-responsive-sm">
@@ -47,7 +47,7 @@
                                      currentIdentity != null &&
                                      currentIdentity.Type == UserType.Admin)
                                 {
-                                    @Html.ActionLink(Localization.GetString("Button_Ban"), "Ban", "Account", new {accountId = Model[i].Id}, new {@class = "btn btn-primary"})
+                                    @Html.ActionLink(Localization.GetString("Button_Ban"), "Ban", "Account", new {accountId = Model[i].Id}, new {@class = "btn btn-orange"})
                                 }
                             </td>
                             <td>

@@ -9,7 +9,7 @@
 {
     @Html.AntiForgeryToken()
     <div class="card">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header card-orange text-white">
             <h3>@Localization.GetString("Public_AccountLoginForm_Header")</h3>
         </div>
         <div class="card-body bg-light">
@@ -30,7 +30,7 @@
                 </div>
                 @Html.ValidationMessageFor(x => x.RememberMe, null, new { @class = "text-danger" })
             </div>
-            <button type="submit" class="btn btn-primary">@Localization.GetString("Button_Login")</button>
+            <button type="submit" class="btn btn-orange">@Localization.GetString("Button_Login")</button>
             @Html.ActionLink(Localization.GetString("Public_AccountLoginForm_ForgottenPassword"), "ForgottenPassword")
             <br />
             @Html.ValidationSummary(true, null, new { @class = "text-danger" })

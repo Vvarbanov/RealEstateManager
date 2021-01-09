@@ -251,12 +251,14 @@
     <Compile Include="Utils\PasswordHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Public\Content\Images\final.png" />
     <Content Include="Areas\Public\Content\Site.css">
       <DependentUpon>Site.scss</DependentUpon>
     </Content>
     <Content Include="Areas\Public\Content\Site.min.css">
       <DependentUpon>Site.css</DependentUpon>
     </Content>
+    <Content Include="Areas\Public\Scripts\site.js" />
     <Content Include="Content\bootstrap\bootstrap.css">
       <DependentUpon>bootstrap.scss</DependentUpon>
     </Content>
@@ -642,7 +644,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Public\Content\UploadedImages\" />
     <Folder Include="Areas\Public\Data\" />
-    <Folder Include="Areas\Public\Scripts\" />
     <Folder Include="Areas\Public\Views\Shared\DisplayTemplates\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />

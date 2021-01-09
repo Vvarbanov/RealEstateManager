@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+﻿$(document).ready(function() {
     $(":input[date-picker]").datepicker({
         dateFormat: "dd-M-y",
     });

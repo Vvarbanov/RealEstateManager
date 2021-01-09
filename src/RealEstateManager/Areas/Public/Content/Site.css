@@ -23,6 +23,20 @@ caption {
 .estate-list .row {
   margin-bottom: 4rem; }
 
+.jumbotron-padding-estate {
+  padding: 2rem !important;
+  background-color: #fbddb2; }
+
+.bg-orange {
+  background-color: beige; }
+
+.card-orange {
+  background-color: #edbb79; }
+
+.btn-orange {
+  color: white;
+  background-color: #fc9403; }
+
 /* Set width on the form input elements since they're 100% wide by default */
 /*input,
 select,

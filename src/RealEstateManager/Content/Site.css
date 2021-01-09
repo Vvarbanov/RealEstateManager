@@ -2,7 +2,7 @@
 .body-content {
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: 3rem; }
+  padding-top: 1rem; }
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 

@@ -1,23 +1,14 @@
-/* Set padding to keep content from hitting the edges */
+﻿/* Set padding to keep content from hitting the edges */
 .body-content {
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: 3rem; }
+  padding-top: 1rem; }
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
 .dl-horizontal dt {
   white-space: normal; }
-
-.jumbotron-padding {
-    padding: 2rem !important;
-}
-
-.jumbotron-padding-estate {
-    padding: 2rem !important;
-    background-color: #fbddb2;
-}
 
 caption {
   caption-side: top; }

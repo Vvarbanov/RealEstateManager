@@ -7,6 +7,18 @@
     var db = BaseController.GetController(ViewContext).Context;
     var currentAgent = BaseController.GetCurrentAgent(db, User);
     ViewBag.Title = Localization.GetString("EstateIndexPage_Title");
+
+    var currentPage = 0;
+    var pageCount = 0;
+
+    if (Model != null)
+    {
+        currentPage = Model.PageCount < Model.PageNumber
+            ? 0
+            : Model.PageNumber;
+
+        pageCount = Model.PageCount;
+    }
 }
 
 <div class="card">
@@ -29,11 +41,11 @@
                 <tr>
                     <th>@Localization.GetString("Estate_TableHeader_Operations")</th>
                     <th>@Localization.GetString("Estate_TableHeader_Number")</th>
-                    <th>@Html.ActionLink(Localization.GetString("Estate_TableHeader_Name"), "Index", "Estate", new { sortOrder = ViewBag.SortByName, currentFilter = ViewBag.CurrentFilter }, null)</th>
-                    <th>@Html.ActionLink(Localization.GetString("Estate_TableHeader_Type"), "Index", "Estate", new { sortOrder = ViewBag.SortByType, currentFilter = ViewBag.CurrentFilter }, null)</th>
-                    <th>@Html.ActionLink(Localization.GetString("Estate_TableHeader_Status"), "Index", "Estate", new { sortOrder = ViewBag.SortByStatus, currentFilter = ViewBag.CurrentFilter }, null)</th>
-                    <th>@Html.ActionLink(Localization.GetString("Estate_TableHeader_Area"), "Index", "Estate", new { sortOrder = ViewBag.SortByArea, currentFilter = ViewBag.CurrentFilter }, null)</th>
-                    <th>@Html.ActionLink(Localization.GetString("Estate_TableHeader_Price"), "Index", "Estate", new { sortOrder = ViewBag.SortByPrice, currentFilter = ViewBag.CurrentFilter }, null)</th>
+                    <th>@Html.ActionLink(Localization.GetString("Estate_TableHeader_Name"), "Index", "Estate", new { sortOrder = ViewBag.SortByName, currentFilter = ViewBag.CurrentFilter, page = currentPage }, null)</th>
+                    <th>@Html.ActionLink(Localization.GetString("Estate_TableHeader_Type"), "Index", "Estate", new { sortOrder = ViewBag.SortByType, currentFilter = ViewBag.CurrentFilter, page = currentPage }, null)</th>
+                    <th>@Html.ActionLink(Localization.GetString("Estate_TableHeader_Status"), "Index", "Estate", new { sortOrder = ViewBag.SortByStatus, currentFilter = ViewBag.CurrentFilter, page = currentPage }, null)</th>
+                    <th>@Html.ActionLink(Localization.GetString("Estate_TableHeader_Area"), "Index", "Estate", new { sortOrder = ViewBag.SortByArea, currentFilter = ViewBag.CurrentFilter, page = currentPage }, null)</th>
+                    <th>@Html.ActionLink(Localization.GetString("Estate_TableHeader_Price"), "Index", "Estate", new { sortOrder = ViewBag.SortByPrice, currentFilter = ViewBag.CurrentFilter, page = currentPage }, null)</th>
                 </tr>
             </thead>
             <tbody>
@@ -90,7 +102,7 @@
                 else
                 {
                     <tr>
-                        <td>
+                        <td colspan="6">
                             @Localization.GetString("NoEntriesFound_Error")
                         </td>
                     </tr>
@@ -98,19 +110,6 @@
             </tbody>
         </table>
         <br />
-        @{
-            var currentPage = 0;
-            var pageCount = 0;
-
-            if (Model != null)
-            {
-                currentPage = Model.PageCount < Model.PageNumber
-                    ? 0
-                    : Model.PageNumber;
-
-                pageCount = Model.PageCount;
-            }
-        }
 
         @string.Format(Localization.GetString("Pagination_Summary"), currentPage, pageCount)
 

@@ -1,10 +1,21 @@
 ﻿@using PagedList.Mvc
 @using RealEstateManager.Utils
-@using RealEstateManager.Controllers
 @model PagedList.IPagedList<RealEstateManager.Models.Contact.ContactGetModel>
 
 @{
     ViewBag.Title = Localization.GetString("ContactIndexPage_Title");
+
+    var currentPage = 0;
+    var pageCount = 0;
+
+    if (Model != null)
+    {
+        currentPage = Model.PageCount < Model.PageNumber
+            ? 0
+            : Model.PageNumber;
+
+        pageCount = Model.PageCount;
+    }
 }
 
 <div class="card">
@@ -26,8 +37,8 @@
             <thead class="thead-light">
                 <tr>
                     <th>@Localization.GetString("Contact_TableHeader_Operations")</th>
-                    <th>@Html.ActionLink(Localization.GetString("Contact_TableHeader_DateTime"), "Index", "Contact", new { sortOrder = ViewBag.SortByDateTime, currentFilter = ViewBag.CurrentFilter }, null)</th>
-                    <th>@Html.ActionLink(Localization.GetString("Contact_TableHeader_Number"), "Index", "Contact", new { sortOrder = ViewBag.SortByNumber, currentFilter = ViewBag.CurrentFilter }, null)</th>
+                    <th>@Html.ActionLink(Localization.GetString("Contact_TableHeader_DateTime"), "Index", "Contact", new { sortOrder = ViewBag.SortByDateTime, currentFilter = ViewBag.CurrentFilter, page = currentPage }, null)</th>
+                    <th>@Html.ActionLink(Localization.GetString("Contact_TableHeader_Number"), "Index", "Contact", new { sortOrder = ViewBag.SortByNumber, currentFilter = ViewBag.CurrentFilter, page = currentPage }, null)</th>
                     <th>@Localization.GetString("Contact_TableHeader_Outcome")</th>
                 </tr>
             </thead>
@@ -57,7 +68,7 @@
                 else
                 {
                     <tr>
-                        <td>
+                        <td colspan="6">
                             @Localization.GetString("NoEntriesFound_Error")
                         </td>
                     </tr>
@@ -65,19 +76,6 @@
             </tbody>
         </table>
         <br />
-        @{
-            var currentPage = 0;
-            var pageCount = 0;
-
-            if (Model != null)
-            {
-                currentPage = Model.PageCount < Model.PageNumber
-                    ? 0
-                    : Model.PageNumber;
-
-                pageCount = Model.PageCount;
-            }
-        }
 
         @string.Format(Localization.GetString("Pagination_Summary"), currentPage, pageCount)
 

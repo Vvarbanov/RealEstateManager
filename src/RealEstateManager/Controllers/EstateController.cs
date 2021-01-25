@@ -168,6 +168,7 @@ namespace RealEstateManager.Controllers
             return View(model);
         }
 
+        [Throttle(Name = "DetailsThrottle", Message = "You must wait {n} seconds before accessing this url again.", Seconds = 5)]
         public ActionResult Details(Guid? id)
         {
             if (!id.HasValue)

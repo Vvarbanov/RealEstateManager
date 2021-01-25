@@ -249,6 +249,7 @@
     <Compile Include="Utils\EstateAgentHelper.cs" />
     <Compile Include="Utils\Localization.cs" />
     <Compile Include="Utils\PasswordHelper.cs" />
+    <Compile Include="Utils\Throttle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Public\Content\Images\final.png" />

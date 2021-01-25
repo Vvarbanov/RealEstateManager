@@ -29,25 +29,25 @@ namespace RealEstateManager.Areas.Public.Controllers
             switch (sortOrder)
             {
                 case "type":
-                {
-                    orderFunc = x => x.OrderBy(y => y.Type);
+                    {
+                        orderFunc = x => x.OrderBy(y => y.Type);
 
-                    ViewBag.SortByType = "type_desc";
+                        ViewBag.SortByType = "type_desc";
 
-                    break;
-                }
+                        break;
+                    }
                 case "type_desc":
-                {
-                    orderFunc = x => x.OrderByDescending(y => y.Type);
+                    {
+                        orderFunc = x => x.OrderByDescending(y => y.Type);
 
-                    break;
-                }
+                        break;
+                    }
                 default:
-                {
-                    orderFunc = x => x.OrderBy(y => y.Type);
+                    {
+                        orderFunc = x => x.OrderBy(y => y.Type);
 
-                    break;
-                }
+                        break;
+                    }
             }
 
             Expression<Func<Account, bool>> filter = null;
@@ -221,8 +221,17 @@ namespace RealEstateManager.Areas.Public.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(AccountLoginModel model, string returnUrl = null)
+        public async Task<ActionResult> Login(AccountLoginModel model, string returnUrl = null)
         {
+            // incremental delay to prevent brute force attacks
+            int incrementalDelay;
+            if (HttpContext.Application[Request.UserHostAddress] != null)
+            {
+                // wait for delay if there is one
+                incrementalDelay = (int)HttpContext.Application[Request.UserHostAddress];
+                await Task.Delay(incrementalDelay * 1000);
+            }
+
             if (ModelState.IsValid)
             {
                 var isValidUser = db.Accounts
@@ -230,10 +239,27 @@ namespace RealEstateManager.Areas.Public.Controllers
 
                 if (isValidUser)
                 {
+                    // reset incremental delay on successful login
+                    if (HttpContext.Application[Request.UserHostAddress] != null)
+                    {
+                        HttpContext.Application.Remove(Request.UserHostAddress);
+                    }
+
                     db.SetCurrentIdentity(userId, model.RememberMe);
 
                     return RedirectToReturnUrlOrHome(returnUrl);
                 }
+
+                // increment the delay on failed login attempts
+                if (HttpContext.Application[Request.UserHostAddress] == null)
+                {
+                    incrementalDelay = 1;
+                }
+                else
+                {
+                    incrementalDelay = (int)HttpContext.Application[Request.UserHostAddress] * 2;
+                }
+                HttpContext.Application[Request.UserHostAddress] = incrementalDelay;
 
                 ModelState.AddModelError(string.Empty, Localization.GetString("InvalidLoginDetails_Error"));
             }

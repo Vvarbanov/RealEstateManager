@@ -250,7 +250,7 @@ namespace RealEstateManager.Areas.Public.Controllers
                     return RedirectToReturnUrlOrHome(returnUrl);
                 }
 
-                // increment the delay on failed login attempts
+                // increment the delay on failed login attempts, or set to 1 if first failed attempt
                 if (HttpContext.Application[Request.UserHostAddress] == null)
                 {
                     incrementalDelay = 1;
